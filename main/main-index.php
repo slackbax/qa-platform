@@ -19,6 +19,13 @@ $last_f = 10; ?>
 		</section>
 
 		<section class="content container-fluid">
+			<?php if (isset($timeout) and $timeout == 1): ?>
+			<div class="alert alert-warning">
+				<h4><i class="fa fa-warning"></i> Atención!</h4>
+				Su sesión ha finalizado por inactividad. Por favor, ingrese sus datos nuevamente para reanudarla.
+			</div>
+
+			<?php endif ?>
 			<div class="box box-default">
 				<div class="box-header with-border">
 					<h3 class="box-title">Últimos documentos editados</h3>
