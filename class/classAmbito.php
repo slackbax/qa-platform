@@ -3,12 +3,11 @@
 class Ambito {
     
     public function __construct() {}
-    
-    /**
-     * 
-     * @param $id
-     * @return stdClass
-     */
+
+	/**
+	 * @param $id
+	 * @return stdClass
+	 */
     public function get($id) {
         $db = new myDBC();
         $stmt = $db->Prepare("SELECT * FROM uc_ambito WHERE amb_id = ?");
@@ -24,11 +23,10 @@ class Ambito {
         unset($db);
         return $obj;
     }
-    
-    /**
-     * 
-     * @return array
-     */
+
+	/**
+	 * @return array
+	 */
     public function getAll() {
         $db = new myDBC();
         $stmt = $db->Prepare("SELECT amb_id FROM uc_ambito");
@@ -45,7 +43,6 @@ class Ambito {
     }
 
 	/**
-	 *
 	 * @return array
 	 */
     public function getClinicos() {
@@ -64,7 +61,6 @@ class Ambito {
 	}
 
 	/**
-	 *
 	 * @return array
 	 */
 	public function getApoyo() {
@@ -81,12 +77,11 @@ class Ambito {
 		unset($db);
 		return $lista;
 	}
-    
-    /**
-     * 
-     * @param $id
-     * @return int
-     */
+
+	/**
+	 * @param $id
+	 * @return mixed
+	 */
     public function getNumChildren($id) {
         $db = new myDBC();
         $stmt = $db->Prepare("SELECT COUNT(*) AS num FROM uc_subambito WHERE amb_id = ?");
@@ -100,12 +95,11 @@ class Ambito {
         unset($db);
         return $num;
     }
-    
-    /**
-     * 
-     * @param $id
-     * @return array
-     */
+
+	/**
+	 * @param $id
+	 * @return array
+	 */
     public function getChildren($id) {
         $db = new myDBC();
         $stmt = $db->Prepare("SELECT * FROM uc_subambito WHERE amb_id = ?");
