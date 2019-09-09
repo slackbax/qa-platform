@@ -1,5 +1,5 @@
 $(document).ready(function () {
-	function validateFormMed(data, jF, o) {
+	function validateFormMed() {
 		var files = true;
 
 		if (files) {

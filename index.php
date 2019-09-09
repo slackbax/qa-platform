@@ -287,27 +287,27 @@
 							<li <?php if (isset($sbs) and $sbs == 'createevent'): ?> class="active"<?php endif ?>>
 								<a href="index.php?section=adv-event&sbs=createevent">
 									<i class="fa fa-circle-o text-purple"></i>
-									<span class="menu-item">Ingresar Evento</span>
+									<span class="menu-item">Ingreso de Evento</span>
 								</a>
 							</li>
 							<li <?php if (isset($sbs) and $sbs == 'viewevents'): ?> class="active"<?php endif ?>>
 								<a href="index.php?section=adv-event&sbs=viewevents">
 									<i class="fa fa-circle-o text-purple"></i>
-									<span class="menu-item">Ver Eventos Ingresados</span>
+									<span class="menu-item">Eventos registrados</span>
 								</a>
 							</li>
 							<?php if ($_admin or $_calidad or $_SESSION['uc_userid'] == 74): ?>
 								<li <?php if (isset($sbs) and $sbs == 'eventsteril'): ?> class="active"<?php endif ?>>
 									<a href="index.php?section=adv-event&sbs=eventsteril">
 										<i class="fa fa-circle-o text-purple"></i>
-										<span class="menu-item">Ver Eventos de Esterilización</span>
+										<span class="menu-item">Eventos de Esterilización</span>
 									</a>
 								</li>
 							<?php endif ?>
 							<li <?php if (isset($sbs) and $sbs == 'exportevent'): ?> class="active"<?php endif ?>>
 								<a href="index.php?section=adv-event&sbs=exportevent">
 									<i class="fa fa-circle-o text-purple"></i>
-									<span class="menu-item">Exportar Eventos Individuales</span>
+									<span class="menu-item">Exportación de Eventos individuales</span>
 								</a>
 							</li>
 						</ul>
@@ -360,25 +360,25 @@
 								<li <?php if (isset($sbs) and $sbs == 'newmedible'): ?> class="active"<?php endif ?>>
 									<a href="index.php?section=autoeval&sbs=newmedible">
 										<i class="fa fa-circle-o text-purple"></i>
-										<span class="menu-item">Crear adicionales de característica</span>
+										<span class="menu-item">Ingreso de adicionales</span>
 									</a>
 								</li>
 								<li <?php if (isset($sbs) and $sbs == 'managemedibles'): ?> class="active"<?php endif ?>>
 									<a href="index.php?section=autoeval&sbs=managemedibles">
 										<span class="fa fa-circle-o text-purple"></span>
-										<span class="menu-item">Adicionales ingresados</span>
+										<span class="menu-item">Adicionales registrados</span>
 									</a>
 								</li>
 								<li <?php if (isset($sbs) and $sbs == 'newindicator'): ?> class="active"<?php endif ?>>
 									<a href="index.php?section=autoeval&sbs=newindicator">
 										<span class="fa fa-circle-o text-purple"></span>
-										<span class="menu-item">Crear indicador de autoevaluación</span>
+										<span class="menu-item">Ingreso de indicador de autoevaluación</span>
 									</a>
 								</li>
 								<li <?php if (isset($sbs) and $sbs == 'manageindicators'): ?> class="active"<?php endif ?>>
 									<a href="index.php?section=autoeval&sbs=manageindicators">
 										<span class="fa fa-circle-o text-purple"></span>
-										<span class="menu-item">Indicadores de autoevaluación ingresados</span>
+										<span class="menu-item">Indicadores de autoevaluación registrados</span>
 									</a>
 								</li>
 							<?php endif ?>
@@ -391,25 +391,25 @@
 							<li <?php if (isset($sbs) and $sbs == 'newauto'): ?> class="active"<?php endif ?>>
 								<a href="index.php?section=autoeval&sbs=newauto">
 									<span class="fa fa-circle-o text-purple"></span>
-									<span class="menu-item">Ingresar reporte de autovaluación</span>
+									<span class="menu-item">Ingreso de reporte de autovaluación</span>
 								</a>
 							</li>
 							<li <?php if (isset($sbs) and $sbs == 'manageauto'): ?> class="active"<?php endif ?>>
 								<a href="index.php?section=autoeval&sbs=manageauto">
 									<span class="fa fa-circle-o text-purple"></span>
-									<span class="menu-item">Ver reporte de autovaluación ingresados</span>
+									<span class="menu-item">Reportes de autovaluación registrados</span>
 								</a>
 							</li>
 							<li <?php if (isset($sbs) and $sbs == 'generatereport'): ?> class="active"<?php endif ?>>
 								<a href="index.php?section=autoeval&sbs=generatereport">
 									<span class="fa fa-circle-o text-purple"></span>
-									<span class="menu-item">Generar reporte por servicio</span>
+									<span class="menu-item">Exportación de autoevaluación por servicio</span>
 								</a>
 							</li>
 							<li <?php if (isset($sbs) and $sbs == 'generatereportbychar'): ?> class="active"<?php endif ?>>
 								<a href="index.php?section=autoeval&sbs=generatereportbychar">
 									<span class="fa fa-circle-o text-purple"></span>
-									<span class="menu-item">Generar reporte por características</span>
+									<span class="menu-item">Exportación de autoevaluación por características</span>
 								</a>
 							</li>
 						</ul>

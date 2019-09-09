@@ -37,29 +37,35 @@ $primaryKey = 'aut_id';
 // parameter represents the DataTables column identifier. In this case simple
 // indexes
 $columns = array(
-    array('db' => 'aut_id', 'dt' => 0, 'field' => 'aut_id'),
-    array('db' => 'us_username', 'dt' => 1, 'field' => 'us_username'),
-    array('db' => 'aut_id', 'dt' => 2, 'field' => 'aut_id',
-        'formatter' => function ($d, $row) use ($au) {
-            $aut = $au->get($d);
-            return $aut->aut_sambsigla . ' ' . $aut->aut_coddesc;
-        }
-    ),
-    array('db' => 'spv_nombre', 'dt' => 3, 'field' => 'spv_nombre'),
-    array('db' => 'ind_descripcion', 'dt' => 4, 'field' => 'ind_descripcion'),
-    array('db' => 'aut_fecha', 'dt' => 5, 'field' => 'aut_fecha',
-        'formatter' => function ($d, $row) {
-            return getDateToForm($d);
-        }
-    ),
-    array('db' => 'MAX(aut_id)', 'dt' => 6, 'field' => 'aut_id',
-        'formatter' => function ($d, $row) {
-            $string = '';
-            $string .= ' <a class="indEdit btn btn-xs btn-info" href="index.php?section=autoeval&sbs=editauto&id=' . $d . '" data-tooltip="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil"></i></a>';
+	array('db' => 'aut_id', 'dt' => 0, 'field' => 'aut_id'),
+	array('db' => 'us_username', 'dt' => 1, 'field' => 'us_username'),
+	array('db' => 'aut_id', 'dt' => 2, 'field' => 'aut_id',
+		'formatter' => function ($d, $row) use ($au) {
+			$aut = $au->get($d);
+			return $aut->aut_sambsigla . ' ' . $aut->aut_coddesc;
+		}
+	),
+	array('db' => 'spv_nombre', 'dt' => 3, 'field' => 'spv_nombre'),
+	array('db' => 'ind_descripcion', 'dt' => 4, 'field' => 'ind_descripcion'),
+	array('db' => 'aut_fecha', 'dt' => 5, 'field' => 'aut_fecha',
+		'formatter' => function ($d, $row) {
+			return getDateToForm($d);
+		}
+	),
+	array('db' => 'MAX(aut_id)', 'dt' => 6, 'field' => 'aut_id',
+		'formatter' => function ($d, $row) use ($au) {
+			$auto = $au->get($d);
+			$today = new DateTime();
+			$today->modify('-7 days');
+			$d_ini = new DateTime($auto->aut_fecha_reg);
+			$string = '';
 
-            return $string;
-        }
-    )
+			if ($today <= $d_ini)
+				$string .= '<a class="indEdit btn btn-xs btn-info" href="index.php?section=autoeval&sbs=editauto&id=' . $d . '" data-tooltip="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil"></i></a>';
+
+			return $string;
+		}
+	)
 );
 
 $joinQuery = "FROM uc_autoevaluacion a";
@@ -72,14 +78,14 @@ $joinQuery .= " JOIN uc_usuario u ON a.us_id = u.us_id
 $extraWhere = "";
 
 if (!$_admin)
-    $extraWhere .= " uc_autoevaluacion.us_id = " . $_SESSION['uc_userid'];
+	$extraWhere .= " uc_autoevaluacion.us_id = " . $_SESSION['uc_userid'];
 
 // SQL server connection information
 $sql_details = array(
-    'user' => DB_USER,
-    'pass' => DB_PASSWORD,
-    'db' => DB_DATABASE,
-    'host' => DB_HOST
+	'user' => DB_USER,
+	'pass' => DB_PASSWORD,
+	'db' => DB_DATABASE,
+	'host' => DB_HOST
 );
 
 $groupBy = "a.spv_id, a.ind_id, a.us_id";
@@ -93,5 +99,5 @@ $having = "";
 require('../src/ssp2.class.php');
 
 echo json_encode(
-    SSP::simple($_GET, $sql_details, $table, $primaryKey, $columns, $joinQuery, $extraWhere, $groupBy, $having)
+	SSP::simple($_GET, $sql_details, $table, $primaryKey, $columns, $joinQuery, $extraWhere, $groupBy, $having)
 );
