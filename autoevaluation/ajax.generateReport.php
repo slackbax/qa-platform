@@ -216,8 +216,9 @@ if (extract($_POST)):
 		$arr[$index]['descripcion'] = $v->ind_descripcion;
 		$umbral = ($v->ind_umbral == '') ? 0 : $v->ind_umbral;
 		$arr[$index]['umbral'] = $umbral;
-		$arr[$index]['comment'] = '';
 
+		if (!isset($arr[$index]['comment']))
+			$arr[$index]['comment'] = '';
 		if (!isset($arr[$index]['si']))
 			$arr[$index]['si'] = 0;
 		if (!isset($arr[$index]['total']))
