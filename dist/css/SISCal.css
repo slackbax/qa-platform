@@ -588,9 +588,9 @@ span.time {
 .sidebar-menu > li > a > .fa,
 .sidebar-menu > li > a > .glyphicon,
 .sidebar-menu > li > a > .ion {
-  float      : left;
-  width      : 20px;
-  margin-top : 4px;
+  vertical-align : top;
+  width          : 20px;
+  margin-top     : 4px;
 }
 .sidebar-menu > li .label,
 .sidebar-menu > li .badge {

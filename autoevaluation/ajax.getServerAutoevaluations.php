@@ -52,7 +52,7 @@ $columns = array(
 			return getDateToForm($d);
 		}
 	),
-	array('db' => 'MAX(aut_id)', 'dt' => 6, 'field' => 'aut_id',
+	array('db' => 'aut_id', 'dt' => 6, 'field' => 'aut_id',
 		'formatter' => function ($d, $row) use ($au) {
 			$auto = $au->get($d);
 			$today = new DateTime();
@@ -75,10 +75,17 @@ $joinQuery .= " JOIN uc_usuario u ON a.us_id = u.us_id
             JOIN uc_codigo c ON i.cod_id = c.cod_id
             JOIN uc_subpunto_verif sv ON a.spv_id = sv.spv_id ";
 
-$extraWhere = "";
+$extraWhere = "aut_id IN 
+			(SELECT MAX(aut_id) FROM uc_autoevaluacion a 
+				JOIN uc_usuario u ON a.us_id = u.us_id 
+				JOIN uc_indicador i ON a.ind_id = i.ind_id 
+				GROUP BY a.spv_id, a.ind_id, a.us_id)";
 
 if (!$_admin)
-	$extraWhere .= " uc_autoevaluacion.us_id = " . $_SESSION['uc_userid'];
+	$extraWhere .= " AND a.us_id = " . $_SESSION['uc_userid'];
+
+$groupBy = "";
+$having = "";
 
 // SQL server connection information
 $sql_details = array(
@@ -87,9 +94,6 @@ $sql_details = array(
 	'db' => DB_DATABASE,
 	'host' => DB_HOST
 );
-
-$groupBy = "a.spv_id, a.ind_id, a.us_id";
-$having = "";
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * If you just want to use the basic configuration for DataTables with PHP

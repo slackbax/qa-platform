@@ -98,7 +98,7 @@
 		<a href="index.php" class="logo">
 			<span class="logo-mini"><b>C</b>SP</span>
 			<span class="logo-lg">
-				<b>CyS</b>Paciente
+				<strong>CyS</strong> del <strong>P</strong>aciente
 			</span>
 		</a>
 
