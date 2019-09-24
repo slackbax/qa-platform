@@ -20,7 +20,7 @@ $last_f = 10; ?>
 
 		<section class="content container-fluid">
 			<?php if (isset($timeout) and $timeout == 1): ?>
-			<div class="alert alert-warning">
+			<div class="alert alert-danger">
 				<h4><i class="fa fa-warning"></i> Atención!</h4>
 				Su sesión ha finalizado por inactividad. Por favor, ingrese sus datos nuevamente para reanudarla.
 			</div>
