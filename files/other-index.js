@@ -26,7 +26,7 @@ $(document).ready(function () {
                 $("#f_name").html('<i class="fa fa-chevron-right"></i> ' + d.oarc_nombre);
                 $("#f_edition").html(d.oarc_edicion);
                 $("#f_date_c").html(getMonthDate(d.oarc_fecha_crea));
-                $("#f_date").html(getDateBD(d.oarc_fecha));
+                $("#f_date").html(getDateToFormBD(d.oarc_fecha));
                 $("#f_date_v").html(getMonthDate(d.oarc_fecha_vig));
                 $("#f_type").html(getExt(d.oarc_path));
                 $("#f_downloads").html(d.oarc_descargas);

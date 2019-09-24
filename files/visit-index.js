@@ -39,7 +39,7 @@ $(document).ready(function () {
 				$("#f_code").html(d.arc_codigo);
 				$("#f_edition").html(d.arc_edicion);
 				$("#f_date_c").html(getMonthDate(d.arc_fecha_crea));
-				$("#f_date").html(getDateBD(d.arc_fecha));
+				$("#f_date").html(getDateToFormBD(d.arc_fecha));
 				$("#f_date_v").html(getMonthDate(d.arc_fecha_vig));
 				$("#f_type").html(getExt(d.arc_path));
 				$("#f_downloads").html(d.arc_descargas);

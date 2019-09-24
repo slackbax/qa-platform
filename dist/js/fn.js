@@ -3,6 +3,11 @@ function getDateBD(date) {
     return aux[2]+'-'+aux[1]+'-'+aux[0];
 }
 
+function getDateToFormBD(date) {
+	var aux = date.split('-');
+	return aux[2]+'/'+aux[1]+'/'+aux[0];
+}
+
 function getMonthDate(date) {
     var aux = date.split('-');
     months = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
