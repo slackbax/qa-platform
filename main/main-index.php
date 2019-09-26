@@ -7,12 +7,12 @@ $last_f = 10; ?>
 	<div class="col-xs-8">
 		<section class="content-header">
 			<div class="callout">
-				<h2 class="text-purple"><i class="fa fa-check"></i> <small>Bienvenido
-					<?php if (isset($_SESSION['uc_userid'])): ?>
-					<?php echo '(a),</small>' ?>
-					<?php echo $_SESSION['uc_userfname'] ?>
-					<?php else: echo '</small>' ?>
-				<?php endif ?>
+				<h2 class="text-orange"><i class="fa fa-check"></i> <small>Bienvenido
+						<?php if (isset($_SESSION['uc_userid'])): ?>
+							<?php echo '(a),</small>' ?>
+							<?php echo $_SESSION['uc_userfname'] ?>
+						<?php else: echo '</small>' ?>
+						<?php endif ?>
 				</h2>
 				<h4>A la Plataforma de información de la Subdirección de Calidad del Hospital Regional Guillermo Grant Benavente.</h4>
 			</div>
@@ -20,10 +20,10 @@ $last_f = 10; ?>
 
 		<section class="content container-fluid">
 			<?php if (isset($timeout) and $timeout == 1): ?>
-			<div class="alert alert-danger">
-				<h4><i class="fa fa-warning"></i> Atención!</h4>
-				Su sesión ha finalizado por inactividad. Por favor, ingrese sus datos nuevamente para reanudarla.
-			</div>
+				<div class="alert alert-danger">
+					<h4><i class="fa fa-warning"></i> Atención!</h4>
+					Su sesión ha finalizado por inactividad. Por favor, ingrese sus datos nuevamente para reanudarla.
+				</div>
 
 			<?php endif ?>
 			<div class="box box-default">
@@ -61,11 +61,12 @@ $last_f = 10; ?>
 						<span class="news-title">Boletín de acreditación N° 4</span>
 						<span class="news-description">23/12/2016</span>
 					</div>
-
-					<div class="box-body">
-						Se encuentra disponible para nuestros usuarios el boletín N° 4 de acreditación. Pueden visualizarlo o descargarlo en el siguiente link: <a href="upload/Boletin04.pdf" target="_blank">BOLETÍN N° 4</a>
-					</div>
 				</div>
+
+				<div class="box-body">
+					Se encuentra disponible para nuestros usuarios el boletín N° 4 de acreditación. Pueden visualizarlo o descargarlo en el siguiente link: <a href="upload/Boletin04.pdf" target="_blank">BOLETÍN N° 4</a>
+				</div>
+			</div>
 		</section>
 	</div>
 

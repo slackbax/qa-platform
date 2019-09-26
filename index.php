@@ -75,7 +75,7 @@
 	<link rel="stylesheet" href="plugins/iCheck/all.css">
 	<!-- Theme style -->
 	<link rel="stylesheet" href="dist/css/SISCal.css">
-	<link rel="stylesheet" href="dist/css/skins/skin-purple-light.min.css">
+	<link rel="stylesheet" href="dist/css/skins/skin-yellow-light.min.css">
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -91,7 +91,7 @@
 </head>
 
 
-<body class="hold-transition skin-purple-light sidebar-mini fixed">
+<body class="hold-transition skin-yellow-light sidebar-mini fixed">
 <div class="wrapper">
 
 	<header class="main-header">
@@ -151,7 +151,7 @@
 								</li>
 
 								<li class="user-footer">
-									<button type="button" id="btn-logout" class="btn btn-warning btn-flat btn-block">
+									<button type="button" id="btn-logout" class="btn btn-danger btn-flat btn-block">
 										<i class="fa fa-power-off"></i> Salir
 									</button>
 								</li>
@@ -192,7 +192,7 @@
 									</li>
 
 									<li class="user-footer">
-										<button type="submit" class="btn btn-warning btn-flat btn-block">
+										<button type="submit" class="btn btn-danger btn-flat btn-block">
 											<i class="fa fa-sign-in"></i> Ingresar
 										</button>
 									</li>
@@ -233,7 +233,7 @@
 								<?php foreach ($subam as $aux => $sam): ?>
 									<li <?php if (isset($sid) and $sid == $sam->samb_id): ?> class="active"<?php endif ?>>
 										<a href="index.php?section=files&sid=<?php echo $sam->samb_id ?>">
-											<i class="fa fa-circle-o text-purple"></i>
+											<i class="fa fa-circle-o text-orange"></i>
 											<span class="menu-item"><?php echo $sam->samb_sigla ?> - <?php echo $sam->samb_nombre ?></span>
 										</a>
 									</li>
@@ -257,7 +257,7 @@
 								<?php foreach ($subam as $aux => $sam): ?>
 									<li <?php if (isset($sid) and $sid == $sam->samb_id): ?> class="active"<?php endif ?>>
 										<a href="index.php?section=files&sid=<?php echo $sam->samb_id ?>">
-											<i class="fa fa-circle-o text-purple"></i>
+											<i class="fa fa-circle-o text-orange"></i>
 											<span class="menu-item"><?php echo $sam->samb_sigla ?> - <?php echo $sam->samb_nombre ?></span>
 										</a>
 									</li>
@@ -286,27 +286,27 @@
 						<ul class="treeview-menu">
 							<li <?php if (isset($sbs) and $sbs == 'createevent'): ?> class="active"<?php endif ?>>
 								<a href="index.php?section=adv-event&sbs=createevent">
-									<i class="fa fa-circle-o text-purple"></i>
+									<i class="fa fa-circle-o text-orange"></i>
 									<span class="menu-item">Ingreso de Evento</span>
 								</a>
 							</li>
 							<li <?php if (isset($sbs) and $sbs == 'viewevents'): ?> class="active"<?php endif ?>>
 								<a href="index.php?section=adv-event&sbs=viewevents">
-									<i class="fa fa-circle-o text-purple"></i>
+									<i class="fa fa-circle-o text-orange"></i>
 									<span class="menu-item">Eventos registrados</span>
 								</a>
 							</li>
 							<?php if ($_admin or $_calidad or $_SESSION['uc_userid'] == 74): ?>
 								<li <?php if (isset($sbs) and $sbs == 'eventsteril'): ?> class="active"<?php endif ?>>
 									<a href="index.php?section=adv-event&sbs=eventsteril">
-										<i class="fa fa-circle-o text-purple"></i>
+										<i class="fa fa-circle-o text-orange"></i>
 										<span class="menu-item">Eventos de Esterilización</span>
 									</a>
 								</li>
 							<?php endif ?>
 							<li <?php if (isset($sbs) and $sbs == 'exportevent'): ?> class="active"<?php endif ?>>
 								<a href="index.php?section=adv-event&sbs=exportevent">
-									<i class="fa fa-circle-o text-purple"></i>
+									<i class="fa fa-circle-o text-orange"></i>
 									<span class="menu-item">Exportación de Eventos individuales</span>
 								</a>
 							</li>
@@ -337,7 +337,7 @@
 							<?php foreach ($subfol as $aux => $sfl): ?>
 								<li <?php if (isset($sfid) and $sfid == $sfl->fol_id): ?> class="active"<?php endif ?>>
 									<a href="index.php?section=other-files&sfid=<?php echo $sfl->fol_id ?>">
-										<span class="fa fa-circle-o text-purple"></span>
+										<span class="fa fa-circle-o text-orange"></span>
 										<span class="menu-item"><?php echo $sfl->fol_nombre ?></span>
 									</a>
 								</li>
@@ -359,62 +359,69 @@
 							<?php if ($_admin or $_calidad): ?>
 								<li <?php if (isset($sbs) and $sbs == 'newmedible'): ?> class="active"<?php endif ?>>
 									<a href="index.php?section=autoeval&sbs=newmedible">
-										<i class="fa fa-circle-o text-purple"></i>
+										<i class="fa fa-circle-o text-orange"></i>
 										<span class="menu-item">Ingreso de adicionales</span>
 									</a>
 								</li>
 								<li <?php if (isset($sbs) and $sbs == 'managemedibles'): ?> class="active"<?php endif ?>>
 									<a href="index.php?section=autoeval&sbs=managemedibles">
-										<span class="fa fa-circle-o text-purple"></span>
+										<span class="fa fa-circle-o text-orange"></span>
 										<span class="menu-item">Adicionales registrados</span>
 									</a>
 								</li>
 								<li <?php if (isset($sbs) and $sbs == 'newindicator'): ?> class="active"<?php endif ?>>
 									<a href="index.php?section=autoeval&sbs=newindicator">
-										<span class="fa fa-circle-o text-purple"></span>
+										<span class="fa fa-circle-o text-orange"></span>
 										<span class="menu-item">Ingreso de indicador de autoevaluación</span>
 									</a>
 								</li>
 								<li <?php if (isset($sbs) and $sbs == 'manageindicators'): ?> class="active"<?php endif ?>>
 									<a href="index.php?section=autoeval&sbs=manageindicators">
-										<span class="fa fa-circle-o text-purple"></span>
+										<span class="fa fa-circle-o text-orange"></span>
 										<span class="menu-item">Indicadores de autoevaluación registrados</span>
 									</a>
 								</li>
 							<?php endif ?>
 							<li <?php if (isset($sbs) and $sbs == 'newvaluesindicator'): ?> class="active"<?php endif ?>>
 								<a href="index.php?section=autoeval&sbs=newvaluesindicator">
-									<span class="fa fa-circle-o text-purple"></span>
+									<span class="fa fa-circle-o text-orange"></span>
 									<span class="menu-item">Ingreso de valores para indicador</span>
 								</a>
 							</li>
 							<li <?php if (isset($sbs) and $sbs == 'newauto'): ?> class="active"<?php endif ?>>
 								<a href="index.php?section=autoeval&sbs=newauto">
-									<span class="fa fa-circle-o text-purple"></span>
+									<span class="fa fa-circle-o text-orange"></span>
 									<span class="menu-item">Ingreso de reporte de autovaluación</span>
 								</a>
 							</li>
 							<li <?php if (isset($sbs) and $sbs == 'manageauto'): ?> class="active"<?php endif ?>>
 								<a href="index.php?section=autoeval&sbs=manageauto">
-									<span class="fa fa-circle-o text-purple"></span>
+									<span class="fa fa-circle-o text-orange"></span>
 									<span class="menu-item">Reportes de autovaluación registrados</span>
 								</a>
 							</li>
 							<li <?php if (isset($sbs) and $sbs == 'generatereport'): ?> class="active"<?php endif ?>>
 								<a href="index.php?section=autoeval&sbs=generatereport">
-									<span class="fa fa-circle-o text-purple"></span>
+									<span class="fa fa-circle-o text-orange"></span>
 									<span class="menu-item">Exportación de autoevaluación por servicio</span>
 								</a>
 							</li>
 							<li <?php if (isset($sbs) and $sbs == 'generatereportbychar'): ?> class="active"<?php endif ?>>
 								<a href="index.php?section=autoeval&sbs=generatereportbychar">
-									<span class="fa fa-circle-o text-purple"></span>
+									<span class="fa fa-circle-o text-orange"></span>
 									<span class="menu-item">Exportación de autoevaluación por características</span>
 								</a>
 							</li>
 						</ul>
 					</li>
 				<?php endif ?>
+
+				<li <?php if (isset($section) and $section == 'media'): ?> class="active"<?php endif; ?>>
+					<a href="index.php?section=media">
+						<i class="fa fa-microphone"></i>
+						<span class="menu-item">Multimedia</span>
+					</a>
+				</li>
 
 				<?php if ($_admin): ?>
 					<li class="header">PANEL DE CONTROL</li>
@@ -429,12 +436,12 @@
 						<ul class="treeview-menu">
 							<li <?php if (isset($sbs) and $sbs == 'createuser'): ?> class="active"<?php endif ?>>
 								<a href="index.php?section=users&sbs=createuser">
-									<i class="fa fa-circle-o text-purple"></i>Creación de Usuarios
+									<i class="fa fa-circle-o text-orange"></i>Creación de Usuarios
 								</a>
 							</li>
 							<li <?php if (isset($sbs) and $sbs == 'manageusers'): ?> class="active"<?php endif ?>>
 								<a href="index.php?section=users&sbs=manageusers">
-									<i class="fa fa-circle-o text-purple"></i>Ver Usuarios Creados
+									<i class="fa fa-circle-o text-orange"></i>Ver Usuarios Creados
 								</a>
 							</li>
 						</ul>
@@ -451,17 +458,17 @@
 						<ul class="treeview-menu">
 							<li <?php if (isset($sbs) and $sbs == 'verifdoc'): ?> class="active"<?php endif ?>>
 								<a href="index.php?section=admin&sbs=verifdoc">
-									<i class="fa fa-circle-o text-purple"></i>Crear Documento Acreditación
+									<i class="fa fa-circle-o text-orange"></i>Crear Documento Acreditación
 								</a>
 							</li>
 							<li <?php if (isset($sbs) and $sbs == 'otherdoc'): ?> class="active"<?php endif ?>>
 								<a href="index.php?section=admin&sbs=otherdoc">
-									<i class="fa fa-circle-o text-purple"></i>Crear Otro Documento
+									<i class="fa fa-circle-o text-orange"></i>Crear Otro Documento
 								</a>
 							</li>
 							<li <?php if (isset($sbs) and $sbs == 'managefiles'): ?> class="active"<?php endif ?>>
 								<a href="index.php?section=admin&sbs=managefiles">
-									<i class="fa fa-circle-o text-purple"></i>Ver Documentos Registrados
+									<i class="fa fa-circle-o text-orange"></i>Ver Documentos Registrados
 								</a>
 							</li>
 						</ul>
