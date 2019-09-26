@@ -60,7 +60,7 @@
                 <div class="row">
                     <div class="form-group col-xs-3" id="gdate">
                         <label class="control-label" for="idate">Fecha de evento/hora</label>
-                        <p class="form-control-static"><?php echo $e->ev_fecha ?></p>
+                        <p class="form-control-static"><?php echo getDateHourToForm($e->ev_fecha) ?></p>
                     </div>
                 </div>
                 

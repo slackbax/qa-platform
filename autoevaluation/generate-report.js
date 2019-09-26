@@ -44,7 +44,7 @@ $(document).ready(function () {
 	}).on('changeDate', function () {
 		if ($.trim($(this).val()) !== '') {
 			$('#gdate').removeClass('has-error').addClass('has-success');
-			$('#icondate').removeClass('glyphicon-remove glyphicon-ok').addClass('glyphicon-ok');
+			$('#icondate').removeClass('fa-remove fa-check').addClass('fa-check');
 		}
 	});
 
@@ -53,16 +53,16 @@ $(document).ready(function () {
 
 		if ($.trim($(this).val()) !== '') {
 			$('#g' + idn[1]).removeClass('has-error').addClass('has-success');
-			$('#icon' + idn[1]).removeClass('glyphicon-remove').addClass('glyphicon-ok');
+			$('#icon' + idn[1]).removeClass('fa-remove').addClass('fa-check');
 		} else {
 			$('#g' + idn[1]).removeClass('has-success');
-			$('#icon' + idn[1]).removeClass('glyphicon-ok');
+			$('#icon' + idn[1]).removeClass('fa-check');
 		}
 	});
 
 	$('#btnClear').click(function () {
 		$('#gser, #gdate').removeClass('has-error').removeClass('has-success');
-		$('#icondate').removeClass('glyphicon-remove').removeClass('glyphicon-ok');
+		$('#icondate').removeClass('fa-remove').removeClass('fa-check');
 	});
 
 	$('#formNewReport').submit(function () {

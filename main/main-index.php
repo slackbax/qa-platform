@@ -59,7 +59,7 @@ $last_f = 10; ?>
 				<div class="box-header with-border">
 					<div class="user-block">
 						<span class="news-title">Boletín de acreditación N° 4</span>
-						<span class="news-description">23-12-2016</span>
+						<span class="news-description">23/12/2016</span>
 					</div>
 
 					<div class="box-body">

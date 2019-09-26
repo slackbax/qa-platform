@@ -1,4 +1,5 @@
 <?php
+
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
@@ -153,8 +154,8 @@ if (extract($_POST)):
 	$objSS->getActiveSheet()->getColumnDimension('K')->setWidth(48);
 
 	/**
-  	 * CABECERAS
-  	 */
+	 * CABECERAS
+	 */
 	$objSS->getActiveSheet()->setCellValue('A2', 'SERVICIO DE SALUD CONCEPCIÓN');
 	$objSS->getActiveSheet()->mergeCells('A2:K2');
 	$objSS->getActiveSheet()->setCellValue('A3', 'HOSPITAL GUILLERMO GRANT BENAVENTE');
@@ -164,22 +165,22 @@ if (extract($_POST)):
 	$objSS->getActiveSheet()->getStyle('A2:A4')->applyFromArray($saHeaderTop);
 
 	/**
-  	 * TITULO
-  	 */
+	 * TITULO
+	 */
 	$objSS->getActiveSheet()->setCellValue('A6', 'AUTOEVALUACIÓN ' . strtoupper($month_words) . ' ' . $year . ' SERVICIO ' . strtoupper($subpv->spv_nombre));
 	$objSS->getActiveSheet()->mergeCells('A6:K6');
 	$objSS->getActiveSheet()->getStyle('A6:K6')->applyFromArray($saHeader);
 
 	/**
-  	 * CARACTERISTICAS OBLIGATORIAS
-  	 */
+	 * CARACTERISTICAS OBLIGATORIAS
+	 */
 	$objSS->getActiveSheet()->setCellValue('A8', 'I. CUMPLIMIENTO DE CARACTERÍSTICAS OBLIGATORIAS');
 	$objSS->getActiveSheet()->mergeCells('A8:K8');
 	$objSS->getActiveSheet()->getStyle('A8:K8')->applyFromArray($saHeaderType);
 
 	/**
-  	 * TABLA DE DATOS
-  	 */
+	 * TABLA DE DATOS
+	 */
 	$objSS->getActiveSheet()->setCellValue('A10', 'COD');
 	$objSS->getActiveSheet()->getStyle('A10')->applyFromArray($saCellHeader);
 	$objSS->getActiveSheet()->setCellValue('B10', 'DESCRIPCIÓN');
@@ -284,9 +285,8 @@ if (extract($_POST)):
 	//print_r($arr);
 
 	/**
-  	 * DATA
-  	 */
-
+	 * DATA
+	 */
 	foreach ($arr as $k => $v):
 		$code = str_replace('-', ' ', $k);
 		$objSS->getActiveSheet()->setCellValue('A' . $i, $code);
@@ -335,13 +335,21 @@ if (extract($_POST)):
 		$i++;
 	endforeach;
 
+	if (count($arr) == 0):
+		$objSS->getActiveSheet()->getStyle('A' . $i . ':K' . $i)->getFont()->setBold(true);
+		$objSS->getActiveSheet()->mergeCells('A' . $i . ':K' . $i);
+		$objSS->getActiveSheet()->setCellValue('A' . $i, 'No existen valores ingresados para estas características');
+		$objSS->getActiveSheet()->getStyle('K' . $i)->getBorders()->getRight()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_MEDIUM);
+		$i++;
+	endif;
+
 	$objSS->getActiveSheet()->getStyle('A' . $i . ':K' . $i)->getBorders()->getTop()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_MEDIUM);
 
 	$i += 2;
 
 	/**
-  	 * CARACTERISTICAS NO OBLIGATORIAS
-  	 */
+	 * CARACTERISTICAS NO OBLIGATORIAS
+	 */
 	$objSS->getActiveSheet()->setCellValue('A' . $i, 'II. CUMPLIMIENTO DE CARACTERÍSTICAS NO OBLIGATORIAS');
 	$objSS->getActiveSheet()->mergeCells('A' . $i . ':K' . $i);
 	$objSS->getActiveSheet()->getStyle('A' . $i . ':K' . $i)->applyFromArray($saHeaderType);
@@ -349,8 +357,8 @@ if (extract($_POST)):
 	$i += 2;
 
 	/**
-  	 * TABLA DE DATOS
-  	 */
+	 * TABLA DE DATOS
+	 */
 	$objSS->getActiveSheet()->setCellValue('A' . $i, 'COD');
 	$objSS->getActiveSheet()->getStyle('A' . $i)->applyFromArray($saCellHeader);
 	$objSS->getActiveSheet()->setCellValue('B' . $i, 'DESCRIPCIÓN');
@@ -452,9 +460,8 @@ if (extract($_POST)):
 	endforeach;
 
 	/**
-  	 * DATA
-  	 */
-
+	 * DATA
+	 */
 	foreach ($arr as $k => $v):
 		$code = str_replace('-', ' ', $k);
 		$objSS->getActiveSheet()->setCellValue('A' . $i, $code);
@@ -503,13 +510,21 @@ if (extract($_POST)):
 		$i++;
 	endforeach;
 
+	if (count($arr) == 0):
+		$objSS->getActiveSheet()->getStyle('A' . $i . ':K' . $i)->getFont()->setBold(true);
+		$objSS->getActiveSheet()->mergeCells('A' . $i . ':K' . $i);
+		$objSS->getActiveSheet()->setCellValue('A' . $i, 'No existen valores ingresados para estas características');
+		$objSS->getActiveSheet()->getStyle('K' . $i)->getBorders()->getRight()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_MEDIUM);
+		$i++;
+	endif;
+
 	$objSS->getActiveSheet()->getStyle('A' . $i . ':K' . $i)->getBorders()->getTop()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_MEDIUM);
 
 	$i += 2;
 
 	/**
-  	 * RESUMENES
-  	 */
+	 * RESUMENES
+	 */
 	$objSS->getActiveSheet()->setCellValue('A' . $i, 'III. RESUMEN RESULTADO FINAL DE AUTOEVALUACIÓN');
 	$objSS->getActiveSheet()->mergeCells('A' . $i . ':K' . $i);
 	$objSS->getActiveSheet()->getStyle('A' . $i . ':K' . $i)->applyFromArray($saHeaderType);
@@ -517,8 +532,8 @@ if (extract($_POST)):
 	$i += 2;
 
 	/**
-  	 * TABLAS RESUMENES
-  	 */
+	 * TABLAS RESUMENES
+	 */
 	$objSS->getActiveSheet()->setCellValue('B' . $i, 'CARACTERÍSTICAS OBLIGATORIAS');
 	$objSS->getActiveSheet()->getStyle('B' . $i)->applyFromArray($saCellHeader);
 	$objSS->getActiveSheet()->getStyle('B' . $i)->getBorders()->getLeft()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_MEDIUM);

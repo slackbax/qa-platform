@@ -35,7 +35,7 @@ $(document).ready(function () {
 	$('#btn-help').click(function () {
 		swal({
 			title: "¿Necesita ayuda?",
-			html: 'Para cualquier duda o sugerencia, puede contactar a soporte de la aplicación al anexo 410405 o al e-mail <a href="mailto:soportedesarrollo@ssconcepcion.cl">soportedesarrollo@ssconcepcion.cl</a>',
+			html: 'Para cualquier duda o sugerencia, puede contactar a soporte de la aplicación al anexo 410752 o al e-mail <a href="mailto:soportedesarrollo@ssconcepcion.cl">soportedesarrollo@ssconcepcion.cl</a>',
 			type: "warning",
 			showCancelButton: false,
 			confirmButtonColor: "#DD6B55",

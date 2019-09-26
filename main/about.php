@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-xs-8 col-xs-offset-2">
+    <div class="col-xs-10 col-xs-offset-1">
         <section class="content container-fluid">
             <div class="box box-default">
                 <div class="box-header with-border">
@@ -7,7 +7,7 @@
                 </div>
 
                 <div class="box-body">
-                    <h5>Misión</h5>
+                    <h4>Misión</h4>
                     <ul>
                         <li>
                             Asesorar a la Dirección del HGGB en la práctica de un modelo de calidad continua y seguridad de los procesos asistenciales y administrativos, orientado al paciente y su familia.
@@ -16,14 +16,14 @@
                         </li>
                     </ul>
 
-                    <h5>Visión</h5>
+                    <h4>Visión</h4>
                     <ul>
                         <li>
                             Ser una entidad referente para el HGGB y la VIII, en la aplicación y control de la calidad y seguridad asistencial.
                         </li>
                     </ul>
 
-                    <h5>Funciones Principales</h5>
+                    <h4>Funciones Principales</h4>
                     <ul>
                         <li>
                             Apoyar en todos los niveles del HGGB, para un correcto y oportuno cumplimiento de los distintos ámbitos del Manual de Acreditación de Prestadores Institucionales, 
@@ -57,7 +57,7 @@
 
                 <div class="box-body">
                     <div class="thumbnail">
-                        <img src="dist/img/location.png">
+                        <img alt="Mapa de ubicación" src="dist/img/location.png">
                     </div>
                 </div>
             </div>
