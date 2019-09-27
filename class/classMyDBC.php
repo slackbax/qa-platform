@@ -3,72 +3,83 @@
 $_BASEDIR = explode('class', dirname(__FILE__));
 
 if (file_exists($_BASEDIR[0] . 'src/settings.php')):
-    require($_BASEDIR[0] . 'src/settings.php');
+	require($_BASEDIR[0] . 'src/settings.php');
 endif;
 
 class myDBC {
-    
-    public $mysqli = null;
-    /**
-     * conectar
-     * Metodo para conexion a base de datos
-     * Se deben completar los parametros para conexion
-     */
-    function __construct() {
-        $Host   = DB_HOST;
-        $Db     = DB_DATABASE;
-        $User   = DB_USER;
-        $Pass   = DB_PASSWORD;
-        
-        $this->mysqli = new mysqli("$Host", "$User", "$Pass", "$Db");
-        
-        if ($this->mysqli->connect_errno):
-            echo "Fallo al conectar a MySQL: (" . $this->mysqli->connect_errno . ") " . $this->mysqli->connect_error;
-        endif;
-    }
-    
-    // Class deconstructor override
-    public function __destruct() {
-        $this->CloseDB();
-    }
-    
-    // Prepares a SQL query
-    public function Prepare($qry) {
-        $result = $this->mysqli->prepare($qry);
-        return $result;
-    }
-    
-    // Runs a sql query
-    public function runQuery($qry) {
-        $result = $this->mysqli->query($qry);
-        return $result;
-    }
-    
-    public function autoCommit($mode) {
-        $this->mysqli->autocommit($mode);
-    }
-    
-    public function Commit() {
-        $this->mysqli->commit();
-    }
-    
-    public function Rollback() {
-        $this->mysqli->rollback();
-    }
- 
-    // Close database connection
-    public function CloseDB() {
-        $this->mysqli->close();
-    }
- 
-    // Escape the string get ready to insert or update
-    public function clearText($text) {
-        return $this->mysqli->real_escape_string(trim($text));
-    }
- 
-    // Get the last insert id 
-    public function lastID() {
-        return $this->mysqli->insert_id;
-    }
+
+	public $mysqli = null;
+
+	/**
+	 * conectar
+	 * Metodo para conexion a base de datos
+	 * Se deben completar los parametros para conexion
+	 */
+	function __construct()
+	{
+		$Host = DB_HOST;
+		$Db = DB_DATABASE;
+		$User = DB_USER;
+		$Pass = DB_PASSWORD;
+
+		$this->mysqli = new mysqli("$Host", "$User", "$Pass", "$Db");
+
+		if ($this->mysqli->connect_errno):
+			echo "Fallo al conectar a MySQL: (" . $this->mysqli->connect_errno . ") " . $this->mysqli->connect_error;
+		endif;
+	}
+
+	// Class deconstructor override
+	public function __destruct()
+	{
+		$this->CloseDB();
+	}
+
+	// Prepares a SQL query
+	public function Prepare($qry)
+	{
+		$result = $this->mysqli->prepare($qry);
+		return $result;
+	}
+
+	// Runs a sql query
+	public function runQuery($qry)
+	{
+		$result = $this->mysqli->query($qry);
+		return $result;
+	}
+
+	public function autoCommit($mode)
+	{
+		$this->mysqli->autocommit($mode);
+	}
+
+	public function Commit()
+	{
+		$this->mysqli->commit();
+	}
+
+	public function Rollback()
+	{
+		$this->mysqli->rollback();
+	}
+
+	// Close database connection
+	public function CloseDB()
+	{
+		$this->mysqli->close();
+	}
+
+	// Escape the string get ready to insert or update
+	public function clearText($text)
+	{
+		return $this->mysqli->real_escape_string(trim($text));
+	}
+
+	// Get the last insert id
+	public function lastID()
+	{
+		return $this->mysqli->insert_id;
+	}
 
 }

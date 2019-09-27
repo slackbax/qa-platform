@@ -62,6 +62,9 @@ elseif ($section == 'autoeval' and ($_admin or $_autoeval or $_calidad)):
 	else:
 		include 'src/error.php';
     endif;
+/** MEDIA **/
+elseif ($section == 'media'):
+	include 'media/media-index.php';
 /** PERFIL DE USUARIO **/
 elseif ($section == 'adminusers' and $_login):
     if ($sbs == 'editprofile'):

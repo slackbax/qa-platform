@@ -2,17 +2,20 @@
 
 class Menu {
 
-	public function __construct() {
+	public function __construct()
+	{
 	}
 
 	/**
 	 * @param $id
+	 * @param null $db
 	 * @return stdClass
 	 */
-	public function get($id, $db = null) {
-        if (is_null($db)):
-            $db = new myDBC();
-        endif;
+	public function get($id, $db = null)
+	{
+		if (is_null($db)):
+			$db = new myDBC();
+		endif;
 		$stmt = $db->Prepare("SELECT * FROM uc_menu WHERE men_id = ?");
 
 		$stmt->bind_param("i", $id);
@@ -34,12 +37,14 @@ class Menu {
 	}
 
 	/**
+	 * @param null $db
 	 * @return array
 	 */
-	public function getAll($db = null) {
-        if (is_null($db)):
-            $db = new myDBC();
-        endif;
+	public function getAll($db = null)
+	{
+		if (is_null($db)):
+			$db = new myDBC();
+		endif;
 		$stmt = $db->Prepare("SELECT * FROM uc_menu WHERE men_publicado = TRUE ORDER BY men_id ASC");
 
 		$stmt->execute();
@@ -56,12 +61,14 @@ class Menu {
 
 	/**
 	 * @param $pro
+	 * @param null $db
 	 * @return array
 	 */
-	public function getByProfile($pro, $db = null) {
-        if (is_null($db)):
-            $db = new myDBC();
-        endif;
+	public function getByProfile($pro, $db = null)
+	{
+		if (is_null($db)):
+			$db = new myDBC();
+		endif;
 		$stmt = $db->Prepare("SELECT * FROM uc_menu m 
                                     JOIN uc_menu_perfil mp ON m.men_id = mp.men_id 
                                     WHERE perf_id = ? AND men_publicado = TRUE");
@@ -82,12 +89,14 @@ class Menu {
 	/**
 	 * @param $id
 	 * @param $pro
+	 * @param null $db
 	 * @return array
 	 */
-	public function getChildByProfile($id, $pro, $db = null) {
-        if (is_null($db)):
-            $db = new myDBC();
-        endif;
+	public function getChildByProfile($id, $pro, $db = null)
+	{
+		if (is_null($db)):
+			$db = new myDBC();
+		endif;
 		$stmt = $db->Prepare("SELECT * FROM uc_menu m
                                     JOIN uc_menu_perfil mp ON m.men_id = mp.men_id 
                                     WHERE perf_id = ? AND men_parent_id = ? AND men_publicado = TRUE

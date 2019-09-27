@@ -2,13 +2,16 @@
 
 class Periodicidad {
 
-	public function __construct() {}
+	public function __construct()
+	{
+	}
 
 	/**
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id) {
+	public function get($id)
+	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT *
                                 FROM uc_periodicidad ie
@@ -31,7 +34,8 @@ class Periodicidad {
 	/**
 	 * @return array
 	 */
-	public function getAll() {
+	public function getAll()
+	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT ie.pe_id FROM uc_periodicidad ie");
 

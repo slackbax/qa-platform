@@ -2,12 +2,12 @@ $(document).ready(function () {
     var tableUsr = $("#tfiles").DataTable({
         "columns": [
             { "visible": false, "searchable": false }, 
-            { "orderable": false, width: "20px", className: "text-center" }, 
-            { width: "50px", className: "text-center" }, 
+            { "orderable": false, width: "15px", className: "text-center" },
+            { width: "50px" },
             null, 
             { className: "text-center" },
             { className: "text-center" }, 
-            { "orderable": false, width: "100px", className: "text-center" }],
+            { "orderable": false, width: "80px", className: "text-center" }],
         "order": [[3, "asc"]],
         serverSide: true,
         ajax: {
@@ -15,6 +15,19 @@ $(document).ready(function () {
             type: 'GET',
             length: 20
         }
+    });
+
+    $(".btnModal").click(function () {
+        var fid = $(this).data('ident');
+
+        $.ajax({
+            url: 'files/ajax.setCounter.php',
+            type: 'POST',
+            dataType: 'json',
+            data: { id: fid }
+        }).done(function () {
+            $('#fileDetail').modal('hide');
+        });
     });
 
     $('#tfiles').on('click', '.fileModal', function () {
@@ -40,7 +53,7 @@ $(document).ready(function () {
         }).done(function (d) {
             console.log(d);
             if (d.arc_id !== null) {
-                $("#f_path").data('ident', d.arc_id);
+                $("#f_path").data('ident', d.arc_id).attr('href', d.arc_path);
                 $("#f_name").html('<i class="fa fa-chevron-right"></i> ' + d.arc_nombre);
                 $("#f_char").html(d.arc_char);
                 $("#f_code").html(d.arc_codigo);
@@ -51,29 +64,13 @@ $(document).ready(function () {
                 $("#f_type").html(getExt(d.arc_path));
                 $("#f_user").html(d.arc_user);
                 $("#f_downloads").html(d.arc_descargas);
-                $("#f_path").attr('href', d.arc_path);
 
                 $.each(d.arc_pvs, function (k, v) {
                     $("#f_pvs").append('<i class="fa fa-check"></i> ' + v + '<br>');
                 });
             }
         });
-    });
-
-    $(".btnModal").click(function () {
-        var fid = $(this).data('ident');
-
-        $.ajax({
-            url: 'files/ajax.setCounter.php',
-            type: 'POST',
-            dataType: 'json',
-            data: { id: fid }
-        }).done(function () {
-            $('#fileDetail').modal('hide');
-        });
-    });
-
-    $('#tfiles').on('click', '.fileDelete', function () {
+    }).on('click', '.fileDelete', function () {
         var uid = $(this).attr('id').split("_").pop();
         $(this).parent().parent().addClass('selected');
 

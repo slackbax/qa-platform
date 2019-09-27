@@ -2,13 +2,16 @@
 
 class Indicador {
 
-	public function __construct() {}
+	public function __construct()
+	{
+	}
 
 	/**
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id) {
+	public function get($id)
+	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT *
 								FROM uc_indicador i 
@@ -59,14 +62,15 @@ class Indicador {
 	 * @param $tcar
 	 * @return array
 	 */
-	public function getByTypeCar($tcar) {
+	public function getByTypeCar($tcar)
+	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT ind_id, tcar_id, amb_id, s.samb_id, c.cod_id, ind_descripcion, ind_umbral, s.samb_sigla, cod_descripcion
 								FROM uc_indicador i
 								JOIN uc_subambito s ON i.samb_id = s.samb_id
 								JOIN uc_codigo c ON i.cod_id = c.cod_id
 								WHERE tcar_id = ? ORDER BY samb_sigla ASC, cod_descripcion ASC");
-		
+
 		$stmt->bind_param("i", $tcar);
 		$stmt->execute();
 		$result = $stmt->get_result();
@@ -95,7 +99,8 @@ class Indicador {
 	 * @param $cid
 	 * @return stdClass
 	 */
-	public function getBySACod($sid, $cid) {
+	public function getBySACod($sid, $cid)
+	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT i.*, tc.tcar_nombre, s.samb_sigla, s.samb_nombre, a.amb_nombre, c.cod_descripcion 
 								FROM uc_indicador i 

@@ -1,7 +1,10 @@
 <?php $interval = 3;
-$last_f = 10; ?>
+$last_f = 8; ?>
 <?php include("class/classFile.php") ?>
+<?php include("class/classSubPuntoVerificacion.php") ?>
+<?php $vs = new Visit() ?>
 <?php $fl = new File() ?>
+<?php $spv = new SubPuntoVerificacion() ?>
 
 <div class="row">
 	<div class="col-xs-8">
@@ -26,9 +29,47 @@ $last_f = 10; ?>
 				</div>
 
 			<?php endif ?>
-			<div class="box box-default">
+			<div class="row">
+				<?php $nf = $fl->getNumber() ?>
+				<div class="col-lg-4 col-lg-offset-2 col-xs-6">
+					<div class="small-box bg-aqua">
+						<div class="inner">
+							<h3><?php echo $nf ?></h3>
+
+							<p>Documentos</p>
+						</div>
+						<div class="icon">
+							<i class="ion ion-stats-bars"></i>
+						</div>
+						<a class="small-box-footer" href="index.php?section=search-files">
+							Más info
+							<i class="fa fa-arrow-circle-right"></i>
+						</a>
+					</div>
+				</div>
+
+				<?php $nv = $spv->getNumber() ?>
+				<div class="col-lg-4 col-xs-6">
+					<div class="small-box bg-green">
+						<div class="inner">
+							<h3><?php echo $nv ?></h3>
+
+							<p>Puntos de Verificación</p>
+						</div>
+						<div class="icon">
+							<i class="ion ion-flag"></i>
+						</div>
+						<a class="small-box-footer" href="index.php?section=verif-points">
+							Más info
+							<i class="fa fa-arrow-circle-right"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="box box-warning">
 				<div class="box-header with-border">
-					<h3 class="box-title">Últimos documentos editados</h3>
+					<h3 class="box-title">Últimas actualizaciones de normativas</h3>
 				</div>
 
 				<div class="box-body">
@@ -36,17 +77,17 @@ $last_f = 10; ?>
 					<table id="tlfiles" class="table table-striped table-condensed">
 						<thead>
 						<tr>
+							<th></th>
 							<th>Nombre</th>
-							<th class="t-center">Fecha</th>
+							<th>Fecha</th>
 						</tr>
 						</thead>
 
 						<tbody>
 						<?php foreach ($lf as $aux => $f): ?>
 							<tr>
-								<td>
-									<i class="fa fa-file-<?php echo getExtension($f->arc_ext) ?>-o text-<?php echo getColorExt($f->arc_ext) ?> icon-table"></i> <?php echo $f->arc_sigla . ' ' . $f->arc_cod . ' - ' . $f->arc_nombre ?>
-								</td>
+								<td><i class="fa fa-file-<?php echo getExtension($f->arc_ext) ?>-o text-<?php echo getColorExt($f->arc_ext) ?> icon-table"></i></td>
+								<td><a href="<?php echo $f->arc_path ?>"><?php echo $f->arc_sigla . ' ' . $f->arc_cod . ' - ' . $f->arc_nombre ?></a></td>
 								<td class="t-center"><?php echo getDateToForm($f->arc_fecha) ?></td>
 							</tr>
 						<?php endforeach ?>
@@ -55,26 +96,8 @@ $last_f = 10; ?>
 				</div>
 			</div>
 
-			<div class="box box-widget">
-				<div class="box-header with-border">
-					<div class="user-block">
-						<span class="news-title">Boletín de acreditación N° 4</span>
-						<span class="news-description">23/12/2016</span>
-					</div>
-				</div>
-
-				<div class="box-body">
-					Se encuentra disponible para nuestros usuarios el boletín N° 4 de acreditación. Pueden visualizarlo o descargarlo en el siguiente link: <a href="upload/Boletin04.pdf" target="_blank">BOLETÍN N° 4</a>
-				</div>
-			</div>
-		</section>
-	</div>
-
-	<div class="col-xs-4">
-		<section class="content container-fluid">
-			<div class="box box-info box-solid">
+			<div class="box box-danger box-solid">
 				<div class="box-header">
-					<i class="fa fa-info-circle"></i>
 					<h3 class="box-title">Documentos por vencer</h3>
 				</div>
 
@@ -86,7 +109,7 @@ $last_f = 10; ?>
 							<thead>
 							<tr>
 								<th>Nombre</th>
-								<th class="t-center">Vigencia</th>
+								<th class="text-center">Vigencia</th>
 							</tr>
 							</thead>
 
@@ -94,7 +117,7 @@ $last_f = 10; ?>
 							<?php foreach ($file as $aux => $f): ?>
 								<tr>
 									<td><?php echo $f->arc_sigla . ' ' . $f->arc_cod . ' - ' . $f->arc_nombre ?></td>
-									<td class="t-center"><?php echo getMonthDate($f->arc_fecha_vig) ?></td>
+									<td class="text-center"><?php echo getMonthDate($f->arc_fecha_vig) ?></td>
 								</tr>
 							<?php endforeach ?>
 							</tbody>
@@ -104,8 +127,12 @@ $last_f = 10; ?>
 					<?php endif ?>
 				</div>
 			</div>
+		</section>
+	</div>
 
-			<div class="box box-default">
+	<div class="col-xs-4">
+		<section class="content container-fluid">
+			<div class="box box-warning">
 				<div class="box-header with-border">
 					<h3 class="box-title">Nuestro equipo</h3>
 				</div>

@@ -6,9 +6,13 @@
 <?php $_autoeval = false ?>
 
 <?php require("class/classMyDBC.php") ?>
+<?php require("class/classVisit.php") ?>
 <?php require("src/Random/random.php") ?>
 <?php require("src/sessionControl.php") ?>
 <?php require("src/fn.php") ?>
+<?php $vis = new Visit() ?>
+<?php $set_visit = $vis->set($_SERVER['REMOTE_ADDR']) ?>
+
 <?php include("class/classAmbito.php"); ?>
 <?php include("class/classFolder.php"); ?>
 <?php $a = new Ambito(); ?>
@@ -111,10 +115,6 @@
 				<ul class="nav navbar-nav">
 					<li>
 						<a href="#" id="btn-help">Ayuda</a>
-					</li>
-
-					<li>
-						<a href="index.php?section=managers">Encargados de área</a>
 					</li>
 
 					<li>
@@ -269,8 +269,8 @@
 
 				<li <?php if (isset($section) and $section == 'verif-points'): ?> class="active"<?php endif; ?>>
 					<a href="index.php?section=verif-points">
-						<i class="fa fa-check"></i>
-						<span class="menu-item">Acreditación/Puntos de Verificación</span>
+						<i class="fa fa-flag"></i>
+						<span class="menu-item">Puntos de Verificación</span>
 					</a>
 				</li>
 
@@ -311,14 +311,6 @@
 								</a>
 							</li>
 						</ul>
-					</li>
-				<?php endif ?>
-
-				<?php if (!$_login or $_operador or $_autoeval): ?>
-					<li <?php if (isset($section) and $section == 'search-files'): ?> class="active"<?php endif; ?>>
-						<a href="index.php?section=search-files">
-							<i class="fa fa-search"></i> <span class="menu-item">Búsqueda de Documentos</span>
-						</a>
 					</li>
 				<?php endif ?>
 
@@ -415,6 +407,12 @@
 						</ul>
 					</li>
 				<?php endif ?>
+
+				<li <?php if (isset($section) and $section == 'search-files'): ?> class="active"<?php endif; ?>>
+					<a href="index.php?section=search-files">
+						<i class="fa fa-search"></i> <span class="menu-item">Búsqueda de Documentos</span>
+					</a>
+				</li>
 
 				<li <?php if (isset($section) and $section == 'media'): ?> class="active"<?php endif; ?>>
 					<a href="index.php?section=media">

@@ -3,12 +3,11 @@
 class User {
     
     public function __construct() {}
-    
-    /**
-     * 
-     * @param $id
-     * @return stdClass
-     */
+
+	/**
+	 * @param $id
+	 * @return stdClass
+	 */
     public function get($id) {
         $consulta = new myDBC();
         $stmt = $consulta->Prepare("SELECT * FROM uc_usuario WHERE us_id = ?");
@@ -34,11 +33,10 @@ class User {
         unset($consulta);
         return $obj;
     }
-    
-    /**
-     * 
-     * @return array
-     */
+
+	/**
+	 * @return array
+	 */
     public function getAll() {
         $consulta = new myDBC();
         $stmt = $consulta->Prepare("SELECT us_id FROM uc_usuario WHERE us_existe = TRUE ORDER BY us_ap ASC, us_am ASC, us_nombres ASC");
@@ -54,12 +52,11 @@ class User {
         unset($consulta);
         return $lista;
     }
-    
-    /**
-     * 
-     * @param $id
-     * @return array
-     */
+
+	/**
+	 * @param $id
+	 * @return array
+	 */
     public function getGroups($id) {
         $consulta = new myDBC();
         $stmt = $consulta->Prepare("SELECT gru_id FROM uc_grupo_usuario WHERE us_id = ?");
@@ -76,12 +73,11 @@ class User {
         unset($consulta);
         return $lista;
     }
-    
-    /**
-     * 
-     * @param $id
-     * @return array
-     */
+
+	/**
+	 * @param $id
+	 * @return array
+	 */
     public function getPV($id) {
         $consulta = new myDBC();
         $stmt = $consulta->Prepare("SELECT spv_id FROM uc_usuario_subpuntoverif WHERE us_id = ?");
@@ -98,12 +94,11 @@ class User {
         unset($consulta);
         return $lista;
     }
-    
-    /**
-     * 
-     * @param $str
-     * @return stdClass
-     */
+
+	/**
+	 * @param $str
+	 * @return stdClass
+	 */
     public function getByUsername($str) {
         $db = new myDBC();
         $stmt = $db->Prepare("SELECT us_id FROM uc_usuario WHERE us_username = ?");
@@ -118,12 +113,11 @@ class User {
         unset($db);
         return $obj;
     }
-    
-    /**
-     * 
-     * @param $user
-     * @return array
-     */
+
+	/**
+	 * @param $user
+	 * @return array
+	 */
     public function existsUser($user) {
         $db = new myDBC();
         
@@ -160,18 +154,17 @@ class User {
             return $result;
         }
     }
-    
-    /**
-     * 
-     * @param $name
-     * @param $ap
-     * @param $am
-     * @param $email
-     * @param $user
-     * @param $pass
-     * @param myDBC $db
-     * @return array
-     */
+
+	/**
+	 * @param $name
+	 * @param $ap
+	 * @param $am
+	 * @param $email
+	 * @param $user
+	 * @param $pass
+	 * @param null $db
+	 * @return array
+	 */
     public function set($name, $ap, $am, $email, $user, $pass, $db = null) {
         if (is_null($db)):
             $db = new myDBC();
@@ -203,14 +196,13 @@ class User {
             return $result;
         }
     }
-    
-    /**
-     * 
-     * @param $id
-     * @param $group
-     * @param myDBC $db
-     * @return array
-     */
+
+	/**
+	 * @param $id
+	 * @param $group
+	 * @param null $db
+	 * @return array
+	 */
     public function setGroup($id, $group, $db = null) {
         if (is_null($db)):
             $db = new myDBC();
@@ -241,14 +233,13 @@ class User {
             return $result;
         }
     }
-    
-    /**
-     * 
-     * @param $id
-     * @param $pic
-     * @param myDBC $db
-     * @return array
-     */
+
+	/**
+	 * @param $id
+	 * @param $pic
+	 * @param null $db
+	 * @return array
+	 */
     public function setPicture($id, $pic, $db = null) {
         if (is_null($db)):
             $db = new myDBC();
@@ -280,13 +271,12 @@ class User {
         }
         
     }
-    
-    /**
-     * 
-     * @param $id
-     * @param myDBC $db
-     * @return array
-     */
+
+	/**
+	 * @param $id
+	 * @param null $db
+	 * @return array
+	 */
     public function del($id, $db = null) {
         if (is_null($db)):
             $db = new myDBC();
@@ -317,13 +307,12 @@ class User {
             return $result;
         }
     }
-    
-    /**
-     * 
-     * @param $id
-     * @param myDBC $db
-     * @return array
-     */
+
+	/**
+	 * @param $id
+	 * @param null $db
+	 * @return array
+	 */
     public function delGroup($id, $db = null) {
         if (is_null($db)):
             $db = new myDBC();
@@ -354,19 +343,18 @@ class User {
             return $result;
         }
     }
-    
-    /**
-     * 
-     * @param $id
-     * @param $name
-     * @param $ap
-     * @param $am
-     * @param $email
-     * @param $pass
-     * @param $active
-     * @param myDBC $db
-     * @return array
-     */
+
+	/**
+	 * @param $id
+	 * @param $name
+	 * @param $ap
+	 * @param $am
+	 * @param $email
+	 * @param $pass
+	 * @param $active
+	 * @param null $db
+	 * @return array
+	 */
     public function mod($id, $name, $ap, $am, $email, $pass, $active, $db = null) {
         if (is_null($db)):
             $db = new myDBC();
@@ -407,18 +395,16 @@ class User {
             return $result;
         }
     }
-    
-    /**
-     * 
-     * @param $id
-     * @param $name
-     * @param $ap
-     * @param $am
-     * @param $email
-     * @param myDBC $db
-     * @return array
-     * @throws Exception
-     */
+
+	/**
+	 * @param $id
+	 * @param $name
+	 * @param $ap
+	 * @param $am
+	 * @param $email
+	 * @param null $db
+	 * @return array
+	 */
     public function modProfile($id, $name, $ap, $am, $email, $db = null) {
         if (is_null($db)):
             $db = new myDBC();
@@ -449,15 +435,13 @@ class User {
             return $result;
         }
     }
-    
-    /**
-     * 
-     * @param $id
-     * @param $pass
-     * @param myDBC $db
-     * @return array
-     * @throws Exception
-     */
+
+	/**
+	 * @param $id
+	 * @param $pass
+	 * @param null $db
+	 * @return array
+	 */
     public function modPass($id, $pass, $db = null) {
         if (is_null($db)):
             $db = new myDBC();

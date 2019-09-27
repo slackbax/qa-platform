@@ -2,13 +2,16 @@
 
 class ElementoMed {
 
-	public function __construct() {}
+	public function __construct()
+	{
+	}
 
 	/**
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id) {
+	public function get($id)
+	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT * FROM uc_elem_medible WHERE elm_id = ?");
 		$stmt->bind_param("i", $id);
@@ -29,7 +32,8 @@ class ElementoMed {
 	/**
 	 * @return array
 	 */
-	public function getAll() {
+	public function getAll()
+	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT elm_id FROM uc_elem_medible");
 		$stmt->execute();
@@ -48,7 +52,8 @@ class ElementoMed {
 	 * @param $ind
 	 * @return array
 	 */
-	public function getByIndCod($ind) {
+	public function getByIndCod($ind)
+	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT e.elm_id 
 								FROM uc_elem_medible e
@@ -73,7 +78,8 @@ class ElementoMed {
 	 * @param $cod
 	 * @return array
 	 */
-	public function getByInd($samb, $cod) {
+	public function getByInd($samb, $cod)
+	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT e.elm_id 
 								FROM uc_elem_medible e
@@ -100,7 +106,8 @@ class ElementoMed {
 	 * @param $db
 	 * @return array
 	 */
-	public function set($ind, $desc, $numero, $db = null) {
+	public function set($ind, $desc, $numero, $db = null)
+	{
 		if (is_null($db)):
 			$db = new myDBC();
 		endif;
@@ -138,7 +145,8 @@ class ElementoMed {
 	 * @param $db
 	 * @return array
 	 */
-	public function mod($elem, $ind, $desc, $numero, $db = null) {
+	public function mod($elem, $ind, $desc, $numero, $db = null)
+	{
 		if (is_null($db)):
 			$db = new myDBC();
 		endif;

@@ -5326,6 +5326,7 @@ button.btn-xs, a.btn-xs {
 .grid-icon {
   height : 32px;
   width  : 32px;
+  background-size: 32px 32px;
 }
 .grid-text {
   margin-top  : 10px;
@@ -5443,16 +5444,8 @@ button.btn-xs, a.btn-xs {
   background-image  : url('../img/icons/hemodinamia.png');
   background-repeat : no-repeat;
 }
-.iico-imagenoI {
-  background-image  : url('../img/icons/imagenoI.png');
-  background-repeat : no-repeat;
-}
-.iico-imagenoII {
-  background-image  : url('../img/icons/imagenoII.png');
-  background-repeat : no-repeat;
-}
-.iico-imagenoIII {
-  background-image  : url('../img/icons/imagenoIII.png');
+.iico-imagenoI, .iico-imagenoII, .iico-imagenoIII {
+  background-image  : url('../img/icons/imageno.png');
   background-repeat : no-repeat;
 }
 .iico-lab {
@@ -5543,6 +5536,27 @@ button.btn-xs, a.btn-xs {
   background-image  : url('../img/icons/pasivos.png');
   background-repeat : no-repeat;
 }
+.iico-rrhh {
+   background-image  : url('../img/icons/rrhh.png');
+   background-repeat : no-repeat;
+ }
+.iico-iaas {
+  background-image  : url('../img/icons/iaas.png');
+  background-repeat : no-repeat;
+}
+.iico-espera {
+   background-image  : url('../img/icons/espera.png');
+   background-repeat : no-repeat;
+}
+.iico-research {
+  background-image  : url('../img/icons/research.png');
+  background-repeat : no-repeat;
+}
+.iico-eq-med {
+  background-image  : url('../img/icons/eq-med.png');
+  background-repeat : no-repeat;
+}
+
 /*
  * Component: Table Items
  * -----------------------------
@@ -5608,8 +5622,7 @@ button.btn-xs, a.btn-xs {
   min-height     : 130px;
 }
 .people-img {
-  background-color : #fff;
-  border           : 1px solid #ddd;
+  border           : 1px solid #f1f1f1;
   border-radius    : 4px;
   margin           : 0 0 10px 10px;
   max-width        : 100%;
@@ -5619,8 +5632,8 @@ button.btn-xs, a.btn-xs {
 }
 .ic-data {
   height       : 20px;
-  margin       : 8px 0;
-  padding-left : 25px;
+  margin       : 10px 0;
+  padding-left : 28px;
   padding-top  : 2px;
 }
 .email {

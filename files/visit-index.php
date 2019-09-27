@@ -7,7 +7,7 @@
 
 <section class="content-header">
 	<h1>Repositorio de Archivos
-		<small><i class="fa fa-angle-right"></i> Acreditación/Puntos de Verificación</small>
+		<small><i class="fa fa-angle-right"></i> Puntos de Verificación</small>
 	</h1>
 
 	<ol class="breadcrumb">

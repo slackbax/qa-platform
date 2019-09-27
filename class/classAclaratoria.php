@@ -2,13 +2,16 @@
 
 class Aclaratoria {
 
-	public function __construct() {}
+	public function __construct()
+	{
+	}
 
 	/**
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id) {
+	public function get($id)
+	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT * 
 								FROM uc_aclaratoria a 
@@ -37,7 +40,8 @@ class Aclaratoria {
 	 * @param $ind
 	 * @return array
 	 */
-	public function getByIndicador($ind) {
+	public function getByIndicador($ind)
+	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT * 
 								FROM uc_aclaratoria a 
@@ -67,7 +71,8 @@ class Aclaratoria {
 	 * @param $db
 	 * @return array
 	 */
-	public function set($ind, $fecha, $res, $num, $resumen, $desc, $db = null) {
+	public function set($ind, $fecha, $res, $num, $resumen, $desc, $db = null)
+	{
 		if (is_null($db)):
 			$db = new myDBC();
 		endif;
@@ -108,7 +113,8 @@ class Aclaratoria {
 	 * @param $db
 	 * @return array
 	 */
-	public function mod($acl, $ind, $fecha, $res, $num, $resumen, $desc, $db = null) {
+	public function mod($acl, $ind, $fecha, $res, $num, $resumen, $desc, $db = null)
+	{
 		if (is_null($db)):
 			$db = new myDBC();
 		endif;

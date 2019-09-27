@@ -2,13 +2,16 @@
 
 class Autoevaluation {
 
-	public function __construct() {}
+	public function __construct()
+	{
+	}
 
 	/**
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id) {
+	public function get($id)
+	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT * 
 								FROM uc_autoevaluacion a 
@@ -53,7 +56,8 @@ class Autoevaluation {
 	 * @param $pv
 	 * @return array
 	 */
-	public function getByIndicadorPV($ind, $pv) {
+	public function getByIndicadorPV($ind, $pv)
+	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT * 
 								FROM uc_autoevaluacion a 
@@ -79,7 +83,8 @@ class Autoevaluation {
 	 * @param $date
 	 * @return stdClass
 	 */
-	public function getByEMPVUserDate($em, $pv, $u, $date) {
+	public function getByEMPVUserDate($em, $pv, $u, $date)
+	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT MAX(aut_id) AS aut_id
 								FROM uc_autoevaluacion a 
@@ -102,7 +107,8 @@ class Autoevaluation {
 	 * @param $year
 	 * @return array
 	 */
-	public function getFailedByPVEMDate($pv, $em, $month, $year) {
+	public function getFailedByPVEMDate($pv, $em, $month, $year)
+	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT * 
 								FROM uc_autoevaluacion a 
@@ -125,7 +131,8 @@ class Autoevaluation {
 	 * @param $spv
 	 * @return array
 	 */
-	public function getBySPV($spv) {
+	public function getBySPV($spv)
+	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT * 
 								FROM uc_autoevaluacion a 
@@ -152,7 +159,8 @@ class Autoevaluation {
 	 * @param null $db
 	 * @return array
 	 */
-	public function getByFilters($year, $month, $spv, $type, $db = null) {
+	public function getByFilters($year, $month, $spv, $type, $db = null)
+	{
 		if (is_null($db)):
 			$db = new myDBC();
 		endif;
@@ -226,7 +234,8 @@ class Autoevaluation {
 	 * @param $db
 	 * @return array
 	 */
-	public function set($pv, $spv, $ind, $elm, $cumplim, $comentario, $us, $eval, $fecha, $db = null) {
+	public function set($pv, $spv, $ind, $elm, $cumplim, $comentario, $us, $eval, $fecha, $db = null)
+	{
 		if (is_null($db)):
 			$db = new myDBC();
 		endif;
@@ -251,7 +260,6 @@ class Autoevaluation {
 
 			$result = array('estado' => true, 'msg' => $stmt->insert_id);
 			return $result;
-
 		} catch (Exception $e) {
 			$result = array('estado' => false, 'msg' => $e->getMessage());
 			return $result;
@@ -267,7 +275,8 @@ class Autoevaluation {
 	 * @param $db
 	 * @return array
 	 */
-	public function delByFilters($pv, $spv, $ind, $elm, $date, $db = null) {
+	public function delByFilters($pv, $spv, $ind, $elm, $date, $db = null)
+	{
 		if (is_null($db)):
 			$db = new myDBC();
 		endif;
@@ -291,7 +300,6 @@ class Autoevaluation {
 
 			$result = array('estado' => true, 'msg' => 'OK');
 			return $result;
-
 		} catch (Exception $e) {
 			$result = array('estado' => false, 'msg' => $e->getMessage());
 			return $result;
