@@ -34,7 +34,7 @@
                             y Unidades de Apoyo, además de mantener líneas de coordinación expeditas y activas de manera permanente.
                         </li>
                         <li>
-                            Recopilar y subir información a la plataforma electrónica SIS-Q y poblamiento de otros sistemas informático.
+                            Recopilar y subir información a la plataforma electrónica SIS-Q y poblamiento de otros sistemas informáticos.
                         </li>
                         <li>
                             Implementar, monitorear y evaluar las Normas sobre la Calidad de la Atención del Paciente conjuntamente con el Programa de Vigilancia, Prevención de Eventos Adversos y Seguridad Asistencial del HGGB.
