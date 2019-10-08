@@ -72,10 +72,34 @@ class SubPuntoVerificacion {
 	}
 
 	/**
+	 * @param $pv
+	 * @return array
+	 */
+	public function getByPV($pv)
+	{
+		$db = new myDBC();
+		$stmt = $db->Prepare("SELECT spv_id FROM uc_subpunto_verif spv
+									JOIN uc_punto_verificacion pv ON spv.pv_id = pv.pv_id
+									WHERE pv.pv_id = ?");
+
+		$stmt->bind_param("i", $pv);
+		$stmt->execute();
+		$result = $stmt->get_result();
+		$lista = [];
+
+		while ($row = $result->fetch_assoc()):
+			$lista[] = $this->get($row['spv_id']);
+		endwhile;
+
+		unset($db);
+		return $lista;
+	}
+
+	/**
 	 * @param $id
 	 * @return array
 	 */
-	public function getByPV($id)
+	public function getByIndicador($id)
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT DISTINCT(spv_id) FROM uc_indicador i

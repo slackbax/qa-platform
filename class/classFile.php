@@ -49,8 +49,8 @@ class File {
 		$obj->arc_ext = pathinfo($row['arc_path'], PATHINFO_EXTENSION);
 		$obj->arc_publicado = $row['arc_publicado'];
 
-		$stmt_pv = $db->Prepare("SELECT pv_nombre FROM uc_punto_verificacion pv 
-                                JOIN uc_archivo_puntoverif ap ON pv.pv_id = ap.pv_id
+		$stmt_pv = $db->Prepare("SELECT spv_nombre FROM uc_subpunto_verif spv 
+                                JOIN uc_archivo_subpuntoverif ap ON spv.spv_id = ap.spv_id
                                 WHERE arc_id = ?");
 
 		$stmt_pv->bind_param("i", $id);
@@ -59,7 +59,7 @@ class File {
 		$array = [];
 
 		while ($row = $result_pv->fetch_assoc()):
-			$array[] = utf8_encode($row['pv_nombre']);
+			$array[] = utf8_encode($row['spv_nombre']);
 		endwhile;
 
 		$obj->arc_pvs = $array;
@@ -96,7 +96,8 @@ class File {
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT COUNT(DISTINCT a.arc_id) AS num 
 								FROM uc_archivo a
-								JOIN uc_archivo_puntoverif ap ON a.arc_id = ap.arc_id
+								JOIN uc_archivo_subpuntoverif ap ON a.arc_id = ap.arc_id
+								JOIN uc_subpunto_verif usv on ap.spv_id = usv.spv_id
 								WHERE arc_publicado = TRUE AND pv_id <> '99'");
 
 		$stmt->execute();
@@ -105,6 +106,30 @@ class File {
 
 		unset($db);
 		return $row['num'];
+	}
+
+	/**
+	 * @param $pvid
+	 * @return mixed
+	 */
+	public function getNumberByPV($pvid)
+	{
+		$db = new myDBC();
+		$stmt = $db->Prepare("SELECT COUNT(DISTINCT a.arc_id) AS num
+                                FROM uc_archivo a
+								JOIN uc_archivo_subpuntoverif ap ON a.arc_id = ap.arc_id
+								JOIN uc_subpunto_verif usv on ap.spv_id = usv.spv_id
+                                WHERE usv.pv_id = ? AND a.arc_publicado = TRUE");
+
+		$stmt->bind_param("i", $pvid);
+		$stmt->execute();
+		$result = $stmt->get_result();
+
+		$row = $result->fetch_assoc();
+		$num = $row['num'];
+
+		unset($db);
+		return $num;
 	}
 
 	/**
@@ -135,19 +160,43 @@ class File {
 
 	/**
 	 * @param $pvid
+	 * @return array
+	 */
+	public function getByPV($pvid)
+	{
+		$db = new myDBC();
+		$stmt = $db->Prepare("SELECT a.arc_id FROM uc_archivo a
+                                JOIN uc_archivo_puntoverif ap ON a.arc_id = ap.arc_id
+                                WHERE ap.pv_id = ? AND a.arc_publicado = TRUE");
+
+		$stmt->bind_param("i", $pvid);
+		$stmt->execute();
+		$result = $stmt->get_result();
+		$lista = [];
+
+		while ($row = $result->fetch_assoc()):
+			$lista[] = $this->get($row['arc_id']);
+		endwhile;
+
+		unset($db);
+		return $lista;
+	}
+
+	/**
+	 * @param $spvid
 	 * @param $tcar
 	 * @return array
 	 */
-	public function getByCaractPV($pvid, $tcar)
+	public function getByCaractSPV($spvid, $tcar)
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT a.arc_id FROM uc_archivo a
                                 JOIN uc_indicador i ON a.ind_id = i.ind_id
                                 JOIN uc_tipo_caracteristica tc ON i.tcar_id = tc.tcar_id
-                                JOIN uc_archivo_puntoverif ap ON a.arc_id = ap.arc_id
-                                WHERE ap.pv_id = ? AND tc.tcar_id = ? AND a.arc_publicado = TRUE");
+                                JOIN uc_archivo_subpuntoverif ap ON a.arc_id = ap.arc_id
+                                WHERE ap.spv_id = ? AND tc.tcar_id = ? AND a.arc_publicado = TRUE");
 
-		$stmt->bind_param("ii", $pvid, $tcar);
+		$stmt->bind_param("ii", $spvid, $tcar);
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$lista = [];
@@ -167,11 +216,10 @@ class File {
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT a.arc_id FROM uc_archivo a
-                                JOIN uc_archivo_puntoverif ap ON a.arc_id = ap.arc_id
-                                WHERE ap.pv_id = ? AND a.arc_publicado = TRUE");
+                                JOIN uc_archivo_subpuntoverif ap ON a.arc_id = ap.arc_id
+								JOIN uc_subpunto_verif usv on ap.spv_id = usv.spv_id
+                                WHERE usv.pv_id = 1 AND a.arc_publicado = TRUE");
 
-		$pv = 1;
-		$stmt->bind_param("i", $pv);
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$lista = [];
@@ -306,6 +354,42 @@ class File {
 
 			if (!$stmt->execute()):
 				throw new Exception("La inserción del documento-pv falló en su ejecución." . $stmt->error);
+			endif;
+
+			$result = array('estado' => true, 'msg' => $stmt->insert_id);
+			return $result;
+		} catch (Exception $e) {
+			$result = array('estado' => false, 'msg' => $e->getMessage());
+			return $result;
+		}
+	}
+
+	/**
+	 * @param $arc_id
+	 * @param $spv_id
+	 * @param null $db
+	 * @return array
+	 */
+	public function setFileSpv($arc_id, $spv_id, $db = null)
+	{
+		if (is_null($db)):
+			$db = new myDBC();
+		endif;
+
+		try {
+			$stmt = $db->Prepare("INSERT INTO uc_archivo_subpuntoverif (spv_id, arc_id) VALUES (?, ?)");
+
+			if (!$stmt):
+				throw new Exception("La inserción del documento-spv falló en su preparación.");
+			endif;
+
+			$bind = $stmt->bind_param("ii", $spv_id, $arc_id);
+			if (!$bind):
+				throw new Exception("La inserción del documento-spv falló en su binding.");
+			endif;
+
+			if (!$stmt->execute()):
+				throw new Exception("La inserción del documento-spv falló en su ejecución." . $stmt->error);
 			endif;
 
 			$result = array('estado' => true, 'msg' => $stmt->insert_id);

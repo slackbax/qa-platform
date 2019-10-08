@@ -1,3 +1,7 @@
+<?php include("class/classPuntoVerificacion.php") ?>
+<?php $pv = new PuntoVerificacion() ?>
+<?php $am = new Ambito() ?>
+
 <section class="content-header">
 	<h1>Archivos
 		<small><i class="fa fa-angle-right"></i> Ingreso de Documento de Acreditación</small>
@@ -70,7 +74,6 @@
                         <label class="control-label" for="iambito">Ámbito *</label>
                         <select class="form-control" id="iNambito" name="iambito" required>
                             <option value="">Seleccione ámbito</option>
-                            <?php $am = new Ambito() ?>
                             <?php $ambito = $am->getAll() ?>
                             <?php foreach ($ambito as $a): ?>
                             <option value="<?php echo $a->amb_id ?>"><?php echo $a->amb_nombre ?></option>
@@ -113,23 +116,49 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="form-group col-xs-12">
-                        <label class="control-label" for="ipvs">Puntos de verificación</label>
-                        <div class="clearfix"></div>
-                        <?php include("class/classPuntoVerificacion.php") ?>
-                        <?php $pv = new PuntoVerificacion() ?>
-                        <?php $pver = $pv->getAll() ?>
-                        <?php foreach ($pver as $p): ?>
-                        <div class="col-xs-3">
-                            <label class="label-checkbox">
-                                <input class="ipv_check minimal" type="checkbox" name="ipvs[<?php echo $p->pv_id ?>]" id="ipvs_<?php echo $p->pv_id ?>">
-                                <?php echo $p->pv_nombre ?>
-                            </label>
-                        </div>
-                        <?php endforeach ?>
-                    </div>
-                </div>
+				<div class="row">
+					<div class="form-group col-xs-6 has-feedback" id="gpv">
+						<label class="control-label" for="ipv">Punto de Verificación *</label>
+						<select class="form-control" id="iNpv" name="ipv" required>
+							<option value="">Seleccione punto</option>
+							<?php $punto = $pv->getAll() ?>
+							<?php foreach ($punto as $p): ?>
+								<option value="<?php echo $p->pv_id ?>"><?php echo $p->pv_nombre ?></option>
+							<?php endforeach ?>
+						</select>
+					</div>
+					<div class="form-group col-xs-6 has-feedback" id="gspv">
+						<label class="control-label" for="ispv">Sub-punto *</label>
+						<select class="form-control" id="iNspv" name="ispv" required>
+							<option value="">Seleccione sub-punto</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-6">
+						<button type="button" class="btn btn-info btn-sm" id="btnAddPoint" style="margin-bottom: 20px" disabled><i class="fa fa-plus"></i> Agregar sub-punto</button>
+					</div>
+				</div>
+
+				<input type="hidden" name="inspv" id="iNnspv">
+
+				<div id="divDestiny" style="display: none; padding: 2px 10px; margin-bottom: 10px; background-color: #f2f2f2; border: 2px solid #f2f2f2">
+					<h4>Sub-puntos agregados</h4>
+					<div class="row">
+						<div class="form-group col-xs-5">
+							<p class="form-control-static"><strong>Punto de verificación</strong></p>
+						</div>
+						<div class="form-group col-xs-6">
+							<p class="form-control-static"><strong>Sub-punto</strong></p>
+						</div>
+						<div class="form-group col-xs-1 text-center">
+							<p class="form-control-static"></p>
+						</div>
+					</div>
+
+					<div id="divDestiny-inner"></div>
+				</div>
 
                 <div class="row">
                     <div class="form-group col-xs-12">

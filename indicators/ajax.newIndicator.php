@@ -28,7 +28,7 @@ if (extract($_POST)):
 			throw new Exception('Error al crear el indicador. ' . $inde['msg'], 0);
 		endif;
 
-		$subp = $spv->getByPV($ind->ind_id);
+		$subp = $spv->getByIndicador($ind->ind_id);
 
 		foreach ($subp as $k => $v):
 			$ins_sp = $spv->set($inde['msg'], $v->spv_id, $db);

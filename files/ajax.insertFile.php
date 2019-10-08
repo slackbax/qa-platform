@@ -18,8 +18,8 @@ if (extract($_POST)):
         if (!$ins['estado']):
             throw new Exception('Error al guardar los datos del documento. ' . $ins['msg'], 0);
         endif;
-        
-        while ($check = current($ipvs)):
+
+        /*while ($check = current($ipvs)):
             if ($check == 'on'):
                 $grp = $fl->setFilePV($ins['msg'], key($ipvs), $db);
 
@@ -29,7 +29,15 @@ if (extract($_POST)):
             endif;
 
             next($ipvs);
-        endwhile;
+        endwhile;*/
+
+		foreach ($iispv as $i => $v):
+			$grp = $fl->setFileSpv($ins['msg'], $v, $db);
+
+			if (!$grp['estado']):
+				throw new Exception('Error al crear puntos de verificación del documento. ' . $grp['msg'], 0);
+			endif;
+		endforeach;
         
         $targetPath = $_SERVER['DOCUMENT_ROOT'] . BASEFOLDER . 'upload';
 

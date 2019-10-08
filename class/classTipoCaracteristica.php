@@ -96,20 +96,20 @@ class TipoCaracteristica {
 	}
 
 	/**
-	 * @param $pvid
+	 * @param $spvid
 	 * @param $tcar
 	 * @return mixed
 	 */
-	public function getNumFilesByPV($pvid, $tcar)
+	public function getNumFilesBySPV($spvid, $tcar)
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT COUNT(*) AS num FROM uc_archivo a
-                                JOIN uc_archivo_puntoverif ap ON a.arc_id = ap.arc_id
+                                JOIN uc_archivo_subpuntoverif ap ON a.arc_id = ap.arc_id
                                 JOIN uc_indicador i ON a.ind_id = i.ind_id
                                 JOIN uc_tipo_caracteristica tc ON i.tcar_id = tc.tcar_id
-                                WHERE ap.pv_id = ? AND i.tcar_id = ? AND a.arc_publicado = TRUE");
+                                WHERE ap.spv_id = ? AND i.tcar_id = ? AND a.arc_publicado = TRUE");
 
-		$stmt->bind_param("ii", $pvid, $tcar);
+		$stmt->bind_param("ii", $spvid, $tcar);
 		$stmt->execute();
 		$result = $stmt->get_result();
 

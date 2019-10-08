@@ -1,221 +1,296 @@
 $(document).ready(function () {
-    function validateForm() {
-        var files = true;
-        var fieldVal = $(".multi").val();
-        if (!fieldVal) files = false;
+	function validateForm() {
+		var files = true, fieldVal = $(".multi").val();
+		if (!fieldVal) files = false;
 
-        if (files) {
-            $('#submitLoader').css('display', 'inline-block');
-            return true;
-        } else {
-            new Noty({
-                text: 'Error al registrar documento.<br>Por favor, agregue al menos un archivo al formulario.',
-                type: 'error'
-            }).show();
-            return false;
-        }
-    }
+		if (files) {
+			$('#submitLoader').css('display', 'inline-block');
+			return true;
+		} else {
+			new Noty({
+				text: 'Error al registrar documento.<br>Por favor, agregue al menos un archivo al formulario.',
+				type: 'error'
+			}).show();
+			return false;
+		}
+	}
 
-    function showResponse(response) {
-        $('#submitLoader').css('display', 'none');
+	function showResponse(response) {
+		$('#submitLoader').css('display', 'none');
 
-        if (response.type) {
-            new Noty({
-                text: '<b>¡Éxito!</b><br>El documento ha sido guardado correctamente.',
-                type: 'success'
-            }).show();
+		if (response.type) {
+			new Noty({
+				text: '<b>¡Éxito!</b><br>El documento ha sido guardado correctamente.',
+				type: 'success'
+			}).show();
 
-            $('#formNewFile').clearForm();
-            $('#btnClear').click();
-            $('input:file').MultiFile('reset');
-        } else {
-            if (response.code === 0) {
-                new Noty({
-                    text: '<b>¡Error!</b><br>' + response.msg,
-                    type: 'error'
-                }).show();
-            } else if (response.code === 1) {
-                new Noty({
-                    text: response.msg,
-                    type: 'error',
-                    callbacks: {
-                        afterClose: function () {
-                            document.location.replace('index.php');
-                        }
-                    }
-                }).show();
-            }
-        }
-    }
+			$('#formNewFile').clearForm();
+			$('#btnClear').click();
+			$('input:file').MultiFile('reset');
+		} else {
+			if (response.code === 0) {
+				new Noty({
+					text: '<b>¡Error!</b><br>' + response.msg,
+					type: 'error'
+				}).show();
+			} else if (response.code === 1) {
+				new Noty({
+					text: response.msg,
+					type: 'error',
+					callbacks: {
+						afterClose: function () {
+							document.location.replace('index.php');
+						}
+					}
+				}).show();
+			}
+		}
+	}
 
-    var options = {
-        url: 'files/ajax.insertFile.php',
-        type: 'post',
-        dataType: 'json',
-        beforeSubmit: validateForm,
-        success: showResponse
-    };
+	var options = {
+		url: 'files/ajax.insertFile.php',
+		type: 'post',
+		dataType: 'json',
+		beforeSubmit: validateForm,
+		success: showResponse
+	}, ArrayDestinos = [], n_destinos = 0, d_spv = 0;
 
-    $('#submitLoader').css('display', 'none');
+	$('#submitLoader').css('display', 'none');
 
-    $(document).on("focusin", "#iNdate", function () {
-        $(this).prop('readonly', true);
-    });
-    $(document).on("focusout", "#iNdate", function () {
-        $(this).prop('readonly', false);
-    });
+	$(document).on("focusin", "#iNdate", function () {
+		$(this).prop('readonly', true);
+	});
+	$(document).on("focusout", "#iNdate", function () {
+		$(this).prop('readonly', false);
+	});
 
-    $(document).on("focusin", "#iNdatec", function () {
-        $(this).prop('readonly', true);
-    });
-    $(document).on("focusout", "#iNdatec", function () {
-        $(this).prop('readonly', false);
-    });
+	$(document).on("focusin", "#iNdatec", function () {
+		$(this).prop('readonly', true);
+	});
+	$(document).on("focusout", "#iNdatec", function () {
+		$(this).prop('readonly', false);
+	});
 
-    $('#iNdate').datepicker({
-        endDate: '+1d'
-    }).on('changeDate', function () {
-        if ($.trim($(this).val()) !== '') {
-            $('#gdate').removeClass('has-error').addClass('has-success');
-            $('#icondate').removeClass('fa-remove fa-check').addClass('fa-check');
-        }
-    });
+	$('#iNdate').datepicker({
+		endDate: '+1d'
+	}).on('changeDate', function () {
+		if ($.trim($(this).val()) !== '') {
+			$('#gdate').removeClass('has-error').addClass('has-success');
+			$('#icondate').removeClass('fa-remove fa-check').addClass('fa-check');
+		}
+	});
 
-    $('#iNdatec').datepicker({
-        startView: 1,
-        minViewMode: 1,
-        startDate: '+1m'
-    }).on('changeDate', function () {
-        if ($.trim($(this).val()) !== '') {
-            $('#gdatec').removeClass('has-error').addClass('has-success');
-            $('#icondatec').removeClass('fa-remove fa-check').addClass('fa-check');
-        }
-    });
+	$('#iNdatec').datepicker({
+		startView: 1,
+		minViewMode: 1,
+		startDate: '+1m'
+	}).on('changeDate', function () {
+		if ($.trim($(this).val()) !== '') {
+			$('#gdatec').removeClass('has-error').addClass('has-success');
+			$('#icondatec').removeClass('fa-remove fa-check').addClass('fa-check');
+		}
+	});
 
-    $('#iNname, #iNversion, #iNcode, #iNdate, #iNdatec, #iNambito, #iNsambito, #iNtcar, #iNtcode').change(function () {
-        var idn = $(this).attr('id').split('N');
+	$('#iNname, #iNversion, #iNcode, #iNdate, #iNdatec, #iNambito, #iNsambito, #iNtcar, #iNtcode, #iNpv, #iNspv').change(function () {
+		var idn = $(this).attr('id').split('N');
 
-        if ($.trim($(this).val()) !== '') {
-            $('#g' + idn[1]).removeClass('has-error').addClass('has-success');
-            $('#icon' + idn[1]).removeClass('fa-remove').addClass('fa-check');
-        } else {
-            $('#g' + idn[1]).removeClass('has-success');
-            $('#icon' + idn[1]).removeClass('fa-check');
-        }
-    });
+		if ($.trim($(this).val()) !== '') {
+			$('#g' + idn[1]).removeClass('has-error').addClass('has-success');
+			$('#icon' + idn[1]).removeClass('fa-remove').addClass('fa-check');
+		} else {
+			$('#g' + idn[1]).removeClass('has-success');
+			$('#icon' + idn[1]).removeClass('fa-check');
+		}
+	});
 
-    $('#iNambito').change(function () {
-        $('#iNsambito').html('').append('<option value="">Cargando sub-ámbitos...</option>');
-        $('#gsambito').removeClass('has-error').removeClass('has-success');
-        $('#iNtcar').html('').append('<option value="">Seleccione tipo</option>');
-        $('#gtcar').removeClass('has-error').removeClass('has-success');
-        $('#iNtcode').html('').append('<option value="">Seleccione código</option>');
-        $('#gtcode').removeClass('has-error').removeClass('has-success');
-        $('#iNdescription').val('');
+	$('#iNambito').change(function () {
+		$('#iNsambito').html('').append('<option value="">Cargando sub-ámbitos...</option>');
+		$('#gsambito').removeClass('has-error').removeClass('has-success');
+		$('#iNtcar').html('').append('<option value="">Seleccione tipo</option>');
+		$('#gtcar').removeClass('has-error').removeClass('has-success');
+		$('#iNtcode').html('').append('<option value="">Seleccione código</option>');
+		$('#gtcode').removeClass('has-error').removeClass('has-success');
+		$('#iNdescription').val('');
 
-        $('.ipv_check').each(function () {
-            $(this).prop('checked', false);
-        });
+		$.ajax({
+			type: "POST",
+			url: "files/ajax.getSubambitos.php",
+			dataType: 'json',
+			data: {am: $(this).val()}
+		}).done(function (data) {
+			$('#iNsambito').html('').append('<option value="">Seleccione sub-ámbito</option>');
 
-        $.ajax({
-            type: "POST",
-            url: "files/ajax.getSubambitos.php",
-            dataType: 'json',
-            data: { am: $(this).val() }
-        }).done(function (data) {
-            $('#iNsambito').html('').append('<option value="">Seleccione sub-ámbito</option>');
+			$.each(data, function (k, v) {
+				$('#iNsambito').append(
+					$('<option></option>').val(v.samb_id).html(v.samb_sigla + ' - ' + v.samb_nombre)
+				);
+			});
+		});
+	});
 
-            $.each(data, function (k, v) {
-                $('#iNsambito').append(
-                    $('<option></option>').val(v.samb_id).html(v.samb_sigla + ' - ' + v.samb_nombre)
-                );
-            });
-        });
-    });
+	$('#iNsambito').change(function () {
+		$('#iNtcar').html('').append('<option value="">Cargando tipo...</option>');
+		$('#gtcar').removeClass('has-error').removeClass('has-success');
+		$('#iNtcode').html('').append('<option value="">Seleccione código</option>');
+		$('#gtcode').removeClass('has-error').removeClass('has-success');
+		$('#iNdescription').val('');
 
-    $('#iNsambito').change(function () {
-        $('#iNtcar').html('').append('<option value="">Cargando tipo...</option>');
-        $('#gtcar').removeClass('has-error').removeClass('has-success');
-        $('#iNtcode').html('').append('<option value="">Seleccione código</option>');
-        $('#gtcode').removeClass('has-error').removeClass('has-success');
-        $('#iNdescription').val('');
+		$.ajax({
+			type: "POST",
+			url: "files/ajax.getTipoCaracts.php",
+			dataType: 'json',
+			data: {sa: $(this).val()}
+		}).done(function (data) {
+			$('#iNtcar').html('').append('<option value="">Seleccione tipo</option>');
 
-        $('.ipv_check').each(function () {
-            $(this).prop('checked', false);
-        });
+			$.each(data, function (k, v) {
+				$('#iNtcar').append(
+					$('<option></option>').val(v.tcar_id).html(v.tcar_nombre)
+				);
+			});
+		});
+	});
 
-        $.ajax({
-            type: "POST",
-            url: "files/ajax.getTipoCaracts.php",
-            dataType: 'json',
-            data: { sa: $(this).val() }
-        }).done(function (data) {
-            $('#iNtcar').html('').append('<option value="">Seleccione tipo</option>');
+	$('#iNtcar').change(function () {
+		$('#iNtcode').html('').append('<option value="">Cargando códigos...</option>');
+		$('#gtcode').removeClass('has-error').removeClass('has-success');
+		$('#iNdescription').val('');
 
-            $.each(data, function (k, v) {
-                $('#iNtcar').append(
-                    $('<option></option>').val(v.tcar_id).html(v.tcar_nombre)
-                );
-            });
-        });
-    });
+		$.ajax({
+			type: "POST",
+			url: "files/ajax.getCodigos.php",
+			dataType: 'json',
+			data: {sa: $('#iNsambito').val(), tc: $(this).val()}
+		}).done(function (data) {
+			$('#iNtcode').html('').append('<option value="">Seleccione código</option>');
 
-    $('#iNtcar').change(function () {
-        $('#iNtcode').html('').append('<option value="">Cargando códigos...</option>');
-        $('#gtcode').removeClass('has-error').removeClass('has-success');
-        $('#iNdescription').val('');
+			$.each(data, function (k, v) {
+				$('#iNtcode').append(
+					$('<option></option>').val(v.cod_id).html(v.cod_descripcion)
+				);
+			});
+		});
+	});
 
-        $('.ipv_check').each(function () {
-            $(this).prop('checked', false);
-        });
+	$('#iNtcode').change(function () {
+		$('#iNdescription').val('');
 
-        $.ajax({
-            type: "POST",
-            url: "files/ajax.getCodigos.php",
-            dataType: 'json',
-            data: { sa: $('#iNsambito').val(), tc: $(this).val() }
-        }).done(function (data) {
-            $('#iNtcode').html('').append('<option value="">Seleccione código</option>');
+		if ($(this).val() !== '') {
+			$.ajax({
+				type: "POST",
+				url: "files/ajax.getCaracteristica.php",
+				dataType: 'json',
+				data: {sa: $('#iNsambito').val(), cod: $(this).val()}
+			}).done(function (data) {
+				$('#iind').val(data.ind_id);
+				$('#iNdescription').val(data.samb_sigla + ' ' + data.cod_descripcion + '\n- ' + data.ind_descripcion);
 
-            $.each(data, function (k, v) {
-                $('#iNtcode').append(
-                    $('<option></option>').val(v.cod_id).html(v.cod_descripcion)
-                );
-            });
-        });
-    });
+				$.each(data.pvs, function (k, v) {
+					$('#ipvs_' + v.pv_id).prop('checked', true);
+				});
+			});
+		}
+	});
 
-    $('#iNtcode').change(function () {
-        $('#iNdescription').val('');
+	$('#iNpv').change(function () {
+		$('#iNspv').html('').append('<option value="">Cargando sub-puntos...</option>');
+		$('#gspv').removeClass('has-error').removeClass('has-success');
 
-        $('.ipv_check').each(function () {
-            $(this).prop('checked', false);
-        });
+		$.ajax({
+			type: "POST",
+			url: "files/ajax.getSubpuntos.php",
+			dataType: 'json',
+			data: {pv: $('#iNpv').val()}
+		}).done(function (data) {
+			$('#iNspv').html('').append('<option value="">Seleccione sub-punto</option>');
 
-        if ($(this).val() !== '') {
-            $.ajax({
-                type: "POST",
-                url: "files/ajax.getCaracteristica.php",
-                dataType: 'json',
-                data: { sa: $('#iNsambito').val(), cod: $(this).val() }
-            }).done(function (data) {
-                $('#iind').val(data.ind_id);
-                $('#iNdescription').val(data.samb_sigla + ' ' + data.cod_descripcion + '\n- ' + data.ind_descripcion);
+			$.each(data, function (k, v) {
+				$('#iNspv').append(
+					$('<option></option>').val(v.spv_id).html(v.spv_nombre)
+				);
+			});
+		});
+	});
 
-                $.each(data.pvs, function (k, v) {
-                    $('#ipvs_' + v.pv_id).prop('checked', true);
-                });
-            });
-        }
-    });
+	$('#iNspv').change(function () {
+		if ($.trim($(this).val()) !== '') {
+			$('#btnAddPoint').prop('disabled', false);
+		}
+	});
 
-    $('#btnClear').click(function () {
-        $('#gname, #gversion, #gcode, #gdate, #gdatec, #gambito, #gsambito, #gtcar, #gtcode').removeClass('has-error').removeClass('has-success');
-        $('#iconname, #iconversion, #iconcode, #icondate, #icondatec, #iconambito, #iconsambito, #icontcar, #icontcode').removeClass('fa-remove').removeClass('fa-check');
-    });
+	$('#btnAddPoint').click(function () {
+		var pvText = $('#iNpv :selected').text(), spvVal = $('#iNspv').val(), spvText = $('#iNspv :selected').text();
 
-    $('#formNewFile').submit(function () {
-        $(this).ajaxSubmit(options);
-        return false;
-    });
+		if ($.trim(spvVal) !== '') {
+			var chk = false;
+
+			$(ArrayDestinos).each(function (index) {
+				if (ArrayDestinos[index] === spvVal) chk = true;
+			});
+
+			if (!chk) {
+				ArrayDestinos.push(spvVal);
+
+				var $row = $('<div>');
+				$row.attr('id', 'row' + n_destinos).addClass('row');
+
+				var $pv = $('<div>'), $spv = $('<div>'), $dl = $('<div>');
+				$pv.addClass('form-group col-xs-5');
+				$spv.addClass('form-group col-xs-6');
+				$dl.addClass('form-group col-xs-1 text-center');
+				$row.append('<input type="hidden" name="iispv[]" id="iNispv_' + n_destinos + '" value="' + spvVal + '">');
+
+				var $namePv = $('<p>'), $nameSpv = $('<p>');
+				$namePv.addClass('form-control-static').text(pvText);
+				$pv.append($namePv);
+				$nameSpv.addClass('form-control-static').text(spvText);
+				$spv.append($nameSpv);
+
+				$dl.append('<button type="button" class="btn btn-xs btn-danger btnDel" name="btn_' + n_destinos + '" id="btndel_' + n_destinos + '"><i class="fa fa-close"></i></button>');
+				$row.append($pv).append($spv).append($dl);
+
+				$('#gpv, #gspv').removeClass('has-success');
+				$('#iNpv').val('').change();
+				$('#divDestiny-inner').append($row);
+				$('#divDestiny').css('display', 'block');
+				n_destinos++;
+				d_spv++;
+				$('#iNnspv').val(d_spv);
+			} else {
+				swal("Error", "El punto elegido ya se encuentra en la lista de puntos agregados.", "error");
+				$('#gspv').removeClass('has-success');
+				$('#iNspv').val('');
+			}
+		}
+	});
+
+	$('#divDestiny').on('click', '.btnDel', function () {
+		console.log(ArrayDestinos);
+		var idn = $(this).attr('id').split('_').pop();
+		var valDel = $('#iNispv_' + idn).val();
+
+		$(ArrayDestinos).each(function (index) {
+			if (ArrayDestinos[index] === valDel)
+				ArrayDestinos.splice(index, 1);
+		});
+
+		console.log(ArrayDestinos);
+		$('#row' + idn).remove();
+		d_spv--;
+
+		if (d_spv === 0)
+			n_destinos = 0;
+
+		$('#iNndest').val(d_spv);
+	});
+
+	$('#btnClear').click(function () {
+		$('#gname, #gversion, #gcode, #gdate, #gdatec, #gambito, #gsambito, #gtcar, #gtcode, #gpv').removeClass('has-error').removeClass('has-success');
+		$('#iconname, #iconversion, #iconcode, #icondate, #icondatec, #iconambito, #iconsambito, #icontcar, #icontcode').removeClass('fa-remove').removeClass('fa-check');
+	});
+
+	$('#formNewFile').submit(function () {
+		$(this).ajaxSubmit(options);
+		return false;
+	});
 });
