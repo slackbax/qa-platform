@@ -22,7 +22,7 @@
 
 			<div class="box-body">
                 <div class="row">
-                    <div class="form-group col-xs-3 has-feedback" id="gdate">
+                    <div class="form-group col-sm-3 has-feedback" id="gdate">
                         <label class="control-label" for="idate">Año *</label>
                         <div class="input-group">
 							<div class="input-group-addon">
@@ -34,7 +34,7 @@
                 </div>
                 
                 <div class="row">
-                    <div class="form-group col-xs-6 has-feedback" id="gpv">
+                    <div class="form-group col-sm-6 has-feedback" id="gpv">
                         <label class="control-label" for="ipv">Punto de Verificación *</label>
                         <select class="form-control" id="iNpv" name="ipv" required>
                             <option value="">Seleccione punto de verificación</option>

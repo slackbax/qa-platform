@@ -24,7 +24,7 @@
 
             <div class="box-body">
                 <div class="row">
-                    <div class="form-group col-xs-6 has-feedback" id="gname">
+                    <div class="form-group col-sm-6 has-feedback" id="gname">
                         <label class="control-label" for="iname">Nombre *</label>
                         <input type="text" class="form-control" id="iNname" name="iname" placeholder="Ingrese nombre del documento" maxlength="250" required>
                         <i class="fa form-control-feedback" id="iconname"></i>
@@ -32,13 +32,13 @@
                 </div>
                 
                 <div class="row">
-                    <div class="form-group col-xs-3 has-feedback" id="gversion">
+                    <div class="form-group col-sm-3 has-feedback" id="gversion">
                         <label class="control-label" for="iversion">Versión *</label>
                         <input type="text" class="form-control" id="iNversion" name="iversion" placeholder="Ingrese versión del documento" maxlength="4" required>
                         <i class="fa form-control-feedback" id="iconversion"></i>
                     </div>
                     
-                    <div class="form-group col-xs-3 has-feedback" id="gcode">
+                    <div class="form-group col-sm-3 has-feedback" id="gcode">
                         <label class="control-label" for="icode">Código *</label>
                         <input type="text" class="form-control" id="iNcode" name="icode" placeholder="Ingrese código del documento" maxlength="8" required>
                         <i class="fa form-control-feedback" id="iconcode"></i>
@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="form-group col-xs-3 has-feedback" id="gdate">
+                    <div class="form-group col-sm-3 has-feedback" id="gdate">
                         <label class="control-label" for="idate">Fecha de creación *</label>
                         <div class="input-group">
                             <div class="input-group-addon">
@@ -57,7 +57,7 @@
                         <i class="fa form-control-feedback" id="icondate"></i>
                     </div>
                     
-                    <div class="form-group col-xs-3 has-feedback" id="gdatec">
+                    <div class="form-group col-sm-3 has-feedback" id="gdatec">
                         <label class="control-label" for="idatec">Fecha de caducidad *</label>
                         <div class="input-group">
                             <div class="input-group-addon">
@@ -70,7 +70,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="form-group col-xs-6 has-feedback" id="gambito">
+                    <div class="form-group col-sm-6 has-feedback" id="gambito">
                         <label class="control-label" for="iambito">Ámbito *</label>
                         <select class="form-control" id="iNambito" name="iambito" required>
                             <option value="">Seleccione ámbito</option>
@@ -80,7 +80,7 @@
                             <?php endforeach ?>
                         </select>
                     </div>
-                    <div class="form-group col-xs-6 has-feedback" id="gsambito">
+                    <div class="form-group col-sm-6 has-feedback" id="gsambito">
                         <label class="control-label" for="isambito">Sub-ámbito *</label>
                         <select class="form-control" id="iNsambito" name="isambito" required>
                             <option value="">Seleccione sub-ámbito</option>
@@ -89,13 +89,13 @@
                 </div>
                 
                 <div class="row">
-                    <div class="form-group col-xs-6 has-feedback" id="gtcar">
+                    <div class="form-group col-sm-6 has-feedback" id="gtcar">
                         <label class="control-label" for="iambito">Tipo de Característica *</label>
                         <select class="form-control" id="iNtcar" name="itcar" required>
                             <option value="">Seleccione tipo</option>
                         </select>
                     </div>
-                    <div class="form-group col-xs-6 has-feedback" id="gtcode">
+                    <div class="form-group col-sm-6 has-feedback" id="gtcode">
                         <label class="control-label" for="itcode">Código de Característica *</label>
                         <select class="form-control" id="iNtcode" name="itcode" required>
                             <option value="">Seleccione código</option>
@@ -110,14 +110,14 @@
 
             <div class="box-body">
                 <div class="row">
-                    <div class="form-group col-xs-12">
+                    <div class="form-group col-sm-12">
                         <label class="control-label" for="iproblem">Descripción</label>
                         <textarea rows="4" class="form-control" id="iNdescription" name="idescription" readonly></textarea>
                     </div>
                 </div>
 
 				<div class="row">
-					<div class="form-group col-xs-6 has-feedback" id="gpv">
+					<div class="form-group col-sm-6 has-feedback" id="gpv">
 						<label class="control-label" for="ipv">Punto de Verificación</label>
 						<select class="form-control" id="iNpv" name="ipv">
 							<option value="">Seleccione punto</option>
@@ -127,7 +127,7 @@
 							<?php endforeach ?>
 						</select>
 					</div>
-					<div class="form-group col-xs-6 has-feedback" id="gspv">
+					<div class="form-group col-sm-6 has-feedback" id="gspv">
 						<label class="control-label" for="ispv">Sub-punto</label>
 						<select class="form-control" id="iNspv" name="ispv">
 							<option value="">Seleccione sub-punto</option>
@@ -136,7 +136,7 @@
 				</div>
 
 				<div class="row">
-					<div class="col-xs-6">
+					<div class="col-sm-6">
 						<button type="button" class="btn btn-info btn-sm" id="btnAddPoint" style="margin-bottom: 20px" disabled><i class="fa fa-plus"></i> Agregar sub-punto</button>
 					</div>
 				</div>
@@ -146,20 +146,20 @@
 				<div id="divDestiny" style="padding: 2px 10px; margin-bottom: 10px; background-color: #f2f2f2; border: 2px solid #f2f2f2">
 					<h4>Sub-puntos agregados</h4>
 					<div class="row">
-						<div class="form-group col-xs-5">
+						<div class="form-group col-sm-5">
 							<p class="form-control-static"><strong>Punto de verificación</strong></p>
 						</div>
-						<div class="form-group col-xs-6">
+						<div class="form-group col-sm-6">
 							<p class="form-control-static"><strong>Sub-punto</strong></p>
 						</div>
-						<div class="form-group col-xs-1 text-center">
+						<div class="form-group col-sm-1 text-center">
 							<p class="form-control-static"></p>
 						</div>
 					</div>
 
 					<div id="divDestiny-inner">
 						<div class="row">
-							<div class="form-group col-xs-12">
+							<div class="form-group col-sm-12">
 								<p><i>No se han agregado puntos de verificación.</i></p>
 							</div>
 						</div>
@@ -167,7 +167,7 @@
 				</div>
 
                 <div class="row">
-                    <div class="form-group col-xs-12">
+                    <div class="form-group col-sm-12">
                         <label class="control-label" for="idocument">Archivo *</label>
                         <div class="controls">
                             <input name="idocument[]" class="multi" id="idocument" type="file" size="16" accept="pdf|doc|docx|xls|xlsx" maxlength="1">

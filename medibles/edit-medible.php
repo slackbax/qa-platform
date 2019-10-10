@@ -31,7 +31,7 @@
 
 			<div class="box-body">
 				<div class="row">
-					<div class="form-group col-xs-6 has-feedback" id="gambito">
+					<div class="form-group col-sm-6 has-feedback" id="gambito">
 						<label class="control-label" for="iambito">Ámbito *</label>
 						<select class="form-control" id="iNambito" name="iambito" required>
 							<option value="">Seleccione ámbito</option>
@@ -43,7 +43,7 @@
 						</select>
 					</div>
 					<input type="hidden" name="iind" value="<?php echo $id ?>">
-					<div class="form-group col-xs-6 has-feedback" id="gsambito">
+					<div class="form-group col-sm-6 has-feedback" id="gsambito">
 						<label class="control-label" for="isambito">Sub-ámbito *</label>
 						<select class="form-control" id="iNsambito" name="isambito" required>
 							<option value="">Seleccione sub-ámbito</option>
@@ -57,7 +57,7 @@
 				</div>
 
 				<div class="row">
-					<div class="form-group col-xs-6 has-feedback" id="gtcode">
+					<div class="form-group col-sm-6 has-feedback" id="gtcode">
 						<label class="control-label" for="itcode">Código de característica *</label>
 						<select class="form-control" id="iNtcode" name="itcode" required>
 							<option value="">Seleccione código</option>
@@ -68,7 +68,7 @@
 							<?php endforeach ?>
 						</select>
 					</div>
-					<div class="form-group col-xs-3 has-feedback" id="gnumelem">
+					<div class="form-group col-sm-3 has-feedback" id="gnumelem">
 						<label class="control-label" for="inumelem">Número de elemento *</label>
 						<input type="text" class="form-control" id="iNnumelem" name="inumelem" placeholder="Ingrese número de elemento (1EM, 2EM, etc)" required value="<?php echo $elm->elm_numero ?>">
 						<i class="fa form-control-feedback" id="iconnumelem"></i>
@@ -80,7 +80,7 @@
 				?>
 
 				<div class="row">
-					<div class="form-group col-xs-6 has-feedback" id="gdescripcion">
+					<div class="form-group col-sm-6 has-feedback" id="gdescripcion">
 						<label class="control-label" for="idescripcion">Descripción *</label>
 						<textarea rows="4" class="form-control" id="iNdescripcion" name="idescripcion" placeholder="Ingrese descripción del indicador" required><?php echo $elm->elm_descripcion ?></textarea>
 						<i class="fa form-control-feedback" id="icondescripcion"></i>

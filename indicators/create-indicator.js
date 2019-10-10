@@ -21,18 +21,18 @@ $(document).ready(function () {
 			strFirst = (!first) ? ' style="margin-top:35px"' : '';
 			var txt = '<h6' + strFirst + '><strong>Característica: </strong> ' + v.samb_sigla + ' ' + v.cod_descripcion + ' - ' + v.ine_inddesc + '</h6><h5><strong>Indicador: </strong>' + v.ine_nombre + '</h5>';
 			txt += '<div class="row">';
-			txt += '<div class="col-xs-2"><strong>Mes</strong></div>';
-			txt += '<div class="col-xs-10">';
+			txt += '<div class="col-sm-2"><strong>Mes</strong></div>';
+			txt += '<div class="col-sm-10">';
 			for (var i = 1; i < 13; i++) {
-				txt += '<div class="col-xs-1 text-center">' + i + '</div>';
+				txt += '<div class="col-sm-1 text-center">' + i + '</div>';
 			}
 			txt += '</div>';
 			txt += '</div>';
 
 			//Numerador
 			txt += '<div class="row">';
-			txt += '<div class="col-xs-2">' + v.ine_num_desc + '</div>';
-			txt += '<div class="col-xs-10">';
+			txt += '<div class="col-sm-2">' + v.ine_num_desc + '</div>';
+			txt += '<div class="col-sm-10">';
 			for (var i = 1; i < 13; i++) {
 				var r = i % parseInt(v.ine_penum);
 				var r_o = '';
@@ -43,7 +43,7 @@ $(document).ready(function () {
 					numerador = numer.num;
 				}
 
-				txt += '<div class="col-xs-1">';
+				txt += '<div class="col-sm-1">';
 				if (r === 0) {
 					txt += '<input type="text" class="form-control input-sm input-number text-center input-nmr" tabindex="' + tab_num + '" id="iNnum-' + v.ine_id + '-' + i + '" name="num[' + v.ine_id + '][' + i + ']" value="' + numerador + '"' + r_o + '>';
 					tab_num += 2;
@@ -55,8 +55,8 @@ $(document).ready(function () {
 
 			//Denominador
 			txt += '<div class="row" style="margin-top:5px">';
-			txt += '<div class="col-xs-2">' + v.ine_den_desc + '</div>';
-			txt += '<div class="col-xs-10">';
+			txt += '<div class="col-sm-2">' + v.ine_den_desc + '</div>';
+			txt += '<div class="col-sm-10">';
 			for (var i = 1; i < 13; i++) {
 				var r = i % parseInt(v.ine_penum);
 				//var r_o = ' disabled';
@@ -68,7 +68,7 @@ $(document).ready(function () {
 					denominador = numer.den;
 				}
 
-				txt += '<div class="col-xs-1">';
+				txt += '<div class="col-sm-1">';
 				if (r === 0) {
 					txt += '<input type="text" class="form-control input-sm input-number text-center input-dnm" tabindex="' + tab_den + '" id="iNden-' + v.ine_id + '-' + i + '" name="den[' + v.ine_id + '][' + i + ']" value="' + denominador + '"' + r_o + '>';
 					tab_den += 2;
@@ -78,11 +78,11 @@ $(document).ready(function () {
 			txt += '</div>';
 			txt += '</div>';
 
-			txt += '<div class="row"><div class="col-xs-12"><div class="col-xs-12 col-divider bd-bottom"></div></div></div>';
+			txt += '<div class="row"><div class="col-sm-12"><div class="col-sm-12 col-divider bd-bottom"></div></div></div>';
 
 			txt += '<div class="row">';
-			txt += '<div class="col-xs-2">Porcentaje cumplimiento</div>';
-			txt += '<div class="col-xs-10">';
+			txt += '<div class="col-sm-2">Porcentaje cumplimiento</div>';
+			txt += '<div class="col-sm-10">';
 
 			for (var i = 1; i < 13; i++) {
 				var r = i % parseInt(v.ine_penum);
@@ -100,7 +100,7 @@ $(document).ready(function () {
 					}
 				}
 
-				txt += '<div class="col-xs-1">';
+				txt += '<div class="col-sm-1">';
 				if (r === 0) {
 					txt += '<input type="text" class="form-control input-sm input-number text-center" id="iNtot-' + v.ine_id + '-' + i + '" name="tot[' + v.ine_id + '][' + i + ']" value="' + total + '" disabled>';
 				}

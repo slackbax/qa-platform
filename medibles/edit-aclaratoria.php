@@ -31,7 +31,7 @@
 
 			<div class="box-body">
 				<div class="row">
-					<div class="form-group col-xs-3 has-feedback" id="gdate">
+					<div class="form-group col-sm-3 has-feedback" id="gdate">
 						<label class="control-label" for="idate">Fecha de resolución *</label>
 						<div class="input-group">
 							<div class="input-group-addon">
@@ -44,7 +44,7 @@
 
 					<input type="hidden" name="iind" value="<?php echo $id ?>">
 
-					<div class="form-group col-xs-3 has-feedback" id="gnumres">
+					<div class="form-group col-sm-3 has-feedback" id="gnumres">
 						<label class="control-label" for="inumres">Número de Resolución *</label>
 						<input type="text" class="form-control" id="iNnumres" name="inumres" placeholder="Ingrese número de resolución" value="<?php echo $acl->acl_resolucion ?>" required>
 						<i class="fa form-control-feedback" id="iconnumres"></i>
@@ -52,7 +52,7 @@
 				</div>
 
 				<div class="row">
-					<div class="form-group col-xs-6 has-feedback" id="gambitor">
+					<div class="form-group col-sm-6 has-feedback" id="gambitor">
 						<label class="control-label" for="iambitor">Ámbito *</label>
 						<select class="form-control" id="iNambitor" name="iambitor" required>
 							<option value="">Seleccione ámbito</option>
@@ -64,7 +64,7 @@
 						</select>
 					</div>
 
-					<div class="form-group col-xs-6 has-feedback" id="gsambitor">
+					<div class="form-group col-sm-6 has-feedback" id="gsambitor">
 						<label class="control-label" for="isambitor">Sub-ámbito *</label>
 						<select class="form-control" id="iNsambitor" name="isambitor" required>
 							<option value="">Seleccione sub-ámbito</option>
@@ -78,7 +78,7 @@
 				</div>
 
 				<div class="row">
-					<div class="form-group col-xs-6 has-feedback" id="gtcoder">
+					<div class="form-group col-sm-6 has-feedback" id="gtcoder">
 						<label class="control-label" for="itcoder">Código de característica *</label>
 						<select class="form-control" id="iNtcoder" name="itcoder" required>
 							<option value="">Seleccione código</option>
@@ -90,7 +90,7 @@
 						</select>
 					</div>
 
-					<div class="form-group col-xs-3 has-feedback" id="gnumero">
+					<div class="form-group col-sm-3 has-feedback" id="gnumero">
 						<label class="control-label" for="inumero">Número de Aclaratoria *</label>
 						<input type="text" class="form-control" id="iNnumero" name="inumero" placeholder="Ingrese número de aclaratoria" maxlength="4" value="<?php echo $acl->acl_numero ?>" required>
 						<span class="fa form-control-feedback" id="iconnumero"></span>
@@ -102,13 +102,13 @@
 				?>
 
 				<div class="row">
-					<div class="form-group col-xs-6 has-feedback" id="gresumen">
+					<div class="form-group col-sm-6 has-feedback" id="gresumen">
 						<label class="control-label" for="iname">Resumen *</label>
 						<input type="text" class="form-control" id="iNresumen" name="iresumen" placeholder="Ingrese resumen de la aclaratoria" maxlength="1024" value="<?php echo $acl->acl_resumen ?>" required>
 						<i class="fa form-control-feedback" id="iconresumen"></i>
 					</div>
 
-					<div class="form-group col-xs-6 has-feedback" id="gdescripcionr">
+					<div class="form-group col-sm-6 has-feedback" id="gdescripcionr">
 						<label class="control-label" for="idescripcionr">Descripción *</label>
 						<textarea rows="4" class="form-control" id="iNdescripcionr" name="idescripcionr" placeholder="Ingrese descripción de la aclaratoria" required><?php echo $acl->acl_descripcion ?></textarea>
 						<i class="fa form-control-feedback" id="icondescripcionr"></i>

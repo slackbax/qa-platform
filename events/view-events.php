@@ -17,7 +17,7 @@
         <div class="box-body">
             <div class="row">
                 <div class="col-sm-12 text-center">
-                    <button type="button" class="btn btn-info" id="view-historic"><i class="fa fa-refresh"></i> Ver histórico de eventos</button>
+                    <button type="button" class="btn btn-info" id="view-historic"><i class="fa fa-calendar"></i> Ver histórico de eventos</button>
                 </div>
             </div>
         </div>

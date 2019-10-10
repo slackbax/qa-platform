@@ -20,7 +20,7 @@
 
             <div class="box-body">
                 <div class="row">
-                    <div class="form-group col-xs-6 has-feedback" id="gname">
+                    <div class="form-group col-sm-6 has-feedback" id="gname">
                         <label class="control-label" for="iname">Nombre *</label>
                         <input type="text" class="form-control" id="iNname" name="iname" placeholder="Ingrese nombre del documento" maxlength="250" required>
                         <i class="fa form-control-feedback" id="iconname"></i>
@@ -28,7 +28,7 @@
                 </div>
                 
                 <div class="row">
-                    <div class="form-group col-xs-3 has-feedback" id="gversion">
+                    <div class="form-group col-sm-3 has-feedback" id="gversion">
                         <label class="control-label" for="iversion">Versión *</label>
                         <input type="text" class="form-control" id="iNversion" name="iversion" placeholder="Ingrese versión del documento" maxlength="4" required>
                         <i class="fa form-control-feedback" id="iconversion"></i>
@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="form-group col-xs-3 has-feedback" id="gdate">
+                    <div class="form-group col-sm-3 has-feedback" id="gdate">
                         <label class="control-label" for="idate">Fecha de creación *</label>
                         <div class="input-group">
                             <div class="input-group-addon">
@@ -47,7 +47,7 @@
                         <i class="fa form-control-feedback" id="icondate"></i>
                     </div>
                     
-                    <div class="form-group col-xs-3 has-feedback" id="gdatec">
+                    <div class="form-group col-sm-3 has-feedback" id="gdatec">
                         <label class="control-label" for="idatec">Fecha de caducidad *</label>
                         <div class="input-group">
                             <div class="input-group-addon">
@@ -60,7 +60,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="form-group col-xs-6 has-feedback" id="gfolder">
+                    <div class="form-group col-sm-6 has-feedback" id="gfolder">
                         <label class="control-label" for="ifolder">Carpeta *</label>
                         <select class="form-control" id="iNfolder" name="ifolder" required>
                             <option value="">Seleccione carpeta</option>
@@ -74,7 +74,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="form-group col-xs-12">
+                    <div class="form-group col-sm-12">
                         <label class="control-label" for="idocument">Archivo *</label>
                         <div class="controls">
                             <input name="idocument[]" class="multi" id="idocument" type="file" size="16" accept="pdf|doc|docx|xls|xlsx" maxlength="1">

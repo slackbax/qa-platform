@@ -27,20 +27,20 @@
 
             <div class="box-body">
                 <div class="row">
-                    <div class="form-group col-xs-3 has-feedback" id="grut">
+                    <div class="form-group col-sm-3 has-feedback" id="grut">
                         <label class="control-label" for="irut">RUT *</label>
                         <input type="text" class="form-control" id="iNrut" name="irut" placeholder="12345678-9" maxlength="12" required>
                         <span class="glyphicon form-control-feedback" id="iconrut"></span>
                     </div>                                
                 </div>
                 <div class="row">
-                    <div class="form-group col-xs-6 has-feedback" id="gname">
+                    <div class="form-group col-sm-6 has-feedback" id="gname">
                         <label class="control-label" for="iname">Nombre *</label>
                         <input type="text" class="form-control" id="iNname" name="iname" placeholder="Ingrese nombre del paciente" maxlength="250" required>
                         <span class="glyphicon form-control-feedback" id="iconname"></span>
                     </div>
 
-                    <div class="form-group col-xs-6 has-feedback" id="gtpac">
+                    <div class="form-group col-sm-6 has-feedback" id="gtpac">
                         <label class="control-label" for="itpac">Tipo de Paciente *</label>
                         <select class="form-control" id="iNtpac" name="itpac" required>
                             <option value="">Seleccione tipo</option>
@@ -54,13 +54,13 @@
                 </div>
 
                 <div class="row">
-                    <div class="form-group col-xs-3 has-feedback" id="gedad">
+                    <div class="form-group col-sm-3 has-feedback" id="gedad">
                         <label class="control-label" for="iedad">Edad *</label>
                         <input type="text" class="form-control" id="iNedad" name="iedad" placeholder="Ingrese la edad del paciente" maxlength="3" required>
                         <span class="glyphicon form-control-feedback" id="iconedad"></span>
                     </div>
                     
-                    <div class="form-group col-xs-6 col-xs-offset-3 has-feedback" id="gserv">
+                    <div class="form-group col-sm-6 col-sm-offset-3 has-feedback" id="gserv">
                         <label class="control-label" for="iserv">Servicio Clínico *</label>
                         <select class="form-control" id="iNserv" name="iserv" required>
                             <option value="">Seleccione servicio</option>
@@ -80,7 +80,7 @@
 
             <div class="box-body">
                 <div class="row">
-                    <div class="form-group col-xs-3 has-feedback" id="gdate">
+                    <div class="form-group col-sm-3 has-feedback" id="gdate">
                         <label class="control-label" for="idate">Fecha de evento *</label>
                             <div class="input-group">
                                 <div class="input-group-addon">
@@ -91,7 +91,7 @@
                         <span class="glyphicon form-control-feedback" id="icondate"></span>
                     </div>
 
-                    <div class="form-group col-xs-3" id="ghour">
+                    <div class="form-group col-sm-3" id="ghour">
                         <label class="control-label" for="ihour">Hora *</label>
                         <select class="form-control" id="iNhour" name="ihour" required>
                             <?php for ($i = 0; $i < 24; $i++): ?>
@@ -100,7 +100,7 @@
                         </select>
                     </div>
 
-                    <div class="form-group col-xs-3" id="gmin">
+                    <div class="form-group col-sm-3" id="gmin">
                         <label class="control-label" for="imin">Minuto *</label>
                         <select class="form-control" id="iNmin" name="imin" required>
                             <?php for ($i = 0; $i < 60; $i++): ?>
@@ -111,7 +111,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="form-group col-xs-6 has-feedback" id="gtev">
+                    <div class="form-group col-sm-6 has-feedback" id="gtev">
                         <label class="control-label" for="itev">Tipo de Evento *</label>
                         <select class="form-control" id="iNtev" name="itev" required>
                             <option value="">Seleccione tipo</option>                
@@ -123,7 +123,7 @@
                         </select>
                     </div>
 
-                    <div class="form-group col-xs-6 has-feedback" id="gstev">
+                    <div class="form-group col-sm-6 has-feedback" id="gstev">
                         <label class="control-label" for="istsev">Evento Específico *</label>
                         <select class="form-control" id="iNstev" name="istev" required>
                             <option value="">Seleccione evento</option>
@@ -132,14 +132,14 @@
                 </div>
 
                 <div class="row">
-                    <div class="form-group col-xs-6">
+                    <div class="form-group col-sm-6">
                         <label class="control-label">Categoría de evento</label>
                         <div>
                             <p class="form-control-static" id="iNtevent"><i>No seleccionado</i></p>
                         </div>
                     </div>
 
-                    <div class="form-group col-xs-6 has-feedback" id="grie">
+                    <div class="form-group col-sm-6 has-feedback" id="grie">
                         <label class="control-label" for="irie">Nivel de Riesgo *</label>
                         <select class="form-control" id="iNrie" name="irie" required>
                             <option value="">Seleccione nivel</option>                
@@ -153,7 +153,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="form-group col-xs-12 has-feedback" id="gdescription">
+                    <div class="form-group col-sm-12 has-feedback" id="gdescription">
                         <label class="control-label" for="idescription">Circunstancias o contexto en que ocurre el evento *</label>
                         <textarea rows="4" class="form-control" id="iNdescription" name="idescription" maxlength="450" required></textarea>
                         <span class="glyphicon form-control-feedback" id="icondescription"></span>
@@ -161,7 +161,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="form-group col-xs-6 has-feedback" id="gconsec">
+                    <div class="form-group col-sm-6 has-feedback" id="gconsec">
                         <label class="control-label" for="iconsec">Consecuencias o daños producidos *</label>
                         <select class="form-control" id="iNconsec" name="iconsec" required>
                             <option value="">Seleccione consecuencia</option>                
@@ -175,7 +175,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="form-group col-xs-3 has-feedback" id="gvermed">
+                    <div class="form-group col-sm-3 has-feedback" id="gvermed">
                         <label class="control-label" for="ivermed">Verificación de medidas preventivas *</label>
                         <select class="form-control" id="iNvermed" name="ivermed" required>
                             <?php $tv = new TipoVerificacion() ?>
@@ -189,7 +189,7 @@
                 
                 <div id="div-cent" style="display: none">
                     <div class="row">
-                        <div class="form-group col-xs-3 has-feedback" id="gnocu">
+                        <div class="form-group col-sm-3 has-feedback" id="gnocu">
                             <label class="control-label" for="inocu">Justificación escrita de no cumplimiento *</label>
                             <select class="form-control" id="iNnocu" name="inocu">
                                 <?php $tv = new TipoVerificacion() ?>
@@ -200,7 +200,7 @@
                             </select>
                         </div>
 
-                        <div class="form-group col-xs-3 has-feedback" id="gcljus">
+                        <div class="form-group col-sm-3 has-feedback" id="gcljus">
                             <label class="control-label" for="icljus">Análisis Clínico de justificación *</label>
                             <select class="form-control" id="iNcljus" name="icljus">
                                 <?php $tv = new TipoVerificacion() ?>
@@ -213,7 +213,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="form-group col-xs-3 has-feedback" id="gmedp">
+                        <div class="form-group col-sm-3 has-feedback" id="gmedp">
                             <label class="control-label" for="imedp">Verificación de medidas preventivas en otros pacientes *</label>
                             <select class="form-control" id="iNmedp" name="imedp">
                                 <?php $tv = new TipoVerificacion() ?>
@@ -233,20 +233,20 @@
 
             <div class="box-body">
                 <div class="row">
-                    <div class="form-group col-xs-6">
+                    <div class="form-group col-sm-6">
                         <label class="control-label" for="idocument">Archivo de Plan de Mejoras</label>
                         <div class="controls">
                             <input name="idocument[]" class="multi" id="iNdocument" type="file" size="16" accept="pdf|doc|docx|xls|xlsx|rar|zip" maxlength="1">
                             <p class="help-block">Formatos admitidos: pdf, doc, docx, xls, xlsx, rar, zip</p>
                         </div>
                     </div>
-                    <div class="form-group col-xs-6">
+                    <div class="form-group col-sm-6">
                         <a href="upload/Formato_plan_mejoras.docx" class="btn btn-info" target="_blank"><span class="glyphicon glyphicon-save"></span> Descargar formato de Plan de Mejoras</a>
                     </div>
                 </div>
                 
                 <div class="row">
-                    <div class="form-group col-xs-3 has-feedback" id="gcaida">
+                    <div class="form-group col-sm-3 has-feedback" id="gcaida">
                         <label class="control-label" for="icaida">Notificación de caída *</label>
                         <select class="form-control" id="iNcaida" name="icaida" required>
                             <?php $tv = new TipoVerificacion() ?>
@@ -260,14 +260,14 @@
                 
                 <div id="div-caida" style="display: none">
                     <div class="row">
-                        <div class="form-group col-xs-6">
+                        <div class="form-group col-sm-6">
                             <label class="control-label" for="idoccaida">Archivo de Informe de Caída</label>
                             <div class="controls">
                                 <input name="idoccaida[]" class="multi" id="iNdoccaida" type="file" size="16" accept="pdf|doc|docx|xls|xlsx|rar|zip" maxlength="1">
                                 <p class="help-block">Formatos admitidos: pdf, doc, docx, xls, xlsx, rar, zip</p>
                             </div>
                         </div>
-                        <div class="form-group col-xs-6">
+                        <div class="form-group col-sm-6">
                             <a href="upload/Formato_notificacion_caidas.docx" class="btn btn-info" target="_blank"><span class="glyphicon glyphicon-save"></span> Descargar formato de Informe de Caídas</a>
                         </div>
                     </div>

@@ -18,7 +18,7 @@
         <div class="box box-default">
             <div class="box-body">
 				<div class="row">
-					<div class="form-group col-xs-3 has-feedback" id="gdate">
+					<div class="form-group col-sm-3 has-feedback" id="gdate">
 						<label class="control-label" for="idate">Fecha de evaluación *</label>
 						<div class="input-group">
 							<div class="input-group-addon">
@@ -31,7 +31,7 @@
 				</div>
 
 				<div class="row">
-					<div class="form-group col-xs-6 has-feedback" id="gser">
+					<div class="form-group col-sm-6 has-feedback" id="gser">
 						<label class="control-label" for="iser">Lugar de Evaluación *</label>
 						<select class="form-control" id="iNser" name="iser" required>
 							<option value="">Seleccione servicio</option>
