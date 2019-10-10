@@ -1,13 +1,16 @@
 $(document).ready(function () {
 	function validateForm() {
-		var files = true;
+		var validate = true;
 
-		if (files) {
+		if (n_destinos === 0)
+			validate = false;
+
+		if (validate) {
 			$('#submitLoader').css('display', 'inline-block');
 			return true;
 		} else {
 			new Noty({
-				text: 'Error al registrar documento. <br>Por favor, agregue al menos un archivo al formulario.',
+				text: 'Error al registrar documento. <br>Por favor, agregue al menos un punto de verificación al formulario.',
 				type: 'error'
 			}).show();
 			return false;
@@ -50,7 +53,12 @@ $(document).ready(function () {
 		dataType: 'json',
 		beforeSubmit: validateForm,
 		success: showResponse
-	};
+	}, ArrayDestinos = [], n_destinos = 0, d_spv = 0;
+
+	$('.inpv').each(function () {
+		ArrayDestinos.push($(this).val());
+		d_spv++; n_destinos++;
+	});
 
 	$('#submitLoader').css('display', 'none');
 
@@ -88,7 +96,7 @@ $(document).ready(function () {
 		}
 	});
 
-	$('#iNname, #iNversion, #iNcode, #iNdate, #iNdatec, #iNambito, #iNsambito, #iNtcar, #iNtcode').change(function () {
+	$('#iNname, #iNversion, #iNcode, #iNdate, #iNdatec, #iNambito, #iNsambito, #iNtcar, #iNtcode, #iNpv, #iNspv').change(function () {
 		var idn = $(this).attr('id').split('N');
 
 		if ($.trim($(this).val()) !== '') {
@@ -108,10 +116,6 @@ $(document).ready(function () {
 		$('#iNtcode').html('').append('<option value="">Seleccione código</option>');
 		$('#gtcode').removeClass('has-error').removeClass('has-success');
 		$('#iNdescription').val('');
-
-		$('.ipv_check').each(function () {
-			$(this).prop('checked', false);
-		});
 
 		$.ajax({
 			type: "POST",
@@ -136,10 +140,6 @@ $(document).ready(function () {
 		$('#gtcode').removeClass('has-error').removeClass('has-success');
 		$('#iNdescription').val('');
 
-		$('.ipv_check').each(function () {
-			$(this).prop('checked', false);
-		});
-
 		$.ajax({
 			type: "POST",
 			url: "admin/files/ajax.getTipoCaracts.php",
@@ -161,10 +161,6 @@ $(document).ready(function () {
 		$('#gtcode').removeClass('has-error').removeClass('has-success');
 		$('#iNdescription').val('');
 
-		$('.ipv_check').each(function () {
-			$(this).prop('checked', false);
-		});
-
 		$.ajax({
 			type: "POST",
 			url: "admin/files/ajax.getCodigos.php",
@@ -184,10 +180,6 @@ $(document).ready(function () {
 	$('#iNtcode').change(function () {
 		$('#iNdescription').val('');
 
-		$('.ipv_check').each(function () {
-			$(this).prop('checked', false);
-		});
-
 		if ($(this).val() !== '') {
 			$.ajax({
 				type: "POST",
@@ -205,8 +197,103 @@ $(document).ready(function () {
 		}
 	});
 
+	$('#iNpv').change(function () {
+		$('#iNspv').html('').append('<option value="">Cargando sub-puntos...</option>');
+		$('#gspv').removeClass('has-error').removeClass('has-success');
+
+		$.ajax({
+			type: "POST",
+			url: "files/ajax.getSubpuntos.php",
+			dataType: 'json',
+			data: {pv: $('#iNpv').val()}
+		}).done(function (data) {
+			$('#iNspv').html('').append('<option value="">Seleccione sub-punto</option>');
+
+			$.each(data, function (k, v) {
+				$('#iNspv').append(
+					$('<option></option>').val(v.spv_id).html(v.spv_nombre)
+				);
+			});
+		});
+	});
+
+	$('#iNspv').change(function () {
+		if ($.trim($(this).val()) !== '') {
+			$('#btnAddPoint').prop('disabled', false);
+		}
+	});
+
+	$('#btnAddPoint').click(function () {
+		var pvText = $('#iNpv :selected').text(), spvVal = $('#iNspv').val(), spvText = $('#iNspv :selected').text();
+
+		if ($.trim(spvVal) !== '') {
+			var chk = false;
+
+			$(ArrayDestinos).each(function (index) {
+				if (ArrayDestinos[index] === spvVal) chk = true;
+			});
+
+			if (!chk) {
+				ArrayDestinos.push(spvVal);
+
+				var $row = $('<div>');
+				$row.attr('id', 'row' + n_destinos).addClass('row');
+
+				var $pv = $('<div>'), $spv = $('<div>'), $dl = $('<div>');
+				$pv.addClass('form-group col-xs-5');
+				$spv.addClass('form-group col-xs-6');
+				$dl.addClass('form-group col-xs-1 text-center');
+				$row.append('<input type="hidden" name="iispv[]" id="iNispv_' + n_destinos + '" value="' + spvVal + '">');
+
+				var $namePv = $('<p>'), $nameSpv = $('<p>');
+				$namePv.addClass('form-control-static').text(pvText);
+				$pv.append($namePv);
+				$nameSpv.addClass('form-control-static').text(spvText);
+				$spv.append($nameSpv);
+
+				$dl.append('<button type="button" class="btn btn-xs btn-danger btnDel" name="btn_' + n_destinos + '" id="btndel_' + n_destinos + '"><i class="fa fa-close"></i></button>');
+				$row.append($pv).append($spv).append($dl);
+
+				$('#gpv, #gspv').removeClass('has-success');
+				$('#iNpv').val('').change();
+				if (n_destinos === 0) $('#divDestiny-inner').html('');
+				$('#divDestiny-inner').append($row);
+				$('#divDestiny').css('display', 'block');
+				n_destinos++;
+				d_spv++;
+				$('#iNnspv').val(d_spv);
+			} else {
+				swal("Error", "El punto elegido ya se encuentra en la lista de puntos agregados.", "error");
+				$('#gspv').removeClass('has-success');
+				$('#iNspv').val('');
+			}
+		}
+	});
+
+	$('#divDestiny').on('click', '.btnDel', function () {
+		console.log(ArrayDestinos);
+		var idn = $(this).attr('id').split('_').pop();
+		var valDel = $('#iNispv_' + idn).val();
+
+		$(ArrayDestinos).each(function (index) {
+			if (ArrayDestinos[index] === valDel)
+				ArrayDestinos.splice(index, 1);
+		});
+
+		console.log(ArrayDestinos);
+		$('#row' + idn).remove();
+		d_spv--;
+
+		if (d_spv === 0) {
+			n_destinos = 0;
+			$('#divDestiny-inner').html('<div class="row"><div class="form-group col-xs-12"><p><i>No se han agregado puntos de verificación.</i></p></div></div>');
+		}
+
+		$('#iNndest').val(d_spv);
+	});
+
 	$('#btnClear').click(function () {
-		$('#gname, #gversion, #gcode, #gdate, #gdatec, #gambito, #gsambito, #gtcar, #gtcode').removeClass('has-error').removeClass('has-success');
+		$('#gname, #gversion, #gcode, #gdate, #gdatec, #gambito, #gsambito, #gtcar, #gtcode, #gtcode, #gpv').removeClass('has-error').removeClass('has-success');
 		$('#iconname, #iconversion, #iconcode, #icondate, #icondatec, #iconambito, #iconsambito, #icontcar, #icontcode').removeClass('fa-remove').removeClass('fa-check');
 	});
 

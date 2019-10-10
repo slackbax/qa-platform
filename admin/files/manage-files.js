@@ -7,6 +7,12 @@ $(document).ready(function () {
             { className: "text-center" },
             { "orderable": false, width: "100px", className: "text-center" }],
         "order": [[1, "asc"]],
+        buttons: [{
+            extend: 'excel',
+            exportOptions: {
+                columns: [1, 2, 3]
+            }
+        }],
         serverSide: true,
         ajax: {
             url: 'admin/files/ajax.getServerFiles.php',

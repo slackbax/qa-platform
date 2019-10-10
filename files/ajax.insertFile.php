@@ -6,30 +6,18 @@ include("../src/fn.php");
 include("../src/sessionControl.ajax.php");
 
 if (extract($_POST)):
-    $db = new myDBC();
-    $fl = new File();
-    $idate = setDateBD($idate);
-    $idatec = setDateBD('01/' . $idatec);
-    
-    try {
-        $db->autoCommit(FALSE);
-        $ins = $fl->set($iind, $_SESSION['uc_userid'], $iname, $icode, $iversion, $idate, $idatec, $db);
-        
-        if (!$ins['estado']):
-            throw new Exception('Error al guardar los datos del documento. ' . $ins['msg'], 0);
-        endif;
+	$db = new myDBC();
+	$fl = new File();
+	$idate = setDateBD($idate);
+	$idatec = setDateBD('01/' . $idatec);
 
-        /*while ($check = current($ipvs)):
-            if ($check == 'on'):
-                $grp = $fl->setFilePV($ins['msg'], key($ipvs), $db);
+	try {
+		$db->autoCommit(FALSE);
+		$ins = $fl->set($iind, $_SESSION['uc_userid'], $iname, $icode, $iversion, $idate, $idatec, $db);
 
-                if (!$grp['estado']):
-                    throw new Exception('Error al crear puntos de verificación del documento. ' . $grp['msg'], 0);
-                endif;
-            endif;
-
-            next($ipvs);
-        endwhile;*/
+		if (!$ins['estado']):
+			throw new Exception('Error al guardar los datos del documento. ' . $ins['msg'], 0);
+		endif;
 
 		foreach ($iispv as $i => $v):
 			$grp = $fl->setFileSpv($ins['msg'], $v, $db);
@@ -38,35 +26,34 @@ if (extract($_POST)):
 				throw new Exception('Error al crear puntos de verificación del documento. ' . $grp['msg'], 0);
 			endif;
 		endforeach;
-        
-        $targetPath = $_SERVER['DOCUMENT_ROOT'] . BASEFOLDER . 'upload';
 
-        foreach ($_FILES as $aux => $file):
-            $tempFile = $file['tmp_name'][0];
-            $fileName = date('Ymd') . '_' . removeAccents(str_replace(' ', '_', $file['name'][0]));
-            $targetFile = rtrim($targetPath,'/') . '/' . $fileName;
-            
-            if(!move_uploaded_file($tempFile, $targetFile)):
-                throw new Exception("Error al subir el documento. " . print_r(error_get_last()), 0);
-            endif;
-            
-            $doc_route = 'upload/' . $fileName;
-            $ins_p = $fl->setPath($ins['msg'], $doc_route, $db);
+		$targetPath = $_SERVER['DOCUMENT_ROOT'] . BASEFOLDER . 'upload';
 
-            if (!$ins_p['estado']):
-                throw new Exception('Error al guardar el documento. ' . $ins['msg'], 0);
-            endif;
-        endforeach;
+		foreach ($_FILES as $aux => $file):
+			$tempFile = $file['tmp_name'][0];
+			$fileName = date('Ymd') . '_' . removeAccents(str_replace(' ', '_', $file['name'][0]));
+			$targetFile = rtrim($targetPath, '/') . '/' . $fileName;
 
-        $db->Commit();
-        $db->autoCommit(TRUE);
-        $response = array('type' => true, 'msg' => 'OK');
-        echo json_encode($response);
-        
-    } catch (Exception $e) {
-        $db->Rollback();
-        $db->autoCommit(TRUE);
-        $response = array('type' => false, 'msg' => $e->getMessage(), 'code' => $e->getCode());
-        echo json_encode($response);
-    }
+			if (!move_uploaded_file($tempFile, $targetFile)):
+				throw new Exception("Error al subir el documento. " . print_r(error_get_last()), 0);
+			endif;
+
+			$doc_route = 'upload/' . $fileName;
+			$ins_p = $fl->setPath($ins['msg'], $doc_route, $db);
+
+			if (!$ins_p['estado']):
+				throw new Exception('Error al guardar el documento. ' . $ins['msg'], 0);
+			endif;
+		endforeach;
+
+		$db->Commit();
+		$db->autoCommit(TRUE);
+		$response = array('type' => true, 'msg' => 'OK');
+		echo json_encode($response);
+	} catch (Exception $e) {
+		$db->Rollback();
+		$db->autoCommit(TRUE);
+		$response = array('type' => false, 'msg' => $e->getMessage(), 'code' => $e->getCode());
+		echo json_encode($response);
+	}
 endif;

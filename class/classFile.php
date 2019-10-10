@@ -514,29 +514,29 @@ class File {
 	 * @param $db
 	 * @return array
 	 */
-	public function delFilePV($arc_id, $db = null)
+	public function delFileSpv($arc_id, $db = null)
 	{
 		if (is_null($db)):
 			$db = new myDBC();
 		endif;
 
 		try {
-			$stmt = $db->Prepare("DELETE FROM uc_archivo_puntoverif WHERE arc_id = ?");
+			$stmt = $db->Prepare("DELETE FROM uc_archivo_subpuntoverif WHERE arc_id = ?");
 
 			if (!$stmt):
-				throw new Exception("La eliminación del documento-pv falló en su preparación.");
+				throw new Exception("La eliminación del documento-spv falló en su preparación.");
 			endif;
 
 			$bind = $stmt->bind_param("i", $arc_id);
 			if (!$bind):
-				throw new Exception("La eliminación del documento-pv falló en su binding.");
+				throw new Exception("La eliminación del documento-spv falló en su binding.");
 			endif;
 
 			if (!$stmt->execute()):
-				throw new Exception("La eliminación del documento-pv falló en su ejecución." . $stmt->error);
+				throw new Exception("La eliminación del documento-spv falló en su ejecución." . $stmt->error);
 			endif;
 
-			$result = array('estado' => true, 'msg' => $stmt->insert_id);
+			$result = array('estado' => true, 'msg' => 'OK');
 			return $result;
 		} catch (Exception $e) {
 			$result = array('estado' => false, 'msg' => $e->getMessage());

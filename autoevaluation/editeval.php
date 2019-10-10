@@ -173,7 +173,7 @@
                                             <td><?php echo $v['em_descripcion'] ?></td>
                                             <?php $comment = '' ?>
                                             <?php foreach ($data->pvs as $kk => $vv): ?>
-                                            <?php $aut_e = $au->getByEMPVUserDate($v['em_id'], $vv['pv_id'], $ae->aut_usid, $ae->aut_fecha) ?>
+                                            <?php $aut_e = $au->getByEmSpvUserDate($v['em_id'], $ae->aut_spvid, $ae->aut_usid, $ae->aut_fecha) ?>
                                             <?php if (!empty($aut_e->aut_comentario)) $comment = str_replace('\n', "\n", $aut_e->aut_comentario) ?>
                                             <td class="text-center">
                                                 <div class="radio">

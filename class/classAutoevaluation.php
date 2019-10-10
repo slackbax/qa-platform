@@ -78,19 +78,19 @@ class Autoevaluation {
 
 	/**
 	 * @param $em
-	 * @param $pv
+	 * @param $spv
 	 * @param $u
 	 * @param $date
 	 * @return stdClass
 	 */
-	public function getByEMPVUserDate($em, $pv, $u, $date)
+	public function getByEmSpvUserDate($em, $spv, $u, $date)
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT MAX(aut_id) AS aut_id
 								FROM uc_autoevaluacion a 
-								WHERE a.elm_id = ? AND a.pv_id = ? AND a.us_id = ? AND a.aut_fecha = ?");
+								WHERE a.elm_id = ? AND a.spv_id = ? AND a.us_id = ? AND a.aut_fecha = ?");
 
-		$stmt->bind_param("iiis", $em, $pv, $u, $date);
+		$stmt->bind_param("iiis", $em, $spv, $u, $date);
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$row = $result->fetch_assoc();
@@ -110,9 +110,14 @@ class Autoevaluation {
 	public function getFailedByPVEMDate($pv, $em, $month, $year)
 	{
 		$db = new myDBC();
-		$stmt = $db->Prepare("SELECT * 
-								FROM uc_autoevaluacion a 
-                                WHERE a.pv_id = ? AND elm_id = ? AND MONTH(a.aut_fecha) = ? AND YEAR(a.aut_fecha) = ? AND a.aut_cumplimiento = 0");
+		$stmt = $db->Prepare("SELECT *
+								FROM uc_autoevaluacion a
+								WHERE aut_id IN (
+									SELECT MAX(aut_id)
+									FROM uc_autoevaluacion 
+									WHERE pv_id = ? AND elm_id = ? AND MONTH(aut_fecha) = ? AND YEAR(aut_fecha) = ?
+									GROUP BY spv_id, ind_id, elm_id) 
+								AND aut_cumplimiento = 0");
 
 		$stmt->bind_param("iiss", $pv, $em, $month, $year);
 		$stmt->execute();

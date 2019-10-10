@@ -118,8 +118,8 @@
 
 				<div class="row">
 					<div class="form-group col-xs-6 has-feedback" id="gpv">
-						<label class="control-label" for="ipv">Punto de Verificación *</label>
-						<select class="form-control" id="iNpv" name="ipv" required>
+						<label class="control-label" for="ipv">Punto de Verificación</label>
+						<select class="form-control" id="iNpv" name="ipv">
 							<option value="">Seleccione punto</option>
 							<?php $punto = $pv->getAll() ?>
 							<?php foreach ($punto as $p): ?>
@@ -128,8 +128,8 @@
 						</select>
 					</div>
 					<div class="form-group col-xs-6 has-feedback" id="gspv">
-						<label class="control-label" for="ispv">Sub-punto *</label>
-						<select class="form-control" id="iNspv" name="ispv" required>
+						<label class="control-label" for="ispv">Sub-punto</label>
+						<select class="form-control" id="iNspv" name="ispv">
 							<option value="">Seleccione sub-punto</option>
 						</select>
 					</div>
@@ -143,7 +143,7 @@
 
 				<input type="hidden" name="inspv" id="iNnspv">
 
-				<div id="divDestiny" style="display: none; padding: 2px 10px; margin-bottom: 10px; background-color: #f2f2f2; border: 2px solid #f2f2f2">
+				<div id="divDestiny" style="padding: 2px 10px; margin-bottom: 10px; background-color: #f2f2f2; border: 2px solid #f2f2f2">
 					<h4>Sub-puntos agregados</h4>
 					<div class="row">
 						<div class="form-group col-xs-5">
@@ -157,7 +157,13 @@
 						</div>
 					</div>
 
-					<div id="divDestiny-inner"></div>
+					<div id="divDestiny-inner">
+						<div class="row">
+							<div class="form-group col-xs-12">
+								<p><i>No se han agregado puntos de verificación.</i></p>
+							</div>
+						</div>
+					</div>
 				</div>
 
                 <div class="row">
@@ -182,4 +188,4 @@
     </form>
 </section>
 
-<script src="files/uploadverif.js?v=20190828"></script>
+<script src="files/uploadverif.js?v=20191009"></script>

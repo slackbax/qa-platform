@@ -1,14 +1,17 @@
 $(document).ready(function () {
 	function validateForm() {
-		var files = true, fieldVal = $(".multi").val();
-		if (!fieldVal) files = false;
+		var validate = true, fieldVal = $(".multi").val();
+		if (!fieldVal) validate = false;
 
-		if (files) {
+		if (n_destinos === 0)
+			validate = false;
+
+		if (validate) {
 			$('#submitLoader').css('display', 'inline-block');
 			return true;
 		} else {
 			new Noty({
-				text: 'Error al registrar documento.<br>Por favor, agregue al menos un archivo al formulario.',
+				text: 'Error al registrar documento.<br>Por favor, agregue al menos un punto de verificación o archivo al formulario.',
 				type: 'error'
 			}).show();
 			return false;
@@ -251,6 +254,7 @@ $(document).ready(function () {
 
 				$('#gpv, #gspv').removeClass('has-success');
 				$('#iNpv').val('').change();
+				if (n_destinos === 0) $('#divDestiny-inner').html('');
 				$('#divDestiny-inner').append($row);
 				$('#divDestiny').css('display', 'block');
 				n_destinos++;
@@ -278,8 +282,10 @@ $(document).ready(function () {
 		$('#row' + idn).remove();
 		d_spv--;
 
-		if (d_spv === 0)
+		if (d_spv === 0) {
 			n_destinos = 0;
+			$('#divDestiny-inner').html('<div class="row"><div class="form-group col-xs-12"><p><i>No se han agregado puntos de verificación.</i></p></div></div>');
+		}
 
 		$('#iNndest').val(d_spv);
 	});

@@ -1,6 +1,6 @@
 $(document).ready(function () {
     var tableUsr = $("#tfiles").DataTable({
-        "columns": [
+        columns: [
             { "visible": false, "searchable": false }, 
             { "orderable": false, width: "15px", className: "text-center" },
             { width: "50px" },
@@ -8,7 +8,13 @@ $(document).ready(function () {
             { className: "text-center" },
             { className: "text-center" }, 
             { "orderable": false, width: "80px", className: "text-center" }],
-        "order": [[3, "asc"]],
+        order: [[3, "asc"]],
+        buttons: [{
+            extend: 'excel',
+            exportOptions: {
+                columns: [0, 2, 3, 4, 5]
+            }
+        }],
         serverSide: true,
         ajax: {
             url: 'files/ajax.getServerFiles.php',

@@ -104,7 +104,7 @@
 						<tr>
 							<td>
 								<i class="fa fa-folder-open text-red icon-table"></i>
-								<a href="index.php?section=verif-points&pvid=<?php echo $pvid ?>&tcid=<?php echo $t->tcar_id ?>"><?php echo $t->tcar_nombre ?></a>
+								<a href="index.php?section=verif-points&pvid=<?php echo $pvid ?>&spvid=<?php echo $spvid ?>&tcid=<?php echo $t->tcar_id ?>"><?php echo $t->tcar_nombre ?></a>
 							</td>
 							<td><?php echo $tc->getNumFilesBySPV($spvid, $t->tcar_id) ?></td>
 						</tr>

@@ -53,14 +53,14 @@ $columns = array(
 		}
 	),
 	array('db' => 'aut_id', 'dt' => 6, 'field' => 'aut_id',
-		'formatter' => function ($d, $row) use ($au) {
+		'formatter' => function ($d, $row) use ($au, $_admin) {
 			$auto = $au->get($d);
 			$today = new DateTime();
 			$today->modify('-7 days');
 			$d_ini = new DateTime($auto->aut_fecha_reg);
 			$string = '';
 
-			if ($today <= $d_ini)
+			if ($today <= $d_ini or $_admin)
 				$string .= '<a class="indEdit btn btn-xs btn-info" href="index.php?section=autoeval&sbs=editauto&id=' . $d . '" data-tooltip="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil"></i></a>';
 
 			return $string;

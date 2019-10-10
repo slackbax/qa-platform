@@ -1,4 +1,5 @@
 <?php
+
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
@@ -186,30 +187,30 @@ if (extract($_POST)):
 	$objSS->getActiveSheet()->setCellValue('C10', '% UMBRAL');
 	$objSS->getActiveSheet()->getStyle('C10')->applyFromArray($saCellHeader);
 	$objSS->getActiveSheet()->setCellValue('D10', 'N° VERIF. APLICAN');
-    $objSS->getActiveSheet()->getStyle('D10')->applyFromArray($saCellHeader);
+	$objSS->getActiveSheet()->getStyle('D10')->applyFromArray($saCellHeader);
 	$objSS->getActiveSheet()->setCellValue('E10', 'N° VERIF CUMPL.');
 	$objSS->getActiveSheet()->getStyle('E10')->applyFromArray($saCellHeader);
 	$objSS->getActiveSheet()->setCellValue('F10', '% CUMPLE');
 	$objSS->getActiveSheet()->getStyle('F10')->applyFromArray($saCellHeader);
 	$objSS->getActiveSheet()->setCellValue('G10', 'CUMPLE (SI / NO)');
 	$objSS->getActiveSheet()->getStyle('G10')->applyFromArray($saCellHeader);
-    $objSS->getActiveSheet()->getStyle('G10')->getBorders()->getRight()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_MEDIUM);
-    $objSS->getActiveSheet()->getStyle('D10:G10')->getAlignment()->setWrapText(true);
+	$objSS->getActiveSheet()->getStyle('G10')->getBorders()->getRight()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_MEDIUM);
+	$objSS->getActiveSheet()->getStyle('D10:G10')->getAlignment()->setWrapText(true);
 
-    $i = 11;
-    $ind_data = $ind->getByTypeCar(1);
-    $totalo_caract = 0;
-    $totalo_caract_cumplen = 0;
+	$i = 11;
+	$ind_data = $ind->getByTypeCar(1);
+	$totalo_caract = 0;
+	$totalo_caract_cumplen = 0;
 
-    foreach ($ind_data as $k => $v):
-        $objSS->getActiveSheet()->setCellValue('A' . $i, $v->samb_sigla . ' ' . $v->cod_descripcion);
-        $objSS->getActiveSheet()->getStyle('A' . $i)->applyFromArray($saCellCenter);
+	foreach ($ind_data as $k => $v):
+		$objSS->getActiveSheet()->setCellValue('A' . $i, $v->samb_sigla . ' ' . $v->cod_descripcion);
+		$objSS->getActiveSheet()->getStyle('A' . $i)->applyFromArray($saCellCenter);
 
-        $objSS->getActiveSheet()->setCellValue('B' . $i, $v->ind_descripcion);
+		$objSS->getActiveSheet()->setCellValue('B' . $i, $v->ind_descripcion);
 		$objSS->getActiveSheet()->getStyle('B' . $i)->applyFromArray($saCell);
-        $objSS->getActiveSheet()->getStyle('B' . $i)->getAlignment()->setWrapText(true);
-        
-        $objSS->getActiveSheet()->setCellValue('C' . $i, $v->ind_umbral);
+		$objSS->getActiveSheet()->getStyle('B' . $i)->getAlignment()->setWrapText(true);
+
+		$objSS->getActiveSheet()->setCellValue('C' . $i, $v->ind_umbral);
 		$objSS->getActiveSheet()->getStyle('C' . $i)->applyFromArray($saCellCenter);
 		$objSS->getActiveSheet()->getStyle('C' . $i)->getFont()->setBold(true);
 
@@ -220,12 +221,17 @@ if (extract($_POST)):
 		$objSS->getActiveSheet()->setCellValue('D' . $i, $verificables);
 		$objSS->getActiveSheet()->getStyle('D' . $i)->applyFromArray($saCellCenter);
 
-		$fail_verif = 0;
-		foreach ($puntos as $pk => $pve):
-			foreach ($elems as $ek => $ev):
+		$fail_em = 0;
+		foreach ($elems as $ek => $ev):
+			$fail_verif = 0;
+
+			foreach ($puntos as $pk => $pve):
 				$failed = $au->getFailedByPVEMDate($pve->pv_id, $ev->elm_id, $month_num, $year);
-				if (count($failed) > 0) $fail_verif++;
+				if (count($failed) > 0)
+					$fail_verif++;
 			endforeach;
+
+			if ($fail_verif > 0) $fail_em++;
 		endforeach;
 
 		$cumplidos = $verificables - $fail_verif;
@@ -247,10 +253,10 @@ if (extract($_POST)):
 		$objSS->getActiveSheet()->setCellValue('G' . $i, $cumple_str);
 		$objSS->getActiveSheet()->getStyle('G' . $i)->applyFromArray($saCellCenter);
 
-        $i++;
-        $totalo_caract++;
+		$i++;
+		$totalo_caract++;
 	endforeach;
-	
+
 	$objSS->getActiveSheet()->getStyle('A' . $i . ':G' . $i)->getBorders()->getTop()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_MEDIUM);
 	$i += 2;
 
@@ -280,23 +286,23 @@ if (extract($_POST)):
 	$objSS->getActiveSheet()->getStyle('F' . $i)->applyFromArray($saCellHeader);
 	$objSS->getActiveSheet()->setCellValue('G' . $i, 'CUMPLE (SI / NO)');
 	$objSS->getActiveSheet()->getStyle('G' . $i)->applyFromArray($saCellHeader);
-    $objSS->getActiveSheet()->getStyle('G' . $i)->getBorders()->getRight()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_MEDIUM);
-    $objSS->getActiveSheet()->getStyle('D' . $i . ':G' . $i)->getAlignment()->setWrapText(true);
+	$objSS->getActiveSheet()->getStyle('G' . $i)->getBorders()->getRight()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_MEDIUM);
+	$objSS->getActiveSheet()->getStyle('D' . $i . ':G' . $i)->getAlignment()->setWrapText(true);
 
-    $i++;
-    $ind_data = $ind->getByTypeCar(2);
+	$i++;
+	$ind_data = $ind->getByTypeCar(2);
 	$totalno_caract = 0;
 	$totalno_caract_cumplen = 0;
 
-    foreach ($ind_data as $k => $v):
-        $objSS->getActiveSheet()->setCellValue('A' . $i, $v->samb_sigla . ' ' . $v->cod_descripcion);
-        $objSS->getActiveSheet()->getStyle('A' . $i)->applyFromArray($saCellCenter);
+	foreach ($ind_data as $k => $v):
+		$objSS->getActiveSheet()->setCellValue('A' . $i, $v->samb_sigla . ' ' . $v->cod_descripcion);
+		$objSS->getActiveSheet()->getStyle('A' . $i)->applyFromArray($saCellCenter);
 
-        $objSS->getActiveSheet()->setCellValue('B' . $i, $v->ind_descripcion);
+		$objSS->getActiveSheet()->setCellValue('B' . $i, $v->ind_descripcion);
 		$objSS->getActiveSheet()->getStyle('B' . $i)->applyFromArray($saCell);
-        $objSS->getActiveSheet()->getStyle('B' . $i)->getAlignment()->setWrapText(true);
-        
-        $objSS->getActiveSheet()->setCellValue('C' . $i, $v->ind_umbral);
+		$objSS->getActiveSheet()->getStyle('B' . $i)->getAlignment()->setWrapText(true);
+
+		$objSS->getActiveSheet()->setCellValue('C' . $i, $v->ind_umbral);
 		$objSS->getActiveSheet()->getStyle('C' . $i)->applyFromArray($saCellCenter);
 		$objSS->getActiveSheet()->getStyle('C' . $i)->getFont()->setBold(true);
 
@@ -334,9 +340,9 @@ if (extract($_POST)):
 		$objSS->getActiveSheet()->setCellValue('G' . $i, $cumple_str);
 		$objSS->getActiveSheet()->getStyle('G' . $i)->applyFromArray($saCellCenter);
 
-        $i++;
-        $totalno_caract++;
-    endforeach;
+		$i++;
+		$totalno_caract++;
+	endforeach;
 
 	$objSS->getActiveSheet()->getStyle('A' . $i . ':G' . $i)->getBorders()->getTop()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_MEDIUM);
 	$i += 2;

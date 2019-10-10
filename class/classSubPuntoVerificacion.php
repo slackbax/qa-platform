@@ -122,6 +122,30 @@ class SubPuntoVerificacion {
 	}
 
 	/**
+	 * @param $id
+	 * @return array
+	 */
+	public function getByFile($id)
+	{
+		$db = new myDBC();
+		$stmt = $db->Prepare("SELECT DISTINCT(spv.spv_id) FROM uc_archivo_subpuntoverif a
+									JOIN uc_subpunto_verif spv ON a.spv_id = spv.spv_id
+									WHERE a.arc_id = ?");
+
+		$stmt->bind_param("i", $id);
+		$stmt->execute();
+		$result = $stmt->get_result();
+		$lista = [];
+
+		while ($row = $result->fetch_assoc()):
+			$lista[] = $this->get($row['spv_id']);
+		endwhile;
+
+		unset($db);
+		return $lista;
+	}
+
+	/**
 	 * @param $ie
 	 * @param $spv
 	 * @param null $db
