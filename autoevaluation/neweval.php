@@ -24,7 +24,7 @@
                 <div class="row">
                     <div class="form-group col-sm-6 has-feedback" id="gname">
                         <label class="control-label" for="iname">Nombre Evaluado *</label>
-                        <input type="text" class="form-control" id="iNname" name="iname" placeholder="Ingrese nombre del o los encargados de la característica" maxlength="250" required>
+                        <input type="text" class="form-control" id="iNname" name="iname" placeholder="Ingrese nombre de el o los encargados de la característica" maxlength="250" required>
                         <i class="fa form-control-feedback" id="iconname"></i>
                     </div>
                 </div>

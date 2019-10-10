@@ -49,9 +49,12 @@ class File {
 		$obj->arc_ext = pathinfo($row['arc_path'], PATHINFO_EXTENSION);
 		$obj->arc_publicado = $row['arc_publicado'];
 
-		$stmt_pv = $db->Prepare("SELECT spv_nombre FROM uc_subpunto_verif spv 
+		$stmt_pv = $db->Prepare("SELECT spv_nombre, pv_nombre 
+								FROM uc_subpunto_verif spv 
                                 JOIN uc_archivo_subpuntoverif ap ON spv.spv_id = ap.spv_id
-                                WHERE arc_id = ?");
+								JOIN uc_punto_verificacion upv on spv.pv_id = upv.pv_id
+                                WHERE arc_id = ?
+                                ORDER BY pv_nombre ASC, spv_nombre ASC");
 
 		$stmt_pv->bind_param("i", $id);
 		$stmt_pv->execute();
@@ -59,7 +62,7 @@ class File {
 		$array = [];
 
 		while ($row = $result_pv->fetch_assoc()):
-			$array[] = utf8_encode($row['spv_nombre']);
+			$array[] = utf8_encode($row['pv_nombre'] . ' - ' . $row['spv_nombre']);
 		endwhile;
 
 		$obj->arc_pvs = $array;

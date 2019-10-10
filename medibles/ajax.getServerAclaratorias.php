@@ -45,7 +45,7 @@ $columns = array(
 	),
 	array('db' => 'acl_fecha', 'dt' => 2, 'field' => 'acl_fecha',
 		'formatter' => function ($d, $row) {
-	  		return getDateBD($d);
+	  		return getDateToForm($d);
   		}
 	),
 	array('db' => 'acl_resolucion', 'dt' => 3, 'field' => 'acl_resolucion'),

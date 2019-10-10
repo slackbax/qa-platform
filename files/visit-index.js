@@ -14,15 +14,16 @@ $(document).ready(function () {
 
 	$(".fileModal").click(function () {
 		var fid = $(this).attr('id').split("_").pop();
-		$("#f_name").html('');
-		$("#f_char").html('');
-		$("#f_code").html('');
-		$("#f_edition").html('');
-		$("#f_date_c").html('');
-		$("#f_date").html('');
-		$("#f_date_v").html('');
-		$("#f_type").html('');
-		$("#f_downloads").html('');
+		$("#f_name").html('<i class="fa fa-spin fa-spinner"></i>');
+		$("#f_char").html('<i class="fa fa-spin fa-spinner"></i>');
+		$("#f_code").html('<i class="fa fa-spin fa-spinner"></i>');
+		$("#f_edition").html('<i class="fa fa-spin fa-spinner"></i>');
+		$("#f_date_c").html('<i class="fa fa-spin fa-spinner"></i>');
+		$("#f_date").html('<i class="fa fa-spin fa-spinner"></i>');
+		$("#f_date_v").html('<i class="fa fa-spin fa-spinner"></i>');
+		$("#f_type").html('<i class="fa fa-spin fa-spinner"></i>');
+		$("#f_user").html('<i class="fa fa-spin fa-spinner"></i>');
+		$("#f_downloads").html('<i class="fa fa-spin fa-spinner"></i>');
 		$("#f_path").attr('href', null);
 
 		$.ajax({

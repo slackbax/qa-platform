@@ -9,11 +9,11 @@ $(document).ready( function() {
 			{ "width": "40px" },
 			null,
 			{ "visible": false },
+			{ "width": "120px" },
+			{ "visible": false },
+			{ "visible": false },
+			{ "visible": false },
 			null,
-			{ "visible": false },
-			{ "visible": false },
-			{ "visible": false },
-			{ "width": "50px" },
 			{ "visible": false },
 			{ "visible": false },
 			{ "visible": false },
@@ -33,7 +33,14 @@ $(document).ready( function() {
 		ajax: {
 			url: 'events/ajax.getServerSteril.php',
 			type: 'GET',
-			length: 20
+			length: 20,
+			beforeSend: function () {
+				$('#tfiles > tbody').html(
+					'<tr class="odd">' +
+					'<td colspan="9" class="dataTables_empty text-orange"><i class="fa fa-cog fa-spin fa-fw"></i> <i>Cargando data...</i></td>' +
+					'</tr>'
+				);
+			},
 		}
 	});
 

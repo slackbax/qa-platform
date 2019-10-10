@@ -21,7 +21,14 @@ $(document).ready(function () {
 		ajax: {
 			url: 'autoevaluation/ajax.getServerAutoevaluations.php',
 			type: 'GET',
-			length: 20
+			length: 20,
+			beforeSend: function () {
+				$('#tfiles > tbody').html(
+					'<tr class="odd">' +
+					'<td colspan="9" class="dataTables_empty text-orange"><i class="fa fa-cog fa-spin fa-fw"></i> <i>Cargando data...</i></td>' +
+					'</tr>'
+				);
+			},
 		}
 	});
 });
