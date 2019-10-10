@@ -1,5 +1,5 @@
 <section class="content-header">
-	<h1>Repositorio de Archivos
+	<h1>Multimedia
 		<small><i class="fa fa-angle-right"></i> Medios relacionados a la Subdirección</small>
 	</h1>
 

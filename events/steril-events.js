@@ -1,6 +1,6 @@
 $(document).ready( function() {
 	var tableFiles = $("#tfiles").DataTable({
-		"columns": [ { "visible": false },
+		columns: [ { "visible": false },
 			{ "width": "50px" },
 			{ "width": "50px" },
 			{ "visible": false },
@@ -20,8 +20,8 @@ $(document).ready( function() {
 			{ "visible": false },
 			{ "visible": false },
 			{ "width": "70px", className: "text-center", "orderable": false } ],
-		'order': [[ 2, 'desc' ], [ 3, 'asc' ]],
-		'buttons': [
+		order: [[ 2, 'desc' ], [ 3, 'asc' ]],
+		buttons: [
 			{
 				extend: 'excel',
 				exportOptions: {

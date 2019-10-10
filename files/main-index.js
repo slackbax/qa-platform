@@ -1,11 +1,11 @@
 $(document).ready(function () {
     $("#tcaract").DataTable({
-        "columns": [null, { "width": "20%", className: "text-center" }],
-        "order": [[0, "desc"]]
+        columns: [null, { "width": "20%", className: "text-center" }],
+        order: [[0, "desc"]]
     });
 
     $("#tfiles").DataTable({
-        "columns": [null, { "width": "20%", className: "text-center" }]
+        columns: [null, { "width": "20%", className: "text-center" }]
     });
 
     $(".fileModal").click(function () {

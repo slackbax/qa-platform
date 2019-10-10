@@ -1,12 +1,12 @@
 $(document).ready(function () {
     var tableUsr = $("#tfiles").DataTable({
-        "columns": [
+        columns: [
             { "orderable": false, width: "20px", className: "text-center" },
             null,
             { className: "text-center" },
             { className: "text-center" },
             { "orderable": false, width: "100px", className: "text-center" }],
-        "order": [[1, "asc"]],
+        order: [[1, "asc"]],
         buttons: [{
             extend: 'excel',
             exportOptions: {

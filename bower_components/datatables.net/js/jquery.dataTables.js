@@ -9914,7 +9914,7 @@
 		 *          ['Trident', 'Internet Explorer 4.0', 'Win 95+', 4, 'X'],
 		 *          ['Trident', 'Internet Explorer 5.0', 'Win 95+', 5, 'C'],
 		 *        ],
-		 *        "columns": [
+		 *        columns: [
 		 *          { "title": "Engine" },
 		 *          { "title": "Browser" },
 		 *          { "title": "Platform" },
@@ -9944,7 +9944,7 @@
 		 *            "grade":    "C"
 		 *          }
 		 *        ],
-		 *        "columns": [
+		 *        columns: [
 		 *          { "title": "Engine",   "data": "engine" },
 		 *          { "title": "Browser",  "data": "browser" },
 		 *          { "title": "Platform", "data": "platform" },

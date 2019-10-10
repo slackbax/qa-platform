@@ -1,6 +1,6 @@
 $(document).ready(function () {
 	var tableUsr = $("#tfiles").DataTable({
-		"columns": [
+		columns: [
             {width: "20px", className: "text-center"},
             {width: "80px", className: "text-center"},
             {"orderable": false, width: "100px", className: "text-center"},
@@ -8,8 +8,8 @@ $(document).ready(function () {
 			null,
 			{width: "80px", className: "text-center"},
 			{"orderable": false, width: "50px", className: "text-center"}],
-		"order": [[0, "desc"]],
-        'buttons': [
+		order: [[0, "desc"]],
+        buttons: [
             {
                 extend: 'excel',
                 exportOptions: {

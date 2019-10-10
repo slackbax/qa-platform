@@ -274,46 +274,6 @@
 					</a>
 				</li>
 
-				<?php if ($_login): ?>
-					<li class="treeview<?php if (isset($section) and $section == 'adv-event'): ?> active<?php endif; ?>">
-						<a href="#">
-							<i class="fa fa-ban"></i>
-							<span class="menu-item">Eventos Adversos</span>
-							<span class="pull-right-container">
-								<i class="fa fa-angle-left pull-right"></i>
-							</span>
-						</a>
-						<ul class="treeview-menu">
-							<li <?php if (isset($sbs) and $sbs == 'createevent'): ?> class="active"<?php endif ?>>
-								<a href="index.php?section=adv-event&sbs=createevent">
-									<i class="fa fa-circle-o text-orange"></i>
-									<span class="menu-item">Ingreso de Evento</span>
-								</a>
-							</li>
-							<li <?php if (isset($sbs) and $sbs == 'viewevents'): ?> class="active"<?php endif ?>>
-								<a href="index.php?section=adv-event&sbs=viewevents">
-									<i class="fa fa-circle-o text-orange"></i>
-									<span class="menu-item">Eventos registrados</span>
-								</a>
-							</li>
-							<?php if ($_admin or $_calidad or $_SESSION['uc_userid'] == 74): ?>
-								<li <?php if (isset($sbs) and $sbs == 'eventsteril'): ?> class="active"<?php endif ?>>
-									<a href="index.php?section=adv-event&sbs=eventsteril">
-										<i class="fa fa-circle-o text-orange"></i>
-										<span class="menu-item">Eventos de Esterilización</span>
-									</a>
-								</li>
-							<?php endif ?>
-							<li <?php if (isset($sbs) and $sbs == 'exportevent'): ?> class="active"<?php endif ?>>
-								<a href="index.php?section=adv-event&sbs=exportevent">
-									<i class="fa fa-circle-o text-orange"></i>
-									<span class="menu-item">Exportación de Eventos individuales</span>
-								</a>
-							</li>
-						</ul>
-					</li>
-				<?php endif ?>
-
 				<?php $fol = $fo->getMain(); ?>
 				<?php foreach ($fol as $folder): ?>
 					<li class="treeview<?php if (isset($section) and $section == 'other-files'): ?> active<?php endif; ?>">
@@ -402,6 +362,46 @@
 								<a href="index.php?section=autoeval&sbs=generatereportbychar">
 									<span class="fa fa-circle-o text-orange"></span>
 									<span class="menu-item">Exportación de autoevaluación por características</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+				<?php endif ?>
+
+				<?php if ($_login): ?>
+					<li class="treeview<?php if (isset($section) and $section == 'adv-event'): ?> active<?php endif; ?>">
+						<a href="#">
+							<i class="fa fa-ban"></i>
+							<span class="menu-item">Eventos Adversos</span>
+							<span class="pull-right-container">
+								<i class="fa fa-angle-left pull-right"></i>
+							</span>
+						</a>
+						<ul class="treeview-menu">
+							<li <?php if (isset($sbs) and $sbs == 'createevent'): ?> class="active"<?php endif ?>>
+								<a href="index.php?section=adv-event&sbs=createevent">
+									<i class="fa fa-circle-o text-orange"></i>
+									<span class="menu-item">Ingreso de Evento</span>
+								</a>
+							</li>
+							<li <?php if (isset($sbs) and $sbs == 'viewevents'): ?> class="active"<?php endif ?>>
+								<a href="index.php?section=adv-event&sbs=viewevents">
+									<i class="fa fa-circle-o text-orange"></i>
+									<span class="menu-item">Eventos registrados</span>
+								</a>
+							</li>
+							<?php if ($_admin or $_calidad or $_SESSION['uc_userid'] == 74): ?>
+								<li <?php if (isset($sbs) and $sbs == 'eventsteril'): ?> class="active"<?php endif ?>>
+									<a href="index.php?section=adv-event&sbs=eventsteril">
+										<i class="fa fa-circle-o text-orange"></i>
+										<span class="menu-item">Eventos de Esterilización</span>
+									</a>
+								</li>
+							<?php endif ?>
+							<li <?php if (isset($sbs) and $sbs == 'exportevent'): ?> class="active"<?php endif ?>>
+								<a href="index.php?section=adv-event&sbs=exportevent">
+									<i class="fa fa-circle-o text-orange"></i>
+									<span class="menu-item">Exportación de Eventos individuales</span>
 								</a>
 							</li>
 						</ul>

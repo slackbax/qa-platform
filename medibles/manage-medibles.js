@@ -1,6 +1,6 @@
 $(document).ready(function () {
 	var tableUsr = $("#tfiles").DataTable({
-		"columns": [
+		columns: [
 			{ width: "20px", className: "text-center" },
 			{ "orderable": false, width: "20px", className: "text-center" },
 			{ width: "50px", className: "text-center" },
@@ -17,7 +17,7 @@ $(document).ready(function () {
 	});
 
 	var tableAcl = $("#tacl").DataTable({
-		"columns": [
+		columns: [
 			{ width: "20px", className: "text-center" },
 			{ "orderable": false, width: "20px", className: "text-center" },
 			{ width: "80px", className: "text-center" },

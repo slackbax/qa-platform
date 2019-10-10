@@ -42,18 +42,18 @@ $.fn.datepicker.defaults.language = 'es';
 $.fn.datepicker.defaults.orientation = 'bottom left';
 
 $.extend($.fn.dataTable.defaults, {
-	'dom': "<'row'<'col-md-4'B><'col-md-4 text-center'l><'col-md-4'f>>" + "<'row'<'col-md-12't>>" + "<'row'<'col-md-6'i><'col-md-6'p>>",
-	'buttons': ['excel'],
-	'paging': true,
-	'lengthChange': true,
-	'searching': true,
-	'ordering': true,
-	'info': true,
-	'autoWidth': false,
-	'language': {'url': 'bower_components/datatables.net/Spanish.json'},
-	'order': [[0, 'desc']],
-	'lengthMenu': [[20, 50, 100, -1], [20, 50, 100, 'Todo']],
-	'pageLength': 20
+	dom: "<'row'<'col-md-4'B><'col-md-4 text-center'l><'col-md-4'f>>" + "<'row'<'col-md-12't>>" + "<'row'<'col-md-6'i><'col-md-6'p>>",
+	buttons: ['excel'],
+	paging: true,
+	lengthChange: true,
+	searching: true,
+	ordering: true,
+	info: true,
+	autoWidth: false,
+	language: {'url': 'bower_components/datatables.net/Spanish.json'},
+	order: [[0, 'desc']],
+	lengthMenu: [[20, 50, 100, -1], [20, 50, 100, 'Todo']],
+	pageLength: 20
 });
 
 $.fn.dataTable.moment = function ( format, locale ) {

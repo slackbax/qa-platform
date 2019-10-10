@@ -1,13 +1,13 @@
 $(document).ready(function () {
 	var tableUsr = $("#tusers").DataTable({
-		"columns": [
+		columns: [
 			null,
 			null,
 			null,
 			null,
 			{className: "text-center"},
 			{"orderable": false, width: "100px", className: "text-center"}],
-		"order": [[1, 'asc'], [2, 'asc']],
+		order: [[1, 'asc'], [2, 'asc']],
 		serverSide: true,
 		ajax: {
 			url: 'admin/users/ajax.getServerUsers.php',

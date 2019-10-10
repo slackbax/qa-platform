@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $("#tfiles").DataTable({
-        "columns": [null, { "width": "20%", className: "text-center" }]
+        columns: [null, { "width": "20%", className: "text-center" }]
     });
 
     $(".fileModal").click(function () {

@@ -1,6 +1,6 @@
 $(document).ready(function () {
 	var tableUsr = $("#tfiles").DataTable({
-		"columns": [
+		columns: [
 			{ width: "20px", className: "text-center" },
 			{ "orderable": false, width: "20px", className: "text-center" },
 			null,
@@ -9,7 +9,7 @@ $(document).ready(function () {
 			{ "visible": false },
 			{ "visible": false },
 			{ "orderable": false, width: "60px", className: "text-center" }],
-		"order": [[0, "asc"]],
+		order: [[0, "asc"]],
 		serverSide: true,
 		ajax: {
 			url: 'indicators/ajax.getServerIndicators.php',
