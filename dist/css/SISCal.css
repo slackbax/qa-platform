@@ -209,39 +209,6 @@ a:focus {
   margin-right : 4px;
   top          : 2px;
 }
-.iico-unk {
-  background-image : url('../img/icons/unknown.png');
-}
-.iico-xls {
-  background-image : url('../img/icons/excel.png');
-}
-.iico-xls-min {
-  background-image : url('../img/icons/excel_m.png');
-}
-.iico-doc {
-  background-image : url('../img/icons/word.png');
-}
-.iico-doc-min {
-  background-image : url('../img/icons/word_m.png');
-}
-.iico-ppt {
-  background-image : url('../img/icons/powerpoint.png');
-}
-.iico-pdf-min {
-  background-image : url("../img/icons/reader_m.png");
-}
-.iico-pdf {
-  background-image : url('../img/icons/reader.png');
-}
-.iico-img {
-  background-image : url('../img/icons/image.png');
-}
-.iico-vid {
-  background-image : url('../img/icons/video.png');
-}
-.iico-rar {
-  background-image : url('../img/icons/rar.png');
-}
 /* Time Format */
 span.time {
   color     : #999;
@@ -1693,7 +1660,6 @@ span.time {
 .box.box-solid.box-default > .box-header {
   color            : #444444;
   background       : #d2d6de;
-  background-color : #d2d6de;
 }
 .box.box-solid.box-default > .box-header a,
 .box.box-solid.box-default > .box-header .btn {
@@ -1705,7 +1671,6 @@ span.time {
 .box.box-solid.box-primary > .box-header {
   color            : #ffffff;
   background       : #3c8dbc;
-  background-color : #3c8dbc;
 }
 .box.box-solid.box-primary > .box-header a,
 .box.box-solid.box-primary > .box-header .btn {
@@ -5211,35 +5176,6 @@ td > .radio label {
   color      : white;
 }
 /*
- * Component: Back-to-top Button
- * -----------------------------
- */
-.scrollToTop {
-  width               : 56px;
-  height              : 75px;
-  padding-top         : 40px;
-  text-align          : center;
-  font-size           : 11px;
-  font-weight         : bold;
-  color               : #fff;
-  position            : fixed;
-  top                 : 59px;
-  right               : 8px;
-  display             : none;
-  background-color    : #222;
-  background-image    : url('../img/icons/go_top.png');
-  background-repeat   : no-repeat;
-  background-position : 50% 5px;
-  opacity             : .5;
-  transition          : opacity 0.2s ease 0s;
-  border-radius       : 2px;
-}
-.scrollToTop:hover {
-  cursor  : pointer;
-  color   : white;
-  opacity : .8;
-}
-/*
  * Component: Table Tweaks
  * -----------------------------
  */
@@ -5359,50 +5295,6 @@ button.btn-xs, a.btn-xs {
   width        : 24px;
   margin-right : 4px;
   top          : 6px;
-}
-.iico-unk {
-  background-image  : url('../img/icons/unknown.png');
-  background-repeat : no-repeat;
-}
-.iico-xls {
-  background-image  : url('../img/icons/excel.png');
-  background-repeat : no-repeat;
-}
-.iico-xls-min {
-  background-image  : url('../img/icons/excel_m.png');
-  background-repeat : no-repeat;
-}
-.iico-doc {
-  background-image  : url('../img/icons/word.png');
-  background-repeat : no-repeat;
-}
-.iico-doc-min {
-  background-image  : url('../img/icons/word_m.png');
-  background-repeat : no-repeat;
-}
-.iico-ppt {
-  background-image  : url('../img/icons/powerpoint.png');
-  background-repeat : no-repeat;
-}
-.iico-pdf {
-  background-image  : url('../img/icons/reader.png');
-  background-repeat : no-repeat;
-}
-.iico-pdf-min {
-  background-image  : url('../img/icons/reader_m.png');
-  background-repeat : no-repeat;
-}
-.iico-img {
-  background-image  : url('../img/icons/image.png');
-  background-repeat : no-repeat;
-}
-.iico-vid {
-  background-image  : url('../img/icons/video.png');
-  background-repeat : no-repeat;
-}
-.iico-rar {
-  background-image  : url('../img/icons/rar.png');
-  background-repeat : no-repeat;
 }
 .iico-transversal {
   background-image  : url('../img/icons/transversal.png');
@@ -5570,24 +5462,21 @@ button.btn-xs, a.btn-xs {
   clear          : both;
   width          : 100%;
   padding        : 5px;
-  padding-bottom : 5px;
   font-size      : 12px;
 }
 .td-div-t {
   min-height    : 18px;
   margin        : 0;
-  padding       : 0;
+  padding       : 0 20px 0 0;
   float         : left;
   width         : 150px;
   text-align    : right;
-  padding-right : 20px;
   font-weight   : bold;
 }
 .td-div-i {
   min-height  : 18px;
-  margin      : 0;
+  margin      : 0 150px 0 0;
   padding     : 0;
-  margin-left : 150px;
 }
 .first-tdiv {
   margin-top : 6px;

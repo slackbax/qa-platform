@@ -30,7 +30,7 @@ $(document).ready(function () {
         }).done(function (d) {
             console.log(d);
             if (d.arc_id !== null) {
-                $("#f_path").data('ident', d.arc_id);
+                $("#f_path").data('ident', d.arc_id).attr('href', d.arc_path);
                 $("#f_name").html('<i class="fa fa-chevron-right"></i> ' + d.arc_nombre);
                 $("#f_char").html(d.arc_char);
                 $("#f_code").html(d.arc_codigo);
@@ -41,7 +41,6 @@ $(document).ready(function () {
                 $("#f_type").html(getExt(d.arc_path));
 				$("#f_pvs").html('');
                 $("#f_downloads").html(d.arc_descargas);
-                $("#f_path").attr('href', d.arc_path);
 
                 $.each(d.arc_pvs, function (k, v) {
                     $("#f_pvs").append('<i class="fa fa-check"></i> ' + v + '<br>');
