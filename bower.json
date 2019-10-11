@@ -65,7 +65,8 @@
     "sweetalert2": "^7.12.11",
     "number-format.js": "^1.1.11",
     "devbridge-autocomplete": "^1.4.9",
-    "phpmailer": "^6.0.7"
+    "phpmailer": "^6.0.7",
+    "lightgallery": "^1.6.12"
   },
   "resolutions": {
     "jquery": "^3.4.1"

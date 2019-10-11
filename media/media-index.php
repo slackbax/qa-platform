@@ -42,10 +42,33 @@
 		</div>
 
 		<div class="box-header with-border">
-			<h3 class="box-title">Imágenes</h3>
+			<h3 class="box-title">Galerías</h3>
 		</div>
 
 		<div class="box-body">
+			<div class="row">
+				<div class="col-sm-4 col-sm-offset-4" style="margin-bottom: 20px">
+					<a class="btn btn-default btn-block" href="dist/img/medios/triptico_comite.pdf" target="_blank"><i class="fa fa-file-pdf-o text-red"></i> Descargar Tríptico comité Acreditación 2020</a>
+				</div>
+			</div>
+
+			<div id="media-gallery" class="lightgallery justified-gallery">
+				<ul class="list-unstyled">
+					<?php for ($i = 1; $i < 15; $i++): ?>
+						<?php $index = ($i < 10) ? '0' . $i : $i ?>
+						<li class="col-xs-6 col-sm-2 item" data-src="dist/img/medios/Reacreditacion2020-<?php echo $index ?>.jpg" data-sub-html=".caption">
+							<a>
+								<img class="img-responsive" alt="Imagen 1" src="dist/img/medios/Reacreditacion2020-<?php echo $index ?>.jpg">
+								<div class="gallery-poster">
+									<img alt="zoom" src="dist/img/zoom.png">
+								</div>
+							</a>
+						</li>
+					<?php endfor ?>
+				</ul>
+			</div>
 		</div>
 	</div>
 </section>
+
+<script src="media/media-index.js?v=20190828"></script>

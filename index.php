@@ -77,6 +77,8 @@
 	<link rel="stylesheet" href="bower_components/noty/lib/noty.css">
 	<!-- iCheck -->
 	<link rel="stylesheet" href="plugins/iCheck/all.css">
+	<!-- lightGallery -->
+	<link rel="stylesheet" href="bower_components/lightgallery/dist/css/lightGallery.css" />
 	<!-- Theme style -->
 	<link rel="stylesheet" href="dist/css/SISCal.css">
 	<link rel="stylesheet" href="dist/css/skins/skin-yellow-light.min.css">
@@ -517,6 +519,10 @@
 <script src="bower_components/multifile/jquery.MultiFile.min.js"></script>
 <!-- iCheck -->
 <script src="plugins/iCheck/icheck.min.js"></script>
+<!-- lightGallery -->
+<script src="bower_components/lightgallery/dist/js/lightgallery.js"></script>
+<script src="bower_components/lightgallery/modules/lg-thumbnail.min.js"></script>
+<script src="bower_components/lightgallery/modules/lg-fullscreen.min.js"></script>
 <!-- SISCal App -->
 <script src="dist/js/siscal.min.js"></script>
 <script src="dist/js/jquery.Rut.min.js"></script>
