@@ -78,7 +78,7 @@
 	<!-- iCheck -->
 	<link rel="stylesheet" href="plugins/iCheck/all.css">
 	<!-- lightGallery -->
-	<link rel="stylesheet" href="bower_components/lightgallery/dist/css/lightGallery.css" />
+	<link rel="stylesheet" href="bower_components/lightgallery/dist/css/lightgallery.css">
 	<!-- Theme style -->
 	<link rel="stylesheet" href="dist/css/SISCal.css">
 	<link rel="stylesheet" href="dist/css/skins/skin-yellow-light.min.css">

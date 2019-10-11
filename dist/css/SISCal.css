@@ -5484,8 +5484,11 @@ button.btn-xs, a.btn-xs {
  * Component: Gallery
  * -----------------------------
  */
+.lightgallery > ul {
+  list-style : none;
+}
 .lightgallery > ul > li {
-  padding: 1px;
+  padding : 1px;
 }
 .lightgallery > ul > li a {
   display  : block;
