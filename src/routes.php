@@ -103,7 +103,7 @@ elseif ($section == 'folders' and ($_admin or $_calidad)):
 	if ($sbs == 'createfolder'):
 		include 'admin/folders/create-folder.php';
 	elseif ($sbs == 'managefolders'):
-		include 'admin/folders/manage-folder.php';
+		include 'admin/folders/manage-folders.php';
 	elseif ($sbs == 'editfolder'):
 		include 'admin/folders/edit-folder.php';
 	else:
