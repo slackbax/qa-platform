@@ -13,14 +13,16 @@ $(document).ready(function () {
 			$.ajax({
 				type: "POST",
 				url: "admin/users/ajax.existUsername.php",
+				dataType: 'json',
 				data: {username: $('#iusername').val()}
-			}).done(function (msg) {
+			}).done(function (resp) {
 				$('#iconUsername').css('display', 'block');
 
-				if (msg === '1') {
+				if (resp['msg'] === true) {
 					_vUser = false;
 					$('#divUsername').addClass('has-error');
 					$('#iconUsername').addClass('fa-remove');
+					$('#iusername').val('');
 
 					new Noty({
 						text: 'El nombre de usuario elegido ya se encuentra registrado.<br>Por favor, escoja un nombre de usuario diferente.',

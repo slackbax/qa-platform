@@ -116,7 +116,7 @@ class User {
 
 	/**
 	 * @param $user
-	 * @return array
+	 * @return array|false|mysqli_result
 	 */
     public function existsUser($user) {
         $db = new myDBC();

@@ -68,7 +68,7 @@ $last_f = 8; ?>
 			</div>
 			
 			<div class="row text-center" style="margin-bottom: 15px">
-				<a href="index.php?section=media"><img alt="Banner Acreditacion 2020" src="dist/img/banner_acreditacion.png"></a>
+				<a href="index.php?section=media"><img alt="Banner Acreditacion 2020" src="dist/img/banner_acreditacion.jpg"></a>
 			</div>
 
 			<div class="box box-warning">
