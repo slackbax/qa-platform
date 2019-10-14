@@ -24,14 +24,14 @@
 
 			<div class="box-body">
 				<div class="row">
-					<div class="form-group col-xs-6 has-feedback" id="gname">
+					<div class="form-group col-sm-6 has-feedback" id="gname">
 						<label class="control-label" for="iname">Nombres *</label>
 						<input type="hidden" name="id" value="<?php echo $_SESSION['uc_userid'] ?>">
 						<input type="text" class="form-control" id="iNname" name="iname" placeholder="Ingrese nombres del usuario" value="<?php echo $u->us_nombres ?>" required>
 						<i class="fa form-control-feedback" id="iconname"></i>
 					</div>
 
-					<div class="form-group col-xs-6 has-feedback" id="glastnamep">
+					<div class="form-group col-sm-6 has-feedback" id="glastnamep">
 						<label for="ilastnamep">Apellido Paterno *</label>
 						<input type="text" class="form-control" id="iNlastnamep" name="ilastnamep" placeholder="Ingrese apellido paterno" value="<?php echo $u->us_ap ?>" required>
 						<i class="fa form-control-feedback" id="iconlastnamep"></i>
@@ -39,13 +39,13 @@
 				</div>
 
 				<div class="row">
-					<div class="form-group col-xs-6 has-feedback" id="glastnamem">
+					<div class="form-group col-sm-6 has-feedback" id="glastnamem">
 						<label class="control-label" for="ilastnamem">Apellido Materno *</label>
 						<input type="text" class="form-control" id="iNlastnamem" name="ilastnamem" placeholder="Ingrese apellido materno" value="<?php echo $u->us_am ?>" required>
 						<i class="fa form-control-feedback" id="iconname"></i>
 					</div>
 
-					<div class="form-group col-xs-6 has-feedback" id="gemail">
+					<div class="form-group col-sm-6 has-feedback" id="gemail">
 						<label class="control-label" for="iemail">Correo Electrónico *</label>
 
 						<input type="text" class="form-control" id="iNemail" name="iemail" placeholder="Ingrese e-mail" value="<?php echo $u->us_email ?>" required>
@@ -54,7 +54,7 @@
 				</div>
 
 				<div class="row">
-					<div class="form-group col-xs-12">
+					<div class="form-group col-sm-12">
 						<label for="iuserimage">Imagen de Cuenta</label>
 						<div class="controls">
 							<img src="dist/img/<?php echo $u->us_pic ?>" width="100" height="100">

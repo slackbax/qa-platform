@@ -24,24 +24,24 @@
 
             <div class="box-body">
                 <div class="row">
-                    <div class="form-group col-xs-6">
+                    <div class="form-group col-sm-6">
                         <label for="iname">Nombres</label>
                         <input type="text" class="form-control" id="iname" name="iname" placeholder="Ingrese nombres del usuario" required>
                     </div>
 
-                    <div class="form-group col-xs-6">
+                    <div class="form-group col-sm-6">
                         <label for="ilastnamep">Apellido Paterno</label>
                         <input type="text" class="form-control" id="ilastnamep" name="ilastnamep" placeholder="Ingrese apellido paterno" required>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="form-group col-xs-6">
+                    <div class="form-group col-sm-6">
                         <label for="ilastnamem">Apellido Materno</label>
                         <input type="text" class="form-control" id="ilastnamem" name="ilastnamem" placeholder="Ingrese apellido materno" required>
                     </div>
 
-                    <div class="form-group col-xs-6 has-feedback" id="divEmail">
+                    <div class="form-group col-sm-6 has-feedback" id="divEmail">
                         <label for="iemail">Correo Electrónico</label>
                         <input type="text" class="form-control" id="iemail" name="iemail" placeholder="Ingrese e-mail del usuario" required>
                         <i class="fa form-control-feedback" id="iconEmail"></i>
@@ -49,20 +49,20 @@
                 </div>
 
                 <div class="row">
-                    <div class="form-group col-xs-6 has-feedback" id="divUsername">
+                    <div class="form-group col-sm-6 has-feedback" id="divUsername">
                         <label for="iusername">Nombre de Usuario</label>
                         <input type="text" class="form-control" id="iusername" name="iusername" placeholder="Ingrese el nombre de usuario con el que entrará al sistema" maxlength="16" required>
                         <i class="fa form-control-feedback" id="iconUsername"></i>
                     </div>
 
-                    <div class="form-group col-xs-6">
+                    <div class="form-group col-sm-6">
                         <label for="ipassword">Contraseña</label>
                         <input type="text" class="form-control" name="ipassword" id="ipassword" placeholder="Ingrese la contraseña con la que entrará al sistema" maxlength="64" required>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="form-group col-xs-12">
+                    <div class="form-group col-sm-12">
                         <label for="iuserimage">Imagen de Cuenta</label>
                         <input name="iuserimage[]" class="multi" id="iuserimage" type="file" size="16" accept="gif|jpg|png|jpeg" maxlength="1">
                         <p class="help-block">Formatos admitidos: GIF, JPG, JPEG, PNG</p>
@@ -77,7 +77,7 @@
             <div class="box-body">
                 <div class="row">
                     <?php foreach ($group as $g): ?>
-                    <div class="form-group col-xs-12">
+                    <div class="form-group col-sm-12">
                         <label class="label-checkbox">
                             <input type="radio" class="minimal" name="iusergroups" id="iusergroups<?php echo $g->gru_id ?>" value="<?php echo $g->gru_id ?>">
                             <?php echo $g->gru_nombre ?>

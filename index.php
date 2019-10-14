@@ -427,7 +427,7 @@
 					<li class="header">PANEL DE CONTROL</li>
 					<li class="treeview<?php if (isset($section) and $section == 'users'): ?> active<?php endif ?>">
 						<a href="#">
-							<i class="fa fa-user"></i>
+							<i class="fa fa-user-o"></i>
 							<span>Usuarios</span>
 							<span class="pull-right-container">
 								<i class="fa fa-angle-left pull-right"></i>
@@ -436,12 +436,12 @@
 						<ul class="treeview-menu">
 							<li <?php if (isset($sbs) and $sbs == 'createuser'): ?> class="active"<?php endif ?>>
 								<a href="index.php?section=users&sbs=createuser">
-									<i class="fa fa-circle-o text-orange"></i>Creación de Usuarios
+									<i class="fa fa-circle-o text-aqua"></i>Creación de Usuarios
 								</a>
 							</li>
 							<li <?php if (isset($sbs) and $sbs == 'manageusers'): ?> class="active"<?php endif ?>>
 								<a href="index.php?section=users&sbs=manageusers">
-									<i class="fa fa-circle-o text-orange"></i>Ver Usuarios Creados
+									<i class="fa fa-circle-o text-aqua"></i>Ver Usuarios Creados
 								</a>
 							</li>
 						</ul>
@@ -458,17 +458,39 @@
 						<ul class="treeview-menu">
 							<li <?php if (isset($sbs) and $sbs == 'verifdoc'): ?> class="active"<?php endif ?>>
 								<a href="index.php?section=admin&sbs=verifdoc">
-									<i class="fa fa-circle-o text-orange"></i>Crear Documento Acreditación
+									<i class="fa fa-circle-o text-aqua"></i>Crear Documento Acreditación
 								</a>
 							</li>
 							<li <?php if (isset($sbs) and $sbs == 'otherdoc'): ?> class="active"<?php endif ?>>
 								<a href="index.php?section=admin&sbs=otherdoc">
-									<i class="fa fa-circle-o text-orange"></i>Crear Otro Documento
+									<i class="fa fa-circle-o text-aqua"></i>Crear Otro Documento
 								</a>
 							</li>
 							<li <?php if (isset($sbs) and $sbs == 'managefiles'): ?> class="active"<?php endif ?>>
 								<a href="index.php?section=admin&sbs=managefiles">
-									<i class="fa fa-circle-o text-orange"></i>Ver Documentos Registrados
+									<i class="fa fa-circle-o text-aqua"></i>Ver Documentos Registrados
+								</a>
+							</li>
+						</ul>
+					</li>
+
+					<li class="treeview<?php if (isset($section) and $section == 'folders'): ?> active<?php endif ?>">
+						<a href="#">
+							<i class="fa fa-folder-open-o"></i>
+							<span>Directorios</span>
+							<span class="pull-right-container">
+								<i class="fa fa-angle-left pull-right"></i>
+							</span>
+						</a>
+						<ul class="treeview-menu">
+							<li <?php if (isset($sbs) and $sbs == 'createfolder'): ?> class="active"<?php endif ?>>
+								<a href="index.php?section=folders&sbs=createfolder">
+									<i class="fa fa-circle-o text-aqua"></i>Creación de Directorios
+								</a>
+							</li>
+							<li <?php if (isset($sbs) and $sbs == 'managefolders'): ?> class="active"<?php endif ?>>
+								<a href="index.php?section=folders&sbs=managefolders">
+									<i class="fa fa-circle-o text-aqua"></i>Ver Directorios Creados
 								</a>
 							</li>
 						</ul>

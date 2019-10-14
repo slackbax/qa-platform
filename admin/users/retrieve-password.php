@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="form-group col-xs-4 has-feedback" id="gusername">
+                    <div class="form-group col-sm-4 has-feedback" id="gusername">
                         <label for="iusername">Ingrese su nombre de usuario</label>
                         <input type="text" class="form-control" id="iNusername" name="iusername" placeholder="Ingrese su nombre de usuario" maxlength="16" required>
                         <span class="fa form-control-feedback" id="iconusername"></span>

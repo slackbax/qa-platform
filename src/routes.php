@@ -98,6 +98,17 @@ elseif ($section == 'admin' and ($_admin or $_calidad)):
     else:
         include 'src/error.php';
     endif;
+/** CARPETAS **/
+elseif ($section == 'folders' and ($_admin or $_calidad)):
+	if ($sbs == 'createfolder'):
+		include 'admin/folders/create-folder.php';
+	elseif ($sbs == 'managefolders'):
+		include 'admin/folders/manage-folder.php';
+	elseif ($sbs == 'editfolder'):
+		include 'admin/folders/edit-folder.php';
+	else:
+		include 'src/error.php';
+	endif;
 elseif ($section == 'forgotpass'):
     include 'admin/users/retrieve-password.php';
 elseif ($section == 'managers'):

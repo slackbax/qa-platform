@@ -18,23 +18,23 @@
 		<div class="box-body">
 			<div class="row">
 				<div class="col-sm-4">
-					<h5>Video 1</h5>
+					<h5>Clave Azul</h5>
 					<div class="embed-responsive embed-responsive-16by9">
-						<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/sHiWc0uRGfU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Jgx4s3FkXSQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					</div>
 					<p class="text-muted">Descripción del video 1</p>
 				</div>
 				<div class="col-sm-4">
-					<h5>Video 2</h5>
+					<h5>Motivacional</h5>
 					<div class="embed-responsive embed-responsive-16by9">
-						<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/OcdB02spoKA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/DWR665II2dc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					</div>
 					<p class="text-muted">Descripción del video 2</p>
 				</div>
 				<div class="col-sm-4">
-					<h5>Video 3</h5>
+					<h5>Tips para la Acreditación</h5>
 					<div class="embed-responsive embed-responsive-16by9">
-						<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/k2lUho6BHEE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/RwN_8xleztA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					</div>
 					<p class="text-muted">Descripción del video 3</p>
 				</div>

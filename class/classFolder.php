@@ -131,7 +131,7 @@ class Folder {
 	 * @param null $menu_id
 	 * @param null $fol_p
 	 * @param null $db
-	 * @return bool
+	 * @return array
 	 */
 	public function set($fol_nombre, $fol_desc, $menu_id = null, $fol_p = null, $db = null)
 	{
@@ -139,27 +139,43 @@ class Folder {
 			$db = new myDBC();
 		endif;
 
-		if (is_null($menu_id)):
-			$_qcol = 'fol_parent_id';
-		endif;
+		try {
+			if (is_null($menu_id)):
+				$_qcol = 'fol_parent_id';
+			endif;
 
-		if (is_null($fol_p)):
-			$_qcol = 'men_id';
-		endif;
+			if (is_null($fol_p)):
+				$_qcol = 'men_id';
+			endif;
 
-		$stmt = $db->Prepare("INSERT INTO uc_folder (fol_nombre, fol_descripcion, fol_fecha, fol_publicado, " . $_qcol . ") VALUES (?, ?, CURRENT_DATE, TRUE, 0 , 0, ?)");
+			$stmt = $db->Prepare("INSERT INTO uc_folder (fol_nombre, fol_descripcion, fol_fecha, fol_publicado, " . $_qcol . ") VALUES (?, ?, CURRENT_DATE, TRUE, ?)");
 
-		if (is_null($menu_id)):
-			$stmt->bind_param("ssi", utf8_decode($db->clearText($fol_nombre)), utf8_decode($db->clearText($fol_desc)), $fol_p);
-		endif;
-		if (is_null($fol_p)):
-			$stmt->bind_param("ssi", utf8_decode($db->clearText($fol_nombre)), utf8_decode($db->clearText($fol_desc)), $menu_id);
-		endif;
+			if (!$stmt):
+				throw new Exception("La inserción del directorio falló en su preparación.");
+			endif;
 
-		if ($stmt->execute()):
-			return true;
-		else:
-			return false;
-		endif;
+			$bind = true;
+
+			if (is_null($menu_id)):
+				$bind = $stmt->bind_param("ssi", utf8_decode($db->clearText($fol_nombre)), utf8_decode($db->clearText($fol_desc)), $fol_p);
+			endif;
+			if (is_null($fol_p)):
+				$bind = $stmt->bind_param("ssi", utf8_decode($db->clearText($fol_nombre)), utf8_decode($db->clearText($fol_desc)), $menu_id);
+			endif;
+
+			if (!$bind):
+				throw new Exception("La inserción del directorio falló en su binding.");
+			endif;
+
+			if (!$stmt->execute()):
+				throw new Exception("La inserción del directorio falló en su ejecución.");
+			endif;
+
+			$result = array('estado' => true, 'msg' => $stmt->insert_id);
+			return $result;
+		} catch (Exception $e) {
+			$result = array('estado' => false, 'msg' => $e->getMessage());
+			return $result;
+		}
 	}
 }

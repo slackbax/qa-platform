@@ -20,7 +20,7 @@
        
             <div class="box-body"> 
                 <div class="row">
-                    <div class="form-group col-xs-6 has-feedback" id="goldpass">
+                    <div class="form-group col-sm-6 has-feedback" id="goldpass">
                         <label for="ioldpass">Ingrese su contraseña actual *</label>
                         <input type="password" class="form-control" id="iNoldpass" name="ioldpass" placeholder="Ingrese su contraseña actual" maxlength="16" required>
                         <input type="hidden" name="uid" id="uid" value="<?php echo $_SESSION['uc_userid'] ?>">
@@ -29,7 +29,7 @@
                 </div>
                 
                 <div class="row">
-                    <div class="form-group col-xs-6 has-feedback" id="gnewpass">
+                    <div class="form-group col-sm-6 has-feedback" id="gnewpass">
                         <label for="inewpass">Ingrese su nueva contraseña *</label>
                         <input type="password" class="form-control" name="inewpass" id="iNnewpass" placeholder="Ingrese su contraseña nueva" maxlength="16" required>
                         <i class="fa form-control-feedback" id="iconnewpass"></i>
@@ -37,7 +37,7 @@
                 </div>
                 
                 <div class="row">
-                    <div class="form-group col-xs-6 has-feedback" id="gcnpass">
+                    <div class="form-group col-sm-6 has-feedback" id="gcnpass">
                         <label for="icnpass">Confirme su nueva contraseña *</label>
                         <input type="password" class="form-control" name="icnpass" id="iNcnpass" placeholder="Confirme su contraseña nueva ingresándola nuevamente" maxlength="16" required>
                         <i class="fa form-control-feedback" id="iconcnpass"></i>

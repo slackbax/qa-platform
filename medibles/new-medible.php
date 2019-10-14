@@ -27,7 +27,7 @@
 
 					<div class="box-body">
 						<div class="row">
-							<div class="form-group col-xs-6 has-feedback" id="gambito">
+							<div class="form-group col-sm-6 has-feedback" id="gambito">
 								<label class="control-label" for="iambito">Ámbito *</label>
 								<select class="form-control" id="iNambito" name="iambito" required>
 									<option value="">Seleccione ámbito</option>
@@ -39,7 +39,7 @@
 								</select>
 							</div>
 
-							<div class="form-group col-xs-6 has-feedback" id="gsambito">
+							<div class="form-group col-sm-6 has-feedback" id="gsambito">
 								<label class="control-label" for="isambito">Sub-ámbito *</label>
 								<select class="form-control" id="iNsambito" name="isambito" required>
 									<option value="">Seleccione sub-ámbito</option>
@@ -48,14 +48,14 @@
 						</div>
 
 						<div class="row">
-							<div class="form-group col-xs-6 has-feedback" id="gtcode">
+							<div class="form-group col-sm-6 has-feedback" id="gtcode">
 								<label class="control-label" for="itcode">Código de característica *</label>
 								<select class="form-control" id="iNtcode" name="itcode" required>
 									<option value="">Seleccione código</option>
 								</select>
 							</div>
 
-							<div class="form-group col-xs-3 has-feedback" id="gnumelem">
+							<div class="form-group col-sm-3 has-feedback" id="gnumelem">
 								<label class="control-label" for="inumelem">Número de elemento *</label>
 								<input type="text" class="form-control" id="iNnumelem" name="inumelem" placeholder="Ingrese número de elemento (1EM, 2EM, etc)" required>
 								<i class="fa form-control-feedback" id="iconnumelem"></i>
@@ -63,7 +63,7 @@
 						</div>
 
 						<div class="row">
-							<div class="form-group col-xs-6 has-feedback" id="gdescripcion">
+							<div class="form-group col-sm-6 has-feedback" id="gdescripcion">
 								<label class="control-label" for="idescripcion">Descripción *</label>
 								<textarea rows="4" class="form-control" id="iNdescripcion" name="idescripcion" placeholder="Ingrese descripción del indicador" required></textarea>
 								<i class="fa form-control-feedback" id="icondescripcion"></i>
@@ -87,7 +87,7 @@
 
 					<div class="box-body">
 						<div class="row">
-							<div class="form-group col-xs-3 has-feedback" id="gdate">
+							<div class="form-group col-sm-3 has-feedback" id="gdate">
 								<label class="control-label" for="idate">Fecha de resolución *</label>
 								<div class="input-group">
 									<div class="input-group-addon">
@@ -98,7 +98,7 @@
 								<i class="fa form-control-feedback" id="icondate"></i>
 							</div>
 
-							<div class="form-group col-xs-3 has-feedback" id="gnumres">
+							<div class="form-group col-sm-3 has-feedback" id="gnumres">
 								<label class="control-label" for="inumres">Número de Resolución *</label>
 								<input type="text" class="form-control" id="iNnumres" name="inumres" placeholder="Ingrese número de resolución" value="REX. IP/N°1860" required>
 								<i class="fa form-control-feedback" id="iconnumres"></i>
@@ -106,7 +106,7 @@
 						</div>
 
 						<div class="row">
-							<div class="form-group col-xs-6 has-feedback" id="gambitor">
+							<div class="form-group col-sm-6 has-feedback" id="gambitor">
 								<label class="control-label" for="iambitor">Ámbito *</label>
 								<select class="form-control" id="iNambitor" name="iambitor" required>
 									<option value="">Seleccione ámbito</option>
@@ -118,7 +118,7 @@
 								</select>
 							</div>
 
-							<div class="form-group col-xs-6 has-feedback" id="gsambitor">
+							<div class="form-group col-sm-6 has-feedback" id="gsambitor">
 								<label class="control-label" for="isambitor">Sub-ámbito *</label>
 								<select class="form-control" id="iNsambitor" name="isambitor" required>
 									<option value="">Seleccione sub-ámbito</option>
@@ -127,14 +127,14 @@
 						</div>
 
 						<div class="row">
-							<div class="form-group col-xs-6 has-feedback" id="gtcoder">
+							<div class="form-group col-sm-6 has-feedback" id="gtcoder">
 								<label class="control-label" for="itcoder">Código de característica *</label>
 								<select class="form-control" id="iNtcoder" name="itcoder" required>
 									<option value="">Seleccione código</option>
 								</select>
 							</div>
 
-							<div class="form-group col-xs-3 has-feedback" id="gnumero">
+							<div class="form-group col-sm-3 has-feedback" id="gnumero">
 								<label class="control-label" for="inumero">Número de Aclaratoria *</label>
 								<input type="text" class="form-control" id="iNnumero" name="inumero" placeholder="Ingrese número de aclaratoria" maxlength="4" required>
 								<i class="fa form-control-feedback" id="iconnumero"></i>
@@ -142,13 +142,13 @@
 						</div>
 
 						<div class="row">
-							<div class="form-group col-xs-6 has-feedback" id="gresumen">
+							<div class="form-group col-sm-6 has-feedback" id="gresumen">
 								<label class="control-label" for="iname">Resumen *</label>
 								<input type="text" class="form-control" id="iNresumen" name="iresumen" placeholder="Ingrese resumen de la aclaratoria" maxlength="1024" required>
 								<i class="fa form-control-feedback" id="iconresumen"></i>
 							</div>
 
-							<div class="form-group col-xs-6 has-feedback" id="gdescripcionr">
+							<div class="form-group col-sm-6 has-feedback" id="gdescripcionr">
 								<label class="control-label" for="idescripcionr">Descripción *</label>
 								<textarea rows="4" class="form-control" id="iNdescripcionr" name="idescripcionr" placeholder="Ingrese descripción de la aclaratoria" required></textarea>
 								<i class="fa form-control-feedback" id="icondescripcionr"></i>

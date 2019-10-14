@@ -240,9 +240,9 @@ $(document).ready(function () {
 				$row.attr('id', 'row' + n_destinos).addClass('row');
 
 				var $pv = $('<div>'), $spv = $('<div>'), $dl = $('<div>');
-				$pv.addClass('form-group col-xs-5');
-				$spv.addClass('form-group col-xs-6');
-				$dl.addClass('form-group col-xs-1 text-center');
+				$pv.addClass('form-group col-sm-5');
+				$spv.addClass('form-group col-sm-6');
+				$dl.addClass('form-group col-sm-1 text-center');
 				$row.append('<input type="hidden" name="iispv[]" id="iNispv_' + n_destinos + '" value="' + spvVal + '">');
 
 				var $namePv = $('<p>'), $nameSpv = $('<p>');
@@ -286,7 +286,7 @@ $(document).ready(function () {
 
 		if (d_spv === 0) {
 			n_destinos = 0;
-			$('#divDestiny-inner').html('<div class="row"><div class="form-group col-xs-12"><p><i>No se han agregado puntos de verificación.</i></p></div></div>');
+			$('#divDestiny-inner').html('<div class="row"><div class="form-group col-sm-12"><p><i>No se han agregado puntos de verificación.</i></p></div></div>');
 		}
 
 		$('#iNndest').val(d_spv);

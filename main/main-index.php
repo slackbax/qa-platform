@@ -7,7 +7,7 @@ $last_f = 8; ?>
 <?php $spv = new SubPuntoVerificacion() ?>
 
 <div class="row">
-	<div class="col-xs-8">
+	<div class="col-sm-8">
 		<section class="content-header">
 			<div class="callout">
 				<h2 class="text-orange"><i class="fa fa-check"></i> <small>Bienvenido
@@ -31,7 +31,7 @@ $last_f = 8; ?>
 			<?php endif ?>
 			<div class="row">
 				<?php $nf = $fl->getNumber() ?>
-				<div class="col-lg-4 col-lg-offset-2 col-xs-6">
+				<div class="col-lg-4 col-lg-offset-2 col-sm-6">
 					<div class="small-box bg-aqua">
 						<div class="inner">
 							<h3><?php echo $nf ?></h3>
@@ -49,7 +49,7 @@ $last_f = 8; ?>
 				</div>
 
 				<?php $nv = $spv->getNumber() ?>
-				<div class="col-lg-4 col-xs-6">
+				<div class="col-lg-4 col-sm-6">
 					<div class="small-box bg-green">
 						<div class="inner">
 							<h3><?php echo $nv ?></h3>
@@ -134,7 +134,7 @@ $last_f = 8; ?>
 		</section>
 	</div>
 
-	<div class="col-xs-4">
+	<div class="col-sm-4">
 		<section class="content container-fluid">
 			<div class="box box-warning">
 				<div class="box-header with-border">

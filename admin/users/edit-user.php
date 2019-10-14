@@ -29,24 +29,24 @@
 
             <div class="box-body">
                 <div class="row">
-                    <div class="form-group col-xs-6">
+                    <div class="form-group col-sm-6">
                         <label for="iname">Nombres</label>
                         <input type="hidden" name="id" value="<?php echo $id ?>">
                         <input type="text" class="form-control" id="iname" name="iname" placeholder="Ingrese nombres del usuario" value="<?php echo $u->us_nombres ?>" required>
                     </div>
                     
-                    <div class="form-group col-xs-6">
+                    <div class="form-group col-sm-6">
                         <label for="ilastnamep">Apellido Paterno</label>
                         <input type="text" class="form-control" id="ilastnamep" name="ilastnamep" placeholder="Ingrese apellido paterno" value="<?php echo $u->us_ap ?>" required>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="form-group col-xs-6">
+                    <div class="form-group col-sm-6">
                         <label for="ilastnamem">Apellido Materno</label>
                         <input type="text" class="form-control" id="ilastnamem" name="ilastnamem" placeholder="Ingrese apellido materno" value="<?php echo $u->us_am ?>" required>
                     </div>
-                    <div class="form-group col-xs-6 has-feedback" id="divEmail">
+                    <div class="form-group col-sm-6 has-feedback" id="divEmail">
                         <label for="iemail">Correo Electrónico</label>
                         <input type="text" class="form-control" id="iemail" name="iemail" placeholder="Ingrese e-mail del usuario" value="<?php echo $u->us_email ?>" required>
                         <i class="fa form-control-feedback" id="iconEmail"></i>
@@ -54,24 +54,24 @@
                 </div>
 
                 <div class="row">
-                    <div class="form-group col-xs-6 has-feedback">
+                    <div class="form-group col-sm-6 has-feedback">
                         <label for="iusername">Nombre de Usuario</label>
                         <input type="text" class="form-control" id="iusername" name="iusername" value="<?php echo $u->us_username ?>" disabled>
                     </div>
-                    <div class="form-group col-xs-6">
+                    <div class="form-group col-sm-6">
                         <label for="ipassword">Contraseña</label>
                         <input type="text" class="form-control" name="ipassword" id="ipassword" placeholder="Ingrese la contraseña sólo si desea modificar la existente" maxlength="64">
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="form-group col-xs-6">
+                    <div class="form-group col-sm-6">
                         <label class="label-checkbox">
                             <input type="checkbox" class="minimal" name="iactive"<?php if ($u->us_activo): ?> checked<?php endif ?>> Activo
                         </label>
                     </div>
                     
-                    <div class="form-group col-xs-12">
+                    <div class="form-group col-sm-12">
                         <label for="iuserimage">Imagen de Cuenta</label>
                         <div class="controls">
                             <img src="dist/img/<?php echo $u->us_pic ?>" width="100" height="100"><br><br>
@@ -89,7 +89,7 @@
             <div class="box-body">
                 <div class="row">
                     <?php foreach ($group as $g): ?>
-                    <div class="form-group col-xs-12">
+                    <div class="form-group col-sm-12">
                         <label class="label-checkbox">
                             <input type="radio" class="minimal" name="iusergroups" id="iusergroups<?php echo $g->gru_id ?>" value="<?php echo $g->gru_id ?>"<?php foreach ($u_g as $ug): if ($g->gru_id == $ug): ?> checked<?php endif; endforeach ?>>
                             <?php echo $g->gru_nombre ?>
