@@ -23,6 +23,7 @@
 					<th>Nombre</th>
 					<th>Descripción</th>
 					<th>Creado el</th>
+					<th>Publicado</th>
 					<th></th>
 				</tr>
 				</thead>

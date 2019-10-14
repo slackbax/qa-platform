@@ -42,10 +42,15 @@ $columns = array(
 			return getDateToForm($d);
 		}
 	),
-	array('db' => 'fol_id', 'dt' => 4, 'field' => 'fol_id',
+	array('db' => 'fol_publicado', 'dt' => 4, 'field' => 'fol_publicado',
+		'formatter' => function ($d, $row) {
+			return ($d) ? '<i class="fa fa-check text-green"></i>' : '<i class="fa fa-remove text-red"></i>';
+		}
+	),
+	array('db' => 'fol_id', 'dt' => 5, 'field' => 'fol_id',
 		'formatter' => function ($d, $row) {
 			$string = '';
-			//$string = '<button id="id_' . $d . '" data-toggle="modal" data-target="#fileDetail" class="fileModal btn btn-xs btn-info" data-tooltip="tooltip" data-placement="top" title="Ver detalles"><i class="fa fa-search"></i></button>';
+			$string = '<a id="id_' . $d . '" href="index.php?section=folders&sbs=editfolder&id=' . $d . '" class="btn btn-xs btn-info" data-tooltip="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil"></i></a>';
 			return $string;
 		}
 	)

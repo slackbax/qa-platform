@@ -168,7 +168,7 @@
 					<h3 class="box-title">Documentos Transversales</h3>
 				</div>
 
-				<div class="box-body">
+				<div class="box-body table-responsive">
 					<table id="tfilestr" class="table table-hover table-striped">
 						<thead>
 						<tr>

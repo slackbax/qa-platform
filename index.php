@@ -236,7 +236,7 @@
 									<li <?php if (isset($sid) and $sid == $sam->samb_id): ?> class="active"<?php endif ?>>
 										<a href="index.php?section=files&sid=<?php echo $sam->samb_id ?>">
 											<i class="fa fa-circle-o text-orange"></i>
-											<span class="menu-item"><?php echo $sam->samb_sigla ?> - <?php echo $sam->samb_nombre ?></span>
+											<span class="menu-item"><small><?php echo $sam->samb_sigla ?></small> <?php echo $sam->samb_nombre ?></span>
 										</a>
 									</li>
 								<?php endforeach ?>
@@ -260,7 +260,7 @@
 									<li <?php if (isset($sid) and $sid == $sam->samb_id): ?> class="active"<?php endif ?>>
 										<a href="index.php?section=files&sid=<?php echo $sam->samb_id ?>">
 											<i class="fa fa-circle-o text-orange"></i>
-											<span class="menu-item"><?php echo $sam->samb_sigla ?> - <?php echo $sam->samb_nombre ?></span>
+											<span class="menu-item"><small><?php echo $sam->samb_sigla ?></small> <?php echo $sam->samb_nombre ?></span>
 										</a>
 									</li>
 								<?php endforeach ?>

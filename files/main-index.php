@@ -75,7 +75,7 @@ endif
             <h3 class="box-title">Archivos</h3>
         </div>
 
-        <div class="box-body">
+        <div class="box-body table-responsive">
             <?php if ($n_f > 0): ?>
             <table id="tfiles" class="table table-hover table-striped">
                 <thead>

@@ -5,6 +5,7 @@ $(document).ready(function () {
 			null,
 			null,
 			{ width: "120px", className: "text-center" },
+			{ width: "80px", className: "text-center" },
 			{ "orderable": false, width: "50px", className: "text-center" }],
 		buttons: [{
 			extend: 'excel',
