@@ -253,6 +253,4 @@
 	</div>
 </div>
 
-<div class="scrollToTop">Volver arriba</div>
-
 <script src="files/visit-index.js?v=20190828"></script>

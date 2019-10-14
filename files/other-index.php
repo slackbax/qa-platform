@@ -123,6 +123,4 @@ $title = $folder->fol_nombre;
 	</div>
 </div>
 
-<div class="scrollToTop">Volver arriba</div>
-
 <script src="files/other-index.js?v=20190828"></script>
