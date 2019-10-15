@@ -1,15 +1,22 @@
 $(document).ready(function () {
+	$("#tspv").DataTable({
+		columns: [null, {"width": "20%", className: "text-center"}],
+		order: [[0, "asc"]]
+	});
+
 	$("#tcaract").DataTable({
 		columns: [null, {"width": "20%", className: "text-center"}],
 		order: [[0, "desc"]]
 	});
 
 	$("#tfiles").DataTable({
-		columns: [null, {"width": "20%", className: "text-center"}]
+		columns: [null, {"width": "20%", className: "text-center"}],
+		order: [[0, "asc"]]
 	});
 
 	$("#tfilestr").DataTable({
-		columns: [null, {"width": "20%", className: "text-center"}]
+		columns: [null, {"width": "20%", className: "text-center"}],
+		order: [[0, "asc"]]
 	});
 
 	$(".fileModal").click(function () {

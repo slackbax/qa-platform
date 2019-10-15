@@ -59,7 +59,7 @@
 
 			<?php $spver = $spv->getByPV($pvid) ?>
 			<div class="box-body">
-				<table id="tcaract" class="table table-hover table-striped">
+				<table id="tspv" class="table table-hover table-striped">
 					<thead>
 					<tr>
 						<th>Nombre</th>

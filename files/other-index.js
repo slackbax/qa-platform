@@ -1,6 +1,7 @@
 $(document).ready(function () {
     $("#tfiles").DataTable({
-        columns: [null, { "width": "20%", className: "text-center" }]
+        columns: [null, { "width": "20%", className: "text-center" }],
+        order: [[0, "asc"]]
     });
 
     $(".fileModal").click(function () {
@@ -22,7 +23,7 @@ $(document).ready(function () {
         }).done(function (d) {
             console.log(d);
             if (d.oarc_id !== null) {
-                $("#f_path").data('ident', d.oarc_id);
+                $("#f_path").data('ident', d.oarc_id).attr('href', d.oarc_path);
                 $("#f_name").html('<i class="fa fa-chevron-right"></i> ' + d.oarc_nombre);
                 $("#f_edition").html(d.oarc_edicion);
                 $("#f_date_c").html(getMonthDate(d.oarc_fecha_crea));
@@ -30,7 +31,6 @@ $(document).ready(function () {
                 $("#f_date_v").html(getMonthDate(d.oarc_fecha_vig));
                 $("#f_type").html(getExt(d.oarc_path));
                 $("#f_downloads").html(d.oarc_descargas);
-                $("#f_path").attr('href', d.oarc_path);
             }
         });
     });
