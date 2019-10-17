@@ -1608,7 +1608,7 @@ test('Default View Date (Object)', function(){
                 .appendTo('#qunit-fixture')
                 .datepicker({
                     format: 'yyyy-mm-dd',
-                    defaultViewDate: { year: 1977, month: 04, day: 25 }
+                    defaultViewDate: { year: 1977, month: 4, day: 25 }
                 }),
         dp = input.data('datepicker'),
         picker = dp.picker,

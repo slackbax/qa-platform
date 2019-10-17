@@ -137,7 +137,7 @@ $(document).ready(function () {
 			data: {te: $(this).val()}
 		}).done(function (data) {
 			$('#iNstev').html('').append('<option value="">Seleccione evento</option>');
-			$('#iNtevent').html('<i>No seleccionado</i>');
+			$('#iNtevent').html('<em>No seleccionado</em>');
 
 			$.each(data, function (k, v) {
 				$('#iNstev').append(
@@ -156,7 +156,7 @@ $(document).ready(function () {
 			dataType: 'json',
 			data: {te: $(this).val()}
 		}).done(function (d) {
-			$('#iNtevent').html('<i>No seleccionado</i>');
+			$('#iNtevent').html('<em>No seleccionado</em>');
 
 			if (d.stev_id !== null) {
 				$('#iNtevent').html('<font color="red">' + d.cat_desc + '</font>');
@@ -182,7 +182,7 @@ $(document).ready(function () {
 	$('#btnClear').click(function () {
 		$('#grut, #gname, #gtpac, #gedad, #gserv, #gdate, #ghour, #gmin, #gtev, #gstev, #grie, #gdescription, #gconsec, #gnocu, #gcljus, #gmedp, #gvermed, #gcaida').removeClass('has-error has-success');
 		$('#iconrut, #iconname, #iconedad, #icondate, #icondescription').removeClass('fa-remove fa-check');
-		$('#iNtevent').html('<i>No seleccionado</i>');
+		$('#iNtevent').html('<em>No seleccionado</em>');
 		$('#div-caida').css('display', 'none');
 	});
 

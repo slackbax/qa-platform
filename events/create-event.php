@@ -135,7 +135,7 @@
                     <div class="form-group col-sm-6">
                         <label class="control-label">Categoría de evento</label>
                         <div>
-                            <p class="form-control-static" id="iNtevent"><i>No seleccionado</i></p>
+                            <p class="form-control-static" id="iNtevent"><em>No seleccionado</em></p>
                         </div>
                     </div>
 

@@ -37,7 +37,7 @@ $(document).ready( function() {
 			beforeSend: function () {
 				$('#tfiles > tbody').html(
 					'<tr class="odd">' +
-					'<td colspan="9" class="dataTables_empty text-orange"><i class="fa fa-cog fa-spin fa-fw"></i> <i>Cargando data...</i></td>' +
+					'<td colspan="9" class="dataTables_empty text-orange"><i class="fa fa-cog fa-spin fa-fw"></i> <em>Cargando data...</em></td>' +
 					'</tr>'
 				);
 			},

@@ -62,7 +62,7 @@
             </div>
             
             <div class="box-body">
-                <div id="divResult"><i>No hay resultados para la búsqueda</i></div>
+                <div id="divResult"><em>No hay resultados para la búsqueda</em></div>
             </div>
 
             <div class="box-footer">

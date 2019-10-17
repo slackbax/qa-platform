@@ -25,6 +25,7 @@ class Folder {
 		$obj->fol_nombre = utf8_encode($row['fol_nombre']);
 		$obj->fol_descripcion = utf8_encode($row['fol_descripcion']);
 		$obj->fol_fecha = $row['fol_fecha'];
+		$obj->fol_publicado = $row['fol_publicado'];
 
 		unset($db);
 		return $obj;
@@ -169,6 +170,45 @@ class Folder {
 
 			if (!$stmt->execute()):
 				throw new Exception("La inserción del directorio falló en su ejecución.");
+			endif;
+
+			$result = array('estado' => true, 'msg' => $stmt->insert_id);
+			return $result;
+		} catch (Exception $e) {
+			$result = array('estado' => false, 'msg' => $e->getMessage());
+			return $result;
+		}
+	}
+
+	/**
+	 * @param $id
+	 * @param $fol_nombre
+	 * @param $fol_desc
+	 * @param $fol_publicado
+	 * @param null $db
+	 * @return array
+	 */
+	public function mod($id, $fol_nombre, $fol_desc, $fol_publicado, $db = null)
+	{
+		if (is_null($db)):
+			$db = new myDBC();
+		endif;
+
+		try {
+			$stmt = $db->Prepare("UPDATE uc_folder SET fol_nombre = ?, fol_descripcion = ?, fol_publicado = ? WHERE fol_id = ?");
+
+			if (!$stmt):
+				throw new Exception("La edición del directorio falló en su preparación.");
+			endif;
+
+			$bind = $stmt->bind_param("sssi", utf8_decode($db->clearText($fol_nombre)), utf8_decode($db->clearText($fol_desc)), $db->clearText($fol_publicado), $id);
+
+			if (!$bind):
+				throw new Exception("La edición del directorio falló en su binding.");
+			endif;
+
+			if (!$stmt->execute()):
+				throw new Exception("La edición del directorio falló en su ejecución.");
 			endif;
 
 			$result = array('estado' => true, 'msg' => $stmt->insert_id);

@@ -1,13 +1,13 @@
 $(document).ready(function () {
 	function validateForm() {
-		var validate = true
+		var validate = true;
 
 		if (validate) {
 			$('#submitLoader').css('display', 'inline-block');
 			return true;
 		} else {
 			new Noty({
-				text: 'Error al registrar directorio.',
+				text: 'Error al editar directorio.',
 				type: 'error'
 			}).show();
 			return false;
@@ -19,8 +19,13 @@ $(document).ready(function () {
 
 		if (response.type) {
 			new Noty({
-				text: '<b>¡Éxito!</b><br>El directorio ha sido guardado correctamente.',
-				type: 'success'
+				text: '<b>¡Éxito!</b><br>El directorio ha sido editado correctamente. Recargando datos...',
+				type: 'success',
+				callbacks: {
+					afterClose: function () {
+						document.location.reload();
+					}
+				}
 			}).show();
 
 			$('#formNewFolder').clearForm();
@@ -46,7 +51,7 @@ $(document).ready(function () {
 	}
 
 	var options = {
-		url: 'admin/folders/ajax.insertFolder.php',
+		url: 'admin/folders/ajax.editFolder.php',
 		type: 'post',
 		dataType: 'json',
 		beforeSubmit: validateForm,

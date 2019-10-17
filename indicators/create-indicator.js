@@ -1,7 +1,7 @@
 $(document).ready(function () {
 	function validateForm() {
 		$('#submitLoader').css('display', 'inline-block');
-		$('#divResult').html('<i>Buscando datos asociados...</i>');
+		$('#divResult').html('<em>Buscando datos asociados...</em>');
 		$('#iNspv').val('');
 		$('#iNyear').val('');
 		return true;
@@ -114,7 +114,7 @@ $(document).ready(function () {
 				first = false;
 			});
 		else
-			$('#divResult').html('<i>No hay resultados para la búsqueda</i>');
+			$('#divResult').html('<em>No hay resultados para la búsqueda</em>');
 	}
 
 	var options = {

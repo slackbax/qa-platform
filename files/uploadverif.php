@@ -160,7 +160,7 @@
 					<div id="divDestiny-inner">
 						<div class="row">
 							<div class="form-group col-sm-12">
-								<p><i>No se han agregado puntos de verificación.</i></p>
+								<p><em>No se han agregado puntos de verificación.</em></p>
 							</div>
 						</div>
 					</div>

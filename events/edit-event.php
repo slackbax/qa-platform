@@ -67,7 +67,7 @@
                 <div class="row">
                     <div class="form-group col-sm-6" id="gstev">
                         <label class="control-label" for="istsev">Evento</label>
-                        <p class="form-control-static"><?php echo $e->tev_desc . ' - ' . $e->stev_desc . ' <i>(' . $e->cat_desc . ')</i>' ?></p>
+                        <p class="form-control-static"><?php echo $e->tev_desc . ' - ' . $e->stev_desc . ' <em>(' . $e->cat_desc . ')</em>' ?></p>
                     </div>
                 </div>
                 

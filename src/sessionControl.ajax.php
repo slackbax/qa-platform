@@ -11,7 +11,6 @@ foreach ($include_dirs as $include_path):
 	endif;
 endforeach;
 
-//include_once("../src/settings.php");
 $logout = false;
 
 try {

@@ -68,13 +68,25 @@ $last_f = 8; ?>
 			</div>
 
 			<div class="row text-center">
-				<div class="col-lg-8 col-lg-offset-2 col-sm-6">
+				<div class="col-lg-8 col-lg-offset-2 col-sm-10 col-sm-offset-1">
 					<a href="index.php?section=media"><img class="img-responsive" alt="Banner Acreditacion 2020" src="dist/img/banner_acreditacion.jpg"></a>
 				</div>
 			</div>
-			<div class="row text-center" style="margin-bottom: 20px">
-				<div class="col-lg-8 col-lg-offset-2 col-sm-6">
-					<h2 id="counter" class="text-red no-margin text-bold" style="padding: 0 0 15px 0; background: #94c9da"><i class="fa fa-refresh fa-spin"></i></h2>
+			<div class="row text-center text-red" style="margin-bottom: 20px">
+				<div class="col-lg-8 col-lg-offset-2 col-sm-10 col-sm-offset-1">
+					<div class="row" style="background: #94c9da; margin: 0; padding-bottom: 10px">
+						<div class="col-xs-2 col-xs-offset-2"><h2 id="counter-d" class="text-bold" style="margin-top: 0"><i class="fa fa-refresh fa-spin"></i></h2></div>
+						<div class="col-xs-2"><h2 id="counter-h" class="text-bold" style="margin-top: 0"><i class="fa fa-refresh fa-spin"></i></h2></div>
+						<div class="col-xs-2"><h2 id="counter-m" class="text-bold" style="margin-top: 0"><i class="fa fa-refresh fa-spin"></i></h2></div>
+						<div class="col-xs-2"><h2 id="counter-s" class="text-bold" style="margin-top: 0"><i class="fa fa-refresh fa-spin"></i></h2></div>
+						<div class="col-xs-2 col-xs-offset-2"><span class="text-xs">DIAS</span></div>
+						<div class="col-xs-2"><span class="text-xs">HORAS</span></div>
+						<div class="col-xs-2"><span class="text-xs">MINUTOS</span></div>
+						<div class="col-xs-2"><span class="text-xs">SEGUNDOS</span></div>
+					</div>
+					<div class="row" style="background: #94c9da; margin: 0; padding-bottom: 5px">
+						<h5>17 de Marzo de 2020</h5>
+					</div>
 				</div>
 			</div>
 

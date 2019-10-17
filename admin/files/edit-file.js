@@ -286,7 +286,7 @@ $(document).ready(function () {
 
 		if (d_spv === 0) {
 			n_destinos = 0;
-			$('#divDestiny-inner').html('<div class="row"><div class="form-group col-sm-12"><p><i>No se han agregado puntos de verificación.</i></p></div></div>');
+			$('#divDestiny-inner').html('<div class="row"><div class="form-group col-sm-12"><p><em>No se han agregado puntos de verificación.</em></p></div></div>');
 		}
 
 		$('#iNndest').val(d_spv);

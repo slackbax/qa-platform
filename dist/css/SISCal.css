@@ -5535,6 +5535,9 @@ button.btn-xs, a.btn-xs {
  * Tweaks
  * -----------------------------
  */
+.text-xs {
+  font-size: x-small;
+}
 .td-pvs {
   min-width : 57px;
 }
