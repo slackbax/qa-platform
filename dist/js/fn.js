@@ -40,6 +40,7 @@ $.fn.clearForm = function () {
 
 $.fn.datepicker.defaults.language = 'es';
 $.fn.datepicker.defaults.orientation = 'bottom left';
+$.fn.datepicker.defaults.autoclose = true;
 
 $.extend($.fn.dataTable.defaults, {
 	dom: "<'row'<'col-md-4'B><'col-md-4 text-center'l><'col-md-4'f>>" + "<'row'<'col-md-12't>>" + "<'row'<'col-md-6'i><'col-md-6'p>>",
