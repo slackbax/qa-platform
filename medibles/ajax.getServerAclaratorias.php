@@ -57,7 +57,7 @@ $columns = array(
 		'formatter' => function ($d, $row) {
 			$string = '';
 			$string .= ' <a class="indEdit btn btn-xs btn-info" href="index.php?section=autoeval&sbs=editaclaratoria&id=' . $d . '" data-tooltip="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil"></i></a>';
-			//$string .= ' <button id="del_' . $d . '" class="indDelete btn btn-xs btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar"><span class="glyphicon glyphicon-remove no-mr"></span></button>';
+			//$string .= ' <button id="del_' . $d . '" class="indDelete btn btn-xs btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar"><span class="fa fa-remove no-mr"></span></button>';
 		
 			return $string;
 		}

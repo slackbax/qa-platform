@@ -30,14 +30,14 @@
                     <div class="form-group col-sm-3 has-feedback" id="grut">
                         <label class="control-label" for="irut">RUT *</label>
                         <input type="text" class="form-control" id="iNrut" name="irut" placeholder="12345678-9" maxlength="12" required>
-                        <span class="glyphicon form-control-feedback" id="iconrut"></span>
+                        <span class="fa form-control-feedback" id="iconrut"></span>
                     </div>                                
                 </div>
                 <div class="row">
                     <div class="form-group col-sm-6 has-feedback" id="gname">
                         <label class="control-label" for="iname">Nombre *</label>
                         <input type="text" class="form-control" id="iNname" name="iname" placeholder="Ingrese nombre del paciente" maxlength="250" required>
-                        <span class="glyphicon form-control-feedback" id="iconname"></span>
+                        <span class="fa form-control-feedback" id="iconname"></span>
                     </div>
 
                     <div class="form-group col-sm-6 has-feedback" id="gtpac">
@@ -57,7 +57,7 @@
                     <div class="form-group col-sm-3 has-feedback" id="gedad">
                         <label class="control-label" for="iedad">Edad *</label>
                         <input type="text" class="form-control" id="iNedad" name="iedad" placeholder="Ingrese la edad del paciente" maxlength="3" required>
-                        <span class="glyphicon form-control-feedback" id="iconedad"></span>
+                        <span class="fa form-control-feedback" id="iconedad"></span>
                     </div>
                     
                     <div class="form-group col-sm-6 col-sm-offset-3 has-feedback" id="gserv">
@@ -88,7 +88,7 @@
                                 </div>
                             <input type="text" class="form-control" id="iNdate" name="idate" data-date-format="dd/mm/yyyy" placeholder="DD/MM/AAAA" required>
                         </div>
-                        <span class="glyphicon form-control-feedback" id="icondate"></span>
+                        <span class="fa form-control-feedback" id="icondate"></span>
                     </div>
 
                     <div class="form-group col-sm-3" id="ghour">
@@ -156,7 +156,7 @@
                     <div class="form-group col-sm-12 has-feedback" id="gdescription">
                         <label class="control-label" for="idescription">Circunstancias o contexto en que ocurre el evento *</label>
                         <textarea rows="4" class="form-control" id="iNdescription" name="idescription" maxlength="450" required></textarea>
-                        <span class="glyphicon form-control-feedback" id="icondescription"></span>
+                        <span class="fa form-control-feedback" id="icondescription"></span>
                     </div>
                 </div>
 
@@ -241,7 +241,7 @@
                         </div>
                     </div>
                     <div class="form-group col-sm-6">
-                        <a href="upload/Formato_plan_mejoras.docx" class="btn btn-info" target="_blank"><span class="glyphicon glyphicon-save"></span> Descargar formato de Plan de Mejoras</a>
+                        <a href="upload/Formato_plan_mejoras.docx" class="btn btn-info" target="_blank"><span class="fa fa-download"></span> Descargar formato de Plan de Mejoras</a>
                     </div>
                 </div>
                 
@@ -268,7 +268,7 @@
                             </div>
                         </div>
                         <div class="form-group col-sm-6">
-                            <a href="upload/Formato_notificacion_caidas.docx" class="btn btn-info" target="_blank"><span class="glyphicon glyphicon-save"></span> Descargar formato de Informe de Caídas</a>
+                            <a href="upload/Formato_notificacion_caidas.docx" class="btn btn-info" target="_blank"><span class="fa fa-download"></span> Descargar formato de Informe de Caídas</a>
                         </div>
                     </div>
                 </div>
