@@ -54,7 +54,7 @@ class Visit {
 		$db = new myDBC();
 
 		$stmt = $db->Prepare("SELECT COUNT(vis_id) AS num FROM uc_visita WHERE vis_ip = ? AND DAY(vis_date) = '" . date('d') . "'
-                                AND MONTH(vis_date) = '" . date('m') . " AND YEAR(vis_date) = " . date('Y') . "'");
+                                AND MONTH(vis_date) = '" . date('m') . "' AND YEAR(vis_date) = '" . date('Y') . "'");
 
 		$stmt->bind_param("s", $ip);
 		$stmt->execute();
