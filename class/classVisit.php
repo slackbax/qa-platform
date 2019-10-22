@@ -61,7 +61,7 @@ class Visit {
 		$result = $stmt->get_result();
 		$row = $result->fetch_assoc();
 
-		if ($row['num'] <= 5):
+		if ($row['num'] == 0):
 			$stmt = $db->Prepare("INSERT INTO uc_visita (vis_ip, vis_date) VALUES (?, NOW())");
 			$stmt->bind_param("s", $ip);
 			$stmt->execute();
