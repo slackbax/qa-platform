@@ -9,6 +9,7 @@ $(document).ready(function () {
 		}
 
 		if (files && datos) {
+			$('#btnsubmit').prop('disabled', true);
 			$('#submitLoader').css('display', 'inline-block');
 			return true;
 		} else {
@@ -22,6 +23,7 @@ $(document).ready(function () {
 
 	function showResponse(response) {
 		$('#submitLoader').css('display', 'none');
+		$('#btnsubmit').prop('disabled', false);
 
 		if (response.type) {
 			new Noty({
@@ -159,7 +161,7 @@ $(document).ready(function () {
 			$('#iNtevent').html('<em>No seleccionado</em>');
 
 			if (d.stev_id !== null) {
-				$('#iNtevent').html('<font color="red">' + d.cat_desc + '</font>');
+				$('#iNtevent').html('<span style="color: red; font-weight: bold">' + d.cat_desc + '</span>');
 			}
 
 			if (d.cat_id === 1) {
