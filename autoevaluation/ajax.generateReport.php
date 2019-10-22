@@ -26,6 +26,7 @@ if (extract($_POST)):
 	$totalo_si = 0;
 	$totalno_apl = 0;
 	$totalno_si = 0;
+	$aut_data = $au->getByFilters($year, $month, $iser, 1);
 
 	// Create new \PhpOffice\PhpSpreadsheet\Spreadsheet object
 	$objSS = new Spreadsheet();
@@ -174,45 +175,53 @@ if (extract($_POST)):
 	/**
 	 * CARACTERISTICAS OBLIGATORIAS
 	 */
-	$objSS->getActiveSheet()->setCellValue('A8', 'I. CUMPLIMIENTO DE CARACTERÍSTICAS OBLIGATORIAS');
-	$objSS->getActiveSheet()->mergeCells('A8:K8');
-	$objSS->getActiveSheet()->getStyle('A8:K8')->applyFromArray($saHeaderType);
+	$objSS->getActiveSheet()->setCellValue('A10', 'I. CUMPLIMIENTO DE CARACTERÍSTICAS OBLIGATORIAS');
+	$objSS->getActiveSheet()->mergeCells('A10:K10');
+	$objSS->getActiveSheet()->getStyle('A10:K10')->applyFromArray($saHeaderType);
 
 	/**
 	 * TABLA DE DATOS
 	 */
-	$objSS->getActiveSheet()->setCellValue('A10', 'COD');
-	$objSS->getActiveSheet()->getStyle('A10')->applyFromArray($saCellHeader);
-	$objSS->getActiveSheet()->setCellValue('B10', 'DESCRIPCIÓN');
-	$objSS->getActiveSheet()->getStyle('B10')->applyFromArray($saCellHeader);
-	$objSS->getActiveSheet()->setCellValue('C10', 'UMBRAL (%)');
-	$objSS->getActiveSheet()->getStyle('C10')->applyFromArray($saCellHeader);
-	$objSS->getActiveSheet()->setCellValue('D10', '1em EM');
-	$objSS->getActiveSheet()->getStyle('D10')->applyFromArray($saCellHeader);
-	$objSS->getActiveSheet()->setCellValue('E10', '2do EM');
-	$objSS->getActiveSheet()->getStyle('E10')->applyFromArray($saCellHeader);
-	$objSS->getActiveSheet()->setCellValue('F10', '3er EM');
-	$objSS->getActiveSheet()->getStyle('F10')->applyFromArray($saCellHeader);
-	$objSS->getActiveSheet()->setCellValue('G10', '4to EM');
-	$objSS->getActiveSheet()->getStyle('G10')->applyFromArray($saCellHeader);
-	$objSS->getActiveSheet()->setCellValue('H10', '5to EM');
-	$objSS->getActiveSheet()->getStyle('H10')->applyFromArray($saCellHeader);
-	$objSS->getActiveSheet()->setCellValue('I10', '% CUMP');
-	$objSS->getActiveSheet()->getStyle('I10')->applyFromArray($saCellHeader);
-	$objSS->getActiveSheet()->setCellValue('J10', 'CUMPLE');
-	$objSS->getActiveSheet()->getStyle('J10')->applyFromArray($saCellHeader);
-	$objSS->getActiveSheet()->setCellValue('K10', 'OBSERVACIONES');
-	$objSS->getActiveSheet()->getStyle('K10')->applyFromArray($saCellHeader);
-	$objSS->getActiveSheet()->getStyle('K10')->getBorders()->getRight()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_MEDIUM);
+	$objSS->getActiveSheet()->setCellValue('A12', 'COD');
+	$objSS->getActiveSheet()->getStyle('A12')->applyFromArray($saCellHeader);
+	$objSS->getActiveSheet()->setCellValue('B12', 'DESCRIPCIÓN');
+	$objSS->getActiveSheet()->getStyle('B12')->applyFromArray($saCellHeader);
+	$objSS->getActiveSheet()->setCellValue('C12', 'UMBRAL (%)');
+	$objSS->getActiveSheet()->getStyle('C12')->applyFromArray($saCellHeader);
+	$objSS->getActiveSheet()->setCellValue('D12', '1em EM');
+	$objSS->getActiveSheet()->getStyle('D12')->applyFromArray($saCellHeader);
+	$objSS->getActiveSheet()->setCellValue('E12', '2do EM');
+	$objSS->getActiveSheet()->getStyle('E12')->applyFromArray($saCellHeader);
+	$objSS->getActiveSheet()->setCellValue('F12', '3er EM');
+	$objSS->getActiveSheet()->getStyle('F12')->applyFromArray($saCellHeader);
+	$objSS->getActiveSheet()->setCellValue('G12', '4to EM');
+	$objSS->getActiveSheet()->getStyle('G12')->applyFromArray($saCellHeader);
+	$objSS->getActiveSheet()->setCellValue('H12', '5to EM');
+	$objSS->getActiveSheet()->getStyle('H12')->applyFromArray($saCellHeader);
+	$objSS->getActiveSheet()->setCellValue('I12', '% CUMP');
+	$objSS->getActiveSheet()->getStyle('I12')->applyFromArray($saCellHeader);
+	$objSS->getActiveSheet()->setCellValue('J12', 'CUMPLE');
+	$objSS->getActiveSheet()->getStyle('J12')->applyFromArray($saCellHeader);
+	$objSS->getActiveSheet()->setCellValue('K12', 'OBSERVACIONES');
+	$objSS->getActiveSheet()->getStyle('K12')->applyFromArray($saCellHeader);
+	$objSS->getActiveSheet()->getStyle('K12')->getBorders()->getRight()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_MEDIUM);
 
-	$i = 11;
-
-	$aut_data = $au->getByFilters($year, $month, $iser, 1);
+	$i = 13;
 	$arr = [];
 
 	//print_r($aut_data);
 
 	foreach ($aut_data as $k => $v):
+		/**
+		 * EVALUADOR / EVALUADO
+		 */
+		$objSS->getActiveSheet()->setCellValue('A7', 'Evaluador: ' . strtoupper($v->aut_evaluador));
+		$objSS->getActiveSheet()->mergeCells('A7:K7');
+		$objSS->getActiveSheet()->getStyle('A7:K7')->applyFromArray($saHeaderTop);
+		$objSS->getActiveSheet()->setCellValue('A8', 'Evaluado: ' . strtoupper($v->aut_evaluado));
+		$objSS->getActiveSheet()->mergeCells('A8:K8');
+		$objSS->getActiveSheet()->getStyle('A8:K8')->applyFromArray($saHeaderTop);
+
 		$index = $v->samb_sigla . '-' . $v->cod_descripcion;
 		$arr[$index]['descripcion'] = $v->ind_descripcion;
 		$umbral = ($v->ind_umbral == '') ? 0 : $v->ind_umbral;

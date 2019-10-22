@@ -33,7 +33,7 @@ class Consecuencia {
 	public function getAll()
 	{
 		$db = new myDBC();
-		$stmt = $db->Prepare("SELECT cons_id FROM uc_consecuencia");
+		$stmt = $db->Prepare("SELECT cons_id FROM uc_consecuencia ORDER BY cons_descripcion");
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$lista = [];

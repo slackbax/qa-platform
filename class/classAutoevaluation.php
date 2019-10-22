@@ -170,7 +170,7 @@ class Autoevaluation {
 			$db = new myDBC();
 		endif;
 
-		$stmt = $db->Prepare("SELECT aut_id, i.tcar_id, a.spv_id, spv_nombre, samb_sigla, cod_descripcion, ind_descripcion, ind_umbral, e.elm_id, elm_numero, aut_cumplimiento, aut_comentario, aut_fecha_registro
+		$stmt = $db->Prepare("SELECT aut_id, i.tcar_id, a.spv_id, spv_nombre, samb_sigla, cod_descripcion, ind_descripcion, ind_umbral, e.elm_id, elm_numero, aut_cumplimiento, aut_comentario, aut_evaluador, aut_fecha_registro, us_nombres, us_ap
 									FROM uc_autoevaluacion a
 									JOIN uc_usuario u ON a.us_id = u.us_id
 									JOIN uc_subpunto_verif sv ON a.spv_id = sv.spv_id
@@ -218,7 +218,9 @@ class Autoevaluation {
 			$obj->elm_numero = $row['elm_numero'];
 			$obj->aut_cumplimiento = $row['aut_cumplimiento'];
 			$obj->aut_comentario = utf8_encode($row['aut_comentario']);
+			$obj->aut_evaluado = utf8_encode($row['aut_evaluador']);
 			$obj->aut_fecha_registro = $row['aut_fecha_registro'];
+			$obj->aut_evaluador = utf8_encode($row['us_nombres'] . ' ' . $row['us_ap']);
 			$array[] = $obj;
 		endwhile;
 
