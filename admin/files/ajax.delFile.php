@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include("../../class/classMyDBC.php");
 include("../../class/classFile.php");
 include("../../src/fn.php");

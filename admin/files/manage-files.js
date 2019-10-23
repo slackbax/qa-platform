@@ -98,7 +98,7 @@ $(document).ready(function () {
                 }).done(function (response) {
                     console.log(response);
 
-                    if (response) {
+                    if (response.type) {
                         new Noty({
                             text: '<b>¡Éxito!</b><br>El documento ha sido eliminado correctamente.',
                             type: 'success'

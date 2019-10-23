@@ -562,7 +562,7 @@ class File {
 		try {
 			$r = $db->runQuery("SELECT arc_path FROM uc_archivo WHERE arc_id = '$id'");
 			$p = $r->fetch_assoc();
-
+			
 			$stmt = $db->Prepare("DELETE FROM uc_archivo_puntoverif WHERE arc_id = ?");
 
 			if (!$stmt):
@@ -576,6 +576,22 @@ class File {
 
 			if (!$stmt->execute()):
 				throw new Exception("La eliminación del documento-pv falló en su ejecución.");
+			endif;
+			
+
+			$stmt = $db->Prepare("DELETE FROM uc_archivo_subpuntoverif WHERE arc_id = ?");
+
+			if (!$stmt):
+				throw new Exception("La eliminación del documento-spv falló en su preparación.");
+			endif;
+
+			$bind = $stmt->bind_param("i", $id);
+			if (!$bind):
+				throw new Exception("La eliminación del documento-spv falló en su binding.");
+			endif;
+
+			if (!$stmt->execute()):
+				throw new Exception("La eliminación del documento-spv falló en su ejecución.");
 			endif;
 
 			$stmt = $db->Prepare("DELETE FROM uc_archivo WHERE arc_id = ?");
