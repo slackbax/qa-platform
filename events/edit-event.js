@@ -1,7 +1,12 @@
 $(document).ready(function () {
-    function validateForm(data, jF, o) {
-        var files = true, fieldVal = $(".multi").val();
-        if (!fieldVal) files = false;
+    function validateForm() {
+        var files = false;
+
+        $('.multi').each( function () {
+           if ($(this).val() !== '') {
+               files = true;
+           }
+        });
 
         if (files) {
             $('#submitLoader').css('display', 'inline-block');
@@ -18,7 +23,7 @@ $(document).ready(function () {
     function showResponse(response) {
         $('#submitLoader').css('display', 'none');
 
-        if (response.type === true) {
+        if (response.type) {
             new Noty({
                 text: '<b>¡Éxito!</b><br>El evento ha sido guardado correctamente.',
                 type: 'success',

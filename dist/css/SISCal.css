@@ -5474,7 +5474,7 @@ button.btn-xs, a.btn-xs {
 }
 .td-div-i {
   min-height : 18px;
-  margin     : 0 150px 0 0;
+  margin     : 0 0 0 150px;
   padding    : 0;
 }
 .first-tdiv {

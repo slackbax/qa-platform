@@ -138,7 +138,7 @@
                 
                 <div class="row">
                     <div class="form-group col-sm-12">
-                        <label class="control-label" for="idocument">Archivo de Plan de Mejoras *</label>
+                        <label class="control-label" for="idocument">Archivo de Plan de Mejoras</label>
                         <div class="controls">
                             <input name="idocument[]" class="multi" id="idocument" type="file" size="16" accept="pdf|doc|docx|xls|xlsx|rar|zip" maxlength="1">
                             <p class="help-block">Formatos admitidos: pdf, doc, docx, xls, xlsx, rar, zip</p>
@@ -182,4 +182,4 @@
     </form>
 </section>
 
-<script src="events/edit-event.js?v=20190828"></script>
+<script src="events/edit-event.js?v=20191023"></script>

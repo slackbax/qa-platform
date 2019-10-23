@@ -13,9 +13,6 @@ if (extract($_POST)):
         $db->autoCommit(FALSE);
 
         $event = $ev->get($iid);
-        if (!empty($event->ev_path)) unlink('../' . $event->ev_path);
-		if (!empty($event->ev_caida_path)) unlink('../' . $event->ev_caida_path);
-        
         $targetPath = $_SERVER['DOCUMENT_ROOT'] . BASEFOLDER . 'upload';
         
         foreach ($_FILES as $aux => $file):
@@ -28,10 +25,14 @@ if (extract($_POST)):
             endif;
             
             $doc_route = 'upload/' . $fileName;
-            if ($aux == 'idocument')
+            if ($aux == 'idocument'):
+				if (!empty($event->ev_path)) unlink('../' . $event->ev_path);
             	$ins_f = $ev->setPath($iid, $doc_route, $db);
-            if ($aux == 'idocumentcaida')
+            endif;
+            if ($aux == 'idocumentcaida'):
+				if (!empty($event->ev_caida_path)) unlink('../' . $event->ev_caida_path);
 				$ins_f = $ev->setPathCaida($iid, $doc_route, $db);
+            endif;
 
             if (!$ins_f['estado']):
                 throw new Exception('Error al guardar el documento. ' . $ins_f['msg'], 0);

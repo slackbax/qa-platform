@@ -77,7 +77,8 @@ $columns = array(
 );
 
 $joinQuery = "FROM uc_archivo a";
-$joinQuery .= " JOIN uc_archivo_puntoverif ap ON a.arc_id = ap.arc_id";
+$joinQuery .= " JOIN uc_archivo_subpuntoverif asp ON a.arc_id = asp.arc_id";
+$joinQuery .= " JOIN uc_subpunto_verif spv ON asp.spv_id = spv.spv_id";
 $extraWhere = " arc_publicado = '1' AND pv_id <> '99' ";
 
 $groupBy = "";

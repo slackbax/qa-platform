@@ -80,7 +80,7 @@
 	<!-- lightGallery -->
 	<link rel="stylesheet" href="bower_components/lightgallery/dist/css/lightgallery.css">
 	<!-- Theme style -->
-	<link rel="stylesheet" href="dist/css/SISCal.css">
+	<link rel="stylesheet" href="dist/css/SISCal.css?v=20191023">
 	<link rel="stylesheet" href="dist/css/skins/skin-yellow-light.min.css">
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
