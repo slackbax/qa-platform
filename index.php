@@ -80,7 +80,7 @@
 	<!-- lightGallery -->
 	<link rel="stylesheet" href="bower_components/lightgallery/dist/css/lightgallery.css">
 	<!-- Theme style -->
-	<link rel="stylesheet" href="dist/css/SISCal.css?v=20191023">
+	<link rel="stylesheet" href="dist/css/SISCal.css?v=20191024">
 	<link rel="stylesheet" href="dist/css/skins/skin-yellow-light.min.css">
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -303,7 +303,7 @@
 				<?php if ($_admin or $_calidad or $_autoeval): ?>
 					<li class="treeview<?php if (isset($section) and $section == 'autoeval'): ?> active<?php endif; ?>">
 						<a href="#">
-							<i class="fa fa-refresh"></i>
+							<i class="fa fa-check-square-o"></i>
 							<span>Autoevaluación</span>
 							<span class="pull-right-container">
 							<i class="fa fa-angle-left pull-right"></i>
@@ -373,7 +373,7 @@
 				<?php if ($_login): ?>
 					<li class="treeview<?php if (isset($section) and $section == 'adv-event'): ?> active<?php endif; ?>">
 						<a href="#">
-							<i class="fa fa-ban"></i>
+							<i class="fa fa-calendar-times-o"></i>
 							<span class="menu-item">Eventos Adversos</span>
 							<span class="pull-right-container">
 								<i class="fa fa-angle-left pull-right"></i>

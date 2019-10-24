@@ -7,7 +7,7 @@ $last_f = 8; ?>
 <?php $spv = new SubPuntoVerificacion() ?>
 
 <div class="row">
-	<div class="col-sm-8">
+	<div class="col-lg-8">
 		<section class="content-header">
 			<div class="callout">
 				<h2 class="text-orange"><i class="fa fa-check"></i> <small>Bienvenido
@@ -153,90 +153,111 @@ $last_f = 8; ?>
 		</section>
 	</div>
 
-	<div class="col-sm-4">
+	<div class="col-lg-4">
 		<section class="content container-fluid">
-			<div class="box box-warning">
+			<div class="box box-warning widget-user-team">
 				<div class="box-header with-border">
 					<h3 class="box-title">Nuestro equipo</h3>
 				</div>
+			</div>
 
-				<div class="box-body">
-					<div class="people-img">
-						<img class="image-ver" src="dist/img/users/luis-gatica.jpg">
+			<div class="box box-widget widget-user-2 widget-user-team">
+				<div class="widget-user-header bg-white">
+					<div class="widget-user-image">
+						<img class="img-circle" src="dist/img/users/luis-gatica.jpg">
 					</div>
-					<strong>Dr. Luis Gatica Norambuena</strong>
-					<br>
-					- Subdirector de Calidad y Seguridad del Paciente
-					<br>
-					- Jefe Unidad de Calidad y Acreditación
-					<p class="ic-data email"><a href="mailto:lgatica@ssconcepcion.cl">lgatica@ssconcepcion.cl</a></p>
-					<p class="ic-data phone">417996</p>
+					<div class="widget-user-username">Dr. Luis Gatica Norambuena</div>
+					<div class="widget-user-desc">Subdirector de Calidad y Seguridad del Paciente<br>Jefe Unidad de Calidad y Acreditación</div>
+					<p class="widget-user-desc ic-data email"><a href="mailto:lgatica@ssconcepcion.cl">lgatica@ssconcepcion.cl</a></p>
+					<p class="widget-user-desc ic-data phone">417996</p>
 				</div>
+			</div>
 
-				<div class="box-body">
-					<div class="people-img">
-						<img class="image-ver" src="dist/img/users/claudia-munoz.jpg">
+			<div class="box box-widget widget-user-2 widget-user-team">
+				<div class="widget-user-header bg-white">
+					<div class="widget-user-image">
+						<img class="img-circle" src="dist/img/users/claudia-munoz.jpg">
 					</div>
-					<strong>Claudia Muñoz Hernández</strong>
-					<br>
-					Jefa de Enfermeras Unidad de Calidad y Acreditación
-					<p class="ic-data email"><a href="mailto:cmunoz@ssconcepcion.cl">cmunoz@ssconcepcion.cl</a></p>
-					<p class="ic-data phone">412997</p>
+					<div class="widget-user-username">Claudia Muñoz Hernández</div>
+					<div class="widget-user-desc">Jefa de Enfermeras Unidad de Calidad y Acreditación</div>
+					<p class="widget-user-desc ic-data email"><a href="mailto:cmunoz@ssconcepcion.cl">cmunoz@ssconcepcion.cl</a></p>
+					<p class="widget-user-desc ic-data phone">412997</p>
 				</div>
+			</div>
 
-				<div class="box-body">
-					<div class="people-img">
-						<img class="image-ver" src="dist/img/users/nestor-duarte.jpg">
+			<div class="box box-widget widget-user-2 widget-user-team">
+				<div class="widget-user-header bg-white">
+					<div class="widget-user-image">
+						<img class="img-circle" src="dist/img/users/nestor-duarte.jpg">
 					</div>
-					<strong>Néstor Duarte Farías</strong>
-					<br>
-					Ingeniero Civil Biomédico
-					<p class="ic-data email"><a href="mailto:nduarte@ssconcepcion.cl">nduarte@ssconcepcion.cl</a></p>
-					<p class="ic-data phone">417668</p>
+					<div class="widget-user-username">Néstor Duarte Farías</div>
+					<div class="widget-user-desc">Ingeniero Civil Biomédico</div>
+					<p class="widget-user-desc ic-data email"><a href="mailto:nduarte@ssconcepcion.cl">nduarte@ssconcepcion.cl</a></p>
+					<p class="widget-user-desc ic-data phone">417668</p>
 				</div>
+			</div>
 
-				<div class="box-body">
-					<div class="people-img">
-						<img class="image-ver" src="dist/img/users/constanza-moncada.jpg">
+			<div class="box box-widget widget-user-2 widget-user-team">
+				<div class="widget-user-header bg-white">
+					<div class="widget-user-image">
+						<img class="img-circle" src="dist/img/users/constanza-moncada.jpg">
 					</div>
-					<strong>Constanza Moncada Soto</strong>
-					<br>
-					Enfermera
-					<p class="ic-data email"><a href="mailto:c.moncada@ssconcepcion.com">c.moncada@ssconcepcion.cl</a></p>
-					<p class="ic-data phone">413117</p>
+					<div class="widget-user-username">Constanza Moncada Soto</div>
+					<div class="widget-user-desc">Enfermera</div>
+					<p class="widget-user-desc ic-data email"><a href="mailto:c.moncada@ssconcepcion.com">c.moncada@ssconcepcion.cl</a></p>
+					<p class="widget-user-desc ic-data phone">417668</p>
 				</div>
+			</div>
 
-				<div class="box-body">
-					<div class="people-img">
-						<img class="image-ver" src="dist/img/users/paula-torres.jpg">
+			<div class="box box-widget widget-user-2 widget-user-team">
+				<div class="widget-user-header bg-white">
+					<div class="widget-user-image">
+						<img class="img-circle" src="dist/img/users/paula-torres.jpg">
 					</div>
-					<strong>Paula Torres Retamal</strong>
-					<br>
-					Enfermera
-					<p class="ic-data email"><a href="mailto:paula.torres@ssconcepcion.com">paula.torres@ssconcepcion.cl</a></p>
-					<p class="ic-data phone">413117</p>
+					<div class="widget-user-username">Paula Torres Retamal</div>
+					<div class="widget-user-desc">Enfermera</div>
+					<p class="widget-user-desc ic-data email"><a href="mailto:paula.torres@ssconcepcion.com">paula.torres@ssconcepcion.cl</a></p>
+					<p class="widget-user-desc ic-data phone">417668</p>
 				</div>
+			</div>
 
-				<div class="box-body">
-					<div class="people-img">
-						<img class="image-ver" src="dist/img/users/giovanna-nanjari.jpg">
+			<div class="box box-widget widget-user-2 widget-user-team">
+				<div class="widget-user-header bg-white">
+					<div class="widget-user-image">
+						<img class="img-circle" src="dist/img/users/giovanna-nanjari.jpg">
 					</div>
-					<strong>Giovanna Nanjari Massoglia</strong>
-					<br>
-					Enfermera
-					<p class="ic-data email"><a href="mailto:gnanjari@ssconcepcion.com">gnanjari@ssconcepcion.cl</a></p>
-					<p class="ic-data phone">413117</p>
+					<div class="widget-user-username">Giovanna Nanjari Massoglia</div>
+					<div class="widget-user-desc">Enfermera</div>
+					<p class="widget-user-desc ic-data email"><a href="mailto:gnanjari@ssconcepcion.com">gnanjari@ssconcepcion.cl</a></p>
+					<p class="widget-user-desc ic-data phone">417668</p>
 				</div>
+			</div>
 
-				<div class="box-body">
-					<div class="people-img">
-						<img class="image-ver" src="dist/img/users/elizabeth-briones.jpg">
+			<div class="box box-widget widget-user-2">
+				<div class="widget-user-header bg-white">
+					<div class="widget-user-image">
+						<img class="img-circle" src="dist/img/users/elizabeth-briones.jpg">
 					</div>
-					<strong>Elizabeth Briones Cuevas</strong>
-					<br>
-					Secretaria
-					<p class="ic-data email"><a href="mailto:secrecalidad@ssconcepcion.cl">secrecalidad@ssconcepcion.cl</a></p>
-					<p class="ic-data phone">417668</p>
+					<div class="widget-user-username">Elizabeth Briones Cuevas</div>
+					<div class="widget-user-desc">Secretaria</div>
+					<p class="widget-user-desc ic-data email"><a href="mailto:secrecalidad@ssconcepcion.cl">secrecalidad@ssconcepcion.cl</a></p>
+					<p class="widget-user-desc ic-data phone">417668</p>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="info-box">
+						<span class="info-box-icon bg-green-active">
+							<i class="ion ion-ios-people-outline"></i>
+						</span>
+						<div class="description-block no-margin">
+							<h5 class="description-header description-header-info-box"><?php echo number_format($vs->getNumberToday()) ?></h5>
+							<span class="description-text">Visitas hoy</span>
+							<h5 class="description-header description-header-info-box"><?php echo number_format($vs->getNumberTotal()) ?></h5>
+							<span class="description-text">Visitas totales</span>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>

@@ -3202,16 +3202,18 @@ td > .radio label {
 .widget-user .box-footer {
   padding-top : 30px;
 }
+.widget-user-team {
+  margin-bottom : 0;
+  border-bottom : #e0e0e0;
+}
 .widget-user-2 .widget-user-header {
-  padding                 : 20px;
+  padding                 : 10px;
   border-top-right-radius : 3px;
   border-top-left-radius  : 3px;
 }
 .widget-user-2 .widget-user-username {
-  margin-top    : 5px;
-  margin-bottom : 5px;
-  font-size     : 25px;
-  font-weight   : 300;
+  font-size   : 16px;
+  font-weight : 300;
 }
 .widget-user-2 .widget-user-desc {
   margin-top : 0;
@@ -4540,6 +4542,9 @@ td > .radio label {
   font-weight : 600;
   font-size   : 16px;
 }
+.description-block > .description-header-info-box {
+  padding : 4px 0 0;
+}
 .description-block > .description-text {
   text-transform : uppercase;
 }
@@ -5536,7 +5541,7 @@ button.btn-xs, a.btn-xs {
  * -----------------------------
  */
 .text-xs {
-  font-size: x-small;
+  font-size : x-small;
 }
 .td-pvs {
   min-width : 57px;
@@ -5574,7 +5579,7 @@ button.btn-xs, a.btn-xs {
 }
 .ic-data {
   height       : 20px;
-  margin       : 10px 0;
+  margin       : 10px 0 0 75px !important;
   padding-left : 28px;
   padding-top  : 2px;
 }

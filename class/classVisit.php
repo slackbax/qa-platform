@@ -33,9 +33,24 @@ class Visit {
 	/**
 	 * @return int
 	 */
-	public function getNumber() {
+	public function getNumberTotal() {
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT COUNT(vis_id) AS num FROM uc_visita");
+
+		$stmt->execute();
+		$result = $stmt->get_result();
+		$row = $result->fetch_assoc();
+
+		unset($db);
+		return $row['num'];
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getNumberToday() {
+		$db = new myDBC();
+		$stmt = $db->Prepare("SELECT COUNT(vis_id) AS num FROM uc_visita WHERE DATE(vis_date) = CURRENT_DATE");
 
 		$stmt->execute();
 		$result = $stmt->get_result();
