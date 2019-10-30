@@ -64,7 +64,7 @@ if (extract($_POST)):
                         move_uploaded_file($tempFile, $targetFile);
                     endforeach;
 
-                    $pic_route = 'dist/img/users/' . $id . '_' . $file['name'][0];
+                    $pic_route = 'users/' . $id . '_' . $file['name'][0];
 
                     $ins = $user->setPicture($id, $pic_route, $db);
 
@@ -73,7 +73,7 @@ if (extract($_POST)):
                     endif;
 
                     if ($ins and $_islog):
-                        $_SESSION['uc_userpic'] = 'dist/img/users/' . $id . '_' . $file['name'][0];
+                        $_SESSION['uc_userpic'] = 'users/' . $id . '_' . $file['name'][0];
                     endif;
                 else:
                     throw new Exception('Error al eliminar la imagen antigua.', 0);

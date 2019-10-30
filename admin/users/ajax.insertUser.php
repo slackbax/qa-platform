@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 include("../../class/classMyDBC.php");
 include("../../class/classUser.php");
 include("../../src/sessionControl.ajax.php");
@@ -32,9 +33,9 @@ if (extract($_POST)):
                 move_uploaded_file($tempFile, $targetFile);
             endforeach;
 
-            $pic_route = 'dist/img/users/' . $ins['msg'] . '_' . $file['name'][0];
+            $pic_route = 'users/' . $ins['msg'] . '_' . $file['name'][0];
         else:
-            $pic_route = 'dist/img/users/no-photo.png';
+            $pic_route = 'users/no-photo.png';
         endif;
 
         $ins_p = $user->setPicture($ins['msg'], $pic_route, $db);

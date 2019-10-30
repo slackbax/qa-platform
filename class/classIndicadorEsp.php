@@ -67,7 +67,11 @@ class IndicadorEsp {
 		$stmt = $db->Prepare("SELECT ie.ine_id
                                 FROM uc_ind_especifico ie
                                 JOIN uc_indesp_subpunto ins ON ie.ine_id = ins.ine_id
-                                WHERE ins.spv_id = ?");
+								JOIN uc_indicador i ON ie.ind_id = i.ind_id
+                                JOIN uc_subambito s ON i.samb_id = s.samb_id
+                                JOIN uc_codigo c ON i.cod_id = c.cod_id
+                                WHERE ins.spv_id = ?
+                                ORDER BY samb_sigla, cod_descripcion");
 
 		$stmt->bind_param("i", $pv);
 		$stmt->execute();

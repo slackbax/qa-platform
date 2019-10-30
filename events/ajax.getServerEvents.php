@@ -172,7 +172,7 @@ $extraWhere = '';
 $and = false;
 
 if (!$_admin):
-    $extraWhere .= ' uc_evento.us_id = ' . $_SESSION['uc_userid'];
+    $extraWhere .= ' e.us_id = ' . $_SESSION['uc_userid'];
 	$and = true;
 endif;
 
