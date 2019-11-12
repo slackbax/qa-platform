@@ -74,11 +74,7 @@ $columns = array(
             return utf8_encode($d);
         }
     ),
-    array('db' => 'stev_descripcion', 'dt' => 9, 'field' => 'stev_descripcion',
-        'formatter' => function( $d, $row ) {
-            return utf8_encode($d);
-        }
-    ),
+    array('db' => 'stev_descripcion', 'dt' => 9, 'field' => 'stev_descripcion'),
     array('db' => 'cat_descripcion', 'dt' => 10, 'field' => 'cat_descripcion',
         'formatter' => function( $d, $row ) {
             return utf8_encode($d);
