@@ -1,6 +1,5 @@
 <?php
 
-
 include("../class/classMyDBC.php");
 include("../class/classEvento.php");
 
