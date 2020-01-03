@@ -111,7 +111,7 @@ $last_f = 8; ?>
 							<tr>
 								<td><i class="fa fa-file-<?php echo getExtension($f->arc_ext) ?>-o text-<?php echo getColorExt($f->arc_ext) ?> icon-table"></i></td>
 								<td><a href="<?php echo $f->arc_path ?>" target="_blank"><?php echo $f->arc_sigla . ' ' . $f->arc_cod . ' - ' . $f->arc_nombre ?></a></td>
-								<td class="t-center"><?php echo getDateToForm($f->arc_fecha) ?></td>
+								<td><?php echo getDateToForm($f->arc_fecha) ?></td>
 							</tr>
 						<?php endforeach ?>
 						</tbody>
