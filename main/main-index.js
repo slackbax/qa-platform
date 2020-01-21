@@ -9,7 +9,7 @@ $(document).ready( function() {
         order: [[2, 'desc']]
     });
 
-    var countDownDate = new Date("Mar 17, 2020 00:00:00").getTime();
+    var countDownDate = new Date("Mar 09, 2020 00:00:00").getTime();
 
     var x = setInterval(function() {
         var now = new Date().getTime();

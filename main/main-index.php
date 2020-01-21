@@ -85,7 +85,7 @@ $last_f = 8; ?>
 						<div class="col-xs-2"><span class="text-xs">SEGUNDOS</span></div>
 					</div>
 					<div class="row" style="background: #94c9da; margin: 0; padding-bottom: 5px">
-						<h5>17 de Marzo de 2020</h5>
+						<h5>09 de Marzo de 2020</h5>
 					</div>
 				</div>
 			</div>

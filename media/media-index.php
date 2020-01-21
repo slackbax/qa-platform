@@ -57,7 +57,7 @@
 
 			<div id="media-gallery" class="lightgallery row">
 				<ul class="col-sm-8 col-sm-offset-2">
-					<?php for ($i = 1; $i < 15; $i++): ?>
+					<?php for ($i = 1; $i < 25; $i++): ?>
 						<?php $index = ($i < 10) ? '0' . $i : $i ?>
 						<li class="col-xs-6 col-sm-2 item" data-src="dist/img/medios/Reacreditacion2020-<?php echo $index ?>.jpg" data-sub-html=".caption">
 							<a>
