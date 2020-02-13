@@ -51,13 +51,13 @@
 		<div class="box-body">
 			<div class="row">
 				<div class="col-lg-4 col-lg-offset-4 col-sm-8 col-sm-offset-2" style="margin-bottom: 20px">
-					<a class="btn btn-default btn-block" href="dist/img/medios/triptico_comite.pdf" target="_blank"><i class="fa fa-file-pdf-o text-red"></i> Descargar Tríptico comité Acreditación 2020</a>
+					<a class="btn btn-default btn-block" href="dist/img/medios/Manual_REACREDITACION_2020.pdf" target="_blank"><i class="fa fa-file-pdf-o text-red"></i> Descargar Manual Reacreditación 2020</a>
 				</div>
 			</div>
 
 			<div id="media-gallery" class="lightgallery row">
 				<ul class="col-sm-8 col-sm-offset-2">
-					<?php for ($i = 1; $i < 25; $i++): ?>
+					<?php for ($i = 1; $i < 30; $i++): ?>
 						<?php $index = ($i < 10) ? '0' . $i : $i ?>
 						<li class="col-xs-6 col-sm-2 item" data-src="dist/img/medios/Reacreditacion2020-<?php echo $index ?>.jpg" data-sub-html=".caption">
 							<a>
