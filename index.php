@@ -423,6 +423,13 @@
 					</a>
 				</li>
 
+				<li <?php if (isset($section) and $section == 'covid'): ?> class="active"<?php endif; ?>>
+					<a href="index.php?section=covid">
+						<i class="fa fa-book"></i>
+						<span class="menu-item">Capacitación COVID-19</span>
+					</a>
+				</li>
+
 				<?php if ($_admin): ?>
 					<li class="header">PANEL DE CONTROL</li>
 					<li class="treeview<?php if (isset($section) and $section == 'users'): ?> active<?php endif ?>">

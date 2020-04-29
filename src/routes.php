@@ -65,6 +65,9 @@ elseif ($section == 'autoeval' and ($_admin or $_autoeval or $_calidad)):
 /** MEDIA **/
 elseif ($section == 'media'):
 	include 'media/media-index.php';
+/** COVID **/
+elseif ($section == 'covid'):
+	include 'covid/covid-index.php';
 /** PERFIL DE USUARIO **/
 elseif ($section == 'adminusers' and $_login):
     if ($sbs == 'editprofile'):
