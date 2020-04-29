@@ -28,15 +28,15 @@
 
 						<tbody>
 						<tr>
-							<td><a target="_blank" href="upload/TEMARIO_ENFERMEROS.pdf"><span class="fa fa-file-pdf-o icon-table"></span> Temario Enfermeros</a></td>
+							<td><a target="_blank" href="upload/TEMARIO_ENFERMEROS.pdf"><span class="fa fa-file-pdf-o text-red icon-table"></span> Temario Enfermeros</a></td>
 							<td class="text-center">29/04/2020</td>
 						</tr>
 						<tr>
-							<td><a target="_blank" href="upload/INVASIVOS_2020.pdf"><span class="fa fa-file-pdf-o icon-table"></span> Invasivos 2020</a></td>
+							<td><a target="_blank" href="upload/INVASIVOS_2020.pdf"><span class="fa fa-file-pdf-o text-red icon-table"></span> Invasivos 2020</a></td>
 							<td class="text-center">29/04/2020</td>
 						</tr>
 						<tr>
-							<td><a target="_blank" href="upload/MONITORIZACION_HEMODINAMICA_UCI.pdf"><span class="fa fa-file-pdf-o icon-table"></span> Monitorizacion Hemodinamia UCI</a></td>
+							<td><a target="_blank" href="upload/MONITORIZACION_HEMODINAMICA_UCI.pdf"><span class="fa fa-file-pdf-o text-red icon-table"></span> Monitorizacion Hemodinamia UCI</a></td>
 							<td class="text-center">29/04/2020</td>
 						</tr>
 						</tbody>
