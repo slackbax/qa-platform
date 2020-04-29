@@ -71,7 +71,7 @@ if (extract($_POST)):
 		$db->autoCommit(TRUE);
 
 		$serv = $se->get($iserv);
-		$eve = $ev->get($istev);
+		$eve = $ev->get($ins['msg']);
 		$msg = '<b>ATENCIÓN</b><br>';
 		$msg .= 'Se ha generado un nuevo reporte de evento centinela con los siguientes datos:<br>';
 		$msg .= '<br><b>Código:</b> ' . $ins['msg'];

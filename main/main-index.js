@@ -9,7 +9,15 @@ $(document).ready( function() {
         order: [[2, 'desc']]
     });
 
-    var countDownDate = new Date("Mar 09, 2020 00:00:00").getTime();
+    $("#counter-d").html(0);
+    $("#counter-h").html(0);
+    $("#counter-m").html(0);
+    $("#counter-s").html(0);
+    $("#counter").html(0 + "d " + 0 + "h "
+        + 0 + "m " + 0 + "s ");
+
+    /*
+    var countDownDate = new Date("Mar 09, 2020 23:59:59").getTime();
 
     var x = setInterval(function() {
         var now = new Date().getTime();
@@ -35,5 +43,5 @@ $(document).ready( function() {
         if (distance < 0) {
             clearInterval(x);
         }
-    }, 1000);
+    }, 1000);*/
 });   
