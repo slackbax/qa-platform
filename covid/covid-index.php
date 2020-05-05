@@ -39,6 +39,10 @@
 							<td><a target="_blank" href="upload/MONITORIZACION_HEMODINAMICA_UCI.pdf"><span class="fa fa-file-pdf-o text-red icon-table"></span> Monitorizacion Hemodinamia UCI</a></td>
 							<td class="text-center">29/04/2020</td>
 						</tr>
+						<tr>
+							<td><a target="_blank" href="upload/PROTOCOLOS_ASOCIADOS_SEGURIDAD_PACIENTES.pdf"><span class="fa fa-file-pdf-o text-red icon-table"></span> Protocolos Asociados a Seguridad de Pacientes</a></td>
+							<td class="text-center">05/05/2020</td>
+						</tr>
 						</tbody>
 					</table>
 				</div>
