@@ -33,7 +33,7 @@ class Servicio {
 	public function getAll()
 	{
 		$db = new myDBC();
-		$stmt = $db->Prepare("SELECT ser_id FROM uc_servicio ORDER BY ser_nombre ASC");
+		$stmt = $db->Prepare("SELECT ser_id FROM uc_servicio WHERE ser_activo IS TRUE ORDER BY ser_nombre");
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$lista = [];

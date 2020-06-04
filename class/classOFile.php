@@ -67,7 +67,7 @@ class OFile {
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT oarc_id FROM uc_oarchivo a
                                 JOIN uc_folder f ON a.fol_id = f.fol_id
-                                WHERE f.fol_id = ?");
+                                WHERE f.fol_id = ? AND oarc_publicado IS TRUE");
 
 		$stmt->bind_param("i", $fid);
 		$stmt->execute();

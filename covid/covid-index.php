@@ -67,6 +67,42 @@
 							<td><a target="_blank" href="upload/PREVENCION_CAIDAS.pdf"><span class="fa fa-file-pdf-o text-red icon-table"></span> Prevención de caídas</a></td>
 							<td class="text-center">08/05/2020</td>
 						</tr>
+						<tr>
+							<td><a target="_blank" href="upload/Braun_1.mp4"><span class="fa fa-video-camera text-red icon-table"></span> Capacitación BIC Braun Parte 1</a></td>
+							<td class="text-center">02/06/2020</td>
+						</tr>
+						<tr>
+							<td><a target="_blank" href="upload/Braun_2a.mp4"><span class="fa fa-video-camera text-red icon-table"></span> Capacitación BIC Braun Parte 2a</a></td>
+							<td class="text-center">02/06/2020</td>
+						</tr>
+						<tr>
+							<td><a target="_blank" href="upload/Braun_2b.mp4"><span class="fa fa-video-camera text-red icon-table"></span> Capacitación BIC Braun Parte 2b</a></td>
+							<td class="text-center">02/06/2020</td>
+						</tr>
+						<tr>
+							<td><a target="_blank" href="upload/Braun_2c.mp4"><span class="fa fa-video-camera text-red icon-table"></span> Capacitación BIC Braun Parte 2c</a></td>
+							<td class="text-center">02/06/2020</td>
+						</tr>
+						<tr>
+							<td><a target="_blank" href="upload/Braun_3.mp4"><span class="fa fa-video-camera text-red icon-table"></span> Capacitación BIC Braun Parte 3</a></td>
+							<td class="text-center">02/06/2020</td>
+						</tr>
+						<tr>
+							<td><a target="_blank" href="upload/Braun_4.mp4"><span class="fa fa-video-camera text-red icon-table"></span> Capacitación BIC Braun Parte 4</a></td>
+							<td class="text-center">02/06/2020</td>
+						</tr>
+						<tr>
+							<td><a target="_blank" href="upload/Braun_5.mp4"><span class="fa fa-video-camera text-red icon-table"></span> Capacitación BIC Braun Parte 5</a></td>
+							<td class="text-center">02/06/2020</td>
+						</tr>
+						<tr>
+							<td><a target="_blank" href="upload/Braun_6.mp4"><span class="fa fa-video-camera text-red icon-table"></span> Capacitación BIC Braun Parte 6</a></td>
+							<td class="text-center">02/06/2020</td>
+						</tr>
+						<tr>
+							<td><a target="_blank" href="upload/Braun_7.mp4"><span class="fa fa-video-camera text-red icon-table"></span> Capacitación BIC Braun Parte 7</a></td>
+							<td class="text-center">02/06/2020</td>
+						</tr>
 						</tbody>
 					</table>
 				</div>
