@@ -19,8 +19,8 @@ if (extract($_POST)):
         if (!$ins['estado']):
             throw new Exception('Error al guardar los datos del documento. ' . $ins['msg'], 0);
         endif;
-        
-        $targetPath = $_SERVER['DOCUMENT_ROOT'] . BASEFOLDER . 'upload';
+
+		$targetPath = '/home/repo_calidad';
 
         foreach ($_FILES as $aux => $file):
             $tempFile = $file['tmp_name'][0];
@@ -31,7 +31,7 @@ if (extract($_POST)):
                 throw new Exception("Error al subir el documento. " . error_get_last(), 0);
             endif;
             
-            $doc_route = 'upload/' . $fileName;
+            $doc_route = '/repo_calidad/' . $fileName;
             $ins_p = $fl->setPath($ins['msg'], $doc_route, $db);
 
             if (!$ins_p['estado']):

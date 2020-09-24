@@ -28,79 +28,79 @@
 
 						<tbody>
 						<tr>
-							<td><a target="_blank" href="upload/TEMARIO_ENFERMEROS.pdf"><span class="fa fa-file-pdf-o text-red icon-table"></span> Temario enfermeros</a></td>
+							<td><a target="_blank" href="/repo_calidad/TEMARIO_ENFERMEROS.pdf"><span class="fa fa-file-pdf-o text-red icon-table"></span> Temario enfermeros</a></td>
 							<td class="text-center">29/04/2020</td>
 						</tr>
 						<tr>
-							<td><a target="_blank" href="upload/INVASIVOS_2020.pdf"><span class="fa fa-file-pdf-o text-red icon-table"></span> Invasivos 2020</a></td>
+							<td><a target="_blank" href="/repo_calidad/INVASIVOS_2020.pdf"><span class="fa fa-file-pdf-o text-red icon-table"></span> Invasivos 2020</a></td>
 							<td class="text-center">29/04/2020</td>
 						</tr>
 						<tr>
-							<td><a target="_blank" href="upload/MONITORIZACION_HEMODINAMICA_UCI.pdf"><span class="fa fa-file-pdf-o text-red icon-table"></span> Monitorizacion Hemodinamia UCI</a></td>
+							<td><a target="_blank" href="/repo_calidad/MONITORIZACION_HEMODINAMICA_UCI.pdf"><span class="fa fa-file-pdf-o text-red icon-table"></span> Monitorizacion Hemodinamia UCI</a></td>
 							<td class="text-center">29/04/2020</td>
 						</tr>
 						<tr>
-							<td><a target="_blank" href="upload/PROTOCOLOS_ASOCIADOS_SEGURIDAD_PACIENTES.pdf"><span class="fa fa-file-pdf-o text-red icon-table"></span> Protocolos asociados a seguridad de pacientes</a></td>
+							<td><a target="_blank" href="/repo_calidad/PROTOCOLOS_ASOCIADOS_SEGURIDAD_PACIENTES.pdf"><span class="fa fa-file-pdf-o text-red icon-table"></span> Protocolos asociados a seguridad de pacientes</a></td>
 							<td class="text-center">05/05/2020</td>
 						</tr>
 						<tr>
-							<td><a target="_blank" href="upload/SONDA_NASOGASTRICA_PEDIATRIA.pdf"><span class="fa fa-file-pdf-o text-red icon-table"></span> Sonda nasogástrica Pediatría</a></td>
+							<td><a target="_blank" href="/repo_calidad/SONDA_NASOGASTRICA_PEDIATRIA.pdf"><span class="fa fa-file-pdf-o text-red icon-table"></span> Sonda nasogástrica Pediatría</a></td>
 							<td class="text-center">08/05/2020</td>
 						</tr>
 						<tr>
-							<td><a target="_blank" href="upload/ADMINISTRACION_MEDICAMENTOS.pdf"><span class="fa fa-file-pdf-o text-red icon-table"></span> Administración de medicamentos</a></td>
+							<td><a target="_blank" href="/repo_calidad/ADMINISTRACION_MEDICAMENTOS.pdf"><span class="fa fa-file-pdf-o text-red icon-table"></span> Administración de medicamentos</a></td>
 							<td class="text-center">08/05/2020</td>
 						</tr>
 						<tr>
-							<td><a target="_blank" href="upload/OXIGENOTERAPIA_PACIENTE_PEDIATRICO.pdf"><span class="fa fa-file-pdf-o text-red icon-table"></span> Oxigenoterapia para pacientes pediátricos</a></td>
+							<td><a target="_blank" href="/repo_calidad/OXIGENOTERAPIA_PACIENTE_PEDIATRICO.pdf"><span class="fa fa-file-pdf-o text-red icon-table"></span> Oxigenoterapia para pacientes pediátricos</a></td>
 							<td class="text-center">08/05/2020</td>
 						</tr>
 						<tr>
-							<td><a target="_blank" href="upload/SIGNOS_VITALES_MONITORIZACION_NO_INVASIVA_PEDIATRICA.pdf"><span class="fa fa-file-pdf-o text-red icon-table"></span> Signos vitales y monitorización no invasiva pediátrica</a></td>
+							<td><a target="_blank" href="/repo_calidad/SIGNOS_VITALES_MONITORIZACION_NO_INVASIVA_PEDIATRICA.pdf"><span class="fa fa-file-pdf-o text-red icon-table"></span> Signos vitales y monitorización no invasiva pediátrica</a></td>
 							<td class="text-center">08/05/2020</td>
 						</tr>
 						<tr>
-							<td><a target="_blank" href="upload/OXIGENOTERAPIA_POR_CANULA_NASAL_ALTO_FLUJO.pdf"><span class="fa fa-file-pdf-o text-red icon-table"></span> Oxigenoterapia por cánula nasal de alto flujo</a></td>
+							<td><a target="_blank" href="/repo_calidad/OXIGENOTERAPIA_POR_CANULA_NASAL_ALTO_FLUJO.pdf"><span class="fa fa-file-pdf-o text-red icon-table"></span> Oxigenoterapia por cánula nasal de alto flujo</a></td>
 							<td class="text-center">08/05/2020</td>
 						</tr>
 						<tr>
-							<td><a target="_blank" href="upload/PREVENCION_CAIDAS.pdf"><span class="fa fa-file-pdf-o text-red icon-table"></span> Prevención de caídas</a></td>
+							<td><a target="_blank" href="/repo_calidad/PREVENCION_CAIDAS.pdf"><span class="fa fa-file-pdf-o text-red icon-table"></span> Prevención de caídas</a></td>
 							<td class="text-center">08/05/2020</td>
 						</tr>
 						<tr>
-							<td><a target="_blank" href="upload/Braun_1.mp4"><span class="fa fa-video-camera text-red icon-table"></span> Capacitación BIC Braun Parte 1</a></td>
+							<td><a target="_blank" href="/repo_calidad/Braun_1.mp4"><span class="fa fa-video-camera text-red icon-table"></span> Capacitación BIC Braun Parte 1</a></td>
 							<td class="text-center">02/06/2020</td>
 						</tr>
 						<tr>
-							<td><a target="_blank" href="upload/Braun_2a.mp4"><span class="fa fa-video-camera text-red icon-table"></span> Capacitación BIC Braun Parte 2a</a></td>
+							<td><a target="_blank" href="/repo_calidad/Braun_2a.mp4"><span class="fa fa-video-camera text-red icon-table"></span> Capacitación BIC Braun Parte 2a</a></td>
 							<td class="text-center">02/06/2020</td>
 						</tr>
 						<tr>
-							<td><a target="_blank" href="upload/Braun_2b.mp4"><span class="fa fa-video-camera text-red icon-table"></span> Capacitación BIC Braun Parte 2b</a></td>
+							<td><a target="_blank" href="/repo_calidad/Braun_2b.mp4"><span class="fa fa-video-camera text-red icon-table"></span> Capacitación BIC Braun Parte 2b</a></td>
 							<td class="text-center">02/06/2020</td>
 						</tr>
 						<tr>
-							<td><a target="_blank" href="upload/Braun_2c.mp4"><span class="fa fa-video-camera text-red icon-table"></span> Capacitación BIC Braun Parte 2c</a></td>
+							<td><a target="_blank" href="/repo_calidad/Braun_2c.mp4"><span class="fa fa-video-camera text-red icon-table"></span> Capacitación BIC Braun Parte 2c</a></td>
 							<td class="text-center">02/06/2020</td>
 						</tr>
 						<tr>
-							<td><a target="_blank" href="upload/Braun_3.mp4"><span class="fa fa-video-camera text-red icon-table"></span> Capacitación BIC Braun Parte 3</a></td>
+							<td><a target="_blank" href="/repo_calidad/Braun_3.mp4"><span class="fa fa-video-camera text-red icon-table"></span> Capacitación BIC Braun Parte 3</a></td>
 							<td class="text-center">02/06/2020</td>
 						</tr>
 						<tr>
-							<td><a target="_blank" href="upload/Braun_4.mp4"><span class="fa fa-video-camera text-red icon-table"></span> Capacitación BIC Braun Parte 4</a></td>
+							<td><a target="_blank" href="/repo_calidad/Braun_4.mp4"><span class="fa fa-video-camera text-red icon-table"></span> Capacitación BIC Braun Parte 4</a></td>
 							<td class="text-center">02/06/2020</td>
 						</tr>
 						<tr>
-							<td><a target="_blank" href="upload/Braun_5.mp4"><span class="fa fa-video-camera text-red icon-table"></span> Capacitación BIC Braun Parte 5</a></td>
+							<td><a target="_blank" href="/repo_calidad/Braun_5.mp4"><span class="fa fa-video-camera text-red icon-table"></span> Capacitación BIC Braun Parte 5</a></td>
 							<td class="text-center">02/06/2020</td>
 						</tr>
 						<tr>
-							<td><a target="_blank" href="upload/Braun_6.mp4"><span class="fa fa-video-camera text-red icon-table"></span> Capacitación BIC Braun Parte 6</a></td>
+							<td><a target="_blank" href="/repo_calidad/Braun_6.mp4"><span class="fa fa-video-camera text-red icon-table"></span> Capacitación BIC Braun Parte 6</a></td>
 							<td class="text-center">02/06/2020</td>
 						</tr>
 						<tr>
-							<td><a target="_blank" href="upload/Braun_7.mp4"><span class="fa fa-video-camera text-red icon-table"></span> Capacitación BIC Braun Parte 7</a></td>
+							<td><a target="_blank" href="/repo_calidad/Braun_7.mp4"><span class="fa fa-video-camera text-red icon-table"></span> Capacitación BIC Braun Parte 7</a></td>
 							<td class="text-center">02/06/2020</td>
 						</tr>
 						</tbody>

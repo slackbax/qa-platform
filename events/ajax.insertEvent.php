@@ -28,7 +28,7 @@ if (extract($_POST)):
 			throw new Exception('Error al guardar los datos del evento. ' . $ins['msg'], 0);
 		endif;
 
-		$targetPath = $_SERVER['DOCUMENT_ROOT'] . BASEFOLDER . 'upload';
+		$targetPath = '/home/repo_calidad';
 
 		foreach ($_FILES as $aux => $file):
 
@@ -41,7 +41,7 @@ if (extract($_POST)):
 					throw new Exception("Error al subir el documento. " . print_r(error_get_last()), 0);
 				endif;
 
-				$doc_route = 'upload/' . $fileName;
+				$doc_route = '/repo_calidad/' . $fileName;
 				$ins_f = $ev->setPath($ins['msg'], $doc_route, $db);
 
 				if (!$ins_f['estado']):
@@ -58,7 +58,7 @@ if (extract($_POST)):
 					throw new Exception("Error al subir el documento. " . print_r(error_get_last()), 0);
 				endif;
 
-				$doc_route = 'upload/' . $fileName;
+				$doc_route = '/repo_calidad/' . $fileName;
 				$ins_f = $ev->setPathCaida($ins['msg'], $doc_route, $db);
 
 				if (!$ins_f['estado']):
