@@ -285,4 +285,4 @@
     </form>
 </section>
 
-<script src="events/create-event.js?v=20191022"></script>
+<script src="events/create-event.js?20201008"></script>

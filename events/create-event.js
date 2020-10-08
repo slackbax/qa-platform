@@ -1,8 +1,8 @@
 $(document).ready(function () {
-	function validateForm(data, jF, o) {
+	function validateForm() {
 		var files = datos = true;
-		var fieldVal = $("iNdoccaida").val();
-		if (fieldVal === '' && $('#iNcaida').val() === 1) files = false;
+		var fieldVal = $("input[name='idoccaida[]']");
+		if (fieldVal.length < 2 && $('#iNcaida').val() === '1') files = false;
 
 		if ($.trim($('#iNname').val()) === '') {
 			datos = false;
@@ -14,7 +14,7 @@ $(document).ready(function () {
 			return true;
 		} else {
 			new Noty({
-				text: 'Error al registrar evento.<br>No deje campos obligatorios en blanco.',
+				text: 'Error al registrar evento.<br>No deje campos obligatorios en blanco.<br>Revise el nombre del paciente y/o el archivo de informe de caídas.',
 				type: 'error'
 			}).show();
 			return false;
