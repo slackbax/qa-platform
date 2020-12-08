@@ -549,7 +549,7 @@ span.time {
   padding  : 0;
 }
 .sidebar-menu > li > a {
-  padding : 12px 5px 12px 15px;
+  padding : 12px 5px 12px 10px;
   display : block;
 }
 .sidebar-menu > li > a > .fa,

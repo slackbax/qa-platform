@@ -15,7 +15,7 @@ $logout = false;
 
 try {
 	if (isset($_SESSION['uc_logintime']) and !empty($_SESSION['uc_logintime'])):
-		$timeout = ((time() - $_SESSION['uc_logintime']) >= SESSION_TIME) ? true : false;
+		$timeout = (time() - $_SESSION['uc_logintime']) >= SESSION_TIME;
 
 		if ($timeout):
 			$logout = true;

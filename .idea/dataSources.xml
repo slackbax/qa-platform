@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="adm_calidad_develop@10.6.9.91" uuid="0a1c1564-c4b9-4eba-8be9-11ff270e798e">
+    <data-source source="LOCAL" name="calidad_develop@localhost" uuid="f034ae53-5df9-407e-bc15-a659dfc682f0">
       <driver-ref>mariadb</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mariadb://10.6.9.91:3306/adm_calidad_develop</jdbc-url>
-      <driver-properties>
-        <property name="autoReconnect" value="true" />
-        <property name="zeroDateTimeBehavior" value="convertToNull" />
-        <property name="tinyInt1isBit" value="false" />
-        <property name="characterEncoding" value="utf8" />
-        <property name="characterSetResults" value="utf8" />
-        <property name="yearIsDateType" value="false" />
-      </driver-properties>
+      <jdbc-url>jdbc:mariadb://localhost:3306/calidad_develop</jdbc-url>
     </data-source>
   </component>
 </project>
