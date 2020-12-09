@@ -47,7 +47,7 @@ if (extract($_POST)):
 		$mail->Host = "smtp.gmail.com";
 		$mail->Port = 587;
 		$mail->Username = "ti.hggb@gmail.com";
-		$mail->Password = "svr1503_root";
+		$mail->Password = "svr1504_woot";
 
 		$mail->SetFrom('soportedesarrollo@ssconcepcion.cl', 'Plataforma Calidad');
 
