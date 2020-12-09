@@ -17,7 +17,8 @@ try {
         throw new Exception("El usuario ingresado no es correcto. Fallo en la preparación de la consulta de usuario.");
     endif;
 
-    $bind = $stmt->bind_param("s", $qr->clearText($user));
+    $user = $qr->clearText($user);
+    $bind = $stmt->bind_param("s", $user);
     
     if(!$bind):
         throw new Exception("El usuario ingresado no es correcto. Fallo en el binding de los parámetros de usuario.");
@@ -40,7 +41,7 @@ try {
         throw new Exception("El usuario ingresado no es correcto. Fallo en la preparación de la consulta de contraseña.");
     endif;
         
-    $bind = $stmt->bind_param("s", $qr->clearText($user));
+    $bind = $stmt->bind_param("s", $user);
     
     if(!$bind):
         throw new Exception("El usuario ingresado no es correcto. Fallo en el binding de los parámetros de contraseña.");
@@ -63,7 +64,7 @@ try {
         throw new Exception("El usuario ingresado no es correcto. Fallo en la preparación de la consulta de activación.");
     endif;
             
-    $bind = $stmt->bind_param("s", $qr->clearText($user));
+    $bind = $stmt->bind_param("s", $user);
     
     if(!$bind):
         throw new Exception("El usuario ingresado no es correcto. Fallo en el binding de los parámetros de activación.");
@@ -86,7 +87,7 @@ try {
         throw new Exception("El usuario ingresado no es correcto. Fallo en la preparación de la consulta de datos de usuario.");
     endif;
                 
-    $bind = $stmt->bind_param("s", $qr->clearText($user));
+    $bind = $stmt->bind_param("s", $user);
     
     if(!$bind):
         throw new Exception("El usuario ingresado no es correcto. Fallo en el binding de los parámetros de datos de usuario.");

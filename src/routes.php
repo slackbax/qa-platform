@@ -31,6 +31,23 @@ elseif ($section == 'adv-event' and $_login):
 	else:
 		include 'src/error.php';
     endif;
+/** EVENTOS DE TECNOVIGILANCIA **/
+elseif ($section == 'tec-event' and $_login):
+    if ($sbs == 'createtecnoevent'):
+        include 'tecnoevents/create-tec-event.php';
+    elseif ($sbs == 'viewtecevents'):
+        include 'tecnoevents/view-tec-events.php';
+    elseif ($sbs == 'edittecevent'):
+        include 'tecnoevents/edit-tec-event.php';
+    elseif ($sbs == 'createdivevent'):
+        include 'tecnoevents/create-div-events.php';
+    elseif ($sbs == 'viewdivevents'):
+        include 'tecnoevents/view-div-events.php';
+    elseif ($sbs == 'editdivevent'):
+        include 'tecnoevents/edit-div-event.php';
+    else:
+        include 'src/error.php';
+    endif;
 /** AUTOEVALUACION **/
 elseif ($section == 'autoeval' and ($_admin or $_autoeval or $_calidad)):
 	if ($sbs == 'newmedible' and ($_admin or $_calidad)):
