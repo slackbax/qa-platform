@@ -1,14 +1,8 @@
 $(document).ready(function () {
 	function validateForm(data, jF, o) {
-		var files = datos = true;
-		var fieldVal = $("iNdoccaida").val();
-		if (fieldVal === '' && $('#iNcaida').val() === 1) files = false;
+		var datos = true;
 
-		if ($.trim($('#iNname').val()) === '') {
-			datos = false;
-		}
-
-		if (files && datos) {
+		if (datos) {
 			$('#btnsubmit').prop('disabled', true);
 			$('#submitLoader').css('display', 'inline-block');
 			return true;
@@ -33,7 +27,6 @@ $(document).ready(function () {
 
 			$('#formNewEvent').clearForm();
 			$('#btnClear').click();
-			$('input:file').MultiFile('reset');
 		} else {
 			if (response.code === 0) {
 				new Noty({
@@ -55,7 +48,7 @@ $(document).ready(function () {
 	}
 
 	var options = {
-		url: 'events/ajax.insertEvent.php',
+		url: 'tecnoevents/ajax.insertEvent.php',
 		type: 'post',
 		dataType: 'json',
 		beforeSubmit: validateForm,
@@ -63,6 +56,13 @@ $(document).ready(function () {
 	};
 
 	$('#submitLoader').css('display', 'none');
+
+	$(document).on('keyup', '.input-number', function () {
+		var v = this.value;
+		if ($.isNumeric(v) === false) {
+			this.value = this.value.slice(0, -1);
+		}
+	});
 
 	$('#iNrut').Rut({
 		on_error: function () {
@@ -79,10 +79,10 @@ $(document).ready(function () {
 		format_on: 'keyup'
 	});
 
-	$(document).on("focusin", "#iNdate", function (event) {
+	$(document).on("focusin", "#iNdate, #iNdateev, #iNdatefab, #iNdatevenc", function () {
 		$(this).prop('readonly', true);
 	});
-	$(document).on("focusout", "#iNdate", function (event) {
+	$(document).on("focusout", "#iNdate, #iNdateev, #iNdatefab, #iNdatevenc", function () {
 		$(this).prop('readonly', false);
 	});
 
@@ -125,64 +125,9 @@ $(document).ready(function () {
 		}
 	});
 
-	$('#iNtev').change(function () {
-		$('#iNstev').html('').append('<option value="">Cargando eventos...</option>');
-		$('#gstev').removeClass('has-error has-success');
-
-		$.ajax({
-			type: "POST",
-			url: "events/ajax.getSubtiposEvento.php",
-			dataType: 'json',
-			data: {te: $(this).val()}
-		}).done(function (data) {
-			$('#iNstev').html('').append('<option value="">Seleccione evento</option>');
-			$('#iNtevent').html('<em>No seleccionado</em>');
-
-			$.each(data, function (k, v) {
-				$('#iNstev').append(
-					$('<option></option>').val(v.stev_id).html(v.stev_descripcion)
-				);
-			});
-		});
-	});
-
-	$('#iNstev').change(function () {
-		$('#iNvermed, #iNnocu, #iNcljus, #iNmedp').val(3);
-
-		$.ajax({
-			type: "POST",
-			url: "events/ajax.getSubtipoDetail.php",
-			dataType: 'json',
-			data: {te: $(this).val()}
-		}).done(function (d) {
-			$('#iNtevent').html('<em>No seleccionado</em>');
-
-			if (d.stev_id !== null) {
-				$('#iNtevent').html('<span style="color: red; font-weight: bold">' + d.cat_desc + '</span>');
-			}
-
-			if (d.cat_id === 1) {
-				$('#div-cent').css('display', 'block');
-				$('#iNnocu, #iNcljus, #iNmedp').prop('required', true);
-			} else {
-				$('#div-cent').css('display', 'none');
-				$('#iNnocu, #iNcljus, #iNmedp').prop('required', false);
-			}
-		});
-	});
-
-	$('#iNcaida').change(function () {
-		($(this).val() === '1') ? $('#div-caida').css('display', 'block') : $('#div-caida').css('display', 'none');
-
-		if ($(this).val() === '2')
-			$('#iNdoccaida').MultiFile('reset');
-	});
-
 	$('#btnClear').click(function () {
 		$('.form-group').removeClass('has-error has-success');
 		$('.form-control').removeClass('fa-remove fa-check');
-		$('#iNtevent').html('<em>No seleccionado</em>');
-		$('#div-caida').css('display', 'none');
 	});
 
 	$('#formNewEvent').submit(function () {

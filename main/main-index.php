@@ -206,7 +206,7 @@ $last_f = 8; ?>
 					</div>
 					<div class="widget-user-username">Constanza Moncada Soto</div>
 					<div class="widget-user-desc">Enfermera</div>
-					<p class="widget-user-desc ic-data email"><a href="mailto:c.moncada@ssconcepcion.com">c.moncada@ssconcepcion.cl</a></p>
+					<p class="widget-user-desc ic-data email"><a href="mailto:c.moncada@ssconcepcion.cl">c.moncada@ssconcepcion.cl</a></p>
 					<p class="widget-user-desc ic-data phone">417668</p>
 				</div>
 			</div>
@@ -218,7 +218,7 @@ $last_f = 8; ?>
 					</div>
 					<div class="widget-user-username">Paula Torres Retamal</div>
 					<div class="widget-user-desc">Enfermera</div>
-					<p class="widget-user-desc ic-data email"><a href="mailto:paula.torres@ssconcepcion.com">paula.torres@ssconcepcion.cl</a></p>
+					<p class="widget-user-desc ic-data email"><a href="mailto:paula.torres@ssconcepcion.cl">paula.torres@ssconcepcion.cl</a></p>
 					<p class="widget-user-desc ic-data phone">417668</p>
 				</div>
 			</div>
@@ -226,11 +226,35 @@ $last_f = 8; ?>
 			<div class="box box-widget widget-user-2 widget-user-team">
 				<div class="widget-user-header bg-white">
 					<div class="widget-user-image">
-						<img class="img-circle" src="dist/img/users/giovanna-nanjari.jpg">
+						<img class="img-circle" src="dist/img/users/andrea-ibacache.jpg">
 					</div>
-					<div class="widget-user-username">Giovanna Nanjari Massoglia</div>
+					<div class="widget-user-username">Andrea Ibacache Ravanal</div>
 					<div class="widget-user-desc">Enfermera</div>
-					<p class="widget-user-desc ic-data email"><a href="mailto:gnanjari@ssconcepcion.com">gnanjari@ssconcepcion.cl</a></p>
+					<p class="widget-user-desc ic-data email"><a href="mailto:aibacache@ssconcepcion.cl">aibacache@ssconcepcion.cl</a></p>
+					<p class="widget-user-desc ic-data phone">413117</p>
+				</div>
+			</div>
+
+			<div class="box box-widget widget-user-2 widget-user-team">
+				<div class="widget-user-header bg-white">
+					<div class="widget-user-image">
+						<img class="img-circle" src="dist/img/users/leila-vielma.jpg">
+					</div>
+					<div class="widget-user-username">Leila Vielma Aedo</div>
+					<div class="widget-user-desc">Enfermera</div>
+					<p class="widget-user-desc ic-data email"><a href="mailto:leilavielma@ssconcepcion.cl">leilavielma@ssconcepcion.cl</a></p>
+					<p class="widget-user-desc ic-data phone">412997</p>
+				</div>
+			</div>
+
+			<div class="box box-widget widget-user-2 widget-user-team">
+				<div class="widget-user-header bg-white">
+					<div class="widget-user-image">
+						<img class="img-circle" src="dist/img/users/francisca-vigueras.jpg">
+					</div>
+					<div class="widget-user-username">María Francisca Vigueras Álvarez</div>
+					<div class="widget-user-desc">Enfermera</div>
+					<p class="widget-user-desc ic-data email"><a href="mailto:francisca.vigueras@ssconcepcion.cl">francisca.vigueras@ssconcepcion.cl</a></p>
 					<p class="widget-user-desc ic-data phone">417668</p>
 				</div>
 			</div>
