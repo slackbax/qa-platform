@@ -1,137 +1,152 @@
 $(document).ready(function () {
-	function validateForm(data, jF, o) {
-		var datos = true;
+    function validateForm(data, jF, o) {
+        var datos = true;
 
-		if (datos) {
-			$('#btnsubmit').prop('disabled', true);
-			$('#submitLoader').css('display', 'inline-block');
-			return true;
-		} else {
-			new Noty({
-				text: 'Error al registrar evento.<br>No deje campos obligatorios en blanco.',
-				type: 'error'
-			}).show();
-			return false;
-		}
-	}
+        if (parseInt($('#iNnpac').val()) === 0) {
+            datos = false;
+        }
 
-	function showResponse(response) {
-		$('#submitLoader').css('display', 'none');
-		$('#btnsubmit').prop('disabled', false);
+        if (datos) {
+            $('#btnsubmit').prop('disabled', true);
+            $('#submitLoader').css('display', 'inline-block');
+            return true;
+        } else {
+            new Noty({
+                text: 'Error al registrar evento.<br>No deje campos obligatorios en blanco.',
+                type: 'error'
+            }).show();
+            return false;
+        }
+    }
 
-		if (response.type) {
-			new Noty({
-				text: '<b>¡Éxito!</b><br>El evento ha sido guardado correctamente.',
-				type: 'success'
-			}).show();
+    function showResponse(response) {
+        $('#submitLoader').css('display', 'none');
 
-			$('#formNewEvent').clearForm();
-			$('#btnClear').click();
-		} else {
-			if (response.code === 0) {
-				new Noty({
-					text: '<b>¡Error!</b><br>' + response.msg,
-					type: 'error'
-				}).show();
-			} else if (response.code === 1) {
-				new Noty({
-					text: response.msg,
-					type: 'error',
-					callbacks: {
-						afterClose: function () {
-							document.location.replace('index.php');
-						}
-					}
-				}).show();
-			}
-		}
-	}
+        if (response.type) {
+            new Noty({
+                text: '<b>¡Éxito!</b><br>El evento ha sido guardado correctamente.',
+                type: 'success'
+            }).show();
 
-	var options = {
-		url: 'tecnoevents/ajax.insertEvent.php',
-		type: 'post',
-		dataType: 'json',
-		beforeSubmit: validateForm,
-		success: showResponse
-	};
+            $('#formNewEvent').clearForm();
+            $('#btnClear').click();
+        } else {
+            if (response.code === 0) {
+                new Noty({
+                    text: '<b>¡Error!</b><br>' + response.msg,
+                    type: 'error'
+                }).show();
+            } else if (response.code === 1) {
+                new Noty({
+                    text: response.msg,
+                    type: 'error',
+                    callbacks: {
+                        afterClose: function () {
+                            document.location.replace('index.php');
+                        }
+                    }
+                }).show();
+            }
+        }
+    }
 
-	$('#submitLoader').css('display', 'none');
+    var options = {
+        url: 'tecnoevents/ajax.insertEvent.php',
+        type: 'post',
+        dataType: 'json',
+        beforeSubmit: validateForm,
+        success: showResponse
+    };
 
-	$(document).on('keyup', '.input-number', function () {
-		var v = this.value;
-		if ($.isNumeric(v) === false) {
-			this.value = this.value.slice(0, -1);
-		}
-	});
+    $('#submitLoader').css('display', 'none');
 
-	$('#iNrut').Rut({
-		on_error: function () {
-			swal("Error!", "El RUT ingresado no es válido.", "error");
-			$('#iNrut, #iNname').val('');
-			$('#iNrut').val('');
-			$('#grut').addClass('has-error');
-			$('#iconrut').addClass('fa-remove');
-		},
-		on_success: function () {
-			$('#grut').addClass('has-success');
-			$('#iconrut').addClass('fa-check');
-		},
-		format_on: 'keyup'
-	});
+    $(document).on('keyup', '.input-number', function () {
+        var v = this.value;
+        if ($.isNumeric(v) === false) {
+            this.value = this.value.slice(0, -1);
+        }
+    });
 
-	$(document).on("focusin", "#iNdate, #iNdateev, #iNdatefab, #iNdatevenc", function () {
-		$(this).prop('readonly', true);
-	});
-	$(document).on("focusout", "#iNdate, #iNdateev, #iNdatefab, #iNdatevenc", function () {
-		$(this).prop('readonly', false);
-	});
+    $('#iNnpacmas, #iNnpacfem').change(function () {
+        if ($.trim($(this).val()) === '')
+            $(this).val(0);
 
-	$('#iNdateev').datepicker({
-		endDate: '0d'
-	}).on('changeDate', function () {
-		if ($.trim($(this).val()) !== '') {
-			$('#gdateev').removeClass('has-error').addClass('has-success');
-			$('#icondateev').removeClass('fa-remove fa-check').addClass('fa-check');
-		}
-	});
+        var suma = 0;
+        $('.input-number').each(function () {
+            if ($.trim($(this).val()) !== '')
+                suma += parseInt($(this).val());
+            else
+                $(this).val(0);
+        });
+        $('#iNnpac').val(suma);
+    });
 
-	$('#iNdatefab').datepicker({
-		endDate: '0d'
-	}).on('changeDate', function () {
-		if ($.trim($(this).val()) !== '') {
-			$('#gdatefab').removeClass('has-error').addClass('has-success');
-			$('#icondatefab').removeClass('fa-remove fa-check').addClass('fa-check');
-		}
-	});
+    $('#iNrut').Rut({
+        on_error: function () {
+            swal("Error!", "El RUT ingresado no es válido.", "error");
+            $('#iNrut, #iNname').val('');
+            $('#iNrut').val('');
+            $('#grut').addClass('has-error');
+            $('#iconrut').addClass('fa-remove');
+        },
+        on_success: function () {
+            $('#grut').addClass('has-success');
+            $('#iconrut').addClass('fa-check');
+        },
+        format_on: 'keyup'
+    });
 
-	$('#iNdatevenc').datepicker({
-		endDate: '0d'
-	}).on('changeDate', function () {
-		if ($.trim($(this).val()) !== '') {
-			$('#gdatevenc').removeClass('has-error').addClass('has-success');
-			$('#icondatevenc').removeClass('fa-remove fa-check').addClass('fa-check');
-		}
-	});
+    $(document).on("focusin", "#iNdate, #iNdateev, #iNdatefab, #iNdatevenc", function () {
+        $(this).prop('readonly', true);
+    });
+    $(document).on("focusout", "#iNdate, #iNdateev, #iNdatefab, #iNdatevenc", function () {
+        $(this).prop('readonly', false);
+    });
 
-	$('.form-control').change(function () {
-		var idn = $(this).attr('id').split('N').pop();
+    $('#iNdateev').datepicker({
+        endDate: '0d'
+    }).on('changeDate', function () {
+        if ($.trim($(this).val()) !== '') {
+            $('#gdateev').removeClass('has-error').addClass('has-success');
+            $('#icondateev').removeClass('fa-remove fa-check').addClass('fa-check');
+        }
+    });
 
-		if ($.trim($(this).val()) !== '') {
-			$('#g' + idn).removeClass('has-error').addClass('has-success');
-			$('#icon' + idn).removeClass('fa-times').addClass('fa-check');
-		} else {
-			$('#g' + idn).removeClass('has-success');
-			$('#icon' + idn).removeClass('fa-check');
-		}
-	});
+    $('#iNdatefab').datepicker({
+        endDate: '0d'
+    }).on('changeDate', function () {
+        if ($.trim($(this).val()) !== '') {
+            $('#gdatefab').removeClass('has-error').addClass('has-success');
+            $('#icondatefab').removeClass('fa-remove fa-check').addClass('fa-check');
+        }
+    });
 
-	$('#btnClear').click(function () {
-		$('.form-group').removeClass('has-error has-success');
-		$('.form-control').removeClass('fa-remove fa-check');
-	});
+    $('#iNdatevenc').datepicker().on('changeDate', function () {
+        if ($.trim($(this).val()) !== '') {
+            $('#gdatevenc').removeClass('has-error').addClass('has-success');
+            $('#icondatevenc').removeClass('fa-remove fa-check').addClass('fa-check');
+        }
+    });
 
-	$('#formNewEvent').submit(function () {
-		$(this).ajaxSubmit(options);
-		return false;
-	});
+    $('.form-control').change(function () {
+        var idn = $(this).attr('id').split('N').pop();
+
+        if ($.trim($(this).val()) !== '') {
+            $('#g' + idn).removeClass('has-error').addClass('has-success');
+            $('#icon' + idn).removeClass('fa-times').addClass('fa-check');
+        } else {
+            $('#g' + idn).removeClass('has-success');
+            $('#icon' + idn).removeClass('fa-check');
+        }
+    });
+
+    $('#btnClear').click(function () {
+        $('.form-group').removeClass('has-error has-success');
+        $('.form-control-feedback').removeClass('fa-remove fa-check')
+    });
+
+    $('#formNewEvent').submit(function () {
+        $(this).ajaxSubmit(options);
+        return false;
+    });
 });

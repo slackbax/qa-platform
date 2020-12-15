@@ -414,7 +414,7 @@
                     <li class="treeview<?php if (isset($section) and $section == 'tec-event'): ?> active<?php endif; ?>">
                         <a href="#">
                             <i class="fa fa-calendar-check-o"></i>
-                            <span class="menu-item">Eventos de Tecnovigilancia</span>
+                            <span class="menu-item">Tecnovigilancia</span>
                             <span class="pull-right-container">
 								<i class="fa fa-angle-left pull-right"></i>
 							</span>

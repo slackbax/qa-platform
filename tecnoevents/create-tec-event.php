@@ -130,7 +130,7 @@
 							<option value="">Seleccione clasificación del evento</option>
 							<option value="1">EVENTO CENTINELA</option>
 							<option value="2">EVENTO ADVERSO</option>
-							<option value="3">OTRO</option>tec
+							<option value="3">OTRO INCIDENTE</option>
 						</select>
 					</div>
 				</div>
@@ -170,13 +170,13 @@
 				<div class="row">
 					<div class="form-group col-sm-3 has-feedback" id="gnpacmas">
 						<label class="control-label" for="iNnpacmas">Cantidad de pacientes masculinos *</label>
-						<input type="text" class="form-control input-number" id="iNnpacmas" name="inpacmas" placeholder="Cantidad de pacientes masculinos" maxlength="4" value="0" required>
+						<input type="text" class="form-control input-number" id="iNnpacmas" name="inpacmas" placeholder="Cantidad de pacientes masculinos" maxlength="4" required>
 						<span class="fa form-control-feedback" id="iconnpacmas"></span>
 					</div>
 
 					<div class="form-group col-sm-3 has-feedback" id="gnpacfem">
 						<label class="control-label" for="iNnpacfem">Cantidad de pacientes femeninos *</label>
-						<input type="text" class="form-control input-number" id="iNnpacfem" name="inpacfem" placeholder="Cantidad de pacientes femeninos" maxlength="4" value="0" required>
+						<input type="text" class="form-control input-number" id="iNnpacfem" name="inpacfem" placeholder="Cantidad de pacientes femeninos" maxlength="4" required>
 						<span class="fa form-control-feedback" id="iconnpacfem"></span>
 					</div>
 
@@ -405,38 +405,6 @@
 						<label class="control-label" for="iNimtelefono">Teléfono</label>
 						<input type="text" class="form-control" id="iNimtelefono" name="iimtelefono" placeholder="Ingrese teléfono del importador" maxlength="64">
 						<span class="fa form-control-feedback" id="iconimtelefono"></span>
-					</div>
-				</div>
-			</div>
-
-			<div class="box-header with-border">
-				<h3 class="box-title">Contacto con el fabricante, representante o importador</h3>
-			</div>
-
-			<div class="box-body">
-				<div class="row">
-					<div class="form-group col-sm-4 has-feedback" id="gnotificacion">
-						<label class="control-label" for="iNnotificacion">¿El fabricante, representante o importador fue notificado? *</label>
-						<select class="form-control" id="iNnotificacion" name="inotificacion" required>
-							<option value="1">SI</option>
-							<option value="0">NO</option>
-						</select>
-					</div>
-
-					<div class="form-group col-sm-4 has-feedback" id="gretiro">
-						<label class="control-label" for="iNretiro">¿El fabricante, representante o importador retiró el dispositivo? *</label>
-						<select class="form-control" id="iNretiro" name="iretiro" required>
-							<option value="1">SI</option>
-							<option value="0">NO</option>
-						</select>
-					</div>
-				</div>
-				
-				<div class="row">
-					<div class="form-group col-sm-12 has-feedback" id="grespuesta">
-						<label class="control-label" for="iNrespuesta">Descripción breve de la respuesta</label>
-						<textarea rows="4" class="form-control" id="iNrespuesta" name="irespuesta" maxlength="450"></textarea>
-						<span class="fa form-control-feedback" id="iconrespuesta"></span>
 					</div>
 				</div>
 			</div>

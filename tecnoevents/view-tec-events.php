@@ -15,38 +15,51 @@
 <section class="content container-fluid">
     <div class="box box-default">
         <div class="box-body">
-            <div class="row">
-                <div class="col-sm-12 text-center">
-                    <button type="button" class="btn btn-info" id="view-historic"><i class="fa fa-calendar"></i> Ver histórico de eventos</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="box-body">
-            <table id="tfiles" class="table table-striped table-hover">
+            <table id="tevents" class="table table-striped table-hover">
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>RUT</th>
                         <th>Usuario</th>
                         <th>Fecha</th>
-                        <th>Hora</th>
-                        <th>RUT</th>
-                        <th>Nombre</th>
-                        <th>Edad</th>
+                        <th>Fecha Evento</th>
                         <th>Servicio</th>
-                        <th>Tipo</th>
-                        <th>Evento</th>
-                        <th>Categoría</th>
-                        <th>Contexto</th>
-                        <th>Tipo Paciente</th>
+                        <th>Clasificación</th>
+                        <th>Descripción</th>
+                        <th>Detección</th>
+                        <th>Causa</th>
+                        <th>Consecuencia</th>
+                        <th>Autorización</th>
+                        <th>Pacientes (M/F)</th>
+                        <th>Diagnóstico</th>
+                        <th>Nombre disp.</th>
+                        <th>Nombre com. disp.</th>
+                        <th>Uso previsto</th>
                         <th>Riesgo</th>
-                        <th>Consecuencias</th>
-                        <th>R. Caída</th>
-                        <th>JE</th>
-                        <th>ACJ</th>
-                        <th>REP</th>
-                        <th>VER</th>
-                        <th>Registro</th>
+                        <th>Lote</th>
+                        <th>Serie</th>
+                        <th>Fecha fab.</th>
+                        <th>Fecha ven.</th>
+                        <th>Condición</th>
+                        <th>Registro san.</th>
+                        <th>Disponibilidad</th>
+                        <th>Adquisición</th>
+                        <th>Fabricante</th>
+                        <th>País</th>
+                        <th>E-mail</th>
+                        <th>Teléfono</th>
+                        <th>Representante</th>
+                        <th>Dirección</th>
+                        <th>E-mail</th>
+                        <th>Teléfono</th>
+                        <th>Inmportador</th>
+                        <th>Dirección</th>
+                        <th>E-mail</th>
+                        <th>Teléfono</th>
+                        <th>Notificación a fabricante</th>
+                        <th>Retiro de disp.</th>
+                        <th>Respuesta</th>
+                        <th>Correcciones</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -58,4 +71,4 @@
     </div>
 </section>
 
-<script src="events/view-events.js?v=20190828"></script>
+<script src="tecnoevents/view-tec-events.js"></script>

@@ -35,9 +35,9 @@ elseif ($section == 'adv-event' and $_login):
 elseif ($section == 'tec-event' and $_login):
     if ($sbs == 'createtecnoevent'):
         include 'tecnoevents/create-tec-event.php';
-    elseif ($sbs == 'viewtecevents'):
+    elseif ($sbs == 'viewtecnoevents'):
         include 'tecnoevents/view-tec-events.php';
-    elseif ($sbs == 'edittecevent'):
+    elseif ($sbs == 'edittecnoevent'):
         include 'tecnoevents/edit-tec-event.php';
     elseif ($sbs == 'createdivevent'):
         include 'tecnoevents/create-div-events.php';

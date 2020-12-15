@@ -18,7 +18,7 @@ if (extract($_POST)):
 
 	try {
 		$db->autoCommit(FALSE);
-		$ins = $ev->set($_SESSION['uc_userid'], $irut, $iserv, $icat, $idate, $idateev, $idescription, $ideteccion, $icausa, $iconsec, $iautorizo, $ipacmas, $ipacfem, $idiag, $ingenerico, $incomercial, $iuso, $icriesgo,
+		$ins = $ev->set($_SESSION['uc_userid'], $irut, $iserv, $icat, $idate, $idateev, $idescription, $ideteccion, $icausa, $iconsec, $iautorizo, $inpacmas, $inpacfem, $idiag, $ingenerico, $incomercial, $iuso, $icriesgo,
 			$inlote, $inserie, $idatefab, $idatevenc, $icondicion, $inregistrosan, $idisponible, $imanera, $ifnombre, $ifpais, $ifemail, $iftelefono, $irlnombre, $irldireccion, $irlemail, $irltelefono, $iimnombre, $iimdireccion,
 			$iimemail, $iimtelefono, $inotificacion, $iretiro, $irespuesta, $icorreccion, $db);
 

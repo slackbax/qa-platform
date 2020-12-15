@@ -5,7 +5,7 @@
       <paths name="webserver">
         <serverdata>
           <mappings>
-            <mapping deploy="/plataforma-calidad" local="$PROJECT_DIR$" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
