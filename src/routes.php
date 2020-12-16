@@ -40,7 +40,7 @@ elseif ($section == 'tec-event' and $_login):
     elseif ($sbs == 'edittecnoevent'):
         include 'tecnoevents/edit-tec-event.php';
     elseif ($sbs == 'createdivevent'):
-        include 'tecnoevents/create-div-events.php';
+        include 'tecnoevents/create-div-event.php';
     elseif ($sbs == 'viewdivevents'):
         include 'tecnoevents/view-div-events.php';
     elseif ($sbs == 'editdivevent'):
