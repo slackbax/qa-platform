@@ -1,7 +1,10 @@
 <?php include("class/classUser.php") ?>
 <?php include("class/classServicio.php") ?>
+<?php include("class/classTecnoDivEvento.php") ?>
 <?php $u = new User() ?>
+<?php $t = new TecnoDivEvento() ?>
 <?php $us = $u->get($_SESSION['uc_userid']) ?>
+<?php $te = $t->getLastByUser($_SESSION['uc_userid']) ?>
 
 <section class="content-header">
     <h1>Eventos
@@ -40,7 +43,7 @@
                 <div class="row">
                     <div class="form-group col-sm-3 has-feedback" id="grut">
                         <label class="control-label" for="iNrut">RUT *</label>
-                        <input type="text" class="form-control" id="iNrut" name="irut" placeholder="12345678-9" maxlength="12" required>
+                        <input type="text" class="form-control" id="iNrut" name="irut" placeholder="12345678-9" maxlength="12" value="<?php if (isset($te->ted_rut)) echo $te->ted_rut ?>" required>
                         <input type="hidden" id="iid" name="id" value="<?php echo $_SESSION['uc_userid'] ?>">
                         <span class="fa form-control-feedback" id="iconrut"></span>
                     </div>

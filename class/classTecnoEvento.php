@@ -96,44 +96,20 @@ class TecnoEvento {
 		return $lista;
 	}
 
-	/**
-	 * @param $us
-	 * @return array
-	 */
-	public function getByUser($us)
+    /**
+     * @param $us
+     * @return stdClass
+     */
+	public function getLastByUser($us)
 	{
 		$db = new myDBC();
-		$stmt = $db->Prepare("SELECT tec_id FROM uc_tecnoevento WHERE us_id = ?");
+		$stmt = $db->Prepare("SELECT MAX(tec_id) as tec_id FROM uc_tecnoevento WHERE us_id = ?");
 		$stmt->bind_param("i", $us);
 		$stmt->execute();
 		$result = $stmt->get_result();
-		$lista = [];
-
-		while ($row = $result->fetch_assoc()):
-			$lista[] = $this->get($row['tec_id']);
-		endwhile;
-
-		unset($db);
-		return $lista;
-	}
-
-	/**
-	 * @param $pac
-	 * @return stdClass
-	 */
-	public function getByRut($pac)
-	{
-		$db = new myDBC();
-		$stmt = $db->Prepare("SELECT tec_id FROM uc_tecnoevento WHERE tec_rut = ? LIMIT 1");
-		$stmt->bind_param("s", $pac);
-		$stmt->execute();
-		$result = $stmt->get_result();
-
 		$row = $result->fetch_assoc();
-		$obj = $this->get($row['tec_id']);
-
-		unset($db);
-		return $obj;
+        unset($db);
+		return $this->get($row['tec_id']);
 	}
 
 	/**

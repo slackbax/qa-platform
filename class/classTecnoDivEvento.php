@@ -50,7 +50,7 @@ class TecnoDivEvento {
         $obj->ted_formauso = $row['ted_formauso'];
         $obj->ted_fecha_fab = utf8_encode($row['ted_fecha_fab']);
         $obj->ted_fecha_ven = utf8_encode($row['ted_fecha_ven']);
-        $obj->ted_verificacion = $row['ted_condicion'];
+        $obj->ted_verificacion = $row['ted_verificacion'];
         $obj->ted_control = $row['ted_control'];
         $obj->ted_adscrito = $row['ted_adscrito'];
         $obj->ted_autorizacion = $row['ted_autorizacion'];
@@ -88,42 +88,18 @@ class TecnoDivEvento {
 
     /**
      * @param $us
-     * @return array
+     * @return stdClass
      */
-    public function getByUser($us)
+    public function getLastByUser($us)
     {
         $db = new myDBC();
-        $stmt = $db->Prepare("SELECT ted_id FROM uc_tecnoeventodiv WHERE us_id = ?");
+        $stmt = $db->Prepare("SELECT MAX(ted_id) as ted_id FROM uc_tecnoeventodiv WHERE us_id = ?");
         $stmt->bind_param("i", $us);
         $stmt->execute();
         $result = $stmt->get_result();
-        $lista = [];
-
-        while ($row = $result->fetch_assoc()):
-            $lista[] = $this->get($row['ted_id']);
-        endwhile;
-
-        unset($db);
-        return $lista;
-    }
-
-    /**
-     * @param $pac
-     * @return stdClass
-     */
-    public function getByRut($pac)
-    {
-        $db = new myDBC();
-        $stmt = $db->Prepare("SELECT ted_id FROM uc_tecnoeventodiv WHERE ted_rut = ? LIMIT 1");
-        $stmt->bind_param("s", $pac);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
         $row = $result->fetch_assoc();
-        $obj = $this->get($row['ted_id']);
-
         unset($db);
-        return $obj;
+        return $this->get($row['ted_id']);
     }
 
     /**
