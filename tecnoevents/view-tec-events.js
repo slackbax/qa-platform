@@ -43,7 +43,7 @@ $(document).ready(function () {
 			{visible: false},
 			{visible: false}, //40
 			{visible: false},
-			{width: '50px', className: 'text-center', orderable: false}],
+			{width: '30px', className: 'text-center', orderable: false}],
 		order: [[3, 'desc']],
 		buttons: [
 			{

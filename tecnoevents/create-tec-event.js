@@ -7,7 +7,6 @@ $(document).ready(function () {
         }
 
         if (datos) {
-            $('#btnsubmit').prop('disabled', true);
             $('#submitLoader').css('display', 'inline-block');
             return true;
         } else {

@@ -5,7 +5,7 @@
 
 <section class="content-header">
     <h1>Eventos
-        <small><i class="fa fa-angle-right"></i> Ingreso de Nuevo Evento de Tecnovigilancia</small>
+        <small><i class="fa fa-angle-right"></i> Ingreso de Nuevo Evento de Dispositivo In Vitro</small>
     </h1>
 
     <ol class="breadcrumb">
@@ -73,18 +73,18 @@
                         <span class="fa form-control-feedback" id="iconemail"></span>
                     </div>
                 </div>
-            </div>
 
-            <div class="box-header with-border">
-                <h3 class="box-title">Información del evento</h3>
-            </div>
-
-            <div class="box-body">
                 <div class="row">
-                    <div class="form-group col-sm-12 has-feedback" id="gdescription">
-                        <label class="control-label" for="iNdescription">Descripción del evento *</label>
-                        <textarea rows="4" class="form-control" id="iNdescription" name="idescription" maxlength="450" required></textarea>
-                        <span class="fa form-control-feedback" id="icondescription"></span>
+                    <div class="form-group col-sm-6 has-feedback" id="gdireccion">
+                        <label class="control-label" for="iNdireccion">Dirección *</label>
+                        <input type="text" class="form-control" id="iNdireccion" name="idireccion" placeholder="Dirección del notificador" maxlength="256" required>
+                        <span class="fa form-control-feedback" id="icondireccion"></span>
+                    </div>
+
+                    <div class="form-group col-sm-6 has-feedback" id="gprofesion">
+                        <label class="control-label" for="iNprofesion">Profesión *</label>
+                        <input type="text" class="form-control" id="iNprofesion" name="iprofesion" placeholder="Profesión del notificador" maxlength="128" required>
+                        <span class="fa form-control-feedback" id="iconprofesion"></span>
                     </div>
                 </div>
 
@@ -100,104 +100,11 @@
                             <?php endforeach ?>
                         </select>
                     </div>
-
-                    <div class="form-group col-sm-3 has-feedback" id="gdateev">
-                        <label class="control-label" for="iNdateev">Fecha de evento *</label>
-                        <div class="input-group">
-                            <div class="input-group-addon">
-                                <i class="fa fa-calendar"></i>
-                            </div>
-                            <input type="text" class="form-control" id="iNdateev" name="idateev" data-date-format="dd/mm/yyyy" placeholder="DD/MM/AAAA" required>
-                        </div>
-                        <span class="fa form-control-feedback" id="icondateev"></span>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group col-sm-6 has-feedback" id="gdeteccion">
-                        <label class="control-label" for="iNdeteccion">Detección *</label>
-                        <select class="form-control" id="iNdeteccion" name="ideteccion" required>
-                            <option value="">Seleccione momento de detección</option>
-                            <option value="AN">ANTES</option>
-                            <option value="DU">DURANTE</option>
-                            <option value="DE">DESPUÉS</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group col-sm-6 has-feedback" id="gcat">
-                        <label class="control-label" for="iNcat">Clasificación *</label>
-                        <select class="form-control" id="iNcat" name="icat" required>
-                            <option value="">Seleccione clasificación del evento</option>
-                            <option value="1">EVENTO CENTINELA</option>
-                            <option value="2">EVENTO ADVERSO</option>
-                            <option value="3">OTRO INCIDENTE</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group col-sm-6 has-feedback" id="gcausa">
-                        <label class="control-label" for="iNcausa">Causa del evento</label>
-                        <input type="text" class="form-control" id="iNcausa" name="icausa" placeholder="Ingrese causa del evento" maxlength="256">
-                        <span class="fa form-control-feedback" id="iconcausa"></span>
-                    </div>
-
-                    <div class="form-group col-sm-6 has-feedback" id="gconsec">
-                        <label class="control-label" for="iNconsec">Consecuencia *</label>
-                        <input type="text" class="form-control" id="iNconsec" name="iconsec" placeholder="Ingrese consecuencia(s) del evento" maxlength="256" required>
-                        <span class="fa form-control-feedback" id="iconconsec"></span>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-12">
-                        <p><strong>¿Autoriza que su identidad sea revelada al Fabricante, representante autorizado, importador o distribuidor? *</strong></p>
-                    </div>
-                    <div class="form-group col-sm-6 has-feedback" id="gautorizo">
-                        <select class="form-control" id="iNautorizo" name="iautorizo" required>
-                            <option value="1">SI</option>
-                            <option value="0">NO</option>
-                        </select>
-                    </div>
                 </div>
             </div>
 
             <div class="box-header with-border">
-                <h3 class="box-title">Información del paciente</h3>
-            </div>
-
-            <div class="box-body">
-                <div class="row">
-                    <div class="form-group col-sm-3 has-feedback" id="gnpacmas">
-                        <label class="control-label" for="iNnpacmas">Cantidad de pacientes masculinos *</label>
-                        <input type="text" class="form-control input-number" id="iNnpacmas" name="inpacmas" placeholder="Cantidad de pacientes masculinos" maxlength="4" required>
-                        <span class="fa form-control-feedback" id="iconnpacmas"></span>
-                    </div>
-
-                    <div class="form-group col-sm-3 has-feedback" id="gnpacfem">
-                        <label class="control-label" for="iNnpacfem">Cantidad de pacientes femeninos *</label>
-                        <input type="text" class="form-control input-number" id="iNnpacfem" name="inpacfem" placeholder="Cantidad de pacientes femeninos" maxlength="4" required>
-                        <span class="fa form-control-feedback" id="iconnpacfem"></span>
-                    </div>
-
-                    <div class="form-group col-sm-3 has-feedback" id="gnpac">
-                        <label class="control-label" for="iNnpac">Número total de pacientes involucrados</label>
-                        <input type="text" class="form-control" id="iNnpac" name="inpac" placeholder="Número de pacientes" maxlength="3" value="0" readonly>
-                        <span class="fa form-control-feedback" id="iconnpac"></span>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group col-sm-12 has-feedback" id="gdiag">
-                        <label class="control-label" for="iNdiag">Diagnóstico del(los) paciente(s)</label>
-                        <textarea rows="4" class="form-control" id="iNdiag" name="idiag" maxlength="450"></textarea>
-                        <span class="fa form-control-feedback" id="icondiag"></span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="box-header with-border">
-                <h3 class="box-title">Información del dispositivo médico</h3>
+                <h3 class="box-title">Información del reactivo de diagnóstico</h3>
             </div>
 
             <div class="box-body">
@@ -216,34 +123,100 @@
                 </div>
 
                 <div class="row">
-                    <div class="form-group col-sm-12 has-feedback" id="guso">
-                        <label class="control-label" for="iNuso">Uso previsto</label>
-                        <textarea rows="4" class="form-control" id="iNuso" name="iuso" maxlength="450"></textarea>
-                        <span class="fa form-control-feedback" id="iconuso"></span>
+                    <div class="form-group col-sm-6 has-feedback" id="gcatalogo">
+                        <label class="control-label" for="iNcatalogo">Catálogo o referencia *</label>
+                        <input type="text" class="form-control" id="iNcatalogo" name="icatalogo" placeholder="Ingrese catálogo o referencia del dispositivo" maxlength="256" required>
+                        <span class="fa form-control-feedback" id="iconcatalogo"></span>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="form-group col-sm-4 has-feedback" id="gcriesgo">
-                        <label class="control-label" for="iNcriesgo">Clase de riesgo</label>
-                        <input type="text" class="form-control" id="iNcriesgo" name="icriesgo" placeholder="Ingrese clase de riesgo asociado al dispositivo" maxlength="64">
-                        <span class="fa form-control-feedback" id="iconcriesgo"></span>
+                    <div class="form-group col-sm-4 has-feedback" id="guso">
+                        <label class="control-label" for="iNuso">Uso previsto *</label>
+                        <select class="form-control" id="iNuso" name="iuso" required>
+                            <option value="">Seleccione uso</option>
+                            <option value="CAL">CALIBRADOR</option>
+                            <option value="CON">CONTROL</option>
+                            <option value="DIA">DIAGNOSTICO</option>
+                            <option value="OTR">OTRO</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-sm-4 has-feedback" id="gotrouso">
+                        <label class="control-label" for="iNotrouso">Otro uso previsto</label>
+                        <input type="text" class="form-control" id="iNotrouso" name="iotrouso" placeholder="Si seleccionó 'otro' en la opción anterior, especifique aquí" maxlength="64" required>
+                        <span class="fa form-control-feedback" id="iconotrouso"></span>
+                    </div>
+
+                    <div class="form-group col-sm-4 has-feedback" id="gcadena">
+                        <label class="control-label" for="iNcadena">Requiere cadena de frío</label>
+                        <select class="form-control" id="iNcadena" name="icadena" required>
+                            <option value="1">SÍ</option>
+                            <option value="0">NO</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-sm-4 has-feedback" id="gtemp">
+                        <label class="control-label" for="iNtemp">Rango de temperatura en ºC *</label>
+                        <input type="text" class="form-control" id="iNtemp" name="itemp" placeholder="Ingrese rango de temperatura requerida" maxlength="64" required>
+                        <span class="fa form-control-feedback" id="icontemp"></span>
                     </div>
 
                     <div class="form-group col-sm-4 has-feedback" id="gnlote">
-                        <label class="control-label" for="iNnlote">Número de lote *</label>
-                        <input type="text" class="form-control" id="iNnlote" name="inlote" placeholder="Ingrese número de lote del dispositivo" maxlength="16" required>
+                        <label class="control-label" for="iNnlote">Número de lote/serie *</label>
+                        <input type="text" class="form-control" id="iNnlote" name="inlote" placeholder="Ingrese número de lote/serie del dispositivo" maxlength="16" required>
                         <span class="fa form-control-feedback" id="iconnlote"></span>
-                    </div>
-
-                    <div class="form-group col-sm-4 has-feedback" id="gnserie">
-                        <label class="control-label" for="iNnserie">Número de serie</label>
-                        <input type="text" class="form-control" id="iNnserie" name="inserie" placeholder="Ingrese número de serie (si aplica)" maxlength="16">
-                        <span class="fa form-control-feedback" id="iconnserie"></span>
                     </div>
                 </div>
 
                 <div class="row">
+                    <div class="form-group col-sm-12 has-feedback" id="gseguridad">
+                        <label class="control-label" for="iNseguridad">Medidas de seguridad adicionales</label>
+                        <input type="text" class="form-control" id="iNseguridad" name="iseguridad" placeholder="Ingrese medidas de seguridad adicionales" maxlength="256">
+                        <span class="fa form-control-feedback" id="iconseguridad"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-sm-6 has-feedback" id="gfnombre">
+                        <label class="control-label" for="iNfnombre">Nombre del fabricante *</label>
+                        <input type="text" class="form-control" id="iNfnombre" name="ifnombre" placeholder="Ingrese nombre del fabricante legal" maxlength="128" required>
+                        <span class="fa form-control-feedback" id="iconfnombre"></span>
+                    </div>
+
+                    <div class="form-group col-sm-6 has-feedback" id="gfpais">
+                        <label class="control-label" for="iNfpais">País</label>
+                        <input type="text" class="form-control" id="iNfpais" name="ifpais" placeholder="Ingrese país de fabricación" maxlength="16">
+                        <span class="fa form-control-feedback" id="iconfpais"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-sm-6 has-feedback" id="gimnombre">
+                        <label class="control-label" for="iNimnombre">Nombre del importador *</label>
+                        <input type="text" class="form-control" id="iNimnombre" name="iimnombre" placeholder="Ingrese nombre del importador" maxlength="128" required>
+                        <span class="fa form-control-feedback" id="iconimnombre"></span>
+                    </div>
+
+                    <div class="form-group col-sm-6 has-feedback" id="gimpais">
+                        <label class="control-label" for="iNimpais">País de procedencia</label>
+                        <input type="text" class="form-control" id="iNimpais" name="iimpais" placeholder="Ingrese país de procedencia" maxlength="16">
+                        <span class="fa form-control-feedback" id="iconimpais"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-sm-4 has-feedback" id="gformauso">
+                        <label class="control-label" for="iNformauso">Forma de uso *</label>
+                        <select class="form-control" id="iNformauso" name="iformauso" required>
+                            <option value="">Seleccione forma de uso</option>
+                            <option value="S">SEMI-AUTOMATIZADO</option>
+                            <option value="M">MANUAL</option>
+                        </select>
+                    </div>
+
                     <div class="form-group col-sm-3 has-feedback" id="gdatefab">
                         <label class="control-label" for="iNdatefab">Fecha de fabricación</label>
                         <div class="input-group">
@@ -268,157 +241,120 @@
                 </div>
 
                 <div class="row">
-                    <div class="form-group col-sm-4 has-feedback" id="gcondicion">
-                        <label class="control-label" for="iNcondicion">Condición del dispositivo *</label>
-                        <select class="form-control" id="iNcondicion" name="icondicion" required>
-                            <option value="">Seleccione condición</option>
-                            <option value="P">PRIMER USO</option>
-                            <option value="R">REUTILIZADO</option>
+                    <div class="form-group col-sm-6 has-feedback" id="gverificacion">
+                        <label class="control-label" for="iNverificacion">Laboratorio cuenta con verificación de condiciones *</label>
+                        <select class="form-control" id="iNverificacion" name="iverificacion" required>
+                            <option value="1">SÍ</option>
+                            <option value="0">NO</option>
                         </select>
                     </div>
 
-                    <div class="form-group col-sm-4 has-feedback" id="gnregistrosan">
-                        <label class="control-label" for="iNnregistrosan">Número de registro sanitario</label>
-                        <input type="text" class="form-control" id="iNnregistrosan" name="inregistrosan" placeholder="Ingrese número de registro sanitario (si aplica)" maxlength="16">
-                        <span class="fa form-control-feedback" id="iconnregistrosan"></span>
+                    <div class="form-group col-sm-6 has-feedback" id="gcontrol">
+                        <label class="control-label" for="iNcontrol">Reactivo sometido a control de calidad interno *</label>
+                        <select class="form-control" id="iNcontrol" name="icontrol" required>
+                            <option value="1">SÍ</option>
+                            <option value="0">NO</option>
+                        </select>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="form-group col-sm-4 has-feedback" id="gdisponible">
-                        <label class="control-label" for="iNdisponible">¿Dispositivo médico disponible para evaluación? *</label>
-                        <select class="form-control" id="iNdisponible" name="idisponible" required>
-                            <option value="1">SI</option>
+                    <div class="form-group col-sm-6 has-feedback" id="gadscrito">
+                        <label class="control-label" for="iNadscrito">Laboratorio adscrito a programa evaluador externo *</label>
+                        <select class="form-control" id="iNadscrito" name="iadscrito" required>
+                            <option value="1">SÍ</option>
                             <option value="0">NO</option>
                         </select>
-                        <p class="help-block">No descarte el dispositivo médico afectado ya que es importante para la investigación</p>
                     </div>
+                </div>
 
-                    <div class="form-group col-sm-4 has-feedback" id="gmanera">
-                        <label class="control-label" for="iNmanera">¿De qué manera adquirió el dispositivo?</label>
-                        <select class="form-control" id="iNmanera" name="imanera" required>
-                            <option value="">Seleccione origen</option>
-                            <option value="C">CENABAST</option>
-                            <option value="A">ABASTECIMIENTO</option>
-                            <option value="L">LEY RICARTE SOTO</option>
+                <div class="row">
+                    <div class="form-group col-sm-6 has-feedback" id="gautorizacion">
+                        <label class="control-label" for="iNautorizacion">Autorización de uso diagnóstico *</label>
+                        <select class="form-control" id="iNautorizacion" name="iautorizacion" required>
+                            <option value="">Seleccione agencia</option>
+                            <option value="CU">COMUNIDAD EUROPEA</option>
+                            <option value="US">FDA - ESTADOS UNIDOS</option>
+                            <option value="ISP">ISP</option>
                             <option value="O">OTRO</option>
                         </select>
                     </div>
-                </div>
-            </div>
 
-            <div class="box-header with-border">
-                <h3 class="box-title">Información del fabricante legal</h3>
-            </div>
-
-            <div class="box-body">
-                <div class="row">
-                    <div class="form-group col-sm-8 has-feedback" id="gfnombre">
-                        <label class="control-label" for="iNfnombre">Nombre *</label>
-                        <input type="text" class="form-control" id="iNfnombre" name="ifnombre" placeholder="Ingrese nombre del fabricante legal" maxlength="128" required>
-                        <span class="fa form-control-feedback" id="iconfnombre"></span>
-                    </div>
-
-                    <div class="form-group col-sm-4 has-feedback" id="gfpais">
-                        <label class="control-label" for="iNfpais">País</label>
-                        <input type="text" class="form-control" id="iNfpais" name="ifpais" placeholder="Ingrese país de fabricación" maxlength="16">
-                        <span class="fa form-control-feedback" id="iconfpais"></span>
+                    <div class="form-group col-sm-6 has-feedback" id="gotraaut">
+                        <label class="control-label" for="iNotraaut">Otro</label>
+                        <input type="text" class="form-control" id="iNotraaut" name="iotraaut" placeholder="Si seleccionó 'otro' en la opción anterior, especifique aquí" maxlength="64" required>
+                        <span class="fa form-control-feedback" id="iconootraaut"></span>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="form-group col-sm-6 has-feedback" id="gfemail">
-                        <label class="control-label" for="iNfemail">E-mail *</label>
-                        <input type="text" class="form-control" id="iNfemail" name="ifemail" placeholder="Ingrese dirección de e-mail del fabricante" maxlength="128" required>
-                        <span class="fa form-control-feedback" id="iconfemail"></span>
+                    <div class="form-group col-sm-6 has-feedback" id="gensayo">
+                        <label class="control-label" for="iNensayo">Método de ensayo *</label>
+                        <input type="text" class="form-control" id="iNensayo" name="iensayo" placeholder="Ingrese método de ensayo" maxlength="256" required>
+                        <span class="fa form-control-feedback" id="iconensayo"></span>
                     </div>
 
-                    <div class="form-group col-sm-6 has-feedback" id="gftelefono">
-                        <label class="control-label" for="iNftelefono">Teléfono</label>
-                        <input type="text" class="form-control" id="iNftelefono" name="iftelefono" placeholder="Ingrese teléfono del fabricante" maxlength="64">
-                        <span class="fa form-control-feedback" id="iconftelefono"></span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="box-header with-border">
-                <h3 class="box-title">Información del representante autorizado</h3>
-            </div>
-
-            <div class="box-body">
-                <div class="row">
-                    <div class="form-group col-sm-6 has-feedback" id="grlnombre">
-                        <label class="control-label" for="iNrlnombre">Nombre *</label>
-                        <input type="text" class="form-control" id="iNrlnombre" name="irlnombre" placeholder="Ingrese nombre del representante autorizado" maxlength="128" required>
-                        <span class="fa form-control-feedback" id="iconrlnombre"></span>
-                    </div>
-
-                    <div class="form-group col-sm-6 has-feedback" id="grldireccion">
-                        <label class="control-label" for="iNrldireccion">Dirección</label>
-                        <input type="text" class="form-control" id="iNrldireccion" name="irldireccion" placeholder="Ingrese dirección del representante" maxlength="256">
-                        <span class="fa form-control-feedback" id="iconrldireccion"></span>
+                    <div class="form-group col-sm-6 has-feedback" id="gtecnica">
+                        <label class="control-label" for="iNtecnica">Tipo de técnica *</label>
+                        <select class="form-control" id="iNtecnica" name="itecnica" required>
+                            <option value="">Seleccione técnica</option>
+                            <option value="CL">CUALITATIVO</option>
+                            <option value="SCN">SEMI-CUANTITATIVO</option>
+                            <option value="CN">CUANTITATIVO</option>
+                        </select>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="form-group col-sm-6 has-feedback" id="grlemail">
-                        <label class="control-label" for="iNrlemail">E-mail *</label>
-                        <input type="text" class="form-control" id="iNrlemail" name="irlemail" placeholder="Ingrese dirección de e-mail del representante" maxlength="128" required>
-                        <span class="fa form-control-feedback" id="iconrlemail"></span>
-                    </div>
-
-                    <div class="form-group col-sm-6 has-feedback" id="grltelefono">
-                        <label class="control-label" for="iNrltelefono">Teléfono</label>
-                        <input type="text" class="form-control" id="iNrltelefono" name="irltelefono" placeholder="Ingrese teléfono del representante" maxlength="64">
-                        <span class="fa form-control-feedback" id="iconrltelefono"></span>
+                    <div class="form-group col-sm-6 has-feedback" id="ganalizador">
+                        <label class="control-label" for="iNanalizador">Nombre analizador *</label>
+                        <input type="text" class="form-control" id="iNanalizador" name="ianalizador" placeholder="Ingrese nombre completo del Analizador utilizado en esta técnica" maxlength="256" required>
+                        <span class="fa form-control-feedback" id="iconanalizador"></span>
                     </div>
                 </div>
             </div>
 
             <div class="box-header with-border">
-                <h3 class="box-title">Información del importador</h3>
+                <h3 class="box-title">Descripción del evento ocurrido</h3>
             </div>
-
+            
             <div class="box-body">
                 <div class="row">
-                    <div class="form-group col-sm-6 has-feedback" id="gimnombre">
-                        <label class="control-label" for="iNimnombre">Nombre *</label>
-                        <input type="text" class="form-control" id="iNimnombre" name="iimnombre" placeholder="Ingrese nombre del importador" maxlength="128" required>
-                        <span class="fa form-control-feedback" id="iconimnombre"></span>
-                    </div>
-
-                    <div class="form-group col-sm-6 has-feedback" id="gimdireccion">
-                        <label class="control-label" for="iNimdireccion">Dirección</label>
-                        <input type="text" class="form-control" id="iNimdireccion" name="iimdireccion" placeholder="Ingrese dirección del importador" maxlength="256">
-                        <span class="fa form-control-feedback" id="iconimdireccion"></span>
+                    <div class="form-group col-sm-3 has-feedback" id="gdateev">
+                        <label class="control-label" for="iNdateev">Fecha de evento *</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                            <input type="text" class="form-control" id="iNdateev" name="idateev" data-date-format="dd/mm/yyyy" placeholder="DD/MM/AAAA" required>
+                        </div>
+                        <span class="fa form-control-feedback" id="icondateev"></span>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="form-group col-sm-6 has-feedback" id="gimemail">
-                        <label class="control-label" for="iNimemail">E-mail *</label>
-                        <input type="text" class="form-control" id="iNimemail" name="iimemail" placeholder="Ingrese dirección de e-mail del importador" maxlength="128" required>
-                        <span class="fa form-control-feedback" id="iconimemail"></span>
-                    </div>
-
-                    <div class="form-group col-sm-6 has-feedback" id="gimtelefono">
-                        <label class="control-label" for="iNimtelefono">Teléfono</label>
-                        <input type="text" class="form-control" id="iNimtelefono" name="iimtelefono" placeholder="Ingrese teléfono del importador" maxlength="64">
-                        <span class="fa form-control-feedback" id="iconimtelefono"></span>
+                    <div class="form-group col-sm-12 has-feedback" id="gdescription">
+                        <label class="control-label" for="iNdescription">Descripción del evento *</label>
+                        <textarea rows="4" class="form-control" id="iNdescription" name="idescription" maxlength="450" required></textarea>
+                        <span class="fa form-control-feedback" id="icondescription"></span>
                     </div>
                 </div>
-            </div>
-
-            <div class="box-header with-border">
-                <h3 class="box-title">Acciones correctivas</h3>
-            </div>
-
-            <div class="box-body">
+                
                 <div class="row">
-                    <div class="form-group col-sm-12 has-feedback" id="gcorreccion">
-                        <label class="control-label" for="iNcorreccion">Acciones correctivas realizadas (si aplican)</label>
-                        <textarea rows="4" class="form-control" id="iNcorreccion" name="icorreccion" maxlength="450"></textarea>
-                        <span class="fa form-control-feedback" id="iconcorreccion"></span>
+                    <div class="form-group col-sm-6 has-feedback" id="ginvestig">
+                        <label class="control-label" for="iNinvestig">Investigación del problema realizada *</label>
+                        <select class="form-control" id="iNinvestig" name="iinvestig" required>
+                            <option value="1">SÍ</option>
+                            <option value="0">NO</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group col-sm-6 has-feedback" id="greporte">
+                        <label class="control-label" for="iNreporte">¿Se reportó el evento al distribuidor y/o fabricante? *</label>
+                        <select class="form-control" id="iNreporte" name="ireporte" required>
+                            <option value="1">SÍ</option>
+                            <option value="0">NO</option>
+                        </select>
                     </div>
                 </div>
             </div>

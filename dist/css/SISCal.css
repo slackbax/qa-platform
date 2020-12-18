@@ -5540,6 +5540,9 @@ button.btn-xs, a.btn-xs {
  * Tweaks
  * -----------------------------
  */
+.input-number {
+  text-align: right;
+}
 .text-xs {
   font-size : x-small;
 }

@@ -2,12 +2,7 @@ $(document).ready(function () {
     function validateForm() {
         var datos = true;
 
-        if (parseInt($('#iNnpac').val()) === 0) {
-            datos = false;
-        }
-
         if (datos) {
-            $('#btnsubmit').prop('disabled', true);
             $('#submitLoader').css('display', 'inline-block');
             return true;
         } else {
@@ -51,7 +46,7 @@ $(document).ready(function () {
     }
 
     var options = {
-        url: 'tecnoevents/ajax.insertEvent.php',
+        url: 'tecnoevents/ajax.insertDivEvent.php',
         type: 'post',
         dataType: 'json',
         beforeSubmit: validateForm,
@@ -59,27 +54,6 @@ $(document).ready(function () {
     };
 
     $('#submitLoader').css('display', 'none');
-
-    $(document).on('keyup', '.input-number', function () {
-        var v = this.value;
-        if ($.isNumeric(v) === false) {
-            this.value = this.value.slice(0, -1);
-        }
-    });
-
-    $('#iNnpacmas, #iNnpacfem').change(function () {
-        if ($.trim($(this).val()) === '')
-            $(this).val(0);
-
-        var suma = 0;
-        $('.input-number').each(function () {
-            if ($.trim($(this).val()) !== '')
-                suma += parseInt($(this).val());
-            else
-                $(this).val(0);
-        });
-        $('#iNnpac').val(suma);
-    });
 
     $('#iNrut').Rut({
         on_error: function () {

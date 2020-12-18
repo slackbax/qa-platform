@@ -233,7 +233,7 @@ $columns = array(
     array('db' => 'tec_id', 'dt' => ++$index, 'field' => 'tec_id',
         'formatter' => function ($d) {
             $string = '';
-            $string .= ' <a href="index.php?section=tec-event&sbs=edittecnoevent&id=' . $d . '" class="btn btn-xs btn-primary" data-tooltip="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil"></i></a>';
+            //$string .= ' <a href="index.php?section=tec-event&sbs=edittecnoevent&id=' . $d . '" class="btn btn-xs btn-primary" data-tooltip="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil"></i></a>';
 
             return $string;
         }
