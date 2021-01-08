@@ -19,7 +19,6 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>RUT</th>
                         <th>Usuario</th>
                         <th>Fecha</th>
                         <th>Fecha Evento</th>
@@ -30,7 +29,8 @@
                         <th>Causa</th>
                         <th>Consecuencia</th>
                         <th>Autorización</th>
-                        <th>Pacientes (M/F)</th>
+						<th>RUT</th>
+                        <th>Paciente</th>
                         <th>Diagnóstico</th>
                         <th>Nombre disp.</th>
                         <th>Nombre com. disp.</th>
@@ -56,9 +56,6 @@
                         <th>Dirección</th>
                         <th>E-mail</th>
                         <th>Teléfono</th>
-                        <th>Notificación a fabricante</th>
-                        <th>Retiro de disp.</th>
-                        <th>Respuesta</th>
                         <th>Correcciones</th>
                         <th></th>
                     </tr>

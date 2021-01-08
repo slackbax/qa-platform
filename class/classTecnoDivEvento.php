@@ -29,9 +29,6 @@ class TecnoDivEvento {
         $obj->ser_desc = utf8_encode($row['ser_nombre']);
         $obj->ted_usid = $row['us_id'];
         $obj->ted_username = $row['us_username'];
-        $obj->ted_rut = utf8_encode($row['ted_rut']);
-        $obj->ted_direccion = utf8_encode($row['ted_direccion']);
-        $obj->ted_profesion = utf8_encode($row['ted_profesion']);
         $obj->ted_fecha = utf8_encode($row['ted_fecha']);
         $obj->ted_fecha_ev = utf8_encode($row['ted_fecha_ev']);
         $obj->ted_nombre_gen = utf8_encode($row['ted_nombre_gen']);
@@ -104,9 +101,6 @@ class TecnoDivEvento {
 
     /**
      * @param $us_id
-     * @param $ted_rut
-     * @param $ted_direccion
-     * @param $ted_profesion
      * @param $ser_id
      * @param $ted_fecha
      * @param $ted_fecha_ev
@@ -140,7 +134,7 @@ class TecnoDivEvento {
      * @param $db
      * @return array
      */
-    public function set($us_id, $ted_rut, $ted_direccion, $ted_profesion, $ser_id, $ted_fecha, $ted_fecha_ev, $ted_nombre_gen, $ted_nombre_com, $ted_catalogo, $ted_uso, $ted_uso_otro, $ted_cadena, $ted_temperatura,
+    public function set($us_id, $ser_id, $ted_fecha, $ted_fecha_ev, $ted_nombre_gen, $ted_nombre_com, $ted_catalogo, $ted_uso, $ted_uso_otro, $ted_cadena, $ted_temperatura,
                         $ted_lote, $ted_seguridad, $ted_fnombre, $ted_fpais, $ted_imnombre, $ted_impais, $ted_formauso, $ted_fecha_fab, $ted_fecha_ven, $ted_verificacion, $ted_control, $ted_adscrito, $ted_autorizacion, $ted_auto_otro,
                         $ted_ensayo, $ted_tecnica, $ted_analizador, $ted_descripcion, $ted_investigacion, $ted_reporte, $db)
     {
@@ -149,18 +143,15 @@ class TecnoDivEvento {
         endif;
 
         try {
-            $stmt = $db->Prepare("INSERT INTO uc_tecnoeventodiv (us_id, ted_rut, ted_direccion, ted_profesion, ser_id, ted_fecha, ted_fecha_ev, ted_nombre_gen, ted_nombre_com, ted_catalogo, ted_uso, ted_uso_otro, ted_cadena, ted_temperatura,
+            $stmt = $db->Prepare("INSERT INTO uc_tecnoeventodiv (us_id, ser_id, ted_fecha, ted_fecha_ev, ted_nombre_gen, ted_nombre_com, ted_catalogo, ted_uso, ted_uso_otro, ted_cadena, ted_temperatura,
                             			ted_lote, ted_seguridad, ted_fnombre, ted_fpais, ted_imnombre, ted_impais, ted_formauso, ted_fecha_fab, ted_fecha_ven, ted_verificacion, ted_control, ted_adscrito, ted_autorizacion, ted_aut_otro,
                             			ted_ensayo, ted_tecnica, ted_analizador, ted_descripcion, ted_investigacion, ted_reporte) 
-                                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
             if (!$stmt):
                 throw new Exception("La inserción del evento falló en su preparación.");
             endif;
 
-            $ted_rut = $db->clearText(utf8_decode($ted_rut));
-            $ted_direccion = $db->clearText(utf8_decode($ted_direccion));
-            $ted_profesion = $db->clearText(utf8_decode($ted_profesion));
             $ted_nombre_gen = $db->clearText(utf8_decode($ted_nombre_gen));
             $ted_nombre_com = $db->clearText(utf8_decode($ted_nombre_com));
             $ted_catalogo = $db->clearText(utf8_decode($ted_catalogo));
@@ -184,7 +175,7 @@ class TecnoDivEvento {
             $ted_tecnica = $db->clearText(utf8_decode($ted_tecnica));
             $ted_analizador = $db->clearText(utf8_decode($ted_analizador));
             $ted_descripcion = utf8_decode($ted_descripcion);
-            $bind = $stmt->bind_param("isssisssssssissssssssssiiissssssii", $us_id, $ted_rut, $ted_direccion, $ted_profesion, $ser_id, $ted_fecha, $ted_fecha_ev, $ted_nombre_gen, $ted_nombre_com, $ted_catalogo,
+            $bind = $stmt->bind_param("iisssssssissssssssssiiissssssii", $us_id, $ser_id, $ted_fecha, $ted_fecha_ev, $ted_nombre_gen, $ted_nombre_com, $ted_catalogo,
                 $ted_uso, $ted_uso_otro, $ted_cadena, $ted_temperatura, $ted_lote, $ted_seguridad, $ted_fnombre, $ted_fpais, $ted_imnombre, $ted_impais, $ted_formauso, $ted_fecha_fab, $ted_fecha_ven, $ted_verificacion, $ted_control,
                 $ted_adscrito, $ted_autorizacion, $ted_auto_otro, $ted_ensayo, $ted_tecnica, $ted_analizador, $ted_descripcion, $ted_investigacion, $ted_reporte);
             if (!$bind):

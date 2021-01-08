@@ -55,25 +55,10 @@ $(document).ready(function () {
 
     $('#submitLoader').css('display', 'none');
 
-    $('#iNrut').Rut({
-        on_error: function () {
-            swal("Error!", "El RUT ingresado no es válido.", "error");
-            $('#iNrut, #iNname').val('');
-            $('#iNrut').val('');
-            $('#grut').addClass('has-error');
-            $('#iconrut').addClass('fa-remove');
-        },
-        on_success: function () {
-            $('#grut').addClass('has-success');
-            $('#iconrut').addClass('fa-check');
-        },
-        format_on: 'keyup'
-    });
-
-    $(document).on("focusin", "#iNdate, #iNdateev, #iNdatefab, #iNdatevenc", function () {
+    $(document).on("focusin", "#iNdateev, #iNdatefab, #iNdatevenc", function () {
         $(this).prop('readonly', true);
     });
-    $(document).on("focusout", "#iNdate, #iNdateev, #iNdatefab, #iNdatevenc", function () {
+    $(document).on("focusout", "#iNdateev, #iNdatefab, #iNdatevenc", function () {
         $(this).prop('readonly', false);
     });
 

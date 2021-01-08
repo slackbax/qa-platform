@@ -23,7 +23,7 @@
 
         <div class="box box-default">
             <div class="box-header with-border">
-                <h3 class="box-title">Identificación del notificador</h3>
+                <h3 class="box-title">Lugar de ocurrencia</h3>
             </div>
 
             <div class="box-body">
@@ -37,57 +37,6 @@
                             <input type="text" class="form-control" id="iNdate" name="idate" data-date-format="dd/mm/yyyy" placeholder="DD/MM/AAAA" value="<?php echo date('d/m/Y') ?>" readonly>
                         </div>
                         <span class="fa form-control-feedback" id="icondate"></span>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group col-sm-3 has-feedback" id="grut">
-                        <label class="control-label" for="iNrut">RUT *</label>
-                        <input type="text" class="form-control" id="iNrut" name="irut" placeholder="12345678-9" maxlength="12" value="<?php if (isset($te->ted_rut)) echo $te->ted_rut ?>" required>
-                        <input type="hidden" id="iid" name="id" value="<?php echo $_SESSION['uc_userid'] ?>">
-                        <span class="fa form-control-feedback" id="iconrut"></span>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group col-sm-6 has-feedback" id="gname">
-                        <label class="control-label" for="iNname">Nombre(s) *</label>
-                        <input type="text" class="form-control" id="iNname" name="iname" placeholder="Nombres del notificador" maxlength="256" value="<?php echo $us->us_nombres ?>" readonly>
-                        <span class="fa form-control-feedback" id="iconname"></span>
-                    </div>
-
-                    <div class="form-group col-sm-6 has-feedback" id="gap">
-                        <label class="control-label" for="iNap">Apellido Paterno *</label>
-                        <input type="text" class="form-control" id="iNap" name="iap" placeholder="Apellido paterno del notificador" maxlength="128" value="<?php echo $us->us_ap ?>" readonly>
-                        <span class="fa form-control-feedback" id="iconap"></span>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group col-sm-6 has-feedback" id="gam">
-                        <label class="control-label" for="iNam">Apellido Materno *</label>
-                        <input type="text" class="form-control" id="iNam" name="iam" placeholder="Apellido materno del notificador" maxlength="128" value="<?php echo $us->us_am ?>" readonly>
-                        <span class="fa form-control-feedback" id="iconam"></span>
-                    </div>
-
-                    <div class="form-group col-sm-6 has-feedback" id="gemail">
-                        <label class="control-label" for="iNemail">E-Mail *</label>
-                        <input type="text" class="form-control" id="iNemail" name="iemail" placeholder="Ingrese correo electrónico del notificador" maxlength="256" value="<?php echo $us->us_email ?>" required>
-                        <span class="fa form-control-feedback" id="iconemail"></span>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group col-sm-6 has-feedback" id="gdireccion">
-                        <label class="control-label" for="iNdireccion">Dirección *</label>
-                        <input type="text" class="form-control" id="iNdireccion" name="idireccion" placeholder="Dirección del notificador" maxlength="256" required>
-                        <span class="fa form-control-feedback" id="icondireccion"></span>
-                    </div>
-
-                    <div class="form-group col-sm-6 has-feedback" id="gprofesion">
-                        <label class="control-label" for="iNprofesion">Profesión *</label>
-                        <input type="text" class="form-control" id="iNprofesion" name="iprofesion" placeholder="Profesión del notificador" maxlength="128" required>
-                        <span class="fa form-control-feedback" id="iconprofesion"></span>
                     </div>
                 </div>
 

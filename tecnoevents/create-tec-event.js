@@ -66,39 +66,25 @@ $(document).ready(function () {
         }
     });
 
-    $('#iNnpacmas, #iNnpacfem').change(function () {
-        if ($.trim($(this).val()) === '')
-            $(this).val(0);
-
-        var suma = 0;
-        $('.input-number').each(function () {
-            if ($.trim($(this).val()) !== '')
-                suma += parseInt($(this).val());
-            else
-                $(this).val(0);
-        });
-        $('#iNnpac').val(suma);
-    });
-
-    $('#iNrut').Rut({
+    $('#iNpacrut').Rut({
         on_error: function () {
             swal("Error!", "El RUT ingresado no es válido.", "error");
-            $('#iNrut, #iNname').val('');
-            $('#iNrut').val('');
-            $('#grut').addClass('has-error');
-            $('#iconrut').addClass('fa-remove');
+            $('#iNpacrut, #iNpacname').val('');
+            $('#iNpacrut').val('');
+            $('#gpacrut').addClass('has-error');
+            $('#iconpacrut').addClass('fa-remove');
         },
         on_success: function () {
-            $('#grut').addClass('has-success');
-            $('#iconrut').addClass('fa-check');
+            $('#gpacrut').addClass('has-success');
+            $('#iconpacrut').addClass('fa-check');
         },
         format_on: 'keyup'
     });
 
-    $(document).on("focusin", "#iNdate, #iNdateev, #iNdatefab, #iNdatevenc", function () {
+    $(document).on("focusin", "#iNdateev, #iNdatefab, #iNdatevenc", function () {
         $(this).prop('readonly', true);
     });
-    $(document).on("focusout", "#iNdate, #iNdateev, #iNdatefab, #iNdatevenc", function () {
+    $(document).on("focusout", "#iNdateev, #iNdatefab, #iNdatevenc", function () {
         $(this).prop('readonly', false);
     });
 

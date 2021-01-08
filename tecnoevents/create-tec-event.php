@@ -23,8 +23,10 @@
 
 		<div class="box box-default">
 			<div class="box-header with-border">
-				<h3 class="box-title">Identificación del notificador</h3>
+				<h3 class="box-title">Información del evento</h3>
 			</div>
+
+			<input type="hidden" id="iid" name="id" value="<?php echo $_SESSION['uc_userid'] ?>">
 
 			<div class="box-body">
 				<div class="row">
@@ -40,49 +42,6 @@
 					</div>
 				</div>
 
-				<div class="row">
-					<div class="form-group col-sm-3 has-feedback" id="grut">
-						<label class="control-label" for="iNrut">RUT *</label>
-						<input type="text" class="form-control" id="iNrut" name="irut" placeholder="12345678-9" maxlength="12" value="<?php if (isset($te->tec_rut)) echo $te->tec_rut ?>" required>
-						<input type="hidden" id="iid" name="id" value="<?php echo $_SESSION['uc_userid'] ?>">
-						<span class="fa form-control-feedback" id="iconrut"></span>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="form-group col-sm-6 has-feedback" id="gname">
-						<label class="control-label" for="iNname">Nombre(s) *</label>
-						<input type="text" class="form-control" id="iNname" name="iname" placeholder="Nombres del notificador" maxlength="256" value="<?php echo $us->us_nombres ?>" readonly>
-						<span class="fa form-control-feedback" id="iconname"></span>
-					</div>
-
-					<div class="form-group col-sm-6 has-feedback" id="gap">
-						<label class="control-label" for="iNap">Apellido Paterno *</label>
-						<input type="text" class="form-control" id="iNap" name="iap" placeholder="Apellido paterno del notificador" maxlength="128" value="<?php echo $us->us_ap ?>" readonly>
-						<span class="fa form-control-feedback" id="iconap"></span>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="form-group col-sm-6 has-feedback" id="gam">
-						<label class="control-label" for="iNam">Apellido Materno *</label>
-						<input type="text" class="form-control" id="iNam" name="iam" placeholder="Apellido materno del notificador" maxlength="128" value="<?php echo $us->us_am ?>" readonly>
-						<span class="fa form-control-feedback" id="iconam"></span>
-					</div>
-
-					<div class="form-group col-sm-6 has-feedback" id="gemail">
-						<label class="control-label" for="iNemail">E-Mail *</label>
-						<input type="text" class="form-control" id="iNemail" name="iemail" placeholder="Ingrese correo electrónico del notificador" maxlength="256" value="<?php echo $us->us_email ?>" required>
-						<span class="fa form-control-feedback" id="iconemail"></span>
-					</div>
-				</div>
-			</div>
-
-			<div class="box-header with-border">
-				<h3 class="box-title">Información del evento</h3>
-			</div>
-
-			<div class="box-body">
 				<div class="row">
 					<div class="form-group col-sm-12 has-feedback" id="gdescription">
 						<label class="control-label" for="iNdescription">Descripción del evento *</label>
@@ -171,28 +130,22 @@
 
 			<div class="box-body">
 				<div class="row">
-					<div class="form-group col-sm-3 has-feedback" id="gnpacmas">
-						<label class="control-label" for="iNnpacmas">Cantidad de pacientes masculinos *</label>
-						<input type="text" class="form-control input-number" id="iNnpacmas" name="inpacmas" placeholder="Cantidad de pacientes masculinos" maxlength="4" required>
-						<span class="fa form-control-feedback" id="iconnpacmas"></span>
+					<div class="form-group col-sm-3 has-feedback" id="gpacrut">
+						<label class="control-label" for="iNpacrut">RUT paciente *</label>
+						<input type="text" class="form-control" id="iNpacrut" name="ipacrut" placeholder="12.345.678-9" maxlength="12" required>
+						<span class="fa form-control-feedback" id="iconpacrut"></span>
 					</div>
 
-					<div class="form-group col-sm-3 has-feedback" id="gnpacfem">
-						<label class="control-label" for="iNnpacfem">Cantidad de pacientes femeninos *</label>
-						<input type="text" class="form-control input-number" id="iNnpacfem" name="inpacfem" placeholder="Cantidad de pacientes femeninos" maxlength="4" required>
-						<span class="fa form-control-feedback" id="iconnpacfem"></span>
-					</div>
-
-					<div class="form-group col-sm-3 has-feedback" id="gnpac">
-						<label class="control-label" for="iNnpac">Número total de pacientes involucrados</label>
-						<input type="text" class="form-control" id="iNnpac" name="inpac" placeholder="Número de pacientes" maxlength="3" value="0" readonly>
-						<span class="fa form-control-feedback" id="iconnpac"></span>
+					<div class="form-group col-sm-9 has-feedback" id="gpacnombre">
+						<label class="control-label" for="iNpacnombre">Nombre paciente *</label>
+						<input type="text" class="form-control" id="iNpacnombre" name="ipacnombre" placeholder="Nombre completo paciente afectado" maxlength="128" required>
+						<span class="fa form-control-feedback" id="iconpacnombre"></span>
 					</div>
 				</div>
 
 				<div class="row">
 					<div class="form-group col-sm-12 has-feedback" id="gdiag">
-						<label class="control-label" for="iNdiag">Diagnóstico del(los) paciente(s)</label>
+						<label class="control-label" for="iNdiag">Diagnóstico del paciente</label>
 						<textarea rows="4" class="form-control" id="iNdiag" name="idiag" maxlength="450"></textarea>
 						<span class="fa form-control-feedback" id="icondiag"></span>
 					</div>
@@ -317,8 +270,8 @@
 			<div class="box-body">
 				<div class="row">
 					<div class="form-group col-sm-8 has-feedback" id="gfnombre">
-						<label class="control-label" for="iNfnombre">Nombre *</label>
-						<input type="text" class="form-control" id="iNfnombre" name="ifnombre" placeholder="Ingrese nombre del fabricante legal" maxlength="128" required>
+						<label class="control-label" for="iNfnombre">Nombre</label>
+						<input type="text" class="form-control" id="iNfnombre" name="ifnombre" placeholder="Ingrese nombre del fabricante legal" maxlength="128">
 						<span class="fa form-control-feedback" id="iconfnombre"></span>
 					</div>
 
@@ -331,8 +284,8 @@
 
 				<div class="row">
 					<div class="form-group col-sm-6 has-feedback" id="gfemail">
-						<label class="control-label" for="iNfemail">E-mail *</label>
-						<input type="text" class="form-control" id="iNfemail" name="ifemail" placeholder="Ingrese dirección de e-mail del fabricante" maxlength="128" required>
+						<label class="control-label" for="iNfemail">E-mail</label>
+						<input type="text" class="form-control" id="iNfemail" name="ifemail" placeholder="Ingrese dirección de e-mail del fabricante" maxlength="128">
 						<span class="fa form-control-feedback" id="iconfemail"></span>
 					</div>
 
@@ -351,8 +304,8 @@
 			<div class="box-body">
 				<div class="row">
 					<div class="form-group col-sm-6 has-feedback" id="grlnombre">
-						<label class="control-label" for="iNrlnombre">Nombre *</label>
-						<input type="text" class="form-control" id="iNrlnombre" name="irlnombre" placeholder="Ingrese nombre del representante autorizado" maxlength="128" required>
+						<label class="control-label" for="iNrlnombre">Nombre</label>
+						<input type="text" class="form-control" id="iNrlnombre" name="irlnombre" placeholder="Ingrese nombre del representante autorizado" maxlength="128">
 						<span class="fa form-control-feedback" id="iconrlnombre"></span>
 					</div>
 
@@ -365,8 +318,8 @@
 
 				<div class="row">
 					<div class="form-group col-sm-6 has-feedback" id="grlemail">
-						<label class="control-label" for="iNrlemail">E-mail *</label>
-						<input type="text" class="form-control" id="iNrlemail" name="irlemail" placeholder="Ingrese dirección de e-mail del representante" maxlength="128" required>
+						<label class="control-label" for="iNrlemail">E-mail</label>
+						<input type="text" class="form-control" id="iNrlemail" name="irlemail" placeholder="Ingrese dirección de e-mail del representante" maxlength="128">
 						<span class="fa form-control-feedback" id="iconrlemail"></span>
 					</div>
 
@@ -385,8 +338,8 @@
 			<div class="box-body">
 				<div class="row">
 					<div class="form-group col-sm-6 has-feedback" id="gimnombre">
-						<label class="control-label" for="iNimnombre">Nombre *</label>
-						<input type="text" class="form-control" id="iNimnombre" name="iimnombre" placeholder="Ingrese nombre del importador" maxlength="128" required>
+						<label class="control-label" for="iNimnombre">Nombre</label>
+						<input type="text" class="form-control" id="iNimnombre" name="iimnombre" placeholder="Ingrese nombre del importador" maxlength="128">
 						<span class="fa form-control-feedback" id="iconimnombre"></span>
 					</div>
 
@@ -399,8 +352,8 @@
 
 				<div class="row">
 					<div class="form-group col-sm-6 has-feedback" id="gimemail">
-						<label class="control-label" for="iNimemail">E-mail *</label>
-						<input type="text" class="form-control" id="iNimemail" name="iimemail" placeholder="Ingrese dirección de e-mail del importador" maxlength="128" required>
+						<label class="control-label" for="iNimemail">E-mail</label>
+						<input type="text" class="form-control" id="iNimemail" name="iimemail" placeholder="Ingrese dirección de e-mail del importador" maxlength="128">
 						<span class="fa form-control-feedback" id="iconimemail"></span>
 					</div>
 

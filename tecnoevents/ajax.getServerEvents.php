@@ -20,7 +20,6 @@ $index = 0;
 
 $columns = array(
     array('db' => 'tec_id', 'dt' => $index, 'field' => 'tec_id'),
-    array('db' => 'tec_rut', 'dt' => ++$index, 'field' => 'tec_rut'),
     array('db' => 'us_username', 'dt' => ++$index, 'field' => 'us_username',
         'formatter' => function ($d) {
             return utf8_encode($d);
@@ -70,11 +69,15 @@ $columns = array(
             return ($d) ? 'SÍ' : 'NO';
         }
     ),
-    array('db' => 'tec_id', 'dt' => ++$index, 'field' => 'tec_id',
-        'formatter' => function ($d) use ($e) {
-            $ev = $e->get($d);
-            return ($ev->tec_pac_masculinos + $ev->tec_pac_femeninos . ' (' . $ev->tec_pac_masculinos . '/' . $ev->tec_pac_femeninos . ')');
-        }
+	array('db' => 'tec_pac_rut', 'dt' => ++$index, 'field' => 'tec_pac_rut',
+		'formatter' => function ($d) {
+			return utf8_encode($d);
+		}
+	),
+    array('db' => 'tec_pac_nombre', 'dt' => ++$index, 'field' => 'tec_pac_nombre',
+		'formatter' => function ($d) {
+			return utf8_encode($d);
+		}
     ),
     array('db' => 'tec_diagnostico', 'dt' => ++$index, 'field' => 'tec_diagnostico',
         'formatter' => function ($d) {
@@ -210,21 +213,6 @@ $columns = array(
             return utf8_encode($d);
         }
     ),
-    array('db' => 'tec_notificacion', 'dt' => ++$index, 'field' => 'tec_notificacion',
-        'formatter' => function ($d) {
-            return ($d) ? 'SÍ' : 'NO';
-        }
-    ),
-    array('db' => 'tec_retiro', 'dt' => ++$index, 'field' => 'tec_retiro',
-        'formatter' => function ($d) {
-            return ($d) ? 'SÍ' : 'NO';
-        }
-    ),
-    array('db' => 'tec_respuesta', 'dt' => ++$index, 'field' => 'tec_respuesta',
-        'formatter' => function ($d) {
-            return utf8_encode($d);
-        }
-    ),
     array('db' => 'tec_correccion', 'dt' => ++$index, 'field' => 'tec_correccion',
         'formatter' => function ($d) {
             return utf8_encode($d);
@@ -233,7 +221,7 @@ $columns = array(
     array('db' => 'tec_id', 'dt' => ++$index, 'field' => 'tec_id',
         'formatter' => function ($d) {
             $string = '';
-            //$string .= ' <a href="index.php?section=tec-event&sbs=edittecnoevent&id=' . $d . '" class="btn btn-xs btn-primary" data-tooltip="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil"></i></a>';
+            $string .= ' <a href="index.php?section=tec-event&sbs=edittecnoevent&id=' . $d . '" class="btn btn-xs btn-primary" data-tooltip="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil"></i></a>';
 
             return $string;
         }

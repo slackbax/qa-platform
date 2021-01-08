@@ -32,7 +32,6 @@ class TecnoEvento {
 		$obj->tec_username = $row['us_username'];
 		$obj->cat_id = $row['cat_id'];
 		$obj->cat_desc = utf8_encode($row['cat_descripcion']);
-		$obj->tec_rut = utf8_encode($row['tec_rut']);
 		$obj->tec_fecha = utf8_encode($row['tec_fecha']);
 		$obj->tec_fecha_ev = utf8_encode($row['tec_fecha_ev']);
 		$obj->tec_descripcion = utf8_encode($row['tec_descripcion']);
@@ -40,8 +39,8 @@ class TecnoEvento {
 		$obj->tec_causa = utf8_encode($row['tec_causa']);
 		$obj->tec_consecuencia = utf8_encode($row['tec_consecuencia']);
 		$obj->tec_autoriza = $row['tec_autoriza'];
-		$obj->tec_pac_masculinos = $row['tec_pac_masculinos'];
-		$obj->tec_pac_femeninos = $row['tec_pac_femeninos'];
+		$obj->tec_pac_rut = utf8_encode($row['tec_pac_rut']);
+		$obj->tec_pac_nombre = utf8_encode($row['tec_pac_nombre']);
 		$obj->tec_diagnostico = utf8_encode($row['tec_diagnostico']);
 		$obj->tec_nombre_gen = utf8_encode($row['tec_nombre_gen']);
 		$obj->tec_nombre_com = utf8_encode($row['tec_nombre_com']);
@@ -67,9 +66,6 @@ class TecnoEvento {
 		$obj->tec_imdireccion = utf8_encode($row['tec_imdireccion']);
 		$obj->tec_imemail = utf8_encode($row['tec_imemail']);
 		$obj->tec_imtelefono = utf8_encode($row['tec_imtelefono']);
-		$obj->tec_notificacion = $row['tec_notificacion'];
-		$obj->tec_retiro = $row['tec_retiro'];
-		$obj->tec_respuesta = utf8_encode($row['tec_respuesta']);
 		$obj->tec_correccion = utf8_encode($row['tec_correccion']);
 		$obj->tec_registro = $row['tec_registro'];
 
@@ -96,10 +92,10 @@ class TecnoEvento {
 		return $lista;
 	}
 
-    /**
-     * @param $us
-     * @return stdClass
-     */
+	/**
+	 * @param $us
+	 * @return stdClass
+	 */
 	public function getLastByUser($us)
 	{
 		$db = new myDBC();
@@ -108,13 +104,12 @@ class TecnoEvento {
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$row = $result->fetch_assoc();
-        unset($db);
+		unset($db);
 		return $this->get($row['tec_id']);
 	}
 
 	/**
 	 * @param $us_id
-	 * @param $tec_rut
 	 * @param $ser_id
 	 * @param $cat_id
 	 * @param $tec_fecha
@@ -124,8 +119,8 @@ class TecnoEvento {
 	 * @param $tec_causa
 	 * @param $tec_consecuencia
 	 * @param $tec_autoriza
-	 * @param $tec_pac_masculinos
-	 * @param $tec_pac_femeninos
+	 * @param $pac_rut
+	 * @param $pac_nombre
 	 * @param $tec_diagnostico
 	 * @param $tec_nombre_gen
 	 * @param $tec_nombre_com
@@ -151,37 +146,34 @@ class TecnoEvento {
 	 * @param $tec_imdireccion
 	 * @param $tec_imemail
 	 * @param $tec_imtelefono
-	 * @param $tec_notificacion
-	 * @param $tec_retiro
-	 * @param $tec_respuesta
 	 * @param $tec_correccion
 	 * @param $db
 	 * @return array
 	 */
-	public function set($us_id, $tec_rut, $ser_id, $cat_id, $tec_fecha, $tec_fecha_ev, $tec_descripcion, $tec_momento, $tec_causa, $tec_consecuencia, $tec_autoriza, $tec_pac_masculinos, $tec_pac_femeninos, $tec_diagnostico, $tec_nombre_gen, $tec_nombre_com,
+	public function set($us_id, $ser_id, $cat_id, $tec_fecha, $tec_fecha_ev, $tec_descripcion, $tec_momento, $tec_causa, $tec_consecuencia, $tec_autoriza, $pac_rut, $pac_nombre, $tec_diagnostico, $tec_nombre_gen, $tec_nombre_com,
 						$tec_uso, $tec_riesgo, $tec_lote, $tec_serie, $tec_fecha_fab, $tec_fecha_ven, $tec_condicion, $tec_num_registro, $tec_disponibilidad, $tec_adquisicion, $tec_fnombre, $tec_fpais, $tec_femail, $tec_ftelefono, $tec_rnombre, $tec_rdireccion,
-						$tec_remail, $tec_rtelefono, $tec_imnombre, $tec_imdireccion, $tec_imemail, $tec_imtelefono, $tec_notificacion, $tec_retiro, $tec_respuesta, $tec_correccion, $db)
+						$tec_remail, $tec_rtelefono, $tec_imnombre, $tec_imdireccion, $tec_imemail, $tec_imtelefono, $tec_correccion, $db)
 	{
 		if (is_null($db)):
 			$db = new myDBC();
 		endif;
 
 		try {
-			$stmt = $db->Prepare("INSERT INTO uc_tecnoevento (us_id, tec_rut, ser_id, cat_id, tec_fecha, tec_fecha_ev, tec_descripcion, tec_momento, tec_causa, tec_consecuencia, tec_autoriza, tec_pac_masculinos, tec_pac_femeninos,
+			$stmt = $db->Prepare("INSERT INTO uc_tecnoevento (us_id, ser_id, cat_id, tec_fecha, tec_fecha_ev, tec_descripcion, tec_momento, tec_causa, tec_consecuencia, tec_autoriza, tec_pac_rut, tec_pac_nombre,
                             			tec_diagnostico, tec_nombre_gen, tec_nombre_com, tec_uso, tec_riesgo, tec_lote, tec_serie, tec_fecha_fab, tec_fecha_ven, tec_condicion, tec_num_registro, tec_disponibilidad, tec_adquisicion,
-                            			tec_fnombre, tec_fpais, tec_femail, tec_ftelefono, tec_rnombre, tec_rdireccion, tec_remail, tec_rtelefono, tec_imnombre, tec_imdireccion, tec_imemail, tec_imtelefono, tec_notificacion, tec_retiro,
-                            			tec_respuesta, tec_correccion) 
-                                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                            			tec_fnombre, tec_fpais, tec_femail, tec_ftelefono, tec_rnombre, tec_rdireccion, tec_remail, tec_rtelefono, tec_imnombre, tec_imdireccion, tec_imemail, tec_imtelefono, tec_correccion) 
+                                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
 			if (!$stmt):
 				throw new Exception("La inserción del evento falló en su preparación.");
 			endif;
 
-			$tec_rut = $db->clearText(utf8_decode($tec_rut));
 			$tec_descripcion = $db->clearText(utf8_decode($tec_descripcion));
 			$tec_momento = $db->clearText(utf8_decode($tec_momento));
 			$tec_causa = $db->clearText(utf8_decode($tec_causa));
 			$tec_consecuencia = $db->clearText(utf8_decode($tec_consecuencia));
+			$pac_rut = $db->clearText(utf8_decode($pac_rut));
+			$pac_nombre = $db->clearText(utf8_decode($pac_nombre));
 			$tec_diagnostico = $db->clearText(utf8_decode($tec_diagnostico));
 			$tec_nombre_gen = $db->clearText(utf8_decode($tec_nombre_gen));
 			$tec_nombre_com = $db->clearText(utf8_decode($tec_nombre_com));
@@ -203,18 +195,124 @@ class TecnoEvento {
 			$tec_imdireccion = $db->clearText(utf8_decode($tec_imdireccion));
 			$tec_imemail = $db->clearText(utf8_decode($tec_imemail));
 			$tec_imtelefono = $db->clearText(utf8_decode($tec_imtelefono));
-			$tec_respuesta = $db->clearText(utf8_decode($tec_respuesta));
 			$tec_correccion = $db->clearText(utf8_decode($tec_correccion));
-			$bind = $stmt->bind_param("isiissssssiiisssssssssssisssssssssssssiiss", $us_id, $tec_rut, $ser_id, $cat_id, $tec_fecha, $tec_fecha_ev, $tec_descripcion, $tec_momento, $tec_causa, $tec_consecuencia, $tec_autoriza,
-										$tec_pac_masculinos, $tec_pac_femeninos, $tec_diagnostico, $tec_nombre_gen, $tec_nombre_com, $tec_uso, $tec_riesgo, $tec_lote, $tec_serie, $tec_fecha_fab, $tec_fecha_ven, $tec_condicion, $tec_num_registro,
-										$tec_disponibilidad, $tec_adquisicion, $tec_fnombre, $tec_fpais, $tec_femail, $tec_ftelefono, $tec_rnombre, $tec_rdireccion, $tec_remail, $tec_rtelefono, $tec_imnombre, $tec_imdireccion, $tec_imemail,
-										$tec_imtelefono, $tec_notificacion, $tec_retiro, $tec_respuesta, $tec_correccion);
+			$bind = $stmt->bind_param("iiissssssisssssssssssssissssssssssssss", $us_id, $ser_id, $cat_id, $tec_fecha, $tec_fecha_ev, $tec_descripcion, $tec_momento, $tec_causa, $tec_consecuencia, $tec_autoriza,
+				$pac_rut, $pac_nombre, $tec_diagnostico, $tec_nombre_gen, $tec_nombre_com, $tec_uso, $tec_riesgo, $tec_lote, $tec_serie, $tec_fecha_fab, $tec_fecha_ven, $tec_condicion, $tec_num_registro,
+				$tec_disponibilidad, $tec_adquisicion, $tec_fnombre, $tec_fpais, $tec_femail, $tec_ftelefono, $tec_rnombre, $tec_rdireccion, $tec_remail, $tec_rtelefono, $tec_imnombre, $tec_imdireccion, $tec_imemail,
+				$tec_imtelefono, $tec_correccion);
 			if (!$bind):
 				throw new Exception("La inserción del evento falló en su binding.");
 			endif;
 
 			if (!$stmt->execute()):
 				throw new Exception("La inserción del evento falló en su ejecución.");
+			endif;
+
+			return array('estado' => true, 'msg' => $stmt->insert_id);
+		} catch (Exception $e) {
+			return array('estado' => false, 'msg' => $e->getMessage());
+		}
+	}
+
+	/**
+	 * @param $id
+	 * @param $us_id
+	 * @param $ser_id
+	 * @param $cat_id
+	 * @param $tec_fecha
+	 * @param $tec_fecha_ev
+	 * @param $tec_descripcion
+	 * @param $tec_momento
+	 * @param $tec_causa
+	 * @param $tec_consecuencia
+	 * @param $tec_autoriza
+	 * @param $pac_rut
+	 * @param $pac_nombre
+	 * @param $tec_diagnostico
+	 * @param $tec_nombre_gen
+	 * @param $tec_nombre_com
+	 * @param $tec_uso
+	 * @param $tec_riesgo
+	 * @param $tec_lote
+	 * @param $tec_serie
+	 * @param $tec_fecha_fab
+	 * @param $tec_fecha_ven
+	 * @param $tec_condicion
+	 * @param $tec_num_registro
+	 * @param $tec_disponibilidad
+	 * @param $tec_adquisicion
+	 * @param $tec_fnombre
+	 * @param $tec_fpais
+	 * @param $tec_femail
+	 * @param $tec_ftelefono
+	 * @param $tec_rnombre
+	 * @param $tec_rdireccion
+	 * @param $tec_remail
+	 * @param $tec_rtelefono
+	 * @param $tec_imnombre
+	 * @param $tec_imdireccion
+	 * @param $tec_imemail
+	 * @param $tec_imtelefono
+	 * @param $tec_correccion
+	 * @param $db
+	 * @return array
+	 */
+	public function mod($id, $us_id, $ser_id, $cat_id, $tec_fecha, $tec_fecha_ev, $tec_descripcion, $tec_momento, $tec_causa, $tec_consecuencia, $tec_autoriza, $pac_rut, $pac_nombre, $tec_diagnostico, $tec_nombre_gen, $tec_nombre_com,
+						$tec_uso, $tec_riesgo, $tec_lote, $tec_serie, $tec_fecha_fab, $tec_fecha_ven, $tec_condicion, $tec_num_registro, $tec_disponibilidad, $tec_adquisicion, $tec_fnombre, $tec_fpais, $tec_femail, $tec_ftelefono, $tec_rnombre, $tec_rdireccion,
+						$tec_remail, $tec_rtelefono, $tec_imnombre, $tec_imdireccion, $tec_imemail, $tec_imtelefono, $tec_correccion, $db)
+	{
+		if (is_null($db)):
+			$db = new myDBC();
+		endif;
+
+		try {
+			$stmt = $db->Prepare("UPDATE uc_tecnoevento SET us_id = ?, ser_id = ?, cat_id = ?, tec_fecha_ev = ?, tec_descripcion = ?, tec_momento = ?, tec_causa = ?, tec_consecuencia = ?, tec_autoriza = ?, tec_pac_rut = ?, tec_pac_nombre = ?,
+                            			tec_diagnostico = ?, tec_nombre_gen = ?, tec_nombre_com = ?, tec_uso = ?, tec_riesgo = ?, tec_lote = ?, tec_serie = ?, tec_fecha_fab = ?, tec_fecha_ven = ?, tec_condicion = ?, tec_num_registro = ?, 
+                          				tec_disponibilidad = ?, tec_adquisicion = ?, tec_fnombre = ?, tec_fpais = ?, tec_femail = ?, tec_ftelefono = ?, tec_rnombre = ?, tec_rdireccion = ?, tec_remail = ?, tec_rtelefono = ?,
+                          				tec_imnombre = ?, tec_imdireccion = ?, tec_imemail = ?, tec_imtelefono = ?, tec_correccion = ? WHERE tec_id = ?");
+
+			if (!$stmt):
+				throw new Exception("La inserción del evento falló en su preparación.");
+			endif;
+
+			$tec_descripcion = $db->clearText(utf8_decode($tec_descripcion));
+			$tec_momento = $db->clearText(utf8_decode($tec_momento));
+			$tec_causa = $db->clearText(utf8_decode($tec_causa));
+			$tec_consecuencia = $db->clearText(utf8_decode($tec_consecuencia));
+			$pac_rut = $db->clearText(utf8_decode($pac_rut));
+			$pac_nombre = $db->clearText(utf8_decode($pac_nombre));
+			$tec_diagnostico = $db->clearText(utf8_decode($tec_diagnostico));
+			$tec_nombre_gen = $db->clearText(utf8_decode($tec_nombre_gen));
+			$tec_nombre_com = $db->clearText(utf8_decode($tec_nombre_com));
+			$tec_uso = $db->clearText(utf8_decode($tec_uso));
+			$tec_riesgo = $db->clearText(utf8_decode($tec_riesgo));
+			$tec_lote = $db->clearText(utf8_decode($tec_lote));
+			$tec_serie = $db->clearText(utf8_decode($tec_serie));
+			$tec_condicion = $db->clearText(utf8_decode($tec_condicion));
+			$tec_num_registro = $db->clearText(utf8_decode($tec_num_registro));
+			$tec_fnombre = $db->clearText(utf8_decode($tec_fnombre));
+			$tec_fpais = $db->clearText(utf8_decode($tec_fpais));
+			$tec_femail = $db->clearText(utf8_decode($tec_femail));
+			$tec_ftelefono = $db->clearText(utf8_decode($tec_ftelefono));
+			$tec_rnombre = $db->clearText(utf8_decode($tec_rnombre));
+			$tec_rdireccion = $db->clearText(utf8_decode($tec_rdireccion));
+			$tec_remail = $db->clearText(utf8_decode($tec_remail));
+			$tec_rtelefono = $db->clearText(utf8_decode($tec_rtelefono));
+			$tec_imnombre = $db->clearText(utf8_decode($tec_imnombre));
+			$tec_imdireccion = $db->clearText(utf8_decode($tec_imdireccion));
+			$tec_imemail = $db->clearText(utf8_decode($tec_imemail));
+			$tec_imtelefono = $db->clearText(utf8_decode($tec_imtelefono));
+			$tec_correccion = $db->clearText(utf8_decode($tec_correccion));
+			$bind = $stmt->bind_param("iiisssssisssssssssssssissssssssssssssi", $us_id, $ser_id, $cat_id, $tec_fecha_ev, $tec_descripcion, $tec_momento, $tec_causa, $tec_consecuencia, $tec_autoriza,
+				$pac_rut, $pac_nombre, $tec_diagnostico, $tec_nombre_gen, $tec_nombre_com, $tec_uso, $tec_riesgo, $tec_lote, $tec_serie, $tec_fecha_fab, $tec_fecha_ven, $tec_condicion, $tec_num_registro,
+				$tec_disponibilidad, $tec_adquisicion, $tec_fnombre, $tec_fpais, $tec_femail, $tec_ftelefono, $tec_rnombre, $tec_rdireccion, $tec_remail, $tec_rtelefono, $tec_imnombre, $tec_imdireccion, $tec_imemail,
+				$tec_imtelefono, $tec_correccion, $id);
+			if (!$bind):
+				throw new Exception("La edición del evento falló en su binding.");
+			endif;
+
+			if (!$stmt->execute()):
+				throw new Exception("La edición del evento falló en su ejecución.");
 			endif;
 
 			return array('estado' => true, 'msg' => $stmt->insert_id);

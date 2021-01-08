@@ -21,8 +21,6 @@
                     <th>ID</th>
                     <th>RUT</th>
                     <th>Usuario</th>
-                    <th>Dirección</th>
-                    <th>Profesión</th>
                     <th>Fecha</th>
                     <th>Fecha Evento</th>
                     <th>Servicio</th>

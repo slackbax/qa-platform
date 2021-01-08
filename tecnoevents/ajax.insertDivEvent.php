@@ -18,7 +18,7 @@ if (extract($_POST)):
 
     try {
         $db->autoCommit(FALSE);
-        $ins = $ev->set($_SESSION['uc_userid'], $irut, $idireccion, $iprofesion, $iserv, $idate, $idateev, $ingenerico, $incomercial, $icatalogo, $iuso, $iotrouso, $icadena, $itemp, $inlote, $iseguridad, $ifnombre, $ifpais, $iimnombre, $iimpais, $iformauso, $idatefab, $idatevenc, $iverificacion, $icontrol, $iadscrito, $iautorizacion, $iotraaut, $iensayo, $itecnica, $ianalizador, $idescription, $iinvestig, $ireporte, $db);
+        $ins = $ev->set($_SESSION['uc_userid'], $iserv, $idate, $idateev, $ingenerico, $incomercial, $icatalogo, $iuso, $iotrouso, $icadena, $itemp, $inlote, $iseguridad, $ifnombre, $ifpais, $iimnombre, $iimpais, $iformauso, $idatefab, $idatevenc, $iverificacion, $icontrol, $iadscrito, $iautorizacion, $iotraaut, $iensayo, $itecnica, $ianalizador, $idescription, $iinvestig, $ireporte, $db);
 
         if (!$ins['estado']):
             throw new Exception('Error al guardar los datos del evento. ' . $ins['msg'], 0);
