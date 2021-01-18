@@ -113,7 +113,7 @@ if (extract($_POST)):
 		$mail->AddAddress("lgatica@ssconcepcion.cl", "Luis Gatica");
 
 		if ((int)$istev < 13 or (int)$istev == 15):
-			$mail->AddAddress("boportus@ssconcepcion.cl", "Boris Oportus");
+			$mail->AddAddress("miguelaguayo@ssconcepcion.cl", "Miguel Aguayo");
 			$mail->AddAddress("kcampos@ssconcepcion.cl", "Katherine Campos");
 		endif;
 
