@@ -25,6 +25,7 @@ class Folder {
 		$obj->fol_nombre = utf8_encode($row['fol_nombre']);
 		$obj->fol_descripcion = utf8_encode($row['fol_descripcion']);
 		$obj->fol_fecha = $row['fol_fecha'];
+		$obj->fol_privado = $row['fol_privado'];
 		$obj->fol_publicado = $row['fol_publicado'];
 
 		unset($db);
@@ -56,7 +57,7 @@ class Folder {
 	public function getMain()
 	{
 		$db = new myDBC();
-		$stmt = $db->Prepare("SELECT * FROM uc_folder WHERE fol_publicado = TRUE AND fol_parent_id IS NULL ORDER BY fol_nombre ASC");
+		$stmt = $db->Prepare("SELECT * FROM uc_folder WHERE fol_publicado = TRUE AND fol_parent_id IS NULL ORDER BY fol_nombre");
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$lista = array();
@@ -75,7 +76,7 @@ class Folder {
 	public function getLesser()
 	{
 		$db = new myDBC();
-		$stmt = $db->Prepare("SELECT * FROM uc_folder WHERE fol_publicado = TRUE AND fol_parent_id IS NOT NULL ORDER BY fol_nombre ASC");
+		$stmt = $db->Prepare("SELECT * FROM uc_folder WHERE fol_publicado = TRUE AND fol_parent_id IS NOT NULL ORDER BY fol_nombre");
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$lista = array();
@@ -95,7 +96,7 @@ class Folder {
 	public function getChildren($id)
 	{
 		$db = new myDBC();
-		$stmt = $db->Prepare("SELECT * FROM uc_folder WHERE fol_publicado = TRUE AND fol_parent_id = ? ORDER BY fol_nombre ASC");
+		$stmt = $db->Prepare("SELECT * FROM uc_folder WHERE fol_publicado = TRUE AND fol_parent_id = ? ORDER BY fol_nombre");
 		$stmt->bind_param("i", $id);
 		$stmt->execute();
 		$result = $stmt->get_result();
@@ -157,11 +158,13 @@ class Folder {
 
 			$bind = true;
 
+			$fol_nombre = utf8_decode($db->clearText($fol_nombre));
+			$fol_desc = utf8_decode($db->clearText($fol_desc));
 			if (is_null($menu_id)):
-				$bind = $stmt->bind_param("ssi", utf8_decode($db->clearText($fol_nombre)), utf8_decode($db->clearText($fol_desc)), $fol_p);
+				$bind = $stmt->bind_param("ssi", $fol_nombre, $fol_desc, $fol_p);
 			endif;
 			if (is_null($fol_p)):
-				$bind = $stmt->bind_param("ssi", utf8_decode($db->clearText($fol_nombre)), utf8_decode($db->clearText($fol_desc)), $menu_id);
+				$bind = $stmt->bind_param("ssi", $fol_nombre, $fol_desc, $menu_id);
 			endif;
 
 			if (!$bind):
@@ -201,7 +204,10 @@ class Folder {
 				throw new Exception("La edición del directorio falló en su preparación.");
 			endif;
 
-			$bind = $stmt->bind_param("sssi", utf8_decode($db->clearText($fol_nombre)), utf8_decode($db->clearText($fol_desc)), $db->clearText($fol_publicado), $id);
+			$fol_nombre = utf8_decode($db->clearText($fol_nombre));
+			$fol_desc = utf8_decode($db->clearText($fol_desc));
+			$fol_publicado = $db->clearText($fol_publicado);
+			$bind = $stmt->bind_param("sssi", $fol_nombre, $fol_desc, $fol_publicado, $id);
 
 			if (!$bind):
 				throw new Exception("La edición del directorio falló en su binding.");

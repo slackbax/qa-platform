@@ -221,7 +221,7 @@
 
                 <?php if ($_login and !$_operador and !$_autoeval): ?>
                     <li class="treeview<?php if (isset($section) and $section == 'files' and $sid < 9): ?> active<?php endif; ?>">
-                        <?php $amb = $a->getClinicos(); ?>
+                        <?php $amb = $a->getClinicos() ?>
                         <a href="#">
                             <i class="fa fa-chevron-down"></i>
                             <span class="menu-item">Servicios Clínicos</span>
@@ -244,7 +244,7 @@
                         </ul>
                     </li>
 
-                    <?php $amb = $a->getApoyo(); ?>
+                    <?php $amb = $a->getApoyo() ?>
                     <li class="treeview<?php if (isset($section) and $section == 'files' and $sid > 8): ?> active<?php endif; ?>">
                         <a href="#">
                             <i class="fa fa-chevron-down"></i>
@@ -276,7 +276,7 @@
                     </a>
                 </li>
 
-                <?php $fol = $fo->getMain(); ?>
+                <?php $fol = $fo->getMain() ?>
                 <?php foreach ($fol as $folder): ?>
                     <li class="treeview<?php if (isset($section) and $section == 'other-files'): ?> active<?php endif; ?>">
                         <a href="#">
@@ -290,6 +290,7 @@
                             <?php $subfol = $fo->getChildren($folder->fol_id) ?>
                             <?php foreach ($subfol as $aux => $sfl): ?>
                                 <li <?php if (isset($sfid) and $sfid == $sfl->fol_id): ?> class="active"<?php endif ?>>
+									<?php if ($sfl->fol_privado and (!$_admin and !$_calidad and !$_autoeval)) continue ?>
                                     <a href="index.php?section=other-files&sfid=<?php echo $sfl->fol_id ?>">
                                         <span class="fa fa-circle-o text-orange"></span>
                                         <span class="menu-item"><?php echo $sfl->fol_nombre ?></span>
