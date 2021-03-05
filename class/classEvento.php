@@ -143,6 +143,7 @@ class Evento {
 	 * @param $ev_nombre
 	 * @param $ev_edad
 	 * @param $ev_fecha
+	 * @param $ev_origen
 	 * @param $ev_contexto
 	 * @param $ev_justificacion
 	 * @param $ev_analisis_jus
@@ -151,22 +152,22 @@ class Evento {
 	 * @param $db
 	 * @return array
 	 */
-	public function set($us_id, $ser_id, $rie_id, $stev_id, $tpac_id, $cons_id, $ev_rut, $ev_nombre, $ev_edad, $ev_fecha, $ev_contexto, $ev_justificacion, $ev_analisis_jus, $ev_reporte, $ev_verificacion, $db)
+	public function set($us_id, $ser_id, $rie_id, $stev_id, $tpac_id, $cons_id, $ev_rut, $ev_nombre, $ev_edad, $ev_fecha, $ev_origen, $ev_contexto, $ev_justificacion, $ev_analisis_jus, $ev_reporte, $ev_verificacion, $db)
 	{
 		if (is_null($db)):
 			$db = new myDBC();
 		endif;
 
 		try {
-			$stmt = $db->Prepare("INSERT INTO uc_evento (us_id, ser_id, rie_id, stev_id, tpac_id, cons_id, ev_rut, ev_nombre, ev_edad, ev_fecha, ev_contexto, ev_justificacion, ev_analisis_jus, ev_reporte, ev_verificacion) 
-                                        VALUES (?, ?, ?, ?, ?, ?, ?, UPPER(?), ?, ?, ?, ?, ?, ?, ?)");
+			$stmt = $db->Prepare("INSERT INTO uc_evento (us_id, ser_id, rie_id, stev_id, tpac_id, cons_id, ev_rut, ev_nombre, ev_edad, ev_fecha, ev_origen, ev_contexto, ev_justificacion, ev_analisis_jus, ev_reporte, ev_verificacion) 
+                                        VALUES (?, ?, ?, ?, ?, ?, ?, UPPER(?), ?, ?, ?, ?, ?, ?, ?, ?)");
 
 			if (!$stmt):
 				throw new Exception("La inserción del evento falló en su preparación.");
 			endif;
 
 			$bind = $stmt->bind_param("iiiiiississiiii", $us_id, $ser_id, $rie_id, $stev_id, $tpac_id, $cons_id, $db->clearText(utf8_decode($ev_rut)), $db->clearText(utf8_decode($ev_nombre)), $db->clearText(utf8_decode($ev_edad)),
-				$db->clearText($ev_fecha), nl2br($db->clearText(utf8_decode($ev_contexto))), $ev_justificacion, $ev_analisis_jus, $ev_reporte, $ev_verificacion);
+				$db->clearText($ev_fecha), $ev_origen, nl2br($db->clearText(utf8_decode($ev_contexto))), $ev_justificacion, $ev_analisis_jus, $ev_reporte, $ev_verificacion);
 			if (!$bind):
 				throw new Exception("La inserción del evento falló en su binding.");
 			endif;
@@ -175,11 +176,9 @@ class Evento {
 				throw new Exception("La inserción del evento falló en su ejecución.");
 			endif;
 
-			$result = array('estado' => true, 'msg' => $stmt->insert_id);
-			return $result;
+			return array('estado' => true, 'msg' => $stmt->insert_id);
 		} catch (Exception $e) {
-			$result = array('estado' => false, 'msg' => $e->getMessage());
-			return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
 		}
 	}
 

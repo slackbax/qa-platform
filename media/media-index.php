@@ -1,11 +1,11 @@
 <section class="content-header">
 	<h1>Multimedia
-		<small><i class="fa fa-angle-right"></i> Medios relacionados a la Subdirección</small>
+		<small><i class="fa fa-angle-right"></i> Medios relacionados a la Unidad</small>
 	</h1>
 
 	<ol class="breadcrumb">
 		<li><a href="index.php?section=home"><i class="fa fa-home"></i> Inicio</a></li>
-		<li class="active">Medios relacionados a la Subdirección</li>
+		<li class="active">Medios relacionados a la Unidad</li>
 	</ol>
 </section>
 

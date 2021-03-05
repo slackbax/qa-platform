@@ -1,7 +1,10 @@
 $(document).ready(function () {
 	function validateForm() {
-		var files = datos = true;
+		var files = true;
+		var datos = true;
+		var fieldValDoc = $("input[name='idocument[]']");
 		var fieldVal = $("input[name='idoccaida[]']");
+		if (fieldValDoc.length < 2) files = false;
 		if (fieldVal.length < 2 && $('#iNcaida').val() === '1') files = false;
 
 		if ($.trim($('#iNname').val()) === '') {
@@ -14,7 +17,7 @@ $(document).ready(function () {
 			return true;
 		} else {
 			new Noty({
-				text: 'Error al registrar evento.<br>No deje campos obligatorios en blanco.<br>Revise el nombre del paciente y/o el archivo de informe de caídas.',
+				text: 'Error al registrar evento.<br>No deje campos obligatorios en blanco.<br>Revise el nombre del paciente, el archivo de plan de mejora y/o el archivo de informe de caídas.',
 				type: 'error'
 			}).show();
 			return false;
@@ -116,15 +119,15 @@ $(document).ready(function () {
 		}
 	});
 
-	$('#iNname, #iNtpac, #iNedad, #iNserv, #iNhour, #iNmin, #iNtev, #iNstev, #iNrie, #iNdescription, #iNconsec, #iNnocu, #iNcljus, #iNmedp, #iNvermed, #iNcaida').change(function () {
-		var idn = $(this).attr('id').split('N');
+	$('.form-control').change(function () {
+		var idn = $(this).attr('id').split('N').pop();
 
 		if ($.trim($(this).val()) !== '') {
-			$('#g' + idn[1]).removeClass('has-error').addClass('has-success');
-			$('#icon' + idn[1]).removeClass('fa-remove').addClass('fa-check');
+			$('#g' + idn).removeClass('has-error').addClass('has-success');
+			$('#icon' + idn).removeClass('fa-remove').addClass('fa-check');
 		} else {
-			$('#g' + idn[1]).removeClass('has-success');
-			$('#icon' + idn[1]).removeClass('fa-check');
+			$('#g' + idn).removeClass('has-success');
+			$('#icon' + idn).removeClass('fa-check');
 		}
 	});
 
@@ -182,8 +185,8 @@ $(document).ready(function () {
 	});
 
 	$('#btnClear').click(function () {
-		$('#grut, #gname, #gtpac, #gedad, #gserv, #gdate, #ghour, #gmin, #gtev, #gstev, #grie, #gdescription, #gconsec, #gnocu, #gcljus, #gmedp, #gvermed, #gcaida').removeClass('has-error has-success');
-		$('#iconrut, #iconname, #iconedad, #icondate, #icondescription').removeClass('fa-remove fa-check');
+		$('.form-group').removeClass('has-error has-success');
+		$('.form-control-feedback').removeClass('fa-remove fa-check');
 		$('#iNtevent').html('<em>No seleccionado</em>');
 		$('#div-caida').css('display', 'none');
 	});

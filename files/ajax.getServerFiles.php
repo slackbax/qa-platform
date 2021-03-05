@@ -7,7 +7,7 @@ session_start();
 
 $_admin = false;
 if (isset($_SESSION['uc_useradmin']) && $_SESSION['uc_useradmin']):
-    $_admin = true;
+	$_admin = true;
 endif;
 
 /*
@@ -39,41 +39,41 @@ $primaryKey = 'arc_id';
 // parameter represents the DataTables column identifier. In this case simple
 // indexes
 $columns = array(
-    array('db' => 'DISTINCT(a.arc_id)', 'dt' => 0, 'field' => 'arc_id'),
-    array('db' => 'arc_path', 'dt' => 1, 'field' => 'arc_path',
-        'formatter' => function ($d, $row) {
-            $ext = pathinfo($d, PATHINFO_EXTENSION);
-            return '<i class="fa fa-file-' . getExtension($ext) . '-o text-' . getColorExt($ext) . ' icon-table"></i>';
-        }
-    ),
-    array('db' => 'arc_codigo','dt' => 2, 'field' => 'arc_codigo',
-        'formatter' => function ($d, $row) {
-            return utf8_encode($d);
-        }
-    ),
-    array('db' => 'arc_nombre', 'dt' => 3, 'field' => 'arc_nombre'),
-    array('db' => 'arc_fecha','dt' => 4, 'field' => 'arc_fecha',
-        'formatter' => function ($d, $row) {
-            return getDateToForm($d);
-        }
-    ),
-    array('db' => 'arc_fecha_vig', 'dt' => 5, 'field' => 'arc_fecha_vig',
-        'formatter' => function ($d, $row) {
-            return getDateToForm($d);
-        }
-    ),
-    array('db' => 'a.arc_id', 'dt' => 6, 'field' => 'arc_id',
-        'formatter' => function ($d, $row) use ($_admin) {
-            $string = '<button id="id_' . $d . '" data-toggle="modal" data-target="#fileDetail" class="fileModal btn btn-xs btn-info" data-tooltip="tooltip" data-placement="top" title="Ver detalles"><i class="fa fa-search"></i></button>';
+	array('db' => 'DISTINCT(a.arc_id)', 'dt' => 0, 'field' => 'arc_id'),
+	array('db' => 'arc_path', 'dt' => 1, 'field' => 'arc_path',
+		'formatter' => function ($d, $row) {
+			$ext = pathinfo($d, PATHINFO_EXTENSION);
+			return '<i class="fa fa-file-' . getExtension($ext) . '-o text-' . getColorExt($ext) . ' icon-table"></i>';
+		}
+	),
+	array('db' => 'arc_codigo', 'dt' => 2, 'field' => 'arc_codigo',
+		'formatter' => function ($d, $row) {
+			return utf8_encode($d);
+		}
+	),
+	array('db' => 'arc_nombre', 'dt' => 3, 'field' => 'arc_nombre'),
+	array('db' => 'arc_fecha', 'dt' => 4, 'field' => 'arc_fecha',
+		'formatter' => function ($d, $row) {
+			return getDateToForm($d);
+		}
+	),
+	array('db' => 'arc_fecha_vig', 'dt' => 5, 'field' => 'arc_fecha_vig',
+		'formatter' => function ($d, $row) {
+			return getDateToForm($d);
+		}
+	),
+	array('db' => 'a.arc_id', 'dt' => 6, 'field' => 'arc_id',
+		'formatter' => function ($d, $row) use ($_admin) {
+			$string = '<button id="id_' . $d . '" data-toggle="modal" data-target="#fileDetail" class="fileModal btn btn-xs btn-info" data-tooltip="tooltip" data-placement="top" title="Ver detalles"><i class="fa fa-search"></i></button>';
 
-            if ($_admin):
-                $string .= ' <a class="fileEdit btn btn-xs btn-primary" href="index.php?section=admin&sbs=editfile&id=' . $d . '" data-tooltip="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil"></i></a>';
-                $string .= ' <button id="del_' . $d . '" class="fileDelete btn btn-xs btn-danger" data-tooltip="tooltip" data-placement="top" title="Eliminar"><i class="fa fa-remove"></i></button>';
-            endif;
+			if ($_admin):
+				$string .= ' <a class="fileEdit btn btn-xs btn-primary" href="index.php?section=admin&sbs=editfile&id=' . $d . '" data-tooltip="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil"></i></a>';
+				$string .= ' <button id="del_' . $d . '" class="fileDelete btn btn-xs btn-danger" data-tooltip="tooltip" data-placement="top" title="Eliminar"><i class="fa fa-remove"></i></button>';
+			endif;
 
-            return $string;
-        }
-    )
+			return $string;
+		}
+	)
 );
 
 $joinQuery = "FROM uc_archivo a";
@@ -86,10 +86,10 @@ $having = "";
 
 // SQL server connection information
 $sql_details = array(
-    'user' => DB_USER,
-    'pass' => DB_PASSWORD,
-    'db' => DB_DATABASE,
-    'host' => DB_HOST
+	'user' => DB_USER,
+	'pass' => DB_PASSWORD,
+	'db' => DB_DATABASE,
+	'host' => DB_HOST
 );
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -97,8 +97,8 @@ $sql_details = array(
  * server-side, there is no need to edit below this line.
  */
 
-require( '../src/ssp2.class.php' );
+require('../src/ssp2.class.php');
 
 echo json_encode(
-    SSP::simple($_GET, $sql_details, $table, $primaryKey, $columns, $joinQuery, $extraWhere, $groupBy, $having)
+	SSP::simple($_GET, $sql_details, $table, $primaryKey, $columns, $joinQuery, $extraWhere, $groupBy, $having)
 );

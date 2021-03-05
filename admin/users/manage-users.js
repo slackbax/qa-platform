@@ -89,8 +89,6 @@ $(document).ready(function () {
 					dataType: 'json',
 					data: {id: uid}
 				}).done(function (response) {
-					console.log(response);
-
 					if (response.type) {
 						new Noty({
 							text: '<b>¡Éxito!</b><br>El usuario ha sido eliminado correctamente.',

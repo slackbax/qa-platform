@@ -17,7 +17,7 @@ $last_f = 8; ?>
 						<?php else: echo '</small>' ?>
 						<?php endif ?>
 				</h2>
-				<h4>A la Plataforma de información de la Subdirección de Calidad del Hospital Regional Guillermo Grant Benavente.</h4>
+				<h4>A la Plataforma de información de la Unidad de Calidad del Hospital Regional Guillermo Grant Benavente.</h4>
 			</div>
 		</section>
 
@@ -166,24 +166,12 @@ $last_f = 8; ?>
 			<div class="box box-widget widget-user-2 widget-user-team">
 				<div class="widget-user-header bg-white">
 					<div class="widget-user-image">
-						<img class="img-circle" src="dist/img/users/luis-gatica.jpg">
-					</div>
-					<div class="widget-user-username">Dr. Luis Gatica Norambuena</div>
-					<div class="widget-user-desc">Subdirector de Calidad y Seguridad del Paciente<br>Jefe Unidad de Calidad y Acreditación</div>
-					<p class="widget-user-desc ic-data email"><a href="mailto:lgatica@ssconcepcion.cl">lgatica@ssconcepcion.cl</a></p>
-					<p class="widget-user-desc ic-data phone">417996</p>
-				</div>
-			</div>
-
-			<div class="box box-widget widget-user-2 widget-user-team">
-				<div class="widget-user-header bg-white">
-					<div class="widget-user-image">
 						<img class="img-circle" src="dist/img/users/claudia-munoz.jpg">
 					</div>
 					<div class="widget-user-username">Claudia Muñoz Hernández</div>
-					<div class="widget-user-desc">Jefa de Enfermeras Unidad de Calidad y Acreditación</div>
+					<div class="widget-user-desc">Jefa (S) de Unidad de Calidad y Acreditación</div>
 					<p class="widget-user-desc ic-data email"><a href="mailto:cmunoz@ssconcepcion.cl">cmunoz@ssconcepcion.cl</a></p>
-					<p class="widget-user-desc ic-data phone">412997</p>
+					<p class="widget-user-desc ic-data phone">417996</p>
 				</div>
 			</div>
 
@@ -250,9 +238,9 @@ $last_f = 8; ?>
 			<div class="box box-widget widget-user-2 widget-user-team">
 				<div class="widget-user-header bg-white">
 					<div class="widget-user-image">
-						<img class="img-circle" src="dist/img/users/francisca-vigueras.jpg">
+						<img class="img-circle" src="dist/img/users/no-photo.png">
 					</div>
-					<div class="widget-user-username">María Francisca Vigueras Álvarez</div>
+					<div class="widget-user-username">Carol Aillón Vidal</div>
 					<div class="widget-user-desc">Enfermera</div>
 					<p class="widget-user-desc ic-data email"><a href="mailto:francisca.vigueras@ssconcepcion.cl">francisca.vigueras@ssconcepcion.cl</a></p>
 					<p class="widget-user-desc ic-data phone">417668</p>

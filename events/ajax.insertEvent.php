@@ -22,7 +22,7 @@ if (extract($_POST)):
 
 	try {
 		$db->autoCommit(FALSE);
-		$ins = $ev->set($_SESSION['uc_userid'], $iserv, $irie, $istev, $itpac, $iconsec, $irut, $iname, $iedad, $idate, $idescription, $inocu, $icljus, $imedp, $ivermed, $db);
+		$ins = $ev->set($_SESSION['uc_userid'], $iserv, $irie, $istev, $itpac, $iconsec, $irut, $iname, $iedad, $idate, $iorigen, $idescription, $inocu, $icljus, $imedp, $ivermed, $db);
 
 		if (!$ins['estado']):
 			throw new Exception('Error al guardar los datos del evento. ' . $ins['msg'], 0);
@@ -110,7 +110,6 @@ if (extract($_POST)):
 		// $mail->AddAddress("soportedesarrollo@ssconcepcion.cl", "Soporte");
 
 		$mail->AddAddress("cmunoz@ssconcepcion.cl", "Claudia Munoz");
-		$mail->AddAddress("lgatica@ssconcepcion.cl", "Luis Gatica");
 
 		if ((int)$istev < 13 or (int)$istev == 15):
 			$mail->AddAddress("miguelaguayo@ssconcepcion.cl", "Miguel Aguayo");
