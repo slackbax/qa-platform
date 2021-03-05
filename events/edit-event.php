@@ -78,6 +78,13 @@
                     </div>
                 </div>
 
+				<div class="row">
+					<div class="form-group col-sm-6 has-feedback" id="gorigen">
+						<label class="control-label" for="iNorigen">Origen</label>
+						<p class="form-control-static"><?php echo ($e->ev_origen == 'E') ? 'EXTRAHOSPITALARIO' : 'INTRAHOSPITALARIO' ?></p>
+					</div>
+				</div>
+
                 <div class="row">
                     <div class="form-group col-sm-12" id="gdescription">
                         <label class="control-label" for="idescription">Circunstancias o contexto en que ocurre el evento</label>

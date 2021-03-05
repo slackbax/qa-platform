@@ -37,7 +37,7 @@
                             Recopilar y subir información a la plataforma electrónica SIS-Q y poblamiento de otros sistemas informáticos.
                         </li>
                         <li>
-                            Implementar, monitorear y evaluar las Normas sobre la Calidad de la Atención del Paciente conjuntamente con el Programa de Vigilancia, Prevención de Eventos Adversos y Seguridad Asistencial del HGGB.
+                            Implementar, monitorear y evaluar las Normas de Seguridad del Paciente y Calidad de Atención conjuntamente con el Programa de Vigilancia, Prevención de Eventos Adversos y Seguridad Asistencial del HGGB.
                         </li>
                         <li>
                             Colaborar en el Proceso de Formación en temas de Calidad y Seguridad del Paciente, de manera conjunta con la Unidad de Capacitación, con el fin de conformar una masa crítica de funcionarios efectivamente capacitados.

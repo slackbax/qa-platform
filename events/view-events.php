@@ -40,6 +40,7 @@
                         <th>Contexto</th>
                         <th>Tipo Paciente</th>
                         <th>Riesgo</th>
+						<th>Origen</th>
                         <th>Consecuencias</th>
                         <th>R. Caída</th>
                         <th>JE</th>
@@ -58,4 +59,4 @@
     </div>
 </section>
 
-<script src="events/view-events.js?v=20190828"></script>
+<script src="events/view-events.js?v=20210305"></script>

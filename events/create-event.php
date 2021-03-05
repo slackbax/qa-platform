@@ -296,4 +296,4 @@
 	</form>
 </section>
 
-<script src="events/create-event.js?20201008"></script>
+<script src="events/create-event.js?20210305"></script>

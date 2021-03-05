@@ -169,7 +169,7 @@ $last_f = 8; ?>
 						<img class="img-circle" src="dist/img/users/claudia-munoz.jpg">
 					</div>
 					<div class="widget-user-username">Claudia Muñoz Hernández</div>
-					<div class="widget-user-desc">Jefa (S) de Unidad de Calidad y Acreditación</div>
+					<div class="widget-user-desc">Enfermera Jefe Unidad de Calidad y Acreditación</div>
 					<p class="widget-user-desc ic-data email"><a href="mailto:cmunoz@ssconcepcion.cl">cmunoz@ssconcepcion.cl</a></p>
 					<p class="widget-user-desc ic-data phone">417996</p>
 				</div>

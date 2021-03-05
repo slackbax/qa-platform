@@ -33,71 +33,77 @@ $table = 'uc_evento';
 
 // Table's primary key
 $primaryKey = 'ev_id';
+$index = 0;
 
 // Array of database columns which should be read and sent back to DataTables.
 // The `db` parameter represents the column name in the database, while the `dt`
 // parameter represents the DataTables column identifier. In this case simple
 // indexes
 $columns = array(
-    array('db' => 'ev_id', 'dt' => 0, 'field' => 'ev_id'),
-    array('db' => 'us_username', 'dt' => 1, 'field' => 'us_username',
+    array('db' => 'ev_id', 'dt' => $index, 'field' => 'ev_id'),
+    array('db' => 'us_username', 'dt' => ++$index, 'field' => 'us_username',
         'formatter' => function( $d, $row ) {
             return utf8_encode($d);
         }
     ),
-    array('db' => 'ev_fecha', 'dt' => 2, 'field' => 'ev_fecha',
-        'formatter' => function( $d, $row ) {
+    array('db' => 'ev_fecha', 'dt' => ++$index, 'field' => 'ev_fecha',
+        'formatter' => function( $d ) {
             $tmp = explode(' ', $d);
             return getDateToForm($tmp[0]);
         }
     ),
-    array('db' => 'ev_fecha', 'dt' => 3, 'field' => 'ev_fecha',
-        'formatter' => function( $d, $row ) {
+    array('db' => 'ev_fecha', 'dt' => ++$index, 'field' => 'ev_fecha',
+        'formatter' => function( $d ) {
             $tmp = explode(' ', $d);
             return $tmp[1];
         }
     ),
-    array('db' => 'ev_rut', 'dt' => 4, 'field' => 'ev_rut',
-        'formatter' => function( $d, $row ) {
+    array('db' => 'ev_rut', 'dt' => ++$index, 'field' => 'ev_rut',
+        'formatter' => function( $d ) {
             return utf8_encode($d);
         }
     ),
-    array('db' => 'ev_nombre', 'dt' => 5, 'field' => 'ev_nombre'),
-    array('db' => 'ev_edad', 'dt' => 6, 'field' => 'ev_edad',
-        'formatter' => function( $d, $row ) {
+    array('db' => 'ev_nombre', 'dt' => ++$index, 'field' => 'ev_nombre'),
+    array('db' => 'ev_edad', 'dt' => ++$index, 'field' => 'ev_edad',
+        'formatter' => function( $d ) {
             return utf8_encode($d);
         }
     ),
-    array('db' => 'ser_nombre', 'dt' => 7, 'field' => 'ser_nombre'),
-    array('db' => 'tev_descripcion', 'dt' => 8, 'field' => 'tev_descripcion',
-        'formatter' => function( $d, $row ) {
+    array('db' => 'ser_nombre', 'dt' => ++$index, 'field' => 'ser_nombre'),
+    array('db' => 'tev_descripcion', 'dt' => ++$index, 'field' => 'tev_descripcion',
+        'formatter' => function( $d ) {
             return utf8_encode($d);
         }
     ),
-    array('db' => 'stev_descripcion', 'dt' => 9, 'field' => 'stev_descripcion'),
-    array('db' => 'cat_descripcion', 'dt' => 10, 'field' => 'cat_descripcion',
-        'formatter' => function( $d, $row ) {
+    array('db' => 'stev_descripcion', 'dt' => ++$index, 'field' => 'stev_descripcion'),
+    array('db' => 'cat_descripcion', 'dt' => ++$index, 'field' => 'cat_descripcion',
+        'formatter' => function( $d ) {
             return utf8_encode($d);
         }
     ),
-    array('db' => 'ev_contexto', 'dt' => 11, 'field' => 'ev_contexto',
-        'formatter' => function( $d, $row ) {
+    array('db' => 'ev_contexto', 'dt' => ++$index, 'field' => 'ev_contexto',
+        'formatter' => function( $d ) {
             return utf8_encode($d);
         }
     ),
-    array('db' => 'tpac_descripcion', 'dt' => 12, 'field' => 'tpac_descripcion',
-        'formatter' => function( $d, $row ) {
+    array('db' => 'tpac_descripcion', 'dt' => ++$index, 'field' => 'tpac_descripcion',
+        'formatter' => function( $d ) {
             return utf8_encode($d);
         }
     ),
-    array('db' => 'rie_descripcion', 'dt' => 13, 'field' => 'rie_descripcion',
-        'formatter' => function( $d, $row ) {
+    array('db' => 'rie_descripcion', 'dt' => ++$index, 'field' => 'rie_descripcion',
+        'formatter' => function( $d ) {
             return utf8_encode($d);
         }
     ),
-    array('db' => 'cons_descripcion', 'dt' => 14, 'field' => 'cons_descripcion'),
-    array('db' => 'ev_caida_path', 'dt' => 15, 'field' => 'ev_caida_path',
-        'formatter' => function( $d, $row ) {
+	array('db' => 'ev_origen', 'dt' => ++$index, 'field' => 'ev_origen',
+		'formatter' => function( $d ) {
+			return ($d == 'E') ? 'EXTRAHOSPITALARIO' : 'INTRAHOSPITALARIO';
+		}
+	),
+    array('db' => 'cons_descripcion', 'dt' => ++$index, 'field' => 'cons_descripcion'),
+    array('db' => 'ev_caida_path', 'dt' => ++$index, 'field' => 'ev_caida_path',
+        'formatter' => function( $d ) {
             if ($d == ''):
                 return 'NO';
             else:
@@ -105,33 +111,33 @@ $columns = array(
             endif;
         }
     ),
-    array('db' => 'tv2.tver_descripcion', 'dt' => 16,  'field' => 'tver_descripcion',
-        'formatter' => function( $d, $row ) {
+    array('db' => 'tv2.tver_descripcion', 'dt' => ++$index,  'field' => 'tver_descripcion',
+        'formatter' => function( $d ) {
             return utf8_encode($d);
         }
     ),
-    array('db' => 'tv3.tver_descripcion', 'dt' => 17, 'field' => 'tver_descripcion',
-        'formatter' => function( $d, $row ) {
+    array('db' => 'tv3.tver_descripcion', 'dt' => ++$index, 'field' => 'tver_descripcion',
+        'formatter' => function( $d ) {
             return utf8_encode($d);
         }
     ),
-    array('db' => 'tv4.tver_descripcion', 'dt' => 18,  'field' => 'tver_descripcion',
-        'formatter' => function( $d, $row ) {
+    array('db' => 'tv4.tver_descripcion', 'dt' => ++$index,  'field' => 'tver_descripcion',
+        'formatter' => function( $d ) {
             return utf8_encode($d);
         }
     ),
-    array('db' => 'tv5.tver_descripcion', 'dt' => 19, 'field' => 'tver_descripcion',
-        'formatter' => function( $d, $row ) {
+    array('db' => 'tv5.tver_descripcion', 'dt' => ++$index, 'field' => 'tver_descripcion',
+        'formatter' => function( $d ) {
             return utf8_encode($d);
         }
     ),
-	array('db' => 'ev_registro', 'dt' => 20, 'field' => 'ev_registro',
-		'formatter' => function( $d, $row ) {
+	array('db' => 'ev_registro', 'dt' => ++$index, 'field' => 'ev_registro',
+		'formatter' => function( $d ) {
 			return utf8_encode($d);
 		}
 	),
-    array('db' => 'ev_id', 'dt' => 21, 'field' => 'ev_id',
-        'formatter' => function( $d, $row ) {
+    array('db' => 'ev_id', 'dt' => ++$index, 'field' => 'ev_id',
+        'formatter' => function( $d ) {
             $ev = new Evento();
             $eve = $ev->get($d);
             $string = '';

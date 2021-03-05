@@ -57,6 +57,7 @@ class Evento {
 		$obj->ev_edad = $row['ev_edad'];
 		$obj->ev_sala = utf8_encode($row['ev_sala']);
 		$obj->ev_fecha = utf8_encode($row['ev_fecha']);
+		$obj->ev_origen = $row['ev_origen'];
 		$obj->ev_contexto = utf8_encode($row['ev_contexto']);
 		$obj->ev_justificacion = $row['ev_justificacion'];
 		$obj->ev_je = $row['je'];
