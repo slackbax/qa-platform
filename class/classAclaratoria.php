@@ -84,7 +84,12 @@ class Aclaratoria {
 				throw new Exception("La inserción de la aclaratoria falló en su preparación.");
 			endif;
 
-			$bind = $stmt->bind_param("ississ", $ind, $db->clearText($fecha), $db->clearText(utf8_decode($res)), $db->clearText($num), $db->clearText(utf8_decode($resumen)), $db->clearText(utf8_decode($desc)));
+			$fecha = $db->clearText($fecha);
+			$res = $db->clearText(utf8_decode($res));
+			$num = $db->clearText($num);
+			$resumen = $db->clearText(utf8_decode($resumen));
+			$desc = $db->clearText(utf8_decode($desc));
+			$bind = $stmt->bind_param("ississ", $ind, $fecha, $res, $num, $resumen, $desc);
 
 			if (!$bind):
 				throw new Exception("La inserción de la aclaratoria falló en su binding.");
@@ -128,7 +133,12 @@ class Aclaratoria {
 
 			$resumen = str_replace('"', '&quot;', $resumen);
 			$desc = str_replace('"', '&quot;', $desc);
-			$bind = $stmt->bind_param("ississi", $ind, $db->clearText($fecha), $db->clearText(utf8_decode($res)), $db->clearText($num), $db->clearText(utf8_decode($resumen)), $db->clearText(utf8_decode($desc)), $acl);
+			$fecha = $db->clearText($fecha);
+			$res = $db->clearText(utf8_decode($res));
+			$num = $db->clearText($num);
+			$resumen = $db->clearText(utf8_decode($resumen));
+			$desc = $db->clearText(utf8_decode($desc));
+			$bind = $stmt->bind_param("ississi", $ind, $fecha, $res, $num, $resumen, $desc, $acl);
 
 			if (!$bind):
 				throw new Exception("La edición de la aclaratoria falló en su binding.");

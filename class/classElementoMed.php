@@ -119,7 +119,9 @@ class ElementoMed {
 				throw new Exception("La inserción del elemento falló en su preparación.");
 			endif;
 
-			$bind = $stmt->bind_param("iss", $ind, $db->clearText(utf8_decode($desc)), $db->clearText(utf8_decode($numero)));
+			$desc = $db->clearText(utf8_decode($desc));
+			$numero = $db->clearText(utf8_decode($numero));
+			$bind = $stmt->bind_param("iss", $ind, $desc, $numero);
 
 			if (!$bind):
 				throw new Exception("La inserción del elemento falló en su binding.");
@@ -158,7 +160,9 @@ class ElementoMed {
 				throw new Exception("La edición del elemento falló en su preparación.");
 			endif;
 
-			$bind = $stmt->bind_param("issi", $ind, $db->clearText(utf8_decode($desc)), $db->clearText(utf8_decode($numero)), $elem);
+			$desc = $db->clearText(utf8_decode($desc));
+			$numero = $db->clearText(utf8_decode($numero));
+			$bind = $stmt->bind_param("issi", $ind, $desc, $numero, $elem);
 
 			if (!$bind):
 				throw new Exception("La edición del elemento falló en su binding.");

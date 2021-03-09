@@ -107,7 +107,10 @@ class IndicadorTiempo {
 				throw new Exception("La inserción del indicador falló en su preparación.");
 			endif;
 
-			$bind = $stmt->bind_param("iiisii", $spv, $us, $ine, $db->clearText(utf8_decode($fecha)), $db->clearText($num), $db->clearText($den));
+			$fecha = $db->clearText(utf8_decode($fecha));
+			$num = $db->clearText($num);
+			$den = $db->clearText($den);
+			$bind = $stmt->bind_param("iiisii", $spv, $us, $ine, $fecha, $num, $den);
 			if (!$bind):
 				throw new Exception("La inserción del indicador falló en su binding.");
 			endif;

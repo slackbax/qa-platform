@@ -113,8 +113,13 @@ class IndicadorEsp {
 				throw new Exception("La inserción del indicador falló en su preparación.");
 			endif;
 
-			$bind = $stmt->bind_param("iiisssssd", $ind, $pe, $elm, $db->clearText(utf8_decode($nombre)), utf8_decode($db->clearText($desc)), utf8_decode($db->clearText($metodo)),
-				utf8_decode($db->clearText($num)), utf8_decode($db->clearText($den)), $db->clearText($umbral));
+			$nombre = $db->clearText(utf8_decode($nombre));
+			$desc = utf8_decode($db->clearText($desc));
+			$metodo = utf8_decode($db->clearText($metodo));
+			$num =utf8_decode($db->clearText($num));
+			$den = utf8_decode($db->clearText($den));
+			$umbral = $db->clearText($umbral);
+			$bind = $stmt->bind_param("iiisssssd", $ind, $pe, $elm, $nombre, $desc, $metodo, $num, $den, $umbral);
 
 			if (!$bind):
 				throw new Exception("La inserción del indicador falló en su binding.");
@@ -124,11 +129,9 @@ class IndicadorEsp {
 				throw new Exception("La inserción del indicador falló en su ejecución.");
 			endif;
 
-			$result = array('estado' => true, 'msg' => $stmt->insert_id);
-			return $result;
+			return array('estado' => true, 'msg' => $stmt->insert_id);
 		} catch (Exception $e) {
-			$result = array('estado' => false, 'msg' => $e->getMessage());
-			return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
 		}
 	}
 
@@ -161,8 +164,13 @@ class IndicadorEsp {
 				throw new Exception("La inserción del indicador falló en su preparación.");
 			endif;
 
-			$bind = $stmt->bind_param("iiisssssdi", $ind, $pe, $elm, $db->clearText(utf8_decode($nombre)), utf8_decode($db->clearText($desc)), utf8_decode($db->clearText($metodo)),
-				utf8_decode($db->clearText($num)), utf8_decode($db->clearText($den)), $db->clearText($umbral), $ine);
+			$nombre = $db->clearText(utf8_decode($nombre));
+			$desc = utf8_decode($db->clearText($desc));
+			$metodo = utf8_decode($db->clearText($metodo));
+			$num =utf8_decode($db->clearText($num));
+			$den = utf8_decode($db->clearText($den));
+			$umbral = $db->clearText($umbral);
+			$bind = $stmt->bind_param("iiisssssdi", $ind, $pe, $elm, $nombre, $desc, $metodo, $num, $den, $umbral, $ine);
 
 			if (!$bind):
 				throw new Exception("La inserción del indicador falló en su binding.");
@@ -172,11 +180,9 @@ class IndicadorEsp {
 				throw new Exception("La inserción del indicador falló en su ejecución.");
 			endif;
 
-			$result = array('estado' => true, 'msg' => $stmt->insert_id);
-			return $result;
+			return array('estado' => true, 'msg' => $stmt->insert_id);
 		} catch (Exception $e) {
-			$result = array('estado' => false, 'msg' => $e->getMessage());
-			return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
 		}
 	}
 }

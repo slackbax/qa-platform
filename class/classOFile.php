@@ -110,8 +110,11 @@ class OFile {
 				throw new Exception("La inserción del documento falló en su preparación.");
 			endif;
 
-			$bind = $stmt->bind_param("iisssssii", $fol_id, $user_id, $db->clearText(utf8_decode($oarc_nombre)), $db->clearText(utf8_decode($oarc_edicion)),
-				$date, $db->clearText($oarc_fecha_crea), $db->clearText($oarc_fecha_vig), $desc, $publ);
+			$oarc_nombre = $db->clearText(utf8_decode($oarc_nombre));
+			$oarc_edicion = $db->clearText(utf8_decode($oarc_edicion));
+			$oarc_fecha_crea = $db->clearText($oarc_fecha_crea);
+			$oarc_fecha_vig = $db->clearText($oarc_fecha_vig);
+			$bind = $stmt->bind_param("iisssssii", $fol_id, $user_id, $oarc_nombre, $oarc_edicion, $date, $oarc_fecha_crea, $oarc_fecha_vig, $desc, $publ);
 			if (!$bind):
 				throw new Exception("La inserción del documento falló en su binding.");
 			endif;
@@ -120,11 +123,9 @@ class OFile {
 				throw new Exception("La inserción del documento falló en su ejecución.");
 			endif;
 
-			$result = array('estado' => true, 'msg' => $stmt->insert_id);
-			return $result;
+			return array('estado' => true, 'msg' => $stmt->insert_id);
 		} catch (Exception $e) {
-			$result = array('estado' => false, 'msg' => $e->getMessage());
-			return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
 		}
 	}
 
@@ -156,11 +157,9 @@ class OFile {
 				throw new Exception("La inserción del documento-path falló en su ejecución.");
 			endif;
 
-			$result = array('estado' => true, 'msg' => $oarc_id);
-			return $result;
+			return array('estado' => true, 'msg' => $oarc_id);
 		} catch (Exception $e) {
-			$result = array('estado' => false, 'msg' => $e->getMessage());
-			return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
 		}
 	}
 
@@ -207,21 +206,6 @@ class OFile {
 			$r = $db->runQuery("SELECT oarc_path FROM uc_oarchivo ORDER BY oarc_nombre ASC");
 			$p = $r->fetch_assoc();
 
-			$stmt = $db->Prepare("DELETE FROM uc_oarchivo_puntoverif WHERE oarc_id = ?");
-
-			if (!$stmt):
-				throw new Exception("La eliminación del documento-pv falló en su preparación.");
-			endif;
-
-			$bind = $stmt->bind_param("i", $id);
-			if (!$bind):
-				throw new Exception("La eliminación del documento-pv falló en su binding.");
-			endif;
-
-			if (!$stmt->execute()):
-				throw new Exception("La eliminación del documento-pv falló en su ejecución.");
-			endif;
-
 			$stmt = $db->Prepare("DELETE FROM uc_oarchivo WHERE oarc_id = ?");
 
 			if (!$stmt):
@@ -241,11 +225,9 @@ class OFile {
 				throw new Exception("La eliminación del documento falló al eliminar el archivo.");
 			endif;
 
-			$result = array('estado' => true, 'msg' => '');
-			return $result;
+			return array('estado' => true, 'msg' => '');
 		} catch (Exception $e) {
-			$result = array('estado' => false, 'msg' => $e->getMessage());
-			return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
 		}
 	}
 }

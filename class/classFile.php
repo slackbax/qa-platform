@@ -247,7 +247,7 @@ class File {
                                 WHERE a.arc_fecha_vig >= DATE(now())
                                 AND a.arc_fecha_vig <= DATE_ADD(DATE(now()), INTERVAL ? MONTH)
                                 AND a.arc_publicado = TRUE
-                                ORDER BY a.arc_fecha_vig ASC");
+                                ORDER BY a.arc_fecha_vig");
 
 		$stmt->bind_param("i", $time);
 		$stmt->execute();
@@ -313,8 +313,12 @@ class File {
 				throw new Exception("La inserción del documento falló en su preparación.");
 			endif;
 
-			$bind = $stmt->bind_param("iisssss", $ind_id, $user_id, $db->clearText(utf8_decode($arc_nombre)), $db->clearText(utf8_decode($arc_codigo)), $db->clearText(utf8_decode($arc_edicion)),
-				$db->clearText($arc_fecha_crea), $db->clearText($arc_fecha_vig));
+			$arc_nombre = $db->clearText(utf8_decode($arc_nombre));
+			$arc_codigo = $db->clearText(utf8_decode($arc_codigo));
+			$arc_edicion = $db->clearText(utf8_decode($arc_edicion));
+			$arc_fecha_crea = $db->clearText($arc_fecha_crea);
+			$arc_fecha_vig = $db->clearText($arc_fecha_vig);
+			$bind = $stmt->bind_param("iisssss", $ind_id, $user_id, $arc_nombre, $arc_codigo, $arc_edicion, $arc_fecha_crea, $arc_fecha_vig);
 			if (!$bind):
 				throw new Exception("La inserción del documento falló en su binding.");
 			endif;
@@ -494,8 +498,12 @@ class File {
 				throw new Exception("La modificación del documento falló en su preparación.");
 			endif;
 
-			$bind = $stmt->bind_param("iissssssi", $ind_id, $user_id, $db->clearText(utf8_decode($arc_nombre)), $db->clearText(utf8_decode($arc_codigo)), $db->clearText(utf8_decode($arc_edicion)),
-				$date, $db->clearText($arc_fecha_crea), $db->clearText($arc_fecha_vig), $id);
+			$arc_nombre = $db->clearText(utf8_decode($arc_nombre));
+			$arc_codigo = $db->clearText(utf8_decode($arc_codigo));
+			$arc_edicion = $db->clearText(utf8_decode($arc_edicion));
+			$arc_fecha_crea = $db->clearText($arc_fecha_crea);
+			$arc_fecha_vig = $db->clearText($arc_fecha_vig);
+			$bind = $stmt->bind_param("iissssssi", $ind_id, $user_id, $arc_nombre, $arc_codigo, $arc_edicion, $arc_fecha_crea, $arc_fecha_vig, $id);
 			if (!$bind):
 				throw new Exception("La modificación del documento falló en su binding.");
 			endif;

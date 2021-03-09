@@ -39,7 +39,7 @@ class User {
 	 */
     public function getAll() {
         $consulta = new myDBC();
-        $stmt = $consulta->Prepare("SELECT us_id FROM uc_usuario WHERE us_existe = TRUE ORDER BY us_ap ASC, us_am ASC, us_nombres ASC");
+        $stmt = $consulta->Prepare("SELECT us_id FROM uc_usuario WHERE us_existe = TRUE ORDER BY us_ap, us_am, us_nombres");
         
         $stmt->execute();
         $result = $stmt->get_result();
@@ -102,8 +102,9 @@ class User {
     public function getByUsername($str) {
         $db = new myDBC();
         $stmt = $db->Prepare("SELECT us_id FROM uc_usuario WHERE us_username = ?");
-        
-        $stmt->bind_param("s", utf8_decode($db->clearText($str)));
+
+		$str = utf8_decode($db->clearText($str));
+		$stmt->bind_param("s", $str);
         $stmt->execute();
         $result = $stmt->get_result();
         $row = $result->fetch_assoc();
@@ -127,8 +128,9 @@ class User {
             if (!$stmt):
                 throw new Exception("La búsqueda del usuario falló en su preparación.");
             endif;
-            
-            $bind = $stmt->bind_param("s", $db->clearText($user));
+
+			$user = $db->clearText($user);
+			$bind = $stmt->bind_param("s", $user);
             if (!$bind):
                 throw new Exception("La búsqueda del usuario falló en su binding.");
             endif;
@@ -178,7 +180,13 @@ class User {
                 throw new Exception("La inserción del usuario falló en su preparación.");
             endif;
 
-            $bind = $stmt->bind_param("ssssss", utf8_decode($db->clearText($name)), utf8_decode($db->clearText($ap)), utf8_decode($db->clearText($am)), utf8_decode($db->clearText($email)), utf8_decode($db->clearText($user)), md5(utf8_decode($db->clearText($pass))));
+			$name = utf8_decode($db->clearText($name));
+			$ap = utf8_decode($db->clearText($ap));
+			$am = utf8_decode($db->clearText($am));
+			$email = utf8_decode($db->clearText($email));
+			$user = utf8_decode($db->clearText($user));
+			$pass = md5(utf8_decode($db->clearText($pass)));
+			$bind = $stmt->bind_param("ssssss", $name, $ap, $am, $email, $user, $pass);
             if (!$bind):
                 throw new Exception("La inserción del usuario falló en su binding.");
             endif;
@@ -376,8 +384,12 @@ class User {
             if (!$stmt):
                 throw new Exception("La modificación del usuario falló en su preparación.");
             endif;
-            
-            $bind = $stmt->bind_param("ssssssi", utf8_decode($db->clearText($name)), utf8_decode($db->clearText($ap)), utf8_decode($db->clearText($am)), $db->clearText($email), $txt_p, $active, $id);
+
+			$name = utf8_decode($db->clearText($name));
+			$ap = utf8_decode($db->clearText($ap));
+			$am = utf8_decode($db->clearText($am));
+			$email = utf8_decode($db->clearText($email));
+			$bind = $stmt->bind_param("ssssssi", $name, $ap, $am, $email, $txt_p, $active, $id);
             if (!$bind):
                 throw new Exception("La modificación del usuario falló en su binding.");
             endif;
@@ -416,8 +428,12 @@ class User {
             if (!$stmt):
                 throw new Exception("La modificación del usuario falló en su preparación.");
             endif;
-            
-            $bind = $stmt->bind_param("ssssi", utf8_decode($db->clearText($name)), utf8_decode($db->clearText($ap)), utf8_decode($db->clearText($am)), $db->clearText($email), $id);
+
+			$name = utf8_decode($db->clearText($name));
+			$ap = utf8_decode($db->clearText($ap));
+			$am = utf8_decode($db->clearText($am));
+			$email = utf8_decode($db->clearText($email));
+            $bind = $stmt->bind_param("ssssi", $name, $ap, $am, $email, $id);
             if (!$bind):
                 throw new Exception("La modificación del usuario falló en su binding.");
             endif;

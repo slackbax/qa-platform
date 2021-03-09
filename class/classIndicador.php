@@ -69,7 +69,7 @@ class Indicador {
 								FROM uc_indicador i
 								JOIN uc_subambito s ON i.samb_id = s.samb_id
 								JOIN uc_codigo c ON i.cod_id = c.cod_id
-								WHERE tcar_id = ? ORDER BY samb_sigla ASC, cod_descripcion ASC");
+								WHERE tcar_id = ? ORDER BY samb_sigla, cod_descripcion");
 
 		$stmt->bind_param("i", $tcar);
 		$stmt->execute();

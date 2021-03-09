@@ -30,7 +30,7 @@ class Profile {
 	public function getAll()
 	{
 		$db = new myDBC();
-		$result = $db->runQuery("SELECT perf_id FROM uc_perfil ORDER BY perf_id ASC");
+		$result = $db->runQuery("SELECT perf_id FROM uc_perfil ORDER BY perf_id");
 		$lista = [];
 
 		while ($row = $result->fetch_assoc()):

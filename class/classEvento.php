@@ -167,8 +167,13 @@ class Evento {
 				throw new Exception("La inserción del evento falló en su preparación.");
 			endif;
 
-			$bind = $stmt->bind_param("iiiiiississiiii", $us_id, $ser_id, $rie_id, $stev_id, $tpac_id, $cons_id, $db->clearText(utf8_decode($ev_rut)), $db->clearText(utf8_decode($ev_nombre)), $db->clearText(utf8_decode($ev_edad)),
-				$db->clearText($ev_fecha), $ev_origen, nl2br($db->clearText(utf8_decode($ev_contexto))), $ev_justificacion, $ev_analisis_jus, $ev_reporte, $ev_verificacion);
+			$ev_rut = $db->clearText(utf8_decode($ev_rut));
+			$ev_nombre = $db->clearText(utf8_decode($ev_nombre));
+			$ev_edad = $db->clearText(utf8_decode($ev_edad));
+			$ev_fecha = $db->clearText($ev_fecha);
+			$ev_contexto = nl2br($db->clearText(utf8_decode($ev_contexto)));
+			$bind = $stmt->bind_param("iiiiiississsiiii", $us_id, $ser_id, $rie_id, $stev_id, $tpac_id, $cons_id, $ev_rut, $ev_nombre, $ev_edad,
+				$ev_fecha, $ev_origen, $ev_contexto, $ev_justificacion, $ev_analisis_jus, $ev_reporte, $ev_verificacion);
 			if (!$bind):
 				throw new Exception("La inserción del evento falló en su binding.");
 			endif;

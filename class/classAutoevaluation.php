@@ -197,7 +197,7 @@ class Autoevaluation {
 										AND a.spv_id = ? AND i.tcar_id = ?
 										GROUP BY samb_sigla, cod_descripcion, a.elm_id
 									)
-									ORDER BY samb_sigla ASC, cod_descripcion ASC, elm_numero ASC");
+									ORDER BY samb_sigla, cod_descripcion, elm_numero");
 
 		$stmt->bind_param("ssii", $year, $month, $spv, $type);
 		$stmt->execute();
@@ -255,7 +255,10 @@ class Autoevaluation {
 				throw new Exception("La inserción de la autoevaluación falló en su preparación.");
 			endif;
 
-			$bind = $stmt->bind_param("iiiiisiss", $pv, $spv, $ind, $elm, $cumplim, $db->clearText(utf8_decode($comentario)), $us, $db->clearText(utf8_decode($eval)), $db->clearText($fecha));
+			$comentario = $db->clearText(utf8_decode($comentario));
+			$eval = $db->clearText(utf8_decode($eval));
+			$fecha = $db->clearText($fecha);
+			$bind = $stmt->bind_param("iiiiisiss", $pv, $spv, $ind, $elm, $cumplim, $comentario, $us, $eval, $fecha);
 
 			if (!$bind):
 				throw new Exception("La inserción de la autoevaluación falló en su binding.");
@@ -295,7 +298,8 @@ class Autoevaluation {
 				throw new Exception("La eliminación de la autoevaluación falló en su preparación.");
 			endif;
 
-			$bind = $stmt->bind_param("iiiis", $pv, $spv, $ind, $elm, $db->clearText($date));
+			$date = $db->clearText($date);
+			$bind = $stmt->bind_param("iiiis", $pv, $spv, $ind, $elm, $date);
 
 			if (!$bind):
 				throw new Exception("La eliminación de la autoevaluación falló en su binding.");
