@@ -495,7 +495,7 @@ class File {
 			$arc_edicion = $db->clearText(utf8_decode($arc_edicion));
 			$arc_fecha_crea = $db->clearText($arc_fecha_crea);
 			$arc_fecha_vig = $db->clearText($arc_fecha_vig);
-			$bind = $stmt->bind_param("iissssssi", $ind_id, $user_id, $arc_nombre, $arc_codigo, $arc_edicion, $arc_fecha_crea, $arc_fecha_vig, $id);
+			$bind = $stmt->bind_param("iissssssi", $ind_id, $user_id, $arc_nombre, $arc_codigo, $arc_edicion, $date, $arc_fecha_crea, $arc_fecha_vig, $id);
 			if (!$bind):
 				throw new Exception("La modificación del documento falló en su binding.");
 			endif;
