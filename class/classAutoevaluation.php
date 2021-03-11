@@ -268,11 +268,9 @@ class Autoevaluation {
 				throw new Exception("La inserción de la autoevaluación falló en su ejecución.");
 			endif;
 
-			$result = array('estado' => true, 'msg' => $stmt->insert_id);
-			return $result;
+			return array('estado' => true, 'msg' => $stmt->insert_id);
 		} catch (Exception $e) {
-			$result = array('estado' => false, 'msg' => $e->getMessage());
-			return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
 		}
 	}
 
@@ -309,11 +307,9 @@ class Autoevaluation {
 				throw new Exception("La eliminación de la autoevaluación falló en su ejecución.");
 			endif;
 
-			$result = array('estado' => true, 'msg' => 'OK');
-			return $result;
+			return array('estado' => true, 'msg' => 'OK');
 		} catch (Exception $e) {
-			$result = array('estado' => false, 'msg' => $e->getMessage());
-			return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
 		}
 	}
 }

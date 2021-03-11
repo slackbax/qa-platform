@@ -194,14 +194,12 @@ class User {
             if (!$stmt->execute()):
                 throw new Exception("La inserción del usuario falló en su ejecución.");
             endif;
-            
-            $result = array('estado' => true, 'msg' => $stmt->insert_id);
-            $stmt->close();
-            return $result;
+
+			$stmt->close();
+			return array('estado' => true, 'msg' => $stmt->insert_id);
         
         } catch (Exception $e) {
-            $result = array('estado' => false, 'msg' => $e->getMessage());
-            return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
         }
     }
 
@@ -231,14 +229,12 @@ class User {
             if (!$stmt->execute()):
                 throw new Exception("La inserción del grupo falló en su ejecución.");
             endif;
-            
-            $result = array('estado' => true, 'msg' => true);
-            $stmt->close();
-            return $result;
+
+			$stmt->close();
+			return array('estado' => true, 'msg' => true);
         
         } catch (Exception $e) {
-            $result = array('estado' => false, 'msg' => $e->getMessage());
-            return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
         }
     }
 
@@ -268,14 +264,12 @@ class User {
             if (!$stmt->execute()):
                 throw new Exception("La inserción de la imagen falló en su ejecución.");
             endif;
-            
-            $result = array('estado' => true, 'msg' => true);
-            $stmt->close();
-            return $result;
+
+			$stmt->close();
+			return array('estado' => true, 'msg' => true);
             
         } catch (Exception $e) {
-            $result = array('estado' => false, 'msg' => $e->getMessage());
-            return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
         }
         
     }
@@ -305,14 +299,12 @@ class User {
             if (!$stmt->execute()):
                 throw new Exception("La eliminación del usuario falló en su ejecución.");
             endif;
-            
-            $result = array('estado' => true, 'msg' => true);
-            $stmt->close();
-            return $result;
+
+			$stmt->close();
+			return array('estado' => true, 'msg' => true);
             
         } catch (Exception $e) {
-            $result = array('estado' => false, 'msg' => $e->getMessage());
-            return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
         }
     }
 
@@ -341,14 +333,12 @@ class User {
             if (!$stmt->execute()):
                 throw new Exception("La eliminación del grupo en su ejecución.");
             endif;
-            
-            $result = array('estado' => true, 'msg' => true);
-            $stmt->close();
-            return $result;
+
+			$stmt->close();
+			return array('estado' => true, 'msg' => true);
             
         } catch (Exception $e) {
-            $result = array('estado' => false, 'msg' => $e->getMessage());
-            return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
         }
     }
 
@@ -367,8 +357,6 @@ class User {
         if (is_null($db)):
             $db = new myDBC();
         endif;
-        
-        $txt_p = '';
         
         if ($pass != ''):
             $txt_p = md5(utf8_decode($db->clearText($pass)));
@@ -397,14 +385,12 @@ class User {
             if (!$stmt->execute()):
                 throw new Exception("La modificación del usuario falló en su ejecución.");
             endif;
-            
-            $result = array('estado' => true, 'msg' => true);
-            $stmt->close();
-            return $result;
+
+			$stmt->close();
+			return array('estado' => true, 'msg' => true);
         
         } catch (Exception $e) {
-            $result = array('estado' => false, 'msg' => $e->getMessage());
-            return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
         }
     }
 
@@ -441,14 +427,12 @@ class User {
             if (!$stmt->execute()):
                 throw new Exception("La modificación del usuario falló en su ejecución.");
             endif;
-            
-            $result = array('estado' => true, 'msg' => true);
-            $stmt->close();
-            return $result;
+
+			$stmt->close();
+			return array('estado' => true, 'msg' => true);
         
         } catch (Exception $e) {
-            $result = array('estado' => false, 'msg' => $e->getMessage());
-            return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
         }
     }
 
@@ -480,14 +464,12 @@ class User {
             if (!$stmt->execute()):
                 throw new Exception("La modificación del usuario falló en su ejecución.");
             endif;
-            
-            $result = array('estado' => true, 'msg' => $txt_p);
-            $stmt->close();
-            return $result;
+
+			$stmt->close();
+			return array('estado' => true, 'msg' => $txt_p);
         
         } catch (Exception $e) {
-            $result = array('estado' => false, 'msg' => $e->getMessage());
-            return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
         }
     }
 }

@@ -174,11 +174,9 @@ class SubPuntoVerificacion {
 				throw new Exception("La inserción del indicador-pv falló en su ejecución.");
 			endif;
 
-			$result = array('estado' => true, 'msg' => 'OK');
-			return $result;
+			return array('estado' => true, 'msg' => 'OK');
 		} catch (Exception $e) {
-			$result = array('estado' => false, 'msg' => $e->getMessage());
-			return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
 		}
 	}
 }

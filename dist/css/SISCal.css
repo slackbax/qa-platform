@@ -5453,6 +5453,10 @@ button.btn-xs, a.btn-xs {
   background-image  : url('../img/icons/eq-med.png');
   background-repeat : no-repeat;
 }
+.iico-uad {
+  background-image  : url('../img/icons/donante.png');
+  background-repeat : no-repeat;
+}
 /*
  * Component: Table Items
  * -----------------------------

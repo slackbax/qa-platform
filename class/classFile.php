@@ -54,7 +54,7 @@ class File {
                                 JOIN uc_archivo_subpuntoverif ap ON spv.spv_id = ap.spv_id
 								JOIN uc_punto_verificacion upv on spv.pv_id = upv.pv_id
                                 WHERE arc_id = ?
-                                ORDER BY pv_nombre ASC, spv_nombre ASC");
+                                ORDER BY pv_nombre, spv_nombre");
 
 		$stmt_pv->bind_param("i", $id);
 		$stmt_pv->execute();
@@ -327,11 +327,9 @@ class File {
 				throw new Exception("La inserción del documento falló en su ejecución.");
 			endif;
 
-			$result = array('estado' => true, 'msg' => $stmt->insert_id);
-			return $result;
+			return array('estado' => true, 'msg' => $stmt->insert_id);
 		} catch (Exception $e) {
-			$result = array('estado' => false, 'msg' => $e->getMessage());
-			return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
 		}
 	}
 
@@ -363,11 +361,9 @@ class File {
 				throw new Exception("La inserción del documento-pv falló en su ejecución." . $stmt->error);
 			endif;
 
-			$result = array('estado' => true, 'msg' => $stmt->insert_id);
-			return $result;
+			return array('estado' => true, 'msg' => $stmt->insert_id);
 		} catch (Exception $e) {
-			$result = array('estado' => false, 'msg' => $e->getMessage());
-			return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
 		}
 	}
 
@@ -399,11 +395,9 @@ class File {
 				throw new Exception("La inserción del documento-spv falló en su ejecución." . $stmt->error);
 			endif;
 
-			$result = array('estado' => true, 'msg' => $stmt->insert_id);
-			return $result;
+			return array('estado' => true, 'msg' => $stmt->insert_id);
 		} catch (Exception $e) {
-			$result = array('estado' => false, 'msg' => $e->getMessage());
-			return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
 		}
 	}
 
@@ -435,11 +429,9 @@ class File {
 				throw new Exception("La inserción del documento-path falló en su ejecución.");
 			endif;
 
-			$result = array('estado' => true, 'msg' => $arc_id);
-			return $result;
+			return array('estado' => true, 'msg' => $arc_id);
 		} catch (Exception $e) {
-			$result = array('estado' => false, 'msg' => $e->getMessage());
-			return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
 		}
 	}
 
@@ -512,11 +504,9 @@ class File {
 				throw new Exception("La modificación del documento falló en su ejecución.");
 			endif;
 
-			$result = array('estado' => true, 'msg' => $id);
-			return $result;
+			return array('estado' => true, 'msg' => $id);
 		} catch (Exception $e) {
-			$result = array('estado' => false, 'msg' => $e->getMessage());
-			return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
 		}
 	}
 
@@ -547,11 +537,9 @@ class File {
 				throw new Exception("La eliminación del documento-spv falló en su ejecución." . $stmt->error);
 			endif;
 
-			$result = array('estado' => true, 'msg' => 'OK');
-			return $result;
+			return array('estado' => true, 'msg' => 'OK');
 		} catch (Exception $e) {
-			$result = array('estado' => false, 'msg' => $e->getMessage());
-			return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
 		}
 	}
 
@@ -623,11 +611,9 @@ class File {
 				endif;
 			endif;
 
-			$result = array('estado' => true, 'msg' => '');
-			return $result;
+			return array('estado' => true, 'msg' => '');
 		} catch (Exception $e) {
-			$result = array('estado' => false, 'msg' => $e->getMessage());
-			return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
 		}
 	}
 }

@@ -175,11 +175,9 @@ class Folder {
 				throw new Exception("La inserción del directorio falló en su ejecución.");
 			endif;
 
-			$result = array('estado' => true, 'msg' => $stmt->insert_id);
-			return $result;
+			return array('estado' => true, 'msg' => $stmt->insert_id);
 		} catch (Exception $e) {
-			$result = array('estado' => false, 'msg' => $e->getMessage());
-			return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
 		}
 	}
 
@@ -217,11 +215,9 @@ class Folder {
 				throw new Exception("La edición del directorio falló en su ejecución.");
 			endif;
 
-			$result = array('estado' => true, 'msg' => $stmt->insert_id);
-			return $result;
+			return array('estado' => true, 'msg' => $stmt->insert_id);
 		} catch (Exception $e) {
-			$result = array('estado' => false, 'msg' => $e->getMessage());
-			return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
 		}
 	}
 }

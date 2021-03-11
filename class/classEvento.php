@@ -216,11 +216,9 @@ class Evento {
 				throw new Exception("La inserción del evento-path falló en su ejecución.");
 			endif;
 
-			$result = array('estado' => true, 'msg' => $ev_id);
-			return $result;
+			return array('estado' => true, 'msg' => $ev_id);
 		} catch (Exception $e) {
-			$result = array('estado' => false, 'msg' => $e->getMessage());
-			return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
 		}
 	}
 
@@ -252,11 +250,9 @@ class Evento {
 				throw new Exception("La inserción del evento-caida-path falló en su ejecución.");
 			endif;
 
-			$result = array('estado' => true, 'msg' => $ev_id);
-			return $result;
+			return array('estado' => true, 'msg' => $ev_id);
 		} catch (Exception $e) {
-			$result = array('estado' => false, 'msg' => $e->getMessage());
-			return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
 		}
 	}
 }

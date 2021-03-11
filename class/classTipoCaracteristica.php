@@ -56,7 +56,7 @@ class TipoCaracteristica {
 		$stmt = $db->Prepare("SELECT DISTINCT(i.tcar_id) FROM uc_indicador i
                                 JOIN uc_tipo_caracteristica tc ON i.tcar_id = tc.tcar_id
                                 WHERE i.samb_id = ?
-                                ORDER BY i.tcar_id ASC");
+                                ORDER BY i.tcar_id");
 
 		$stmt->bind_param("i", $id);
 		$stmt->execute();

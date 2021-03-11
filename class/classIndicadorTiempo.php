@@ -119,11 +119,9 @@ class IndicadorTiempo {
 				throw new Exception("La inserción del indicador falló en su ejecución.");
 			endif;
 
-			$result = array('estado' => true, 'msg' => $stmt->insert_id);
-			return $result;
+			return array('estado' => true, 'msg' => $stmt->insert_id);
 		} catch (Exception $e) {
-			$result = array('estado' => false, 'msg' => $e->getMessage());
-			return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
 		}
 	}
 
@@ -154,11 +152,9 @@ class IndicadorTiempo {
 				throw new Exception("La actualización del indicador falló en su ejecución.");
 			endif;
 
-			$result = array('estado' => true, 'msg' => $id);
-			return $result;
+			return array('estado' => true, 'msg' => $id);
 		} catch (Exception $e) {
-			$result = array('estado' => false, 'msg' => $e->getMessage());
-			return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
 		}
 	}
 }
