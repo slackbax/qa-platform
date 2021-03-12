@@ -238,11 +238,11 @@ $last_f = 8; ?>
 			<div class="box box-widget widget-user-2 widget-user-team">
 				<div class="widget-user-header bg-white">
 					<div class="widget-user-image">
-						<img class="img-circle" src="dist/img/users/no-photo.png">
+						<img class="img-circle" src="dist/img/users/caillon.jpg">
 					</div>
 					<div class="widget-user-username">Carol Aillón Vidal</div>
 					<div class="widget-user-desc">Enfermera</div>
-					<p class="widget-user-desc ic-data email"><a href="mailto:francisca.vigueras@ssconcepcion.cl">francisca.vigueras@ssconcepcion.cl</a></p>
+					<p class="widget-user-desc ic-data email"><a href="mailto:carol.aillon@ssconcepcion.cl">carol.aillon@ssconcepcion.cl</a></p>
 					<p class="widget-user-desc ic-data phone">417668</p>
 				</div>
 			</div>
