@@ -37,7 +37,7 @@
 
                 <div class="row">
                     <div class="form-group col-sm-3 has-feedback" id="gdate">
-                        <label class="control-label" for="idate">Fecha de creación *</label>
+                        <label class="control-label" for="iNdate">Fecha de creación *</label>
                         <div class="input-group">
                             <div class="input-group-addon">
                                 <i class="fa fa-calendar"></i>
@@ -48,7 +48,7 @@
                     </div>
                     
                     <div class="form-group col-sm-3 has-feedback" id="gdatec">
-                        <label class="control-label" for="idatec">Fecha de caducidad *</label>
+                        <label class="control-label" for="iNdatec">Fecha de caducidad *</label>
                         <div class="input-group">
                             <div class="input-group-addon">
                                 <i class="fa fa-calendar"></i>
@@ -94,4 +94,4 @@
     </form>
 </section>
 
-<script src="files/uploadother.js?v=20190828"></script>
+<script src="files/uploadother.js?v=20210322"></script>

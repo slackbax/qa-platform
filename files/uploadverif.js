@@ -60,17 +60,9 @@ $(document).ready(function () {
 
 	$('#submitLoader').css('display', 'none');
 
-	$(document).on("focusin", "#iNdate", function () {
+	$(document).on("focusin", "#iNdate, #iNdatec", function () {
 		$(this).prop('readonly', true);
-	});
-	$(document).on("focusout", "#iNdate", function () {
-		$(this).prop('readonly', false);
-	});
-
-	$(document).on("focusin", "#iNdatec", function () {
-		$(this).prop('readonly', true);
-	});
-	$(document).on("focusout", "#iNdatec", function () {
+	}).on("focusout", "#iNdate, #iNdatec", function () {
 		$(this).prop('readonly', false);
 	});
 
@@ -86,7 +78,7 @@ $(document).ready(function () {
 	$('#iNdatec').datepicker({
 		startView: 1,
 		minViewMode: 1,
-		startDate: '+1m'
+		startDate: '-5y'
 	}).on('changeDate', function () {
 		if ($.trim($(this).val()) !== '') {
 			$('#gdatec').removeClass('has-error').addClass('has-success');
