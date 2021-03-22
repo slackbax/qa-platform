@@ -25,7 +25,7 @@
             <div class="box-body">
                 <div class="row">
                     <div class="form-group col-sm-6 has-feedback" id="gname">
-                        <label class="control-label" for="iname">Nombre *</label>
+                        <label class="control-label" for="iNname">Nombre *</label>
                         <input type="text" class="form-control" id="iNname" name="iname" placeholder="Ingrese nombre del documento" maxlength="250" required>
                         <i class="fa form-control-feedback" id="iconname"></i>
                     </div>
@@ -33,13 +33,13 @@
                 
                 <div class="row">
                     <div class="form-group col-sm-3 has-feedback" id="gversion">
-                        <label class="control-label" for="iversion">Versión *</label>
+                        <label class="control-label" for="iNversion">Versión *</label>
                         <input type="text" class="form-control" id="iNversion" name="iversion" placeholder="Ingrese versión del documento" maxlength="4" required>
                         <i class="fa form-control-feedback" id="iconversion"></i>
                     </div>
                     
                     <div class="form-group col-sm-3 has-feedback" id="gcode">
-                        <label class="control-label" for="icode">Código *</label>
+                        <label class="control-label" for="iNcode">Código *</label>
                         <input type="text" class="form-control" id="iNcode" name="icode" placeholder="Ingrese código del documento" maxlength="8" required>
                         <i class="fa form-control-feedback" id="iconcode"></i>
                     </div>
@@ -47,7 +47,7 @@
 
                 <div class="row">
                     <div class="form-group col-sm-3 has-feedback" id="gdate">
-                        <label class="control-label" for="idate">Fecha de creación *</label>
+                        <label class="control-label" for="iNdate">Fecha de creación *</label>
                         <div class="input-group">
                             <div class="input-group-addon">
                                 <i class="fa fa-calendar"></i>
@@ -58,7 +58,7 @@
                     </div>
                     
                     <div class="form-group col-sm-3 has-feedback" id="gdatec">
-                        <label class="control-label" for="idatec">Fecha de caducidad *</label>
+                        <label class="control-label" for="iNdatec">Fecha de caducidad *</label>
                         <div class="input-group">
                             <div class="input-group-addon">
                                 <i class="fa fa-calendar"></i>
@@ -71,7 +71,7 @@
 
                 <div class="row">
                     <div class="form-group col-sm-6 has-feedback" id="gambito">
-                        <label class="control-label" for="iambito">Ámbito *</label>
+                        <label class="control-label" for="iNambito">Ámbito *</label>
                         <select class="form-control" id="iNambito" name="iambito" required>
                             <option value="">Seleccione ámbito</option>
                             <?php $ambito = $am->getAll() ?>
@@ -81,7 +81,7 @@
                         </select>
                     </div>
                     <div class="form-group col-sm-6 has-feedback" id="gsambito">
-                        <label class="control-label" for="isambito">Sub-ámbito *</label>
+                        <label class="control-label" for="iNsambito">Sub-ámbito *</label>
                         <select class="form-control" id="iNsambito" name="isambito" required>
                             <option value="">Seleccione sub-ámbito</option>
                         </select>
@@ -90,13 +90,13 @@
                 
                 <div class="row">
                     <div class="form-group col-sm-6 has-feedback" id="gtcar">
-                        <label class="control-label" for="iambito">Tipo de Característica *</label>
+                        <label class="control-label" for="iNtcar">Tipo de Característica *</label>
                         <select class="form-control" id="iNtcar" name="itcar" required>
                             <option value="">Seleccione tipo</option>
                         </select>
                     </div>
                     <div class="form-group col-sm-6 has-feedback" id="gtcode">
-                        <label class="control-label" for="itcode">Código de Característica *</label>
+                        <label class="control-label" for="iNtcode">Código de Característica *</label>
                         <select class="form-control" id="iNtcode" name="itcode" required>
                             <option value="">Seleccione código</option>
                         </select>
@@ -111,14 +111,14 @@
             <div class="box-body">
                 <div class="row">
                     <div class="form-group col-sm-12">
-                        <label class="control-label" for="iproblem">Descripción</label>
+                        <label class="control-label" for="iNdescription">Descripción</label>
                         <textarea rows="4" class="form-control" id="iNdescription" name="idescription" readonly></textarea>
                     </div>
                 </div>
 
 				<div class="row">
 					<div class="form-group col-sm-6 has-feedback" id="gpv">
-						<label class="control-label" for="ipv">Punto de Verificación</label>
+						<label class="control-label" for="iNpv">Punto de Verificación</label>
 						<select class="form-control" id="iNpv" name="ipv">
 							<option value="">Seleccione punto</option>
 							<?php $punto = $pv->getAll() ?>
@@ -128,7 +128,7 @@
 						</select>
 					</div>
 					<div class="form-group col-sm-6 has-feedback" id="gspv">
-						<label class="control-label" for="ispv">Sub-punto</label>
+						<label class="control-label" for="iNspv">Sub-punto</label>
 						<select class="form-control" id="iNspv" name="ispv">
 							<option value="">Seleccione sub-punto</option>
 						</select>

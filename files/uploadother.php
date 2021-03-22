@@ -21,7 +21,7 @@
             <div class="box-body">
                 <div class="row">
                     <div class="form-group col-sm-6 has-feedback" id="gname">
-                        <label class="control-label" for="iname">Nombre *</label>
+                        <label class="control-label" for="iNname">Nombre *</label>
                         <input type="text" class="form-control" id="iNname" name="iname" placeholder="Ingrese nombre del documento" maxlength="250" required>
                         <i class="fa form-control-feedback" id="iconname"></i>
                     </div>
@@ -29,7 +29,7 @@
                 
                 <div class="row">
                     <div class="form-group col-sm-3 has-feedback" id="gversion">
-                        <label class="control-label" for="iversion">Versión *</label>
+                        <label class="control-label" for="iNversion">Versión *</label>
                         <input type="text" class="form-control" id="iNversion" name="iversion" placeholder="Ingrese versión del documento" maxlength="4" required>
                         <i class="fa form-control-feedback" id="iconversion"></i>
                     </div>
@@ -61,7 +61,7 @@
 
                 <div class="row">
                     <div class="form-group col-sm-6 has-feedback" id="gfolder">
-                        <label class="control-label" for="ifolder">Carpeta *</label>
+                        <label class="control-label" for="iNfolder">Carpeta *</label>
                         <select class="form-control" id="iNfolder" name="ifolder" required>
                             <option value="">Seleccione carpeta</option>
                             <?php $fl = new Folder() ?>
