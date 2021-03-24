@@ -433,13 +433,13 @@
                                     <span class="menu-item">Eventos registrados</span>
                                 </a>
                             </li>
-                            <li <?php if (isset($sbs) and $sbs == 'createvitroevent'): ?> class="active"<?php endif ?>>
+                            <li <?php if (isset($sbs) and $sbs == 'createdivevent'): ?> class="active"<?php endif ?>>
                                 <a href="index.php?section=tec-event&sbs=createdivevent">
                                     <i class="fa fa-circle-o text-orange"></i>
                                     <span class="menu-item">Ingreso de evento DIV</span>
                                 </a>
                             </li>
-                            <li <?php if (isset($sbs) and $sbs == 'viewvitroevents'): ?> class="active"<?php endif ?>>
+                            <li <?php if (isset($sbs) and $sbs == 'viewdivevents'): ?> class="active"<?php endif ?>>
                                 <a href="index.php?section=tec-event&sbs=viewdivevents">
                                     <i class="fa fa-circle-o text-orange"></i>
                                     <span class="menu-item">Eventos DIV registrados</span>
