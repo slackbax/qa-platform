@@ -10,12 +10,13 @@ $(document).ready(function () {
 			null,
 			null,
 			null,
+			{visible: false},
 			{visible: false}, //10
-			{visible: false},
 			null,
 			null,
 			{visible: false},
 			null,
+			{visible: false},
 			{visible: false},
 			{visible: false},
 			{visible: false},
@@ -31,7 +32,6 @@ $(document).ready(function () {
 			{visible: false},
 			{visible: false},
 			{visible: false}, //30
-			{visible: false},
 			{visible: false},
 			{visible: false},
 			{visible: false},
@@ -57,7 +57,7 @@ $(document).ready(function () {
 			type: 'POST',
 			length: 20,
 			beforeSend: function () {
-				$('#tfiles > tbody').html(
+				$('#tevents > tbody').html(
 					'<tr class="odd">' +
 					'<td colspan="39" class="dataTables_empty text-orange"><i class="fa fa-cog fa-spin fa-fw"></i> <em>Cargando data...</em></td>' +
 					'</tr>'

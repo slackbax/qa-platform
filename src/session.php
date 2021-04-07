@@ -129,16 +129,19 @@ try {
     endif;
     
     $queryS = $stmt->get_result();
-                        
+
+	$_SESSION['uc_usergroup'] = '';
+	$_SESSION['uc_rol'] = [];
     while ($q_session = $queryS->fetch_assoc()):
-        $_SESSION['uc_usergroup'] = utf8_encode($q_session['gru_nombre']);
-        $_SESSION['uc_rol'] = array('perf' => $q_session['perf_id'], 'group' => $q_session['gru_id']);
+        $_SESSION['uc_usergroup'] .= utf8_encode($q_session['gru_nombre']) . ', ';
+		array_push($_SESSION['uc_rol'], $q_session['perf_id']);
 
         if ($q_session['perf_id'] === 1):
             $_SESSION['uc_useradmin'] = true;
         endif;
     endwhile;
 
+	$_SESSION['uc_usergroup'] = substr($_SESSION['uc_usergroup'], 0, -2);
     $set_session = $ses->set($q_data['us_id'], $_SERVER['REMOTE_ADDR']);
 
     if ($set_session):

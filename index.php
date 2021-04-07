@@ -24,10 +24,24 @@
 	<?php $_login = true ?>
 	<?php if (isset($_SESSION['uc_useradmin']) && $_SESSION['uc_useradmin']): $_admin = true; endif ?>
 	<?php if (isset($_SESSION['uc_rol'])): ?>
-		<?php if ($_SESSION['uc_rol']['perf'] == 2): $_calidad = true ?>
-		<?php elseif ($_SESSION['uc_rol']['perf'] == 3): $_operador = true ?>
-		<?php elseif ($_SESSION['uc_rol']['perf'] == 4): $_autoeval = true ?>
-		<?php elseif ($_SESSION['uc_rol']['perf'] == 5): $_acclaboral = true; endif ?>
+		<?php foreach ($_SESSION['uc_rol'] as $rol): ?>
+			<?php switch ($rol):
+				case 2:
+					$_calidad = true;
+					break;
+				case 3:
+					$_operador = true;
+					break;
+				case 4:
+					$_autoeval = true;
+					break;
+				case 5:
+					$_acclaboral = true;
+					break;
+				default:
+					break;
+			endswitch ?>
+		<?php endforeach ?>
 	<?php endif ?>
 <?php endif ?>
 
@@ -84,13 +98,6 @@
 	<!-- Theme style -->
 	<link rel="stylesheet" href="dist/css/SISCal.css?v=20191024">
 	<link rel="stylesheet" href="dist/css/skins/skin-yellow-light.min.css">
-
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
 
 	<!-- jQuery 3 -->
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
