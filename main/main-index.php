@@ -17,7 +17,7 @@ $last_f = 8; ?>
 						<?php else: echo '</small>' ?>
 						<?php endif ?>
 				</h2>
-				<h4>A la Plataforma de información de la Unidad de Calidad del Hospital Regional Guillermo Grant Benavente.</h4>
+				<h4>A la Plataforma de información de la Unidad de Calidad y Seguridad del Paciente del Hospital Regional Guillermo Grant Benavente.</h4>
 			</div>
 		</section>
 
@@ -169,7 +169,7 @@ $last_f = 8; ?>
 						<img class="img-circle" src="dist/img/users/claudia-munoz.jpg">
 					</div>
 					<div class="widget-user-username">Claudia Muñoz Hernández</div>
-					<div class="widget-user-desc">Enfermera Jefe Unidad de Calidad y Acreditación</div>
+					<div class="widget-user-desc">Enfermera Jefe</div>
 					<p class="widget-user-desc ic-data email"><a href="mailto:cmunoz@ssconcepcion.cl">cmunoz@ssconcepcion.cl</a></p>
 					<p class="widget-user-desc ic-data phone">417996</p>
 				</div>

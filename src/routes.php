@@ -79,6 +79,17 @@ elseif ($section == 'autoeval' and ($_admin or $_autoeval or $_calidad)):
 	else:
 		include 'src/error.php';
     endif;
+/** ACCIDENTES LABORALES **/
+elseif ($section == 'acc-laboral' and ($_admin or $_acclaboral or $_calidad)):
+	if ($sbs == 'createacc'):
+		include ('accidentes/create-accident.php');
+	elseif ($sbs == 'manageacc'):
+		include 'accidentes/manage-accidents.php';
+	elseif ($sbs == 'editacc'):
+		include 'accidentes/edit-accident.php';
+	else:
+		include 'src/error.php';
+	endif;
 /** MEDIA **/
 elseif ($section == 'media'):
 	include 'media/media-index.php';
