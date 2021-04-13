@@ -165,8 +165,8 @@
 					</div>
 
 					<div class="form-group col-sm-6 has-feedback" id="gncomercial">
-						<label class="control-label" for="iNncomercial">Nombre comercial *</label>
-						<input type="text" class="form-control" id="iNncomercial" name="incomercial" placeholder="Ingrese nombre comercial del dispositivo" maxlength="256" required>
+						<label class="control-label" for="iNncomercial">Nombre comercial</label>
+						<input type="text" class="form-control" id="iNncomercial" name="incomercial" placeholder="Ingrese nombre comercial del dispositivo" maxlength="256">
 						<span class="fa form-control-feedback" id="iconncomercial"></span>
 					</div>
 				</div>
@@ -187,8 +187,8 @@
 					</div>
 
 					<div class="form-group col-sm-4 has-feedback" id="gnlote">
-						<label class="control-label" for="iNnlote">Número de lote *</label>
-						<input type="text" class="form-control" id="iNnlote" name="inlote" placeholder="Ingrese número de lote del dispositivo" maxlength="16" required>
+						<label class="control-label" for="iNnlote">Número de lote</label>
+						<input type="text" class="form-control" id="iNnlote" name="inlote" placeholder="Ingrese número de lote del dispositivo" maxlength="16">
 						<span class="fa form-control-feedback" id="iconnlote"></span>
 					</div>
 
@@ -212,12 +212,12 @@
 					</div>
 
 					<div class="form-group col-sm-3 has-feedback" id="gdatevenc">
-						<label class="control-label" for="iNdatevenc">Fecha de vencimiento *</label>
+						<label class="control-label" for="iNdatevenc">Fecha de vencimiento</label>
 						<div class="input-group">
 							<div class="input-group-addon">
 								<i class="fa fa-calendar"></i>
 							</div>
-							<input type="text" class="form-control" id="iNdatevenc" name="idatevenc" data-date-format="dd/mm/yyyy" placeholder="DD/MM/AAAA" required>
+							<input type="text" class="form-control" id="iNdatevenc" name="idatevenc" data-date-format="dd/mm/yyyy" placeholder="DD/MM/AAAA">
 						</div>
 						<span class="fa form-control-feedback" id="icondatevenc"></span>
 					</div>

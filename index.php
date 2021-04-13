@@ -459,7 +459,7 @@
 				<?php endif ?>
 
 				<?php if ($_admin or $_calidad or $_acclaboral): ?>
-					<li class="treeview<?php if (isset($section) and $section == 'tec-event'): ?> active<?php endif; ?>">
+					<li class="treeview<?php if (isset($section) and $section == 'acc-laboral'): ?> active<?php endif; ?>">
 						<a href="#">
 							<i class="fa fa-exclamation-triangle"></i>
 							<span class="menu-item">Accidentes Laborales</span>

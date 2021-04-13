@@ -11,7 +11,7 @@ $(document).ready(function () {
             return true;
         } else {
             new Noty({
-                text: 'Error al registrar evento.<br>No deje campos obligatorios en blanco.',
+                text: '<b>¡Error!</b><br>No deje campos obligatorios en blanco.',
                 type: 'error'
             }).show();
             return false;
@@ -83,8 +83,7 @@ $(document).ready(function () {
 
     $(document).on("focusin", "#iNdateev, #iNdatefab, #iNdatevenc", function () {
         $(this).prop('readonly', true);
-    });
-    $(document).on("focusout", "#iNdateev, #iNdatefab, #iNdatevenc", function () {
+    }).on("focusout", "#iNdateev, #iNdatefab, #iNdatevenc", function () {
         $(this).prop('readonly', false);
     });
 
