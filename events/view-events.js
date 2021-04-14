@@ -49,6 +49,6 @@ $(document).ready(function () {
 	});
 
 	$('#view-historic').click(function () {
-		tableFiles.ajax.url('events/ajax.getServerAccidents.php').load();
+		tableFiles.ajax.url('events/ajax.getServerEvents.php').load();
 	});
 });
