@@ -59,4 +59,4 @@
     </div>
 </section>
 
-<script src="events/view-events.js?v=20210305"></script>
+<script src="events/view-events.js?v=20210414"></script>
