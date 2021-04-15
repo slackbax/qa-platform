@@ -231,4 +231,4 @@
 	</form>
 </section>
 
-<script src="admin/files/edit-file.js?v=20191009"></script>
+<script src="admin/files/edit-file.js?v=20210415"></script>
