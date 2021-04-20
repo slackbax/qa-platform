@@ -136,6 +136,29 @@ class File {
 	}
 
 	/**
+	 * @param $pvid
+	 * @return mixed
+	 */
+	public function getNumberBySPV($pvid)
+	{
+		$db = new myDBC();
+		$stmt = $db->Prepare("SELECT COUNT(DISTINCT a.arc_id) AS num
+                                FROM uc_archivo a
+								JOIN uc_archivo_subpuntoverif ap ON a.arc_id = ap.arc_id
+                                WHERE ap.spv_id = ? AND a.arc_publicado = TRUE");
+
+		$stmt->bind_param("i", $pvid);
+		$stmt->execute();
+		$result = $stmt->get_result();
+
+		$row = $result->fetch_assoc();
+		$num = $row['num'];
+
+		unset($db);
+		return $num;
+	}
+
+	/**
 	 * @param $sid
 	 * @param $tcar
 	 * @return array
@@ -558,7 +581,7 @@ class File {
 		try {
 			$r = $db->runQuery("SELECT arc_path FROM uc_archivo WHERE arc_id = '$id'");
 			$p = $r->fetch_assoc();
-			
+
 			$stmt = $db->Prepare("DELETE FROM uc_archivo_puntoverif WHERE arc_id = ?");
 
 			if (!$stmt):
@@ -573,7 +596,6 @@ class File {
 			if (!$stmt->execute()):
 				throw new Exception("La eliminación del documento-pv falló en su ejecución.");
 			endif;
-			
 
 			$stmt = $db->Prepare("DELETE FROM uc_archivo_subpuntoverif WHERE arc_id = ?");
 

@@ -74,7 +74,7 @@
 								<i class="fa fa-folder-open text-red icon-table"></i>
 								<a href="index.php?section=verif-points&pvid=<?php echo $pvid ?>&spvid=<?php echo $s->spv_id ?>"><?php echo $s->spv_nombre ?></a>
 							</td>
-							<td><?php echo $fl->getNumberByPV($pvid) ?></td>
+							<td><?php echo $fl->getNumberBySPV($s->spv_id) ?></td>
 						</tr>
 					<?php endforeach ?>
 					</tbody>
