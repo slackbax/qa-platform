@@ -10,7 +10,7 @@ class Indicador {
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id)
+	public function get($id): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT *
@@ -62,7 +62,7 @@ class Indicador {
 	 * @param $tcar
 	 * @return array
 	 */
-	public function getByTypeCar($tcar)
+	public function getByTypeCar($tcar): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT ind_id, tcar_id, amb_id, s.samb_id, c.cod_id, ind_descripcion, ind_umbral, s.samb_sigla, cod_descripcion
@@ -99,7 +99,7 @@ class Indicador {
 	 * @param $cid
 	 * @return stdClass
 	 */
-	public function getBySACod($sid, $cid)
+	public function getBySACod($sid, $cid): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT i.*, tc.tcar_nombre, s.samb_sigla, s.samb_nombre, a.amb_nombre, c.cod_descripcion 

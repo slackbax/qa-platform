@@ -27,12 +27,17 @@ $(document).ready(function () {
 		type: 'post',
 		dataType: 'json',
 		beforeSubmit: function () {
-			if (_vEmail) {
+			var _checked = ($('input[name="iusergroups[]"]:checked').length > 0);
+
+			if (_vEmail && _checked) {
 				$('#submitLoader').css('display', 'inline-block');
 				return true;
 			} else {
+				var msg = '';
+				if (!_checked) msg += '<br>Agregue al menos un grupo al usuario.';
+
 				new Noty({
-					text: 'Error al modificar usuario.<br>Por favor corrija los campos marcados con errores',
+					text: 'Error al modificar usuario.<br>' + msg,
 					type: 'error'
 				}).show();
 				return false;

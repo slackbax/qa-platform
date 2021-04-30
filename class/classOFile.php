@@ -10,7 +10,7 @@ class OFile {
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id)
+	public function get($id): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT a.*, u.us_username, f.fol_nombre FROM uc_oarchivo a 
@@ -44,10 +44,10 @@ class OFile {
 	/**
 	 * @return array
 	 */
-	public function getAll()
+	public function getAll(): array
 	{
 		$db = new myDBC();
-		$result = $db->runQuery("SELECT oarc_id FROM uc_oarchivo ORDER BY oarc_nombre ASC");
+		$result = $db->runQuery("SELECT oarc_id FROM uc_oarchivo ORDER BY oarc_nombre");
 		$lista = [];
 
 		while ($row = $result->fetch_assoc()):
@@ -62,7 +62,7 @@ class OFile {
 	 * @param $fid
 	 * @return array
 	 */
-	public function getByFolder($fid)
+	public function getByFolder($fid): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT oarc_id FROM uc_oarchivo a
@@ -92,7 +92,7 @@ class OFile {
 	 * @param null $db
 	 * @return array
 	 */
-	public function set($fol_id, $user_id, $oarc_nombre, $oarc_edicion, $oarc_fecha_crea, $oarc_fecha_vig, $db = null)
+	public function set($fol_id, $user_id, $oarc_nombre, $oarc_edicion, $oarc_fecha_crea, $oarc_fecha_vig, $db = null): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();
@@ -135,7 +135,7 @@ class OFile {
 	 * @param null $db
 	 * @return array
 	 */
-	public function setPath($oarc_id, $oarc_path, $db = null)
+	public function setPath($oarc_id, $oarc_path, $db = null): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();
@@ -167,7 +167,7 @@ class OFile {
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function setCounter($id)
+	public function setCounter($id): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT oarc_descargas AS num, oarc_path AS path FROM uc_oarchivo WHERE oarc_id = ?");
@@ -196,14 +196,14 @@ class OFile {
 	 * @param null $db
 	 * @return array
 	 */
-	public function del($id, $folder, $db = null)
+	public function del($id, $folder, $db = null): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();
 		endif;
 
 		try {
-			$r = $db->runQuery("SELECT oarc_path FROM uc_oarchivo ORDER BY oarc_nombre ASC");
+			$r = $db->runQuery("SELECT oarc_path FROM uc_oarchivo ORDER BY oarc_nombre");
 			$p = $r->fetch_assoc();
 
 			$stmt = $db->Prepare("DELETE FROM uc_oarchivo WHERE oarc_id = ?");

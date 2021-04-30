@@ -10,7 +10,7 @@ class PuntoVerificacion {
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id)
+	public function get($id): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT * FROM uc_punto_verificacion WHERE pv_id = ?");
@@ -32,10 +32,10 @@ class PuntoVerificacion {
 	/**
 	 * @return array
 	 */
-	public function getAll()
+	public function getAll(): array
 	{
 		$db = new myDBC();
-		$stmt = $db->Prepare("SELECT pv_id FROM uc_punto_verificacion ORDER BY pv_nombre ASC");
+		$stmt = $db->Prepare("SELECT pv_id FROM uc_punto_verificacion ORDER BY pv_nombre");
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$lista = [];
@@ -49,27 +49,10 @@ class PuntoVerificacion {
 	}
 
 	/**
-	 * @return int
-	 */
-	public function getNumber()
-	{
-		$db = new myDBC();
-		$stmt = $db->Prepare("SELECT COUNT(pv_id) AS num FROM uc_punto_verificacion");
-
-		$stmt->execute();
-		$result = $stmt->get_result();
-		$row = $result->fetch_assoc();
-		$num = $row['num'];
-
-		unset($db);
-		return $num;
-	}
-
-	/**
 	 * @param $ind
 	 * @return array
 	 */
-	public function getByInd($ind)
+	public function getByInd($ind): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT pv_id FROM uc_pv_indicador WHERE ind_id = ? AND pv_id <> 1");

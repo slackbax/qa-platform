@@ -10,7 +10,7 @@ class Visit {
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id)
+	public function get($id): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT * FROM uc_visita WHERE vis_id = ?");
@@ -33,7 +33,8 @@ class Visit {
 	/**
 	 * @return int
 	 */
-	public function getNumberTotal() {
+	public function getNumberTotal(): int
+	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT COUNT(vis_id) AS num FROM uc_visita");
 
@@ -48,7 +49,8 @@ class Visit {
 	/**
 	 * @return int
 	 */
-	public function getNumberToday() {
+	public function getNumberToday(): int
+	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT COUNT(vis_id) AS num FROM uc_visita WHERE DATE(vis_date) = CURRENT_DATE");
 
@@ -64,7 +66,7 @@ class Visit {
 	 * @param $ip
 	 * @return bool
 	 */
-	public function set($ip)
+	public function set($ip): bool
 	{
 		$db = new myDBC();
 
@@ -81,12 +83,8 @@ class Visit {
 			$stmt->bind_param("s", $ip);
 			$stmt->execute();
 
-			if ($result):
-				unset($db);
-				return true;
-			else:
-				return false;
-			endif;
+			unset($db);
+			return true;
 		endif;
 
 		return true;

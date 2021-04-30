@@ -38,15 +38,13 @@ class myDBC {
 	// Prepares a SQL query
 	public function Prepare($qry)
 	{
-		$result = $this->mysqli->prepare($qry);
-		return $result;
+		return $this->mysqli->prepare($qry);
 	}
 
 	// Runs a sql query
 	public function runQuery($qry)
 	{
-		$result = $this->mysqli->query($qry);
-		return $result;
+		return $this->mysqli->query($qry);
 	}
 
 	public function autoCommit($mode)
@@ -71,7 +69,7 @@ class myDBC {
 	}
 
 	// Escape the string get ready to insert or update
-	public function clearText($text)
+	public function clearText($text): string
 	{
 		return $this->mysqli->real_escape_string(trim($text));
 	}

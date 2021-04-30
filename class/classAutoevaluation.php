@@ -10,7 +10,7 @@ class Autoevaluation {
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id)
+	public function get($id): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT * 
@@ -52,38 +52,13 @@ class Autoevaluation {
 	}
 
 	/**
-	 * @param $ind
-	 * @param $pv
-	 * @return array
-	 */
-	public function getByIndicadorPV($ind, $pv)
-	{
-		$db = new myDBC();
-		$stmt = $db->Prepare("SELECT * 
-								FROM uc_autoevaluacion a 
-                                WHERE a.ind_id = ? AND a.pv_id = ?");
-
-		$stmt->bind_param("ii", $ind, $pv);
-		$stmt->execute();
-		$result = $stmt->get_result();
-		$array = [];
-
-		while ($row = $result->fetch_assoc()):
-			$array[] = $this->get($row['aut_id']);
-		endwhile;
-
-		unset($db);
-		return $array;
-	}
-
-	/**
 	 * @param $em
 	 * @param $spv
 	 * @param $u
 	 * @param $date
 	 * @return stdClass
 	 */
-	public function getByEmSpvUserDate($em, $spv, $u, $date)
+	public function getByEmSpvUserDate($em, $spv, $u, $date): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT MAX(aut_id) AS aut_id
@@ -107,7 +82,7 @@ class Autoevaluation {
 	 * @param $year
 	 * @return array
 	 */
-	public function getFailedByPVEMDate($pv, $em, $month, $year)
+	public function getFailedByPVEMDate($pv, $em, $month, $year): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT *
@@ -133,30 +108,6 @@ class Autoevaluation {
 	}
 
 	/**
-	 * @param $spv
-	 * @return array
-	 */
-	public function getBySPV($spv)
-	{
-		$db = new myDBC();
-		$stmt = $db->Prepare("SELECT * 
-								FROM uc_autoevaluacion a 
-                                WHERE a.spv_id = ?");
-
-		$stmt->bind_param("i", $spv);
-		$stmt->execute();
-		$result = $stmt->get_result();
-		$array = [];
-
-		while ($row = $result->fetch_assoc()):
-			$array[] = $this->get($row['aut_id']);
-		endwhile;
-
-		unset($db);
-		return $array;
-	}
-
-	/**
 	 * @param $year
 	 * @param $month
 	 * @param $spv
@@ -164,7 +115,7 @@ class Autoevaluation {
 	 * @param null $db
 	 * @return array
 	 */
-	public function getByFilters($year, $month, $spv, $type, $db = null)
+	public function getByFilters($year, $month, $spv, $type, $db = null): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();
@@ -241,7 +192,7 @@ class Autoevaluation {
 	 * @param $db
 	 * @return array
 	 */
-	public function set($pv, $spv, $ind, $elm, $cumplim, $comentario, $us, $eval, $fecha, $db = null)
+	public function set($pv, $spv, $ind, $elm, $cumplim, $comentario, $us, $eval, $fecha, $db = null): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();
@@ -283,7 +234,7 @@ class Autoevaluation {
 	 * @param $db
 	 * @return array
 	 */
-	public function delByFilters($pv, $spv, $ind, $elm, $date, $db = null)
+	public function delByFilters($pv, $spv, $ind, $elm, $date, $db = null): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();

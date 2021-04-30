@@ -10,7 +10,7 @@ class Evento {
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id)
+	public function get($id): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT *, tv2.tver_descripcion AS je, tv3.tver_descripcion AS acj, tv4.tver_descripcion AS rep, tv5.tver_descripcion AS ver 
@@ -77,7 +77,7 @@ class Evento {
 	/**
 	 * @return array
 	 */
-	public function getAll()
+	public function getAll(): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT ev_id FROM uc_evento");
@@ -94,31 +94,10 @@ class Evento {
 	}
 
 	/**
-	 * @param $us
-	 * @return array
-	 */
-	public function getByUser($us)
-	{
-		$db = new myDBC();
-		$stmt = $db->Prepare("SELECT ev_id FROM uc_evento WHERE us_id = ?");
-		$stmt->bind_param("i", $us);
-		$stmt->execute();
-		$result = $stmt->get_result();
-		$lista = [];
-
-		while ($row = $result->fetch_assoc()):
-			$lista[] = $this->get($row['ev_id']);
-		endwhile;
-
-		unset($db);
-		return $lista;
-	}
-
-	/**
 	 * @param $pac
 	 * @return stdClass
 	 */
-	public function getByRut($pac)
+	public function getByRut($pac): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT ev_id FROM uc_evento WHERE ev_rut = ? LIMIT 1");
@@ -153,7 +132,7 @@ class Evento {
 	 * @param $db
 	 * @return array
 	 */
-	public function set($us_id, $ser_id, $rie_id, $stev_id, $tpac_id, $cons_id, $ev_rut, $ev_nombre, $ev_edad, $ev_fecha, $ev_origen, $ev_contexto, $ev_justificacion, $ev_analisis_jus, $ev_reporte, $ev_verificacion, $db)
+	public function set($us_id, $ser_id, $rie_id, $stev_id, $tpac_id, $cons_id, $ev_rut, $ev_nombre, $ev_edad, $ev_fecha, $ev_origen, $ev_contexto, $ev_justificacion, $ev_analisis_jus, $ev_reporte, $ev_verificacion, $db): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();
@@ -194,7 +173,7 @@ class Evento {
 	 * @param null $db
 	 * @return array
 	 */
-	public function setPath($ev_id, $ev_path, $db = null)
+	public function setPath($ev_id, $ev_path, $db = null): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();
@@ -228,7 +207,7 @@ class Evento {
 	 * @param null $db
 	 * @return array
 	 */
-	public function setPathCaida($ev_id, $ev_path, $db = null)
+	public function setPathCaida($ev_id, $ev_path, $db = null): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();

@@ -10,7 +10,7 @@ class Folder {
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id)
+	public function get($id): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT * FROM uc_folder WHERE fol_id = ?");
@@ -35,10 +35,10 @@ class Folder {
 	/**
 	 * @return array
 	 */
-	public function getAll()
+	public function getAll(): array
 	{
 		$db = new myDBC();
-		$stmt = $db->Prepare("SELECT fol_id FROM uc_folder WHERE fol_publicado = TRUE ORDER BY fol_nombre ASC");
+		$stmt = $db->Prepare("SELECT fol_id FROM uc_folder WHERE fol_publicado = TRUE ORDER BY fol_nombre");
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$lista = array();
@@ -54,7 +54,7 @@ class Folder {
 	/**
 	 * @return array
 	 */
-	public function getMain()
+	public function getMain(): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT * FROM uc_folder WHERE fol_publicado = TRUE AND fol_parent_id IS NULL ORDER BY fol_nombre");
@@ -73,7 +73,7 @@ class Folder {
 	/**
 	 * @return array
 	 */
-	public function getLesser()
+	public function getLesser(): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT * FROM uc_folder WHERE fol_publicado = TRUE AND fol_parent_id IS NOT NULL ORDER BY fol_nombre");
@@ -93,7 +93,7 @@ class Folder {
 	 * @param $id
 	 * @return array
 	 */
-	public function getChildren($id)
+	public function getChildren($id): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT * FROM uc_folder WHERE fol_publicado = TRUE AND fol_parent_id = ? ORDER BY fol_nombre");
@@ -135,13 +135,14 @@ class Folder {
 	 * @param null $db
 	 * @return array
 	 */
-	public function set($fol_nombre, $fol_desc, $menu_id = null, $fol_p = null, $db = null)
+	public function set($fol_nombre, $fol_desc, $menu_id = null, $fol_p = null, $db = null): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();
 		endif;
 
 		try {
+			$_qcol = '';
 			if (is_null($menu_id)):
 				$_qcol = 'fol_parent_id';
 			endif;
@@ -150,7 +151,7 @@ class Folder {
 				$_qcol = 'men_id';
 			endif;
 
-			$stmt = $db->Prepare("INSERT INTO uc_folder (fol_nombre, fol_descripcion, fol_fecha, fol_publicado, " . $_qcol . ") VALUES (?, ?, CURRENT_DATE, TRUE, ?)");
+			$stmt = $db->Prepare("INSERT INTO uc_folder (fol_nombre, fol_descripcion, fol_fecha, fol_publicado, $_qcol) VALUES (?, ?, CURRENT_DATE, TRUE, ?)");
 
 			if (!$stmt):
 				throw new Exception("La inserción del directorio falló en su preparación.");
@@ -189,7 +190,7 @@ class Folder {
 	 * @param null $db
 	 * @return array
 	 */
-	public function mod($id, $fol_nombre, $fol_desc, $fol_publicado, $db = null)
+	public function mod($id, $fol_nombre, $fol_desc, $fol_publicado, $db = null): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();

@@ -10,7 +10,7 @@ class SubPuntoVerificacion {
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id)
+	public function get($id): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT * 
@@ -35,13 +35,13 @@ class SubPuntoVerificacion {
 	/**
 	 * @return array
 	 */
-	public function getAll()
+	public function getAll(): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT spv_id 
 								  FROM uc_subpunto_verif sp
 								  JOIN uc_punto_verificacion v on sp.pv_id = v.pv_id
-								  ORDER BY pv_nombre ASC, spv_nombre ASC");
+								  ORDER BY pv_nombre, spv_nombre");
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$lista = [];
@@ -57,7 +57,7 @@ class SubPuntoVerificacion {
 	/**
 	 * @return int
 	 */
-	public function getNumber()
+	public function getNumber(): int
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT COUNT(spv_id) AS num FROM uc_subpunto_verif");
@@ -75,7 +75,7 @@ class SubPuntoVerificacion {
 	 * @param $pv
 	 * @return array
 	 */
-	public function getByPV($pv)
+	public function getByPV($pv): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT spv_id FROM uc_subpunto_verif spv
@@ -99,7 +99,7 @@ class SubPuntoVerificacion {
 	 * @param $id
 	 * @return array
 	 */
-	public function getByIndicador($id)
+	public function getByIndicador($id): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT DISTINCT(spv_id) FROM uc_indicador i
@@ -125,7 +125,7 @@ class SubPuntoVerificacion {
 	 * @param $id
 	 * @return array
 	 */
-	public function getByFile($id)
+	public function getByFile($id): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT DISTINCT(spv.spv_id) FROM uc_archivo_subpuntoverif a
@@ -151,7 +151,7 @@ class SubPuntoVerificacion {
 	 * @param null $db
 	 * @return array
 	 */
-	public function set($ie, $spv, $db = null)
+	public function set($ie, $spv, $db = null): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();

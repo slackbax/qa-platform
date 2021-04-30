@@ -9,7 +9,7 @@ class TecnoEvento {
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id)
+	public function get($id): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT *
@@ -76,7 +76,7 @@ class TecnoEvento {
 	/**
 	 * @return array
 	 */
-	public function getAll()
+	public function getAll(): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT tec_id FROM uc_tecnoevento");
@@ -96,7 +96,7 @@ class TecnoEvento {
 	 * @param $us
 	 * @return stdClass
 	 */
-	public function getLastByUser($us)
+	public function getLastByUser($us): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT MAX(tec_id) as tec_id FROM uc_tecnoevento WHERE us_id = ?");
@@ -152,7 +152,7 @@ class TecnoEvento {
 	 */
 	public function set($us_id, $ser_id, $cat_id, $tec_fecha, $tec_fecha_ev, $tec_descripcion, $tec_momento, $tec_causa, $tec_consecuencia, $tec_autoriza, $pac_rut, $pac_nombre, $tec_diagnostico, $tec_nombre_gen, $tec_nombre_com,
 						$tec_uso, $tec_riesgo, $tec_lote, $tec_serie, $tec_fecha_fab, $tec_fecha_ven, $tec_condicion, $tec_num_registro, $tec_disponibilidad, $tec_adquisicion, $tec_fnombre, $tec_fpais, $tec_femail, $tec_ftelefono, $tec_rnombre, $tec_rdireccion,
-						$tec_remail, $tec_rtelefono, $tec_imnombre, $tec_imdireccion, $tec_imemail, $tec_imtelefono, $tec_correccion, $db)
+						$tec_remail, $tec_rtelefono, $tec_imnombre, $tec_imdireccion, $tec_imemail, $tec_imtelefono, $tec_correccion, $db): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();
@@ -259,14 +259,14 @@ class TecnoEvento {
 	 */
 	public function mod($id, $us_id, $ser_id, $cat_id, $tec_fecha, $tec_fecha_ev, $tec_descripcion, $tec_momento, $tec_causa, $tec_consecuencia, $tec_autoriza, $pac_rut, $pac_nombre, $tec_diagnostico, $tec_nombre_gen, $tec_nombre_com,
 						$tec_uso, $tec_riesgo, $tec_lote, $tec_serie, $tec_fecha_fab, $tec_fecha_ven, $tec_condicion, $tec_num_registro, $tec_disponibilidad, $tec_adquisicion, $tec_fnombre, $tec_fpais, $tec_femail, $tec_ftelefono, $tec_rnombre, $tec_rdireccion,
-						$tec_remail, $tec_rtelefono, $tec_imnombre, $tec_imdireccion, $tec_imemail, $tec_imtelefono, $tec_correccion, $db)
+						$tec_remail, $tec_rtelefono, $tec_imnombre, $tec_imdireccion, $tec_imemail, $tec_imtelefono, $tec_correccion, $db): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();
 		endif;
 
 		try {
-			$stmt = $db->Prepare("UPDATE uc_tecnoevento SET us_id = ?, ser_id = ?, cat_id = ?, tec_fecha_ev = ?, tec_descripcion = ?, tec_momento = ?, tec_causa = ?, tec_consecuencia = ?, tec_autoriza = ?, tec_pac_rut = ?, tec_pac_nombre = ?,
+			$stmt = $db->Prepare("UPDATE uc_tecnoevento SET us_id = ?, ser_id = ?, cat_id = ?, tec_fecha = ?, tec_fecha_ev = ?, tec_descripcion = ?, tec_momento = ?, tec_causa = ?, tec_consecuencia = ?, tec_autoriza = ?, tec_pac_rut = ?, tec_pac_nombre = ?,
                             			tec_diagnostico = ?, tec_nombre_gen = ?, tec_nombre_com = ?, tec_uso = ?, tec_riesgo = ?, tec_lote = ?, tec_serie = ?, tec_fecha_fab = ?, tec_fecha_ven = ?, tec_condicion = ?, tec_num_registro = ?, 
                           				tec_disponibilidad = ?, tec_adquisicion = ?, tec_fnombre = ?, tec_fpais = ?, tec_femail = ?, tec_ftelefono = ?, tec_rnombre = ?, tec_rdireccion = ?, tec_remail = ?, tec_rtelefono = ?,
                           				tec_imnombre = ?, tec_imdireccion = ?, tec_imemail = ?, tec_imtelefono = ?, tec_correccion = ? WHERE tec_id = ?");
@@ -303,7 +303,7 @@ class TecnoEvento {
 			$tec_imemail = $db->clearText(utf8_decode($tec_imemail));
 			$tec_imtelefono = $db->clearText(utf8_decode($tec_imtelefono));
 			$tec_correccion = $db->clearText(utf8_decode($tec_correccion));
-			$bind = $stmt->bind_param("iiisssssisssssssssssssissssssssssssssi", $us_id, $ser_id, $cat_id, $tec_fecha_ev, $tec_descripcion, $tec_momento, $tec_causa, $tec_consecuencia, $tec_autoriza,
+			$bind = $stmt->bind_param("iiissssssisssssssssssssissssssssssssssi", $us_id, $ser_id, $cat_id, $tec_fecha, $tec_fecha_ev, $tec_descripcion, $tec_momento, $tec_causa, $tec_consecuencia, $tec_autoriza,
 				$pac_rut, $pac_nombre, $tec_diagnostico, $tec_nombre_gen, $tec_nombre_com, $tec_uso, $tec_riesgo, $tec_lote, $tec_serie, $tec_fecha_fab, $tec_fecha_ven, $tec_condicion, $tec_num_registro,
 				$tec_disponibilidad, $tec_adquisicion, $tec_fnombre, $tec_fpais, $tec_femail, $tec_ftelefono, $tec_rnombre, $tec_rdireccion, $tec_remail, $tec_rtelefono, $tec_imnombre, $tec_imdireccion, $tec_imemail,
 				$tec_imtelefono, $tec_correccion, $id);

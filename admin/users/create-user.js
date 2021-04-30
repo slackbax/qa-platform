@@ -61,12 +61,17 @@ $(document).ready(function () {
 		type: 'post',
 		dataType: 'json',
 		beforeSubmit: function () {
+			var _checked = ($('input[name="iusergroups[]"]:checked').length > 0);
+
 			if (_vUser && _vEmail) {
 				$('#submitLoader').css('display', 'inline-block');
 				return true;
 			} else {
+				var msg = '';
+				if (!_checked) msg += '<br>Agregue al menos un grupo al usuario.';
+
 				new Noty({
-					text: 'Error al registrar usuario.<br>Por favor corrija los campos marcados con errores',
+					text: 'Error al crear el usuario.<br>' + msg,
 					type: 'error'
 				}).show();
 				return false;

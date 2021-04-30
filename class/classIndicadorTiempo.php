@@ -10,7 +10,7 @@ class IndicadorTiempo {
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id)
+	public function get($id): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT * FROM uc_ind_tiempo
@@ -39,7 +39,7 @@ class IndicadorTiempo {
 	 * @param $year
 	 * @return array
 	 */
-	public function getByIndYear($spv, $year)
+	public function getByIndYear($spv, $year): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT indt_id
@@ -65,7 +65,7 @@ class IndicadorTiempo {
 	 * @param $date
 	 * @return stdClass
 	 */
-	public function getByIndDate($spv, $ind, $date)
+	public function getByIndDate($spv, $ind, $date): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT indt_id
@@ -93,7 +93,7 @@ class IndicadorTiempo {
 	 * @param null $db
 	 * @return array
 	 */
-	public function set($spv, $us, $ine, $fecha, $num, $den, $db = null)
+	public function set($spv, $us, $ine, $fecha, $num, $den, $db = null): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();
@@ -130,7 +130,7 @@ class IndicadorTiempo {
 	 * @param null $db
 	 * @return array
 	 */
-	public function del($id, $db = null)
+	public function del($id, $db = null): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();

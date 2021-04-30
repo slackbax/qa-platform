@@ -10,7 +10,7 @@ class Ambito {
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id)
+	public function get($id): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT * FROM uc_ambito WHERE amb_id = ?");
@@ -30,7 +30,7 @@ class Ambito {
 	/**
 	 * @return array
 	 */
-	public function getAll()
+	public function getAll(): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT amb_id FROM uc_ambito");
@@ -49,7 +49,7 @@ class Ambito {
 	/**
 	 * @return array
 	 */
-	public function getClinicos()
+	public function getClinicos(): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT amb_id FROM uc_ambito WHERE amb_id < 9");
@@ -68,7 +68,7 @@ class Ambito {
 	/**
 	 * @return array
 	 */
-	public function getApoyo()
+	public function getApoyo(): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT amb_id FROM uc_ambito WHERE amb_id = 9");
@@ -107,7 +107,7 @@ class Ambito {
 	 * @param $id
 	 * @return array
 	 */
-	public function getChildren($id)
+	public function getChildren($id): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT * FROM uc_subambito WHERE amb_id = ?");

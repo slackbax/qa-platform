@@ -10,7 +10,7 @@ class Profile {
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id)
+	public function get($id): stdClass
 	{
 		$db = new myDBC();
 		$result = $db->runQuery("SELECT * FROM uc_perfil WHERE perf_id = '$id'");
@@ -27,7 +27,7 @@ class Profile {
 	/**
 	 * @return array
 	 */
-	public function getAll()
+	public function getAll(): array
 	{
 		$db = new myDBC();
 		$result = $db->runQuery("SELECT perf_id FROM uc_perfil ORDER BY perf_id");

@@ -4,6 +4,7 @@
 <?php $_calidad = false ?>
 <?php $_operador = false ?>
 <?php $_autoeval = false ?>
+<?php $_tecnovi = false ?>
 <?php $_acclaboral = false ?>
 
 <?php require("class/classMyDBC.php") ?>
@@ -37,6 +38,9 @@
 					break;
 				case 5:
 					$_acclaboral = true;
+					break;
+				case 6:
+					$_tecnovi = true;
 					break;
 				default:
 					break;
@@ -420,7 +424,7 @@
 					</li>
 				<?php endif ?>
 
-				<?php if ($_login): ?>
+				<?php if ($_admin or $_calidad or $_tecnovi): ?>
 					<li class="treeview<?php if (isset($section) and $section == 'tec-event'): ?> active<?php endif; ?>">
 						<a href="#">
 							<i class="fa fa-calendar-check-o"></i>

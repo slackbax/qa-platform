@@ -10,7 +10,7 @@ class TipoEvento {
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id)
+	public function get($id): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT * FROM uc_tipo_evento WHERE tev_id = ?");
@@ -30,7 +30,7 @@ class TipoEvento {
 	/**
 	 * @return array
 	 */
-	public function getAll()
+	public function getAll(): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT tev_id FROM uc_tipo_evento");

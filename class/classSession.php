@@ -10,7 +10,7 @@ class Session {
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id)
+	public function get($id): stdClass
 	{
 		$db = new myDBC();
 		$result = $db->runQuery("SELECT * FROM uc_sesion WHERE ses_id = '$id'");
@@ -31,7 +31,7 @@ class Session {
 	 * @param $ip
 	 * @return bool
 	 */
-	public function set($user, $ip)
+	public function set($user, $ip): bool
 	{
 		$db = new myDBC();
 		$result = $db->runQuery("INSERT INTO uc_sesion (us_id, ses_ip) VALUES ('" . $user . "', '" . $ip . "')");

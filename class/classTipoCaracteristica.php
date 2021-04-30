@@ -10,7 +10,7 @@ class TipoCaracteristica {
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id)
+	public function get($id): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT * FROM uc_tipo_caracteristica WHERE tcar_id = ?");
@@ -30,7 +30,7 @@ class TipoCaracteristica {
 	/**
 	 * @return array
 	 */
-	public function getAll()
+	public function getAll(): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT tcar_id FROM uc_tipo_caracteristica");
@@ -50,7 +50,7 @@ class TipoCaracteristica {
 	 * @param $id
 	 * @return array
 	 */
-	public function getBySubAmb($id)
+	public function getBySubAmb($id): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT DISTINCT(i.tcar_id) FROM uc_indicador i

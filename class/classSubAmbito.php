@@ -10,7 +10,7 @@ class SubAmbito {
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id)
+	public function get($id): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT * FROM uc_subambito WHERE samb_id = ?");
@@ -32,7 +32,7 @@ class SubAmbito {
 	 * @param $id
 	 * @return array
 	 */
-	public function getByAmbito($id)
+	public function getByAmbito($id): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT samb_id FROM uc_subambito WHERE amb_id = ?");

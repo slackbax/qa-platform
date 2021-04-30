@@ -10,7 +10,7 @@ class Consecuencia {
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id)
+	public function get($id): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT * FROM uc_consecuencia WHERE cons_id = ?");
@@ -30,7 +30,7 @@ class Consecuencia {
 	/**
 	 * @return array
 	 */
-	public function getAll()
+	public function getAll(): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT cons_id FROM uc_consecuencia ORDER BY cons_descripcion");

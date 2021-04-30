@@ -10,7 +10,7 @@ class Servicio {
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id)
+	public function get($id): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT * FROM uc_servicio WHERE ser_id = ?");
@@ -30,7 +30,7 @@ class Servicio {
 	/**
 	 * @return array
 	 */
-	public function getAll()
+	public function getAll(): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT ser_id FROM uc_servicio WHERE ser_activo IS TRUE ORDER BY ser_nombre");

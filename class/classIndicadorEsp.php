@@ -10,7 +10,7 @@ class IndicadorEsp {
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id)
+	public function get($id): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT *
@@ -61,7 +61,7 @@ class IndicadorEsp {
 	 * @param $pv
 	 * @return array
 	 */
-	public function getByPV($pv)
+	public function getByPV($pv): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT ie.ine_id
@@ -99,7 +99,7 @@ class IndicadorEsp {
 	 * @param $db
 	 * @return array
 	 */
-	public function set($ind, $pe, $elm, $nombre, $desc, $metodo, $num, $den, $umbral, $db = null)
+	public function set($ind, $pe, $elm, $nombre, $desc, $metodo, $num, $den, $umbral, $db = null): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();
@@ -149,7 +149,7 @@ class IndicadorEsp {
 	 * @param $db
 	 * @return array
 	 */
-	public function mod($ine, $ind, $pe, $elm, $nombre, $desc, $metodo, $num, $den, $umbral, $db = null)
+	public function mod($ine, $ind, $pe, $elm, $nombre, $desc, $metodo, $num, $den, $umbral, $db = null): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();

@@ -9,7 +9,7 @@ class Accidente {
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id)
+	public function get($id): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT *
@@ -66,7 +66,7 @@ class Accidente {
 	/**
 	 * @return array
 	 */
-	public function getAll()
+	public function getAll(): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT acl_id FROM uc_acc_laboral");
@@ -109,7 +109,7 @@ class Accidente {
 	 * @param $db
 	 * @return array
 	 */
-	public function set($ser, $us, $us_mod, $esta, $fecha, $fecha_acc, $nombres, $ap, $am, $lugar, $desc, $vacuna, $tiempo, $ficha, $medico, $fuente, $aviso, $diat, $seguim, $aten, $serol, $trat, $prot, $db)
+	public function set($ser, $us, $us_mod, $esta, $fecha, $fecha_acc, $nombres, $ap, $am, $lugar, $desc, $vacuna, $tiempo, $ficha, $medico, $fuente, $aviso, $diat, $seguim, $aten, $serol, $trat, $prot, $db): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();
@@ -135,7 +135,7 @@ class Accidente {
 			$ficha = $db->clearText(utf8_decode($ficha));
 			$medico = $db->clearText(utf8_decode($medico));
 			$bind = $stmt->bind_param("iiiisssssssisssiiisissi", $ser, $us, $us_mod, $esta, $fecha, $fecha_acc, $nombres, $ap, $am, $lugar, $desc, $vacuna,
-												$tiempo, $ficha, $medico, $fuente, $aviso, $diat, $seguim, $aten, $serol, $trat, $prot);
+				$tiempo, $ficha, $medico, $fuente, $aviso, $diat, $seguim, $aten, $serol, $trat, $prot);
 			if (!$bind):
 				throw new Exception("La inserción del accidente falló en su binding.");
 			endif;
@@ -176,7 +176,7 @@ class Accidente {
 	 * @param $db
 	 * @return array
 	 */
-	public function mod($ser, $us_mod, $esta, $fecha, $fecha_acc, $nombres, $ap, $am, $lugar, $desc, $vacuna, $tiempo, $ficha, $medico, $fuente, $aviso, $diat, $seguim, $aten, $serol, $trat, $prot, $db)
+	public function mod($ser, $us_mod, $esta, $fecha, $fecha_acc, $nombres, $ap, $am, $lugar, $desc, $vacuna, $tiempo, $ficha, $medico, $fuente, $aviso, $diat, $seguim, $aten, $serol, $trat, $prot, $db): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();

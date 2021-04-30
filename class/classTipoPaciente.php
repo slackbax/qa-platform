@@ -10,7 +10,7 @@ class TipoPaciente {
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id)
+	public function get($id): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT * FROM uc_tipo_paciente WHERE tpac_id = ?");
@@ -30,7 +30,7 @@ class TipoPaciente {
 	/**
 	 * @return array
 	 */
-	public function getAll()
+	public function getAll(): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT tpac_id FROM uc_tipo_paciente");

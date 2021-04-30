@@ -9,7 +9,7 @@ class Estamento {
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id)
+	public function get($id): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT * FROM uc_estamento WHERE esta_id = ?");
@@ -29,7 +29,7 @@ class Estamento {
 	/**
 	 * @return array
 	 */
-	public function getAll()
+	public function getAll(): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT esta_id FROM uc_estamento ORDER BY esta_descripcion");

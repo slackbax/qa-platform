@@ -10,7 +10,7 @@ class Aclaratoria {
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id)
+	public function get($id): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT * 
@@ -40,7 +40,7 @@ class Aclaratoria {
 	 * @param $ind
 	 * @return array
 	 */
-	public function getByIndicador($ind)
+	public function getByIndicador($ind): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT * 
@@ -71,7 +71,7 @@ class Aclaratoria {
 	 * @param $db
 	 * @return array
 	 */
-	public function set($ind, $fecha, $res, $num, $resumen, $desc, $db = null)
+	public function set($ind, $fecha, $res, $num, $resumen, $desc, $db = null): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();
@@ -99,11 +99,9 @@ class Aclaratoria {
 				throw new Exception("La inserción de la aclaratoria falló en su ejecución.");
 			endif;
 
-			$result = array('estado' => true, 'msg' => $stmt->insert_id);
-			return $result;
+			return array('estado' => true, 'msg' => $stmt->insert_id);
 		} catch (Exception $e) {
-			$result = array('estado' => false, 'msg' => $e->getMessage());
-			return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
 		}
 	}
 
@@ -118,7 +116,7 @@ class Aclaratoria {
 	 * @param $db
 	 * @return array
 	 */
-	public function mod($acl, $ind, $fecha, $res, $num, $resumen, $desc, $db = null)
+	public function mod($acl, $ind, $fecha, $res, $num, $resumen, $desc, $db = null): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();
@@ -148,11 +146,9 @@ class Aclaratoria {
 				throw new Exception("La edición de la aclaratoria falló en su ejecución.");
 			endif;
 
-			$result = array('estado' => true, 'msg' => $stmt->insert_id);
-			return $result;
+			return array('estado' => true, 'msg' => $stmt->insert_id);
 		} catch (Exception $e) {
-			$result = array('estado' => false, 'msg' => $e->getMessage());
-			return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
 		}
 	}
 }

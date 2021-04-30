@@ -10,7 +10,7 @@ class SubtipoEvento {
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id)
+	public function get($id): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT * FROM uc_subtipo_evento se
@@ -35,7 +35,7 @@ class SubtipoEvento {
 	/**
 	 * @return array
 	 */
-	public function getAll()
+	public function getAll(): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT stev_id FROM uc_subtipo_evento");
@@ -55,7 +55,7 @@ class SubtipoEvento {
 	 * @param $id
 	 * @return array
 	 */
-	public function getByTipo($id)
+	public function getByTipo($id): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT stev_id FROM uc_subtipo_evento WHERE tev_id = ?");

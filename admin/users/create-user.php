@@ -79,7 +79,7 @@
                     <?php foreach ($group as $g): ?>
                     <div class="form-group col-sm-12">
                         <label class="label-checkbox">
-                            <input type="radio" class="minimal" name="iusergroups" id="iusergroups<?php echo $g->gru_id ?>" value="<?php echo $g->gru_id ?>">
+                            <input type="checkbox" class="minimal" name="iusergroups[]" id="iusergroups<?php echo $g->gru_id ?>" value="<?php echo $g->gru_id ?>">
                             <?php echo $g->gru_nombre ?>
                         </label>
                     </div>

@@ -10,7 +10,7 @@ class TipoVerificacion {
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id)
+	public function get($id): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT * FROM uc_tipo_verificacion WHERE tver_id = ?");
@@ -30,7 +30,7 @@ class TipoVerificacion {
 	/**
 	 * @return array
 	 */
-	public function getAll()
+	public function getAll(): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT tver_id FROM uc_tipo_verificacion");

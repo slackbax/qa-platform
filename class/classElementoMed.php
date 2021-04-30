@@ -10,7 +10,7 @@ class ElementoMed {
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id)
+	public function get($id): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT * FROM uc_elem_medible WHERE elm_id = ?");
@@ -32,35 +32,10 @@ class ElementoMed {
 	/**
 	 * @return array
 	 */
-	public function getAll()
+	public function getAll(): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT elm_id FROM uc_elem_medible");
-		$stmt->execute();
-		$result = $stmt->get_result();
-		$lista = [];
-
-		while ($row = $result->fetch_assoc()):
-			$lista[] = $this->get($row['elm_id']);
-		endwhile;
-
-		unset($db);
-		return $lista;
-	}
-
-	/**
-	 * @param $ind
-	 * @return array
-	 */
-	public function getByIndCod($ind)
-	{
-		$db = new myDBC();
-		$stmt = $db->Prepare("SELECT e.elm_id 
-								FROM uc_elem_medible e
-								JOIN uc_indicador u on e.ind_id = u.ind_id
- 								WHERE u.ind_id = ?");
-
-		$stmt->bind_param("i", $ind);
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$lista = [];
@@ -78,7 +53,7 @@ class ElementoMed {
 	 * @param $cod
 	 * @return array
 	 */
-	public function getByInd($samb, $cod)
+	public function getByInd($samb, $cod): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT e.elm_id 
@@ -106,7 +81,7 @@ class ElementoMed {
 	 * @param $db
 	 * @return array
 	 */
-	public function set($ind, $desc, $numero, $db = null)
+	public function set($ind, $desc, $numero, $db = null): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();
@@ -131,11 +106,9 @@ class ElementoMed {
 				throw new Exception("La inserción del elemento falló en su ejecución.");
 			endif;
 
-			$result = array('estado' => true, 'msg' => $stmt->insert_id);
-			return $result;
+			return array('estado' => true, 'msg' => $stmt->insert_id);
 		} catch (Exception $e) {
-			$result = array('estado' => false, 'msg' => $e->getMessage());
-			return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
 		}
 	}
 
@@ -147,7 +120,7 @@ class ElementoMed {
 	 * @param $db
 	 * @return array
 	 */
-	public function mod($elem, $ind, $desc, $numero, $db = null)
+	public function mod($elem, $ind, $desc, $numero, $db = null): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();
@@ -172,11 +145,9 @@ class ElementoMed {
 				throw new Exception("La edición del elemento falló en su ejecución.");
 			endif;
 
-			$result = array('estado' => true, 'msg' => $stmt->insert_id);
-			return $result;
+			return array('estado' => true, 'msg' => $stmt->insert_id);
 		} catch (Exception $e) {
-			$result = array('estado' => false, 'msg' => $e->getMessage());
-			return $result;
+			return array('estado' => false, 'msg' => $e->getMessage());
 		}
 	}
 }

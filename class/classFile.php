@@ -10,7 +10,7 @@ class File {
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id)
+	public function get($id): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT a.*, am.amb_id, i.ind_id, i.ind_descripcion, i.tcar_id, s.samb_id, s.samb_sigla, u.us_username, c.cod_id, c.cod_descripcion FROM uc_archivo a 
@@ -74,7 +74,7 @@ class File {
 	/**
 	 * @return array
 	 */
-	public function getAll()
+	public function getAll(): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT arc_id FROM uc_archivo WHERE arc_publicado = TRUE");
@@ -94,7 +94,7 @@ class File {
 	/**
 	 * @return int
 	 */
-	public function getNumber()
+	public function getNumber(): int
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT COUNT(DISTINCT a.arc_id) AS num 
@@ -109,30 +109,6 @@ class File {
 
 		unset($db);
 		return $row['num'];
-	}
-
-	/**
-	 * @param $pvid
-	 * @return mixed
-	 */
-	public function getNumberByPV($pvid)
-	{
-		$db = new myDBC();
-		$stmt = $db->Prepare("SELECT COUNT(DISTINCT a.arc_id) AS num
-                                FROM uc_archivo a
-								JOIN uc_archivo_subpuntoverif ap ON a.arc_id = ap.arc_id
-								JOIN uc_subpunto_verif usv on ap.spv_id = usv.spv_id
-                                WHERE usv.pv_id = ? AND a.arc_publicado = TRUE");
-
-		$stmt->bind_param("i", $pvid);
-		$stmt->execute();
-		$result = $stmt->get_result();
-
-		$row = $result->fetch_assoc();
-		$num = $row['num'];
-
-		unset($db);
-		return $num;
 	}
 
 	/**
@@ -163,7 +139,7 @@ class File {
 	 * @param $tcar
 	 * @return array
 	 */
-	public function getByCaractSamb($sid, $tcar)
+	public function getByCaractSamb($sid, $tcar): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT a.arc_id FROM uc_archivo a
@@ -188,7 +164,7 @@ class File {
 	 * @param $pvid
 	 * @return array
 	 */
-	public function getByPV($pvid)
+	public function getByPV($pvid): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT a.arc_id FROM uc_archivo a
@@ -213,7 +189,7 @@ class File {
 	 * @param $tcar
 	 * @return array
 	 */
-	public function getByCaractSPV($spvid, $tcar)
+	public function getByCaractSPV($spvid, $tcar): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT a.arc_id FROM uc_archivo a
@@ -238,7 +214,7 @@ class File {
 	/**
 	 * @return array
 	 */
-	public function getTrans()
+	public function getTrans(): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT a.arc_id FROM uc_archivo a
@@ -262,7 +238,7 @@ class File {
 	 * @param $time
 	 * @return array
 	 */
-	public function getExpiring($time)
+	public function getExpiring($time): array
 	{
 		$db = new myDBC();
 
@@ -289,7 +265,7 @@ class File {
 	 * @param $num
 	 * @return array
 	 */
-	public function getLast($num)
+	public function getLast($num): array
 	{
 		$db = new myDBC();
 
@@ -322,7 +298,7 @@ class File {
 	 * @param $db
 	 * @return array
 	 */
-	public function set($ind_id, $user_id, $arc_nombre, $arc_codigo, $arc_edicion, $arc_fecha_crea, $arc_fecha_vig, $db = null)
+	public function set($ind_id, $user_id, $arc_nombre, $arc_codigo, $arc_edicion, $arc_fecha_crea, $arc_fecha_vig, $db = null): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();
@@ -358,45 +334,11 @@ class File {
 
 	/**
 	 * @param $arc_id
-	 * @param $pv_id
-	 * @param $db
-	 * @return array
-	 */
-	public function setFilePV($arc_id, $pv_id, $db = null)
-	{
-		if (is_null($db)):
-			$db = new myDBC();
-		endif;
-
-		try {
-			$stmt = $db->Prepare("INSERT INTO uc_archivo_puntoverif (pv_id, arc_id) VALUES (?, ?)");
-
-			if (!$stmt):
-				throw new Exception("La inserción del documento-pv falló en su preparación.");
-			endif;
-
-			$bind = $stmt->bind_param("ii", $pv_id, $arc_id);
-			if (!$bind):
-				throw new Exception("La inserción del documento-pv falló en su binding.");
-			endif;
-
-			if (!$stmt->execute()):
-				throw new Exception("La inserción del documento-pv falló en su ejecución." . $stmt->error);
-			endif;
-
-			return array('estado' => true, 'msg' => $stmt->insert_id);
-		} catch (Exception $e) {
-			return array('estado' => false, 'msg' => $e->getMessage());
-		}
-	}
-
-	/**
-	 * @param $arc_id
 	 * @param $spv_id
 	 * @param null $db
 	 * @return array
 	 */
-	public function setFileSpv($arc_id, $spv_id, $db = null)
+	public function setFileSpv($arc_id, $spv_id, $db = null): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();
@@ -430,7 +372,7 @@ class File {
 	 * @param $db
 	 * @return array
 	 */
-	public function setPath($arc_id, $arc_path, $db = null)
+	public function setPath($arc_id, $arc_path, $db = null): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();
@@ -462,7 +404,7 @@ class File {
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function setCounter($id)
+	public function setCounter($id): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT arc_descargas AS num, arc_path AS path FROM uc_archivo WHERE arc_id = ?");
@@ -497,7 +439,7 @@ class File {
 	 * @param $db
 	 * @return array
 	 */
-	public function mod($id, $ind_id, $user_id, $arc_nombre, $arc_codigo, $arc_edicion, $arc_fecha_crea, $arc_fecha_vig, $db = null)
+	public function mod($id, $ind_id, $user_id, $arc_nombre, $arc_codigo, $arc_edicion, $arc_fecha_crea, $arc_fecha_vig, $db = null): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();
@@ -538,7 +480,7 @@ class File {
 	 * @param $db
 	 * @return array
 	 */
-	public function delFileSpv($arc_id, $db = null)
+	public function delFileSpv($arc_id, $db = null): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();
@@ -572,7 +514,7 @@ class File {
 	 * @param $db
 	 * @return array
 	 */
-	public function del($id, $folder, $db = null)
+	public function del($id, $folder, $db = null): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();

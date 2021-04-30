@@ -74,7 +74,7 @@
                     <div class="form-group col-sm-12">
                         <label for="iuserimage">Imagen de Cuenta</label>
                         <div class="controls">
-                            <img src="dist/img/<?php echo $u->us_pic ?>" width="100" height="100"><br><br>
+                            <img src="dist/img/<?php echo $u->us_pic ?>" width="100" height="100" alt="imagen de usuario"><br><br>
                             <input name="iuserimage[]" class="multi" id="iuserimage" type="file" size="16" accept="gif|jpg|png|jpeg" maxlength="1">
                             <p class="help-block">Formatos admitidos: GIF, JPG, JPEG, PNG</p>
                         </div>
@@ -91,7 +91,7 @@
                     <?php foreach ($group as $g): ?>
                     <div class="form-group col-sm-12">
                         <label class="label-checkbox">
-                            <input type="radio" class="minimal" name="iusergroups" id="iusergroups<?php echo $g->gru_id ?>" value="<?php echo $g->gru_id ?>"<?php foreach ($u_g as $ug): if ($g->gru_id == $ug): ?> checked<?php endif; endforeach ?>>
+                            <input type="checkbox" class="minimal" name="iusergroups[]" id="iusergroups<?php echo $g->gru_id ?>" value="<?php echo $g->gru_id ?>"<?php foreach ($u_g as $ug): if ($g->gru_id == $ug): ?> checked<?php endif; endforeach ?>>
                             <?php echo $g->gru_nombre ?>
                         </label>
                     </div>

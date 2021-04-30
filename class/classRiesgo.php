@@ -10,7 +10,7 @@ class Riesgo {
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id)
+	public function get($id): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT * FROM uc_riesgo WHERE rie_id = ?");
@@ -30,7 +30,7 @@ class Riesgo {
 	/**
 	 * @return array
 	 */
-	public function getAll()
+	public function getAll(): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT rie_id FROM uc_riesgo");

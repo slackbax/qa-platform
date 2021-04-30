@@ -10,7 +10,7 @@ class Codigo {
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id)
+	public function get($id): stdClass
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT * FROM uc_codigo WHERE cod_id = ?");
@@ -30,7 +30,7 @@ class Codigo {
 	/**
 	 * @return array
 	 */
-	public function getAll()
+	public function getAll(): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT cod_id FROM uc_codigo");
@@ -50,7 +50,7 @@ class Codigo {
 	 * @param $sid
 	 * @return array
 	 */
-	public function getBySa($sid)
+	public function getBySa($sid): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT i.cod_id FROM uc_indicador i
@@ -75,7 +75,7 @@ class Codigo {
 	 * @param $tcid
 	 * @return array
 	 */
-	public function getBySaTc($sid, $tcid)
+	public function getBySaTc($sid, $tcid): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT i.cod_id FROM uc_indicador i

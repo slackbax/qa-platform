@@ -9,8 +9,8 @@ class TecnoDivEvento {
      * @param $id
      * @return stdClass
      */
-    public function get($id)
-    {
+    public function get($id): stdClass
+	{
         $db = new myDBC();
         $stmt = $db->Prepare("SELECT *
                                     FROM uc_tecnoeventodiv e
@@ -67,8 +67,8 @@ class TecnoDivEvento {
     /**
      * @return array
      */
-    public function getAll()
-    {
+    public function getAll(): array
+	{
         $db = new myDBC();
         $stmt = $db->Prepare("SELECT ted_id FROM uc_tecnoeventodiv");
         $stmt->execute();
@@ -87,8 +87,8 @@ class TecnoDivEvento {
      * @param $us
      * @return stdClass
      */
-    public function getLastByUser($us)
-    {
+    public function getLastByUser($us): stdClass
+	{
         $db = new myDBC();
         $stmt = $db->Prepare("SELECT MAX(ted_id) as ted_id FROM uc_tecnoeventodiv WHERE us_id = ?");
         $stmt->bind_param("i", $us);
@@ -136,8 +136,8 @@ class TecnoDivEvento {
      */
     public function set($us_id, $ser_id, $ted_fecha, $ted_fecha_ev, $ted_nombre_gen, $ted_nombre_com, $ted_catalogo, $ted_uso, $ted_uso_otro, $ted_cadena, $ted_temperatura,
                         $ted_lote, $ted_seguridad, $ted_fnombre, $ted_fpais, $ted_imnombre, $ted_impais, $ted_formauso, $ted_fecha_fab, $ted_fecha_ven, $ted_verificacion, $ted_control, $ted_adscrito, $ted_autorizacion, $ted_auto_otro,
-                        $ted_ensayo, $ted_tecnica, $ted_analizador, $ted_descripcion, $ted_investigacion, $ted_reporte, $db)
-    {
+                        $ted_ensayo, $ted_tecnica, $ted_analizador, $ted_descripcion, $ted_investigacion, $ted_reporte, $db): array
+	{
         if (is_null($db)):
             $db = new myDBC();
         endif;

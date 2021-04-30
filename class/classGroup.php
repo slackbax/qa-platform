@@ -10,7 +10,7 @@ class Group {
 	 * @param $id
 	 * @return stdClass
 	 */
-	public function get($id)
+	public function get($id): stdClass
 	{
 		$db = new myDBC();
 		$result = $db->runQuery("SELECT * FROM uc_grupo WHERE gru_id = '$id'");
@@ -27,7 +27,7 @@ class Group {
 	/**
 	 * @return array
 	 */
-	public function getAll()
+	public function getAll(): array
 	{
 		$db = new myDBC();
 		$result = $db->runQuery("SELECT gru_id FROM uc_grupo");
