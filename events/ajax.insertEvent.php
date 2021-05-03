@@ -28,7 +28,7 @@ if (extract($_POST)):
 			throw new Exception('Error al guardar los datos del evento. ' . $ins['msg'], 0);
 		endif;
 
-		$targetPath = '/home/repo_calidad';
+		$targetPath = '/home/hggb/repo_calidad';
 
 		foreach ($_FILES as $aux => $file):
 

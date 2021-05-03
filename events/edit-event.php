@@ -136,7 +136,7 @@
                         <?php $tmp = explode('/', $e->ev_path) ?>
                         <p class="form-control-static">
 							<a href="<?php echo $e->ev_path ?>" target="_blank">
-								<i class="fa fa-file-<?php echo getExtension(pathinfo($e->ev_path, PATHINFO_EXTENSION)) ?>-o text-<?php echo getColorExt(pathinfo($e->ev_path, PATHINFO_EXTENSION)) ?>"></i> <?php echo $tmp[1] ?>
+								<i class="fa fa-file-<?php echo getExtension(pathinfo($e->ev_path, PATHINFO_EXTENSION)) ?>-o text-<?php echo getColorExt(pathinfo($e->ev_path, PATHINFO_EXTENSION)) ?>"></i> <?php echo $tmp[2] ?>
 							</a>
 						</p>
                     </div>

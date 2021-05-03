@@ -27,7 +27,7 @@ if (extract($_POST)):
 			endif;
 		endforeach;
 
-		$targetPath = '/home/repo_calidad';
+		$targetPath = '/home/hggb/repo_calidad';
 
 		foreach ($_FILES as $aux => $file):
 			$tempFile = $file['tmp_name'][0];

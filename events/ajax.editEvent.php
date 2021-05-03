@@ -13,12 +13,20 @@ if (extract($_POST)):
         $db->autoCommit(FALSE);
 
         $event = $ev->get($iid);
-		$targetPath = '/home/repo_calidad';
+		$targetPath = '/home/hggb/repo_calidad';
         
         foreach ($_FILES as $aux => $file):
-            $tempFile = $file['tmp_name'][0];
-            $fileName = removeAccents(str_replace(' ', '_', $file['name'][0]));
-            $targetFile = rtrim($targetPath,'/') . '/' . $fileName;
+			$tempFile = $file['tmp_name'][0];
+			$fileName = removeAccents(str_replace(' ', '_', $file['name'][0]));
+			$targetFile = rtrim($targetPath,'/') . '/' . $fileName;
+
+			$doc_route = '/repo_calidad/' . $fileName;
+			if ($aux == 'idocument'):
+				if (!empty($event->ev_path)) unlink($event->ev_path);
+			endif;
+			if ($aux == 'idocumentcaida'):
+				if (!empty($event->ev_caida_path)) unlink($event->ev_caida_path);
+			endif;
             
             if(!move_uploaded_file($tempFile, $targetFile)):
                 throw new Exception("Error al subir el documento. " . print_r(error_get_last()), 0);
@@ -26,11 +34,9 @@ if (extract($_POST)):
             
             $doc_route = '/repo_calidad/' . $fileName;
             if ($aux == 'idocument'):
-				if (!empty($event->ev_path)) unlink($event->ev_path);
             	$ins_f = $ev->setPath($iid, $doc_route, $db);
             endif;
             if ($aux == 'idocumentcaida'):
-				if (!empty($event->ev_caida_path)) unlink($event->ev_caida_path);
 				$ins_f = $ev->setPathCaida($iid, $doc_route, $db);
             endif;
 
