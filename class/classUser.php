@@ -202,7 +202,6 @@ class User {
 				throw new Exception("La inserción del usuario falló en su ejecución.");
 			endif;
 
-			$stmt->close();
 			return array('estado' => true, 'msg' => $stmt->insert_id);
 		} catch (Exception $e) {
 			return array('estado' => false, 'msg' => $e->getMessage());

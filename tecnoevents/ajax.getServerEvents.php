@@ -20,11 +20,7 @@ $index = 0;
 
 $columns = array(
     array('db' => 'tec_id', 'dt' => $index, 'field' => 'tec_id'),
-    array('db' => 'us_username', 'dt' => ++$index, 'field' => 'us_username',
-        'formatter' => function ($d) {
-            return utf8_encode($d);
-        }
-    ),
+    array('db' => 'us_username', 'dt' => ++$index, 'field' => 'us_username'),
     array('db' => 'tec_fecha', 'dt' => ++$index, 'field' => 'tec_fecha',
         'formatter' => function ($d) {
             return getDateToForm($d);
@@ -37,11 +33,7 @@ $columns = array(
     ),
     array('db' => 'ser_nombre', 'dt' => ++$index, 'field' => 'ser_nombre'),
     array('db' => 'cat_descripcion', 'dt' => ++$index, 'field' => 'cat_descripcion'),
-    array('db' => 'tec_descripcion', 'dt' => ++$index, 'field' => 'tec_descripcion',
-        'formatter' => function ($d) {
-            return utf8_encode($d);
-        }
-    ),
+    array('db' => 'tec_descripcion', 'dt' => ++$index, 'field' => 'tec_descripcion'),
     array('db' => 'tec_momento', 'dt' => ++$index, 'field' => 'tec_momento',
         'formatter' => function ($d) {
             switch ($d):
@@ -54,66 +46,22 @@ $columns = array(
             endswitch;
         }
     ),
-    array('db' => 'tec_causa', 'dt' => ++$index, 'field' => 'tec_causa',
-        'formatter' => function ($d) {
-            return utf8_encode($d);
-        }
-    ),
-    array('db' => 'tec_consecuencia', 'dt' => ++$index, 'field' => 'tec_consecuencia',
-        'formatter' => function ($d) {
-            return utf8_encode($d);
-        }
-    ),
+    array('db' => 'tec_causa', 'dt' => ++$index, 'field' => 'tec_causa'),
+    array('db' => 'tec_consecuencia', 'dt' => ++$index, 'field' => 'tec_consecuencia'),
     array('db' => 'tec_autoriza', 'dt' => ++$index, 'field' => 'tec_autoriza',
         'formatter' => function ($d) {
             return ($d) ? 'SÍ' : 'NO';
         }
     ),
-	array('db' => 'tec_pac_rut', 'dt' => ++$index, 'field' => 'tec_pac_rut',
-		'formatter' => function ($d) {
-			return utf8_encode($d);
-		}
-	),
-    array('db' => 'tec_pac_nombre', 'dt' => ++$index, 'field' => 'tec_pac_nombre',
-		'formatter' => function ($d) {
-			return utf8_encode($d);
-		}
-    ),
-    array('db' => 'tec_diagnostico', 'dt' => ++$index, 'field' => 'tec_diagnostico',
-        'formatter' => function ($d) {
-            return utf8_encode($d);
-        }
-    ),
-    array('db' => 'tec_nombre_gen', 'dt' => ++$index, 'field' => 'tec_nombre_gen',
-        'formatter' => function ($d) {
-            return utf8_encode($d);
-        }
-    ),
-    array('db' => 'tec_nombre_com', 'dt' => ++$index, 'field' => 'tec_nombre_com',
-        'formatter' => function ($d) {
-            return utf8_encode($d);
-        }
-    ),
-    array('db' => 'tec_uso', 'dt' => ++$index, 'field' => 'tec_uso',
-        'formatter' => function ($d) {
-            return utf8_encode($d);
-        }
-    ),
-    array('db' => 'tec_riesgo', 'dt' => ++$index, 'field' => 'tec_riesgo',
-        'formatter' => function ($d) {
-            return utf8_encode($d);
-        }
-    ),
-    array('db' => 'tec_lote', 'dt' => ++$index, 'field' => 'tec_lote',
-        'formatter' => function ($d) {
-            return utf8_encode($d);
-        }
-    ),
-    array('db' => 'tec_serie', 'dt' => ++$index, 'field' => 'tec_serie',
-        'formatter' => function ($d) {
-            return utf8_encode($d);
-        }
-    ),
+	array('db' => 'tec_pac_rut', 'dt' => ++$index, 'field' => 'tec_pac_rut'),
+    array('db' => 'tec_pac_nombre', 'dt' => ++$index, 'field' => 'tec_pac_nombre'),
+    array('db' => 'tec_diagnostico', 'dt' => ++$index, 'field' => 'tec_diagnostico'),
+    array('db' => 'tec_nombre_gen', 'dt' => ++$index, 'field' => 'tec_nombre_gen'),
+    array('db' => 'tec_nombre_com', 'dt' => ++$index, 'field' => 'tec_nombre_com'),
+    array('db' => 'tec_uso', 'dt' => ++$index, 'field' => 'tec_uso'),
+    array('db' => 'tec_riesgo', 'dt' => ++$index, 'field' => 'tec_riesgo'),
+    array('db' => 'tec_lote', 'dt' => ++$index, 'field' => 'tec_lote'),
+    array('db' => 'tec_serie', 'dt' => ++$index, 'field' => 'tec_serie'),
     array('db' => 'tec_fecha_fab', 'dt' => ++$index, 'field' => 'tec_fecha_fab',
         'formatter' => function ($d) {
             return getDateToForm($d);
@@ -129,11 +77,7 @@ $columns = array(
             return ($d == 'P') ? 'PRIMER USO' : 'REUTILIZADO';
         }
     ),
-    array('db' => 'tec_num_registro', 'dt' => ++$index, 'field' => 'tec_num_registro',
-        'formatter' => function ($d) {
-            return utf8_encode($d);
-        }
-    ),
+    array('db' => 'tec_num_registro', 'dt' => ++$index, 'field' => 'tec_num_registro'),
     array('db' => 'tec_disponibilidad', 'dt' => ++$index, 'field' => 'tec_disponibilidad',
         'formatter' => function ($d) {
             return ($d) ? 'SÍ' : 'NO';
@@ -153,71 +97,19 @@ $columns = array(
             endswitch;
         }
     ),
-    array('db' => 'tec_fnombre', 'dt' => ++$index, 'field' => 'tec_fnombre',
-        'formatter' => function ($d) {
-            return utf8_encode($d);
-        }
-    ),
-    array('db' => 'tec_fpais', 'dt' => ++$index, 'field' => 'tec_fpais',
-        'formatter' => function ($d) {
-            return utf8_encode($d);
-        }
-    ),
-    array('db' => 'tec_femail', 'dt' => ++$index, 'field' => 'tec_femail',
-        'formatter' => function ($d) {
-            return utf8_encode($d);
-        }
-    ),
-    array('db' => 'tec_ftelefono', 'dt' => ++$index, 'field' => 'tec_ftelefono',
-        'formatter' => function ($d) {
-            return utf8_encode($d);
-        }
-    ),
-    array('db' => 'tec_rnombre', 'dt' => ++$index, 'field' => 'tec_rnombre',
-        'formatter' => function ($d) {
-            return utf8_encode($d);
-        }
-    ),
-    array('db' => 'tec_rdireccion', 'dt' => ++$index, 'field' => 'tec_rdireccion',
-        'formatter' => function ($d) {
-            return utf8_encode($d);
-        }
-    ),
-    array('db' => 'tec_remail', 'dt' => ++$index, 'field' => 'tec_remail',
-        'formatter' => function ($d) {
-            return utf8_encode($d);
-        }
-    ),
-    array('db' => 'tec_rtelefono', 'dt' => ++$index, 'field' => 'tec_rtelefono',
-        'formatter' => function ($d) {
-            return utf8_encode($d);
-        }
-    ),
-    array('db' => 'tec_imnombre', 'dt' => ++$index, 'field' => 'tec_imnombre',
-        'formatter' => function ($d) {
-            return utf8_encode($d);
-        }
-    ),
-    array('db' => 'tec_imdireccion', 'dt' => ++$index, 'field' => 'tec_imdireccion',
-        'formatter' => function ($d) {
-            return utf8_encode($d);
-        }
-    ),
-    array('db' => 'tec_imemail', 'dt' => ++$index, 'field' => 'tec_imemail',
-        'formatter' => function ($d) {
-            return utf8_encode($d);
-        }
-    ),
-    array('db' => 'tec_imtelefono', 'dt' => ++$index, 'field' => 'tec_imtelefono',
-        'formatter' => function ($d) {
-            return utf8_encode($d);
-        }
-    ),
-    array('db' => 'tec_correccion', 'dt' => ++$index, 'field' => 'tec_correccion',
-        'formatter' => function ($d) {
-            return utf8_encode($d);
-        }
-    ),
+    array('db' => 'tec_fnombre', 'dt' => ++$index, 'field' => 'tec_fnombre'),
+    array('db' => 'tec_fpais', 'dt' => ++$index, 'field' => 'tec_fpais'),
+    array('db' => 'tec_femail', 'dt' => ++$index, 'field' => 'tec_femail'),
+    array('db' => 'tec_ftelefono', 'dt' => ++$index, 'field' => 'tec_ftelefono'),
+    array('db' => 'tec_rnombre', 'dt' => ++$index, 'field' => 'tec_rnombre'),
+    array('db' => 'tec_rdireccion', 'dt' => ++$index, 'field' => 'tec_rdireccion'),
+    array('db' => 'tec_remail', 'dt' => ++$index, 'field' => 'tec_remail'),
+    array('db' => 'tec_rtelefono', 'dt' => ++$index, 'field' => 'tec_rtelefono'),
+    array('db' => 'tec_imnombre', 'dt' => ++$index, 'field' => 'tec_imnombre'),
+    array('db' => 'tec_imdireccion', 'dt' => ++$index, 'field' => 'tec_imdireccion'),
+    array('db' => 'tec_imemail', 'dt' => ++$index, 'field' => 'tec_imemail'),
+    array('db' => 'tec_imtelefono', 'dt' => ++$index, 'field' => 'tec_imtelefono'),
+    array('db' => 'tec_correccion', 'dt' => ++$index, 'field' => 'tec_correccion'),
     array('db' => 'tec_id', 'dt' => ++$index, 'field' => 'tec_id',
         'formatter' => function ($d) {
             $string = '';

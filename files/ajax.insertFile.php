@@ -34,8 +34,9 @@ if (extract($_POST)):
 			$fileName = date('Ymd') . '_' . removeAccents(str_replace(' ', '_', $file['name'][0]));
 			$targetFile = rtrim($targetPath, '/') . '/' . $fileName;
 
-			if (!move_uploaded_file($tempFile, $targetFile)):
-				throw new Exception("Error al subir el documento. " . print_r(error_get_last()), 0);
+			$file_move = move_uploaded_file($tempFile, $targetFile);
+			if (!$file_move):
+				throw new Exception("Error al subir el documento." . $file["error"][0], 0);
 			endif;
 
 			$doc_route = '/repo_calidad/' . $fileName;

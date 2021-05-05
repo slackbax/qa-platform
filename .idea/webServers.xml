@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="df2d136f-b3c5-458f-a580-e2382fb43409" name="webserver" url="http://hospitalregional.cl/plataforma-calidad">
-        <fileTransfer rootFolder="/var/www/hospitalregional.cl/public_html" accessType="SFTP" host="10.6.9.91" port="22" sshConfigId="ea6f80b0-60ef-43a6-9310-0d53a376ed08" sshConfig="root@10.6.9.91:22 password">
+      <webServer id="df2d136f-b3c5-458f-a580-e2382fb43409" name="webserver" url="http://www.hospitalregional.cl/plataforma-calidad">
+        <fileTransfer rootFolder="/var/www/html/hospitalregional.cl/public_html" accessType="SFTP" host="10.6.9.91" port="22" sshConfigId="ea6f80b0-60ef-43a6-9310-0d53a376ed08" sshConfig="hggb@10.6.9.91:22 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>

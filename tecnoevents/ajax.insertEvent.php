@@ -12,9 +12,9 @@ if (extract($_POST)):
 	$db = new myDBC();
 	$ev = new TecnoEvento();
 	$idate = setDateBD($idate);
-	$idateev = setDateBD($idateev);
-	$idatefab = setDateBD($idatefab);
-	$idatevenc = setDateBD($idatevenc);
+	$idateev = (!empty($idateev)) ? setDateBD($idateev) : NULL;
+	$idatefab = (!empty($idatefab)) ? setDateBD($idatefab) : NULL;
+	$idatevenc = (!empty($idatevenc)) ? setDateBD($idatevenc) : NULL;
 
 	try {
 		$db->autoCommit(FALSE);
