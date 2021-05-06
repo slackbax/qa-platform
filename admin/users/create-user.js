@@ -1,6 +1,6 @@
 $(document).ready(function () {
-	var _vUser = true;
-	var _vEmail = true;
+	let _vUser = true;
+	let _vEmail = true;
 
 	$('#iconUsername').css('display', 'none');
 	$('#submitLoader').css('display', 'none');
@@ -41,7 +41,7 @@ $(document).ready(function () {
 		$('#divEmail').removeClass('has-error').removeClass('has-success');
 		$('#iconEmail').removeClass('fa-remove').removeClass('fa-check');
 
-		var email_reg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+		const email_reg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
 
 		if ($.trim($(this).val()) !== '') {
 			if (!email_reg.test($.trim($(this).val()))) {
@@ -61,13 +61,13 @@ $(document).ready(function () {
 		type: 'post',
 		dataType: 'json',
 		beforeSubmit: function () {
-			var _checked = ($('input[name="iusergroups[]"]:checked').length > 0);
+			const _checked = ($('input[name="iusergroups[]"]:checked').length > 0);
 
 			if (_vUser && _vEmail) {
 				$('#submitLoader').css('display', 'inline-block');
 				return true;
 			} else {
-				var msg = '';
+				let msg = '';
 				if (!_checked) msg += '<br>Agregue al menos un grupo al usuario.';
 
 				new Noty({
@@ -86,8 +86,8 @@ $(document).ready(function () {
 					type: 'success'
 				}).show();
 
-				$('#btnClear').click();
 				$('#formNewUser').clearForm();
+				$('#btnClear').click();
 				$('input:file').MultiFile('reset');
 			} else {
 				if (response.code === 0) {
@@ -115,5 +115,10 @@ $(document).ready(function () {
 		$('#iconEmail').removeClass('fa-remove').removeClass('fa-check');
 		$('#divUsername').removeClass('has-error').removeClass('has-success');
 		$('#iconUsername').removeClass('fa-remove').removeClass('fa-check');
+
+		$('.minimal').each(function () {
+			const id = $(this).attr('id');
+			$('#' + id).iCheck('uncheck');
+		});
 	});
 });
