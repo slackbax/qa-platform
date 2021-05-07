@@ -9,24 +9,6 @@ if (isset($_SESSION['uc_useradmin']) && $_SESSION['uc_useradmin']):
 	$_admin = true;
 endif;
 
-/*
- * DataTables example server-side processing script.
- *
- * Please note that this script is intentionally extremely simply to show how
- * server-side processing can be implemented, and probably shouldn't be used as
- * the basis for a large complex system. It is suitable for simple use cases as
- * for learning.
- *
- * See http://datatables.net/usage/server-side for full details on the server-
- * side processing requirements of DataTables.
- *
- * @license MIT - http://datatables.net/license_mit
- */
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Easy set variables
- */
-
 // DB table to use
 $table = 'uc_acc_laboral';
 
@@ -34,10 +16,6 @@ $table = 'uc_acc_laboral';
 $primaryKey = 'acl_id';
 $index = 0;
 
-// Array of database columns which should be read and sent back to DataTables.
-// The `db` parameter represents the column name in the database, while the `dt`
-// parameter represents the DataTables column identifier. In this case simple
-// indexes
 $columns = array(
 	array('db' => 'acl_id', 'dt' => $index, 'field' => 'acl_id'),
 	array('db' => 'u.us_username', 'dt' => ++$index, 'field' => 'us_username'),
@@ -58,29 +36,29 @@ $columns = array(
 	array('db' => 'acl_am', 'dt' => ++$index, 'field' => 'acl_am'),
 	array('db' => 'acl_vacuna', 'dt' => ++$index, 'field' => 'acl_vacuna',
 		'formatter' => function ($d) {
-			return ($d === 1) ? 'SI' : 'NO';
+			return ($d === '1') ? 'SI' : 'NO';
 		}
 	),
 	array('db' => 'acl_lugar', 'dt' => ++$index, 'field' => 'acl_lugar'),
 	array('db' => 'acl_descripcion', 'dt' => ++$index, 'field' => 'acl_descripcion'),
 	array('db' => 'acl_fuente', 'dt' => ++$index, 'field' => 'acl_fuente',
 		'formatter' => function ($d) {
-			return ($d === 1) ? 'SI' : 'NO';
+			return ($d === '1') ? 'SI' : 'NO';
 		}
 	),
 	array('db' => 'acl_aviso', 'dt' => ++$index, 'field' => 'acl_aviso',
 		'formatter' => function ($d) {
-			return ($d === 1) ? 'SI' : 'NO';
+			return ($d === '1') ? 'SI' : 'NO';
 		}
 	),
 	array('db' => 'acl_diat', 'dt' => ++$index, 'field' => 'acl_diat',
 		'formatter' => function ($d) {
-			return ($d === 1) ? 'SI' : 'NO';
+			return ($d === '1') ? 'SI' : 'NO';
 		}
 	),
 	array('db' => 'acl_protocolo', 'dt' => ++$index, 'field' => 'acl_protocolo',
 		'formatter' => function ($d) {
-			return ($d === 1) ? 'SI' : 'NO';
+			return ($d === '1') ? 'SI' : 'NO';
 		}
 	),
 	array('db' => 'acl_seguimiento', 'dt' => ++$index, 'field' => 'acl_seguimiento',
@@ -97,7 +75,7 @@ $columns = array(
 	),
 	array('db' => 'acl_atencion', 'dt' => ++$index, 'field' => 'acl_atencion',
 		'formatter' => function ($d) {
-			return ($d === 1) ? 'SI' : 'NO';
+			return ($d === '1') ? 'SI' : 'NO';
 		}
 	),
 	array('db' => 'acl_ficha', 'dt' => ++$index, 'field' => 'acl_ficha'),

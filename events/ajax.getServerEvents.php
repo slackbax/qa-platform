@@ -10,24 +10,6 @@ if (isset($_SESSION['uc_useradmin']) && $_SESSION['uc_useradmin']):
     $_admin = true;
 endif;
 
-/*
- * DataTables example server-side processing script.
- *
- * Please note that this script is intentionally extremely simply to show how
- * server-side processing can be implemented, and probably shouldn't be used as
- * the basis for a large complex system. It is suitable for simple use cases as
- * for learning.
- *
- * See http://datatables.net/usage/server-side for full details on the server-
- * side processing requirements of DataTables.
- *
- * @license MIT - http://datatables.net/license_mit
- */
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Easy set variables
- */
-
 // DB table to use
 $table = 'uc_evento';
 
@@ -35,17 +17,9 @@ $table = 'uc_evento';
 $primaryKey = 'ev_id';
 $index = 0;
 
-// Array of database columns which should be read and sent back to DataTables.
-// The `db` parameter represents the column name in the database, while the `dt`
-// parameter represents the DataTables column identifier. In this case simple
-// indexes
 $columns = array(
     array('db' => 'ev_id', 'dt' => $index, 'field' => 'ev_id'),
-    array('db' => 'us_username', 'dt' => ++$index, 'field' => 'us_username',
-        'formatter' => function( $d, $row ) {
-            return utf8_encode($d);
-        }
-    ),
+    array('db' => 'us_username', 'dt' => ++$index, 'field' => 'us_username'),
     array('db' => 'ev_fecha', 'dt' => ++$index, 'field' => 'ev_fecha',
         'formatter' => function( $d ) {
             $tmp = explode(' ', $d);
@@ -58,44 +32,16 @@ $columns = array(
             return $tmp[1];
         }
     ),
-    array('db' => 'ev_rut', 'dt' => ++$index, 'field' => 'ev_rut',
-        'formatter' => function( $d ) {
-            return utf8_encode($d);
-        }
-    ),
+    array('db' => 'ev_rut', 'dt' => ++$index, 'field' => 'ev_rut'),
     array('db' => 'ev_nombre', 'dt' => ++$index, 'field' => 'ev_nombre'),
-    array('db' => 'ev_edad', 'dt' => ++$index, 'field' => 'ev_edad',
-        'formatter' => function( $d ) {
-            return utf8_encode($d);
-        }
-    ),
+    array('db' => 'ev_edad', 'dt' => ++$index, 'field' => 'ev_edad'),
     array('db' => 'ser_nombre', 'dt' => ++$index, 'field' => 'ser_nombre'),
-    array('db' => 'tev_descripcion', 'dt' => ++$index, 'field' => 'tev_descripcion',
-        'formatter' => function( $d ) {
-            return utf8_encode($d);
-        }
-    ),
+    array('db' => 'tev_descripcion', 'dt' => ++$index, 'field' => 'tev_descripcion'),
     array('db' => 'stev_descripcion', 'dt' => ++$index, 'field' => 'stev_descripcion'),
-    array('db' => 'cat_descripcion', 'dt' => ++$index, 'field' => 'cat_descripcion',
-        'formatter' => function( $d ) {
-            return utf8_encode($d);
-        }
-    ),
-    array('db' => 'ev_contexto', 'dt' => ++$index, 'field' => 'ev_contexto',
-        'formatter' => function( $d ) {
-            return utf8_encode($d);
-        }
-    ),
-    array('db' => 'tpac_descripcion', 'dt' => ++$index, 'field' => 'tpac_descripcion',
-        'formatter' => function( $d ) {
-            return utf8_encode($d);
-        }
-    ),
-    array('db' => 'rie_descripcion', 'dt' => ++$index, 'field' => 'rie_descripcion',
-        'formatter' => function( $d ) {
-            return utf8_encode($d);
-        }
-    ),
+    array('db' => 'cat_descripcion', 'dt' => ++$index, 'field' => 'cat_descripcion'),
+    array('db' => 'ev_contexto', 'dt' => ++$index, 'field' => 'ev_contexto'),
+    array('db' => 'tpac_descripcion', 'dt' => ++$index, 'field' => 'tpac_descripcion'),
+    array('db' => 'rie_descripcion', 'dt' => ++$index, 'field' => 'rie_descripcion'),
 	array('db' => 'ev_origen', 'dt' => ++$index, 'field' => 'ev_origen',
 		'formatter' => function( $d ) {
 			return ($d == 'E') ? 'EXTRAHOSPITALARIO' : 'INTRAHOSPITALARIO';
@@ -111,31 +57,11 @@ $columns = array(
             endif;
         }
     ),
-    array('db' => 'tv2.tver_descripcion', 'dt' => ++$index,  'field' => 'tver_descripcion',
-        'formatter' => function( $d ) {
-            return utf8_encode($d);
-        }
-    ),
-    array('db' => 'tv3.tver_descripcion', 'dt' => ++$index, 'field' => 'tver_descripcion',
-        'formatter' => function( $d ) {
-            return utf8_encode($d);
-        }
-    ),
-    array('db' => 'tv4.tver_descripcion', 'dt' => ++$index,  'field' => 'tver_descripcion',
-        'formatter' => function( $d ) {
-            return utf8_encode($d);
-        }
-    ),
-    array('db' => 'tv5.tver_descripcion', 'dt' => ++$index, 'field' => 'tver_descripcion',
-        'formatter' => function( $d ) {
-            return utf8_encode($d);
-        }
-    ),
-	array('db' => 'ev_registro', 'dt' => ++$index, 'field' => 'ev_registro',
-		'formatter' => function( $d ) {
-			return utf8_encode($d);
-		}
-	),
+    array('db' => 'tv2.tver_descripcion', 'dt' => ++$index,  'field' => 'tver_descripcion'),
+    array('db' => 'tv3.tver_descripcion', 'dt' => ++$index, 'field' => 'tver_descripcion'),
+    array('db' => 'tv4.tver_descripcion', 'dt' => ++$index,  'field' => 'tver_descripcion'),
+    array('db' => 'tv5.tver_descripcion', 'dt' => ++$index, 'field' => 'tver_descripcion'),
+	array('db' => 'ev_registro', 'dt' => ++$index, 'field' => 'ev_registro'),
     array('db' => 'ev_id', 'dt' => ++$index, 'field' => 'ev_id',
         'formatter' => function( $d ) {
             $ev = new Evento();

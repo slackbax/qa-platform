@@ -303,7 +303,7 @@
 							<?php $subfol = $fo->getChildren($folder->fol_id) ?>
 							<?php foreach ($subfol as $aux => $sfl): ?>
 								<li <?php if (isset($sfid) and $sfid == $sfl->fol_id): ?> class="active"<?php endif ?>>
-									<?php if ($sfl->fol_privado and (!$_admin and !$_calidad and !$_autoeval)) continue ?>
+									<?php if ($sfl->fol_privado and (!$_admin and !$_calidad and !$_autoeval and !$_tecnovi)) continue ?>
 									<a href="index.php?section=other-files&sfid=<?php echo $sfl->fol_id ?>">
 										<span class="fa fa-circle-o text-orange"></span>
 										<span class="menu-item"><?php echo $sfl->fol_nombre ?></span>
