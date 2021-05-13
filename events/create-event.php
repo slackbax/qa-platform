@@ -61,7 +61,7 @@
 					</div>
 
 					<div class="form-group col-sm-6 col-sm-offset-3 has-feedback" id="gserv">
-						<label class="control-label" for="iNserv">Servicio Clínico *</label>
+						<label class="control-label" for="iNserv">Servicio Clínico de ocurrencia *</label>
 						<select class="form-control" id="iNserv" name="iserv" required>
 							<option value="">Seleccione servicio</option>
 							<?php $sv = new Servicio() ?>
