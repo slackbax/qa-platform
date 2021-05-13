@@ -1,6 +1,6 @@
 $(document).ready(function () {
 	function validateForm() {
-		var validate = true;
+		let validate = true;
 
 		if (n_destinos === 0)
 			validate = false;
@@ -47,17 +47,19 @@ $(document).ready(function () {
 		}
 	}
 
-	var options = {
+	const options = {
 		url: 'admin/files/ajax.editFile.php',
 		type: 'post',
 		dataType: 'json',
 		beforeSubmit: validateForm,
 		success: showResponse
-	}, ArrayDestinos = [], n_destinos = 0, d_spv = 0;
+	};
+	let ArrayDestinos = [], n_destinos = 0, d_spv = 0;
 
 	$('.inpv').each(function () {
 		ArrayDestinos.push($(this).val());
-		d_spv++; n_destinos++;
+		d_spv++;
+		n_destinos++;
 	});
 
 	$('#submitLoader').css('display', 'none');
@@ -97,7 +99,7 @@ $(document).ready(function () {
 	});
 
 	$('#iNname, #iNversion, #iNcode, #iNdate, #iNdatec, #iNambito, #iNsambito, #iNtcar, #iNtcode, #iNpv, #iNspv').change(function () {
-		var idn = $(this).attr('id').split('N');
+		const idn = $(this).attr('id').split('N');
 
 		if ($.trim($(this).val()) !== '') {
 			$('#g' + idn[1]).removeClass('has-error').addClass('has-success');
@@ -224,10 +226,10 @@ $(document).ready(function () {
 	});
 
 	$('#btnAddPoint').click(function () {
-		var pvText = $('#iNpv :selected').text(), spvVal = $('#iNspv').val(), spvText = $('#iNspv :selected').text();
+		const pvText = $('#iNpv :selected').text(), spvVal = $('#iNspv').val(), spvText = $('#iNspv :selected').text();
 
 		if ($.trim(spvVal) !== '') {
-			var chk = false;
+			let chk = false;
 
 			$(ArrayDestinos).each(function (index) {
 				if (ArrayDestinos[index] === spvVal) chk = true;
@@ -236,16 +238,16 @@ $(document).ready(function () {
 			if (!chk) {
 				ArrayDestinos.push(spvVal);
 
-				var $row = $('<div>');
+				const $row = $('<div>');
 				$row.attr('id', 'row' + n_destinos).addClass('row');
 
-				var $pv = $('<div>'), $spv = $('<div>'), $dl = $('<div>');
+				const $pv = $('<div>'), $spv = $('<div>'), $dl = $('<div>');
 				$pv.addClass('form-group col-sm-5');
 				$spv.addClass('form-group col-sm-6');
 				$dl.addClass('form-group col-sm-1 text-center');
 				$row.append('<input type="hidden" name="iispv[]" id="iNispv_' + n_destinos + '" value="' + spvVal + '">');
 
-				var $namePv = $('<p>'), $nameSpv = $('<p>');
+				const $namePv = $('<p>'), $nameSpv = $('<p>');
 				$namePv.addClass('form-control-static').text(pvText);
 				$pv.append($namePv);
 				$nameSpv.addClass('form-control-static').text(spvText);
@@ -272,8 +274,8 @@ $(document).ready(function () {
 
 	$('#divDestiny').on('click', '.btnDel', function () {
 		console.log(ArrayDestinos);
-		var idn = $(this).attr('id').split('_').pop();
-		var valDel = $('#iNispv_' + idn).val();
+		const idn = $(this).attr('id').split('_').pop();
+		const valDel = $('#iNispv_' + idn).val();
 
 		$(ArrayDestinos).each(function (index) {
 			if (ArrayDestinos[index] === valDel)

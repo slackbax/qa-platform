@@ -1,11 +1,11 @@
 $(document).ready(function () {
-    var tableUsr = $("#tfiles").DataTable({
+    const tableUsr = $("#tfiles").DataTable({
         columns: [
-            { "orderable": false, width: "20px", className: "text-center" },
+            {"orderable": false, width: "20px", className: "text-center"},
             null,
-            { className: "text-center" },
-            { className: "text-center" },
-            { "orderable": false, width: "100px", className: "text-center" }],
+            {className: "text-center"},
+            {className: "text-center"},
+            {"orderable": false, width: "100px", className: "text-center"}],
         order: [[1, "asc"]],
         buttons: [{
             extend: 'excel',
@@ -22,8 +22,8 @@ $(document).ready(function () {
     });
 
     $('#tfiles').on('click', '.fileModal', function () {
-        var fid = $(this).attr('id').split("_").pop();
-		$("#f_name").html('<i class="fa fa-spin fa-spinner"></i>');
+        const fid = $(this).attr('id').split("_").pop();
+        $("#f_name").html('<i class="fa fa-spin fa-spinner"></i>');
 		$("#f_char").html('<i class="fa fa-spin fa-spinner"></i>');
 		$("#f_code").html('<i class="fa fa-spin fa-spinner"></i>');
 		$("#f_edition").html('<i class="fa fa-spin fa-spinner"></i>');
@@ -66,7 +66,7 @@ $(document).ready(function () {
     });
 
     $(".btnModal").click(function () {
-        var fid = $(this).data('ident');
+        const fid = $(this).data('ident');
 
         $.ajax({
             url: 'files/ajax.setCounter.php',
@@ -79,7 +79,7 @@ $(document).ready(function () {
     });
 
     $('#tfiles').on('click', '.fileDelete', function () {
-        var uid = $(this).attr('id').split("_").pop();
+        const uid = $(this).attr('id').split("_").pop();
         $(this).parent().parent().addClass('selected');
 
         swal({
