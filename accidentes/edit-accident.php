@@ -32,6 +32,7 @@
 					<div class="form-group col-sm-6 has-feedback" id="gname">
 						<label class="control-label" for="iNname">Nombre *</label>
 						<input type="text" class="form-control" id="iNname" name="iname" placeholder="Ingrese nombre del afectado" maxlength="250" required value="<?php echo $a->acl_nombres ?>">
+						<input type="hidden" id="iNid" name="iid" value="<?php echo $id ?>">
 						<span class="fa form-control-feedback" id="iconname"></span>
 					</div>
 				</div>
@@ -67,6 +68,7 @@
 						<select class="form-control" id="iNvacuna" name="ivacuna">
 							<option value="1"<?php if ($a->acl_vacuna): ?> selected<?php endif ?>>SI</option>
 							<option value="0"<?php if (!$a->acl_vacuna): ?> selected<?php endif ?>>NO</option>
+							<option value=""<?php if (is_null($a->acl_vacuna)): ?> selected<?php endif ?>>N/D</option>
 						</select>
 					</div>
 				</div>
@@ -161,6 +163,7 @@
 						<select class="form-control" id="iNfuente" name="ifuente">
 							<option value="1"<?php if ($a->acl_fuente): ?> selected<?php endif ?>>SI</option>
 							<option value="0"<?php if (!$a->acl_fuente): ?> selected<?php endif ?>>NO</option>
+							<option value=""<?php if (empty($a->acl_fuente)): ?> selected<?php endif ?>>N/D</option>
 						</select>
 					</div>
 
@@ -169,6 +172,7 @@
 						<select class="form-control" id="iNaviso" name="iaviso">
 							<option value="1"<?php if ($a->acl_aviso): ?> selected<?php endif ?>>SI</option>
 							<option value="0"<?php if (!$a->acl_aviso): ?> selected<?php endif ?>>NO</option>
+							<option value=""<?php if (empty($a->acl_aviso)): ?> selected<?php endif ?>>N/D</option>
 						</select>
 					</div>
 
@@ -177,6 +181,7 @@
 						<select class="form-control" id="iNdiat" name="idiat">
 							<option value="1"<?php if ($a->acl_diat): ?> selected<?php endif ?>>SI</option>
 							<option value="0"<?php if (!$a->acl_diat): ?> selected<?php endif ?>>NO</option>
+							<option value=""<?php if (empty($a->acl_diat)): ?> selected<?php endif ?>>N/D</option>
 						</select>
 					</div>
 				</div>
@@ -196,6 +201,7 @@
 						<select class="form-control" id="iNproto" name="iproto">
 							<option value="1"<?php if ($a->acl_protocolo): ?> selected<?php endif ?>>SI</option>
 							<option value="0"<?php if (!$a->acl_protocolo): ?> selected<?php endif ?>>NO</option>
+							<option value=""<?php if (empty($a->acl_protocolo)): ?> selected<?php endif ?>>N/D</option>
 						</select>
 					</div>
 				</div>
@@ -212,6 +218,7 @@
 						<select class="form-control" id="iNurg" name="iurg">
 							<option value="1"<?php if ($a->acl_atencion): ?> selected<?php endif ?>>SI</option>
 							<option value="0"<?php if (!$a->acl_atencion): ?> selected<?php endif ?>>NO</option>
+							<option value=""<?php if (empty($a->acl_atencion)): ?> selected<?php endif ?>>N/D</option>
 						</select>
 					</div>
 

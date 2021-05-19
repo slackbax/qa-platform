@@ -14,8 +14,8 @@ if (extract($_POST)):
 
 	try {
 		$db->autoCommit(FALSE);
-		$ins = $ac->mod($iserv, $_SESSION['uc_userid'], $iestamento, $idate, $idateacc, $iname, $iap, $iam, $ilugar, $idescrip, $ivacuna,
-			$itiempo, $ificha, $imedico, $ifuente, $iaviso, $idiat, $imedper, $iurg, $iserol, $itrat, $iproto, $db);
+		$ins = $ac->mod($iid, $iserv, $_SESSION['uc_userid'], $iestamento, $idate, $idateacc, $iname, $iap, $iam, $ilugar, $idescrip, $ivacuna,
+							$itiempo, $ificha, $imedico, $ifuente, $iaviso, $idiat, $imedper, $iurg, $iserol, $itrat, $iproto, $db);
 
 		if (!$ins['estado']):
 			throw new Exception('Error al guardar los datos del accidente. ' . $ins['msg'], 0);

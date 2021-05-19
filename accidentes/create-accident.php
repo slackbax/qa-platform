@@ -63,6 +63,7 @@
 						<select class="form-control" id="iNvacuna" name="ivacuna">
 							<option value="1">SI</option>
 							<option value="0">NO</option>
+							<option value="">N/D</option>
 						</select>
 					</div>
 				</div>
@@ -150,6 +151,7 @@
 						<select class="form-control" id="iNfuente" name="ifuente">
 							<option value="1">SI</option>
 							<option value="0">NO</option>
+							<option value="">N/D</option>
 						</select>
 					</div>
 
@@ -158,6 +160,7 @@
 						<select class="form-control" id="iNaviso" name="iaviso">
 							<option value="1">SI</option>
 							<option value="0">NO</option>
+							<option value="">N/D</option>
 						</select>
 					</div>
 
@@ -166,6 +169,7 @@
 						<select class="form-control" id="iNdiat" name="idiat">
 							<option value="1">SI</option>
 							<option value="0">NO</option>
+							<option value="">N/D</option>
 						</select>
 					</div>
 				</div>
@@ -185,6 +189,7 @@
 						<select class="form-control" id="iNproto" name="iproto">
 							<option value="1">SI</option>
 							<option value="0">NO</option>
+							<option value="">N/D</option>
 						</select>
 					</div>
 				</div>
@@ -201,6 +206,7 @@
 						<select class="form-control" id="iNurg" name="iurg">
 							<option value="1">SI</option>
 							<option value="0">NO</option>
+							<option value="">N/D</option>
 						</select>
 					</div>
 

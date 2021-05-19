@@ -15,7 +15,7 @@ class Accidente {
 		$stmt = $db->Prepare("SELECT *
                                     FROM uc_acc_laboral a
                                     JOIN uc_usuario u ON a.us_id = u.us_id
-									JOIN uc_usuario um ON a.us_mod_id = u.us_id
+									LEFT JOIN uc_usuario um ON a.us_mod_id = u.us_id
                                     JOIN uc_estamento ue on a.esta_id = ue.esta_id
                                     JOIN uc_servicio s ON a.ser_id = s.ser_id
 									JOIN uc_unidad un on u.un_id = un.un_id
@@ -131,9 +131,18 @@ class Accidente {
 			$am = $db->clearText(utf8_decode($am));
 			$lugar = $db->clearText(utf8_decode($lugar));
 			$desc = $db->clearText(utf8_decode($desc));
+			$vacuna = ($vacuna == '') ? null : $vacuna;
 			$tiempo = $db->clearText(utf8_decode($tiempo));
 			$ficha = $db->clearText(utf8_decode($ficha));
 			$medico = $db->clearText(utf8_decode($medico));
+			$fuente = ($fuente == '') ? null : $fuente;
+			$aviso = ($aviso == '') ? null : $aviso;
+			$diat = ($diat == '') ? null : $diat;
+			$seguim = ($seguim == '') ? null : $seguim;
+			$aten = ($aten == '') ? null : $aten;
+			$serol = ($serol == '') ? null : $serol;
+			$trat = ($trat == '') ? null : $trat;
+			$prot = ($prot == '') ? null : $prot;
 			$bind = $stmt->bind_param("iiiisssssssisssiiisissi", $ser, $us, $us_mod, $esta, $fecha, $fecha_acc, $nombres, $ap, $am, $lugar, $desc, $vacuna,
 				$tiempo, $ficha, $medico, $fuente, $aviso, $diat, $seguim, $aten, $serol, $trat, $prot);
 			if (!$bind):
@@ -151,6 +160,7 @@ class Accidente {
 	}
 
 	/**
+	 * @param $id
 	 * @param $ser
 	 * @param $us_mod
 	 * @param $esta
@@ -176,16 +186,17 @@ class Accidente {
 	 * @param $db
 	 * @return array
 	 */
-	public function mod($ser, $us_mod, $esta, $fecha, $fecha_acc, $nombres, $ap, $am, $lugar, $desc, $vacuna, $tiempo, $ficha, $medico, $fuente, $aviso, $diat, $seguim, $aten, $serol, $trat, $prot, $db): array
+	public function mod($id, $ser, $us_mod, $esta, $fecha, $fecha_acc, $nombres, $ap, $am, $lugar, $desc, $vacuna, $tiempo, $ficha, $medico, $fuente, $aviso, $diat, $seguim, $aten, $serol, $trat, $prot, $db): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();
 		endif;
 
 		try {
-			$stmt = $db->Prepare("INSERT INTO uc_acc_laboral (ser_id, us_mod_id, esta_id, acl_fecha, acl_fecha_acc, acl_nombres, acl_ap, acl_am, acl_lugar, acl_descripcion, acl_vacuna, 
-                            			acl_tiempo_espera, acl_ficha, acl_medico_turno, acl_fuente, acl_aviso, acl_diat, acl_seguimiento, acl_atencion, acl_serologia, acl_tratamiento, acl_protocolo, acl_mod) 
-                                        VALUES (?, ?, ?, ?, ?, UPPER(?), UPPER(?), UPPER(?), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)");
+			$stmt = $db->Prepare("UPDATE uc_acc_laboral SET ser_id = ?, us_mod_id = ?, esta_id = ?, acl_fecha = ?, acl_fecha_acc = ?, acl_nombres = ?, acl_ap = ?, acl_am = ?, acl_lugar = ?, acl_descripcion = ?, acl_vacuna = ?, 
+                            			acl_tiempo_espera = ?, acl_ficha = ?, acl_medico_turno = ?, acl_fuente = ?, acl_aviso = ?, acl_diat = ?, acl_seguimiento = ?, acl_atencion = ?, acl_serologia = ?, acl_tratamiento = ?, 
+                          				acl_protocolo = ?, acl_mod = CURRENT_TIMESTAMP 
+                                        WHERE acl_id = ?");
 
 			if (!$stmt):
 				throw new Exception("La inserción del accidente falló en su preparación.");
@@ -198,11 +209,20 @@ class Accidente {
 			$am = $db->clearText(utf8_decode($am));
 			$lugar = $db->clearText(utf8_decode($lugar));
 			$desc = $db->clearText(utf8_decode($desc));
+			$vacuna = ($vacuna == '') ? null : $vacuna;
 			$tiempo = $db->clearText(utf8_decode($tiempo));
 			$ficha = $db->clearText(utf8_decode($ficha));
 			$medico = $db->clearText(utf8_decode($medico));
-			$bind = $stmt->bind_param("iiisssssssisssiiisissi", $ser, $us_mod, $esta, $fecha, $fecha_acc, $nombres, $ap, $am, $lugar, $desc, $vacuna,
-				$tiempo, $ficha, $medico, $fuente, $aviso, $diat, $seguim, $aten, $serol, $trat, $prot);
+			$fuente = ($fuente == '') ? null : $fuente;
+			$aviso = ($aviso == '') ? null : $aviso;
+			$diat = ($diat == '') ? null : $diat;
+			$seguim = ($seguim == '') ? null : $seguim;
+			$aten = ($aten == '') ? null : $aten;
+			$serol = ($serol == '') ? null : $serol;
+			$trat = ($trat == '') ? null : $trat;
+			$prot = ($prot == '') ? null : $prot;
+			$bind = $stmt->bind_param("iiisssssssssssssssssssi", $ser, $us_mod, $esta, $fecha, $fecha_acc, $nombres, $ap, $am, $lugar, $desc, $vacuna,
+				$tiempo, $ficha, $medico, $fuente, $aviso, $diat, $seguim, $aten, $serol, $trat, $prot, $id);
 			if (!$bind):
 				throw new Exception("La inserción del accidente falló en su binding.");
 			endif;

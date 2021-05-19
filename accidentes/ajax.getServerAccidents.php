@@ -36,46 +36,88 @@ $columns = array(
 	array('db' => 'acl_am', 'dt' => ++$index, 'field' => 'acl_am'),
 	array('db' => 'acl_vacuna', 'dt' => ++$index, 'field' => 'acl_vacuna',
 		'formatter' => function ($d) {
-			return ($d === '1') ? 'SI' : 'NO';
+			switch ($d):
+				case '0':
+					return 'NO';
+				case '1':
+					return 'SI';
+				default:
+					return 'N/D';
+			endswitch;
 		}
 	),
 	array('db' => 'acl_lugar', 'dt' => ++$index, 'field' => 'acl_lugar'),
 	array('db' => 'acl_descripcion', 'dt' => ++$index, 'field' => 'acl_descripcion'),
 	array('db' => 'acl_fuente', 'dt' => ++$index, 'field' => 'acl_fuente',
 		'formatter' => function ($d) {
-			return ($d === '1') ? 'SI' : 'NO';
+			switch ($d):
+				case '0':
+					return 'NO';
+				case '1':
+					return 'SI';
+				default:
+					return 'N/D';
+			endswitch;
 		}
 	),
 	array('db' => 'acl_aviso', 'dt' => ++$index, 'field' => 'acl_aviso',
 		'formatter' => function ($d) {
-			return ($d === '1') ? 'SI' : 'NO';
+			switch ($d):
+				case '0':
+					return 'NO';
+				case '1':
+					return 'SI';
+				default:
+					return 'N/D';
+			endswitch;
 		}
 	),
 	array('db' => 'acl_diat', 'dt' => ++$index, 'field' => 'acl_diat',
 		'formatter' => function ($d) {
-			return ($d === '1') ? 'SI' : 'NO';
+			switch ($d):
+				case '0':
+					return 'NO';
+				case '1':
+					return 'SI';
+				default:
+					return 'N/D';
+			endswitch;
 		}
 	),
 	array('db' => 'acl_protocolo', 'dt' => ++$index, 'field' => 'acl_protocolo',
 		'formatter' => function ($d) {
-			return ($d === '1') ? 'SI' : 'NO';
+			switch ($d):
+				case '0':
+					return 'NO';
+				case '1':
+					return 'SI';
+				default:
+					return 'N/D';
+			endswitch;
 		}
 	),
 	array('db' => 'acl_seguimiento', 'dt' => ++$index, 'field' => 'acl_seguimiento',
 		'formatter' => function ($d) {
 			switch ($d):
-				case 0:
+				case '0':
 					return 'NO';
-				case 1:
+				case '1':
 					return 'SI';
 				default:
-					return 'N/A';
+					return 'N/D';
 			endswitch;
 		}
 	),
 	array('db' => 'acl_atencion', 'dt' => ++$index, 'field' => 'acl_atencion',
 		'formatter' => function ($d) {
-			return ($d === '1') ? 'SI' : 'NO';
+			switch ($d):
+				case '0':
+					return 'NO';
+				case '1':
+					return 'SI';
+				default:
+					return 'N/A';
+			endswitch;
 		}
 	),
 	array('db' => 'acl_ficha', 'dt' => ++$index, 'field' => 'acl_ficha'),
@@ -84,24 +126,24 @@ $columns = array(
 	array('db' => 'acl_serologia', 'dt' => ++$index, 'field' => 'acl_serologia',
 		'formatter' => function ($d) {
 			switch ($d):
-				case 0:
+				case '0':
 					return 'NO';
-				case 1:
+				case '1':
 					return 'SI';
 				default:
-					return 'N/A';
+					return 'N/D';
 			endswitch;
 		}
 	),
 	array('db' => 'acl_tratamiento', 'dt' => ++$index, 'field' => 'acl_tratamiento',
 		'formatter' => function ($d) {
 			switch ($d):
-				case 0:
+				case '0':
 					return 'NO';
-				case 1:
+				case '1':
 					return 'SI';
 				default:
-					return 'N/A';
+					return 'N/D';
 			endswitch;
 		}
 	),
