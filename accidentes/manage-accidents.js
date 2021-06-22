@@ -1,5 +1,5 @@
 $(document).ready(function () {
-	var tableFiles = $("#tfiles").DataTable({
+	const tableFiles = $("#tfiles").DataTable({
 		columns: [
 			{width: "20px"},
 			{width: "60px"},

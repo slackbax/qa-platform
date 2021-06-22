@@ -19,7 +19,7 @@ $index = 0;
 $columns = array(
 	array('db' => 'acl_id', 'dt' => $index, 'field' => 'acl_id'),
 	array('db' => 'u.us_username', 'dt' => ++$index, 'field' => 'us_username'),
-	array('db' => 'us.us_username', 'dt' => ++$index, 'field' => 'us_username'),
+	array('db' => 'us.us_username', 'dt' => ++$index, 'field' => 'user_mod', 'as' => 'user_mod'),
 	array('db' => 'ser_nombre', 'dt' => ++$index, 'field' => 'ser_nombre'),
 	array('db' => 'acl_fecha_acc', 'dt' => ++$index, 'field' => 'acl_fecha_acc',
 		'formatter' => function ($d) {
