@@ -80,7 +80,7 @@ class SubPuntoVerificacion {
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT spv_id FROM uc_subpunto_verif spv
 									JOIN uc_punto_verificacion pv ON spv.pv_id = pv.pv_id
-									WHERE pv.pv_id = ?");
+									WHERE pv.pv_id = ? AND spv_activo IS TRUE");
 
 		$stmt->bind_param("i", $pv);
 		$stmt->execute();

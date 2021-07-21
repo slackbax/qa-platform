@@ -2,12 +2,15 @@
 
 include("../class/classMyDBC.php");
 include("../class/classEvento.php");
+include("../class/classServicio.php");
 include("../src/fn.php");
 session_start();
+
+$ser = new Servicio();
 $_admin = false;
 
-if (isset($_SESSION['uc_useradmin']) && $_SESSION['uc_useradmin']): 
-    $_admin = true;
+if (isset($_SESSION['uc_useradmin']) && $_SESSION['uc_useradmin']):
+	$_admin = true;
 endif;
 
 // DB table to use
@@ -18,68 +21,68 @@ $primaryKey = 'ev_id';
 $index = 0;
 
 $columns = array(
-    array('db' => 'ev_id', 'dt' => $index, 'field' => 'ev_id'),
-    array('db' => 'us_username', 'dt' => ++$index, 'field' => 'us_username'),
-    array('db' => 'ev_fecha', 'dt' => ++$index, 'field' => 'ev_fecha',
-        'formatter' => function( $d ) {
-            $tmp = explode(' ', $d);
-            return getDateToForm($tmp[0]);
-        }
-    ),
-    array('db' => 'ev_fecha', 'dt' => ++$index, 'field' => 'ev_fecha',
-        'formatter' => function( $d ) {
-            $tmp = explode(' ', $d);
-            return $tmp[1];
-        }
-    ),
-    array('db' => 'ev_rut', 'dt' => ++$index, 'field' => 'ev_rut'),
-    array('db' => 'ev_nombre', 'dt' => ++$index, 'field' => 'ev_nombre'),
-    array('db' => 'ev_edad', 'dt' => ++$index, 'field' => 'ev_edad'),
-    array('db' => 'ser_nombre', 'dt' => ++$index, 'field' => 'ser_nombre'),
-    array('db' => 'tev_descripcion', 'dt' => ++$index, 'field' => 'tev_descripcion'),
-    array('db' => 'stev_descripcion', 'dt' => ++$index, 'field' => 'stev_descripcion'),
-    array('db' => 'cat_descripcion', 'dt' => ++$index, 'field' => 'cat_descripcion'),
-    array('db' => 'ev_contexto', 'dt' => ++$index, 'field' => 'ev_contexto'),
-    array('db' => 'tpac_descripcion', 'dt' => ++$index, 'field' => 'tpac_descripcion'),
-    array('db' => 'rie_descripcion', 'dt' => ++$index, 'field' => 'rie_descripcion'),
+	array('db' => 'ev_id', 'dt' => $index, 'field' => 'ev_id'),
+	array('db' => 'us_username', 'dt' => ++$index, 'field' => 'us_username'),
+	array('db' => 'ev_fecha', 'dt' => ++$index, 'field' => 'ev_fecha',
+		'formatter' => function ($d) {
+			$tmp = explode(' ', $d);
+			return getDateToForm($tmp[0]);
+		}
+	),
+	array('db' => 'ev_fecha', 'dt' => ++$index, 'field' => 'ev_fecha',
+		'formatter' => function ($d) {
+			$tmp = explode(' ', $d);
+			return $tmp[1];
+		}
+	),
+	array('db' => 'ev_rut', 'dt' => ++$index, 'field' => 'ev_rut'),
+	array('db' => 'ev_nombre', 'dt' => ++$index, 'field' => 'ev_nombre'),
+	array('db' => 'ev_edad', 'dt' => ++$index, 'field' => 'ev_edad'),
+	array('db' => 'ser_nombre', 'dt' => ++$index, 'field' => 'ser_nombre'),
+	array('db' => 'tev_descripcion', 'dt' => ++$index, 'field' => 'tev_descripcion'),
+	array('db' => 'stev_descripcion', 'dt' => ++$index, 'field' => 'stev_descripcion'),
+	array('db' => 'cat_descripcion', 'dt' => ++$index, 'field' => 'cat_descripcion'),
+	array('db' => 'ev_contexto', 'dt' => ++$index, 'field' => 'ev_contexto'),
+	array('db' => 'tpac_descripcion', 'dt' => ++$index, 'field' => 'tpac_descripcion'),
+	array('db' => 'rie_descripcion', 'dt' => ++$index, 'field' => 'rie_descripcion'),
 	array('db' => 'ev_origen', 'dt' => ++$index, 'field' => 'ev_origen',
-		'formatter' => function( $d ) {
+		'formatter' => function ($d) {
 			return ($d == 'E') ? 'EXTRAHOSPITALARIO' : 'INTRAHOSPITALARIO';
 		}
 	),
-    array('db' => 'cons_descripcion', 'dt' => ++$index, 'field' => 'cons_descripcion'),
-    array('db' => 'ev_caida_path', 'dt' => ++$index, 'field' => 'ev_caida_path',
-        'formatter' => function( $d ) {
-            if ($d == ''):
-                return 'NO';
-            else:
-                return 'SI';
-            endif;
-        }
-    ),
-    array('db' => 'tv2.tver_descripcion', 'dt' => ++$index,  'field' => 'tver_descripcion'),
-    array('db' => 'tv3.tver_descripcion', 'dt' => ++$index, 'field' => 'tver_descripcion'),
-    array('db' => 'tv4.tver_descripcion', 'dt' => ++$index,  'field' => 'tver_descripcion'),
-    array('db' => 'tv5.tver_descripcion', 'dt' => ++$index, 'field' => 'tver_descripcion'),
+	array('db' => 'cons_descripcion', 'dt' => ++$index, 'field' => 'cons_descripcion'),
+	array('db' => 'ev_caida_path', 'dt' => ++$index, 'field' => 'ev_caida_path',
+		'formatter' => function ($d) {
+			if ($d == ''):
+				return 'NO';
+			else:
+				return 'SI';
+			endif;
+		}
+	),
+	array('db' => 'tv2.tver_descripcion', 'dt' => ++$index, 'field' => 'tver_descripcion'),
+	array('db' => 'tv3.tver_descripcion', 'dt' => ++$index, 'field' => 'tver_descripcion'),
+	array('db' => 'tv4.tver_descripcion', 'dt' => ++$index, 'field' => 'tver_descripcion'),
+	array('db' => 'tv5.tver_descripcion', 'dt' => ++$index, 'field' => 'tver_descripcion'),
 	array('db' => 'ev_registro', 'dt' => ++$index, 'field' => 'ev_registro'),
-    array('db' => 'ev_id', 'dt' => ++$index, 'field' => 'ev_id',
-        'formatter' => function( $d ) {
-            $ev = new Evento();
-            $eve = $ev->get($d);
-            $string = '';
-            
-            if ($eve->ev_path != ''):
-                $string .= '<a href="' . $eve->ev_path . '" target="_blank" class="btn btn-xs btn-info" data-tooltip="tooltip" data-placement="top" title="Plan de mejoras"><i class="fa fa-file"></i></a>';
-            endif;
-            
-            if ($eve->ev_caida_path != ''):
-                $string .= ' <a href="' . $eve->ev_caida_path . '" target="_blank" class="btn btn-xs btn-warning" data-tooltip="tooltip" data-placement="top" title="Notificación de caída"><i class="fa fa-file"></i></a>';
-            endif;
-            $string .= ' <a href="index.php?section=adv-event&sbs=editevent&id=' . $d . '" class="btn btn-xs btn-primary" data-tooltip="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil"></i></a>';
+	array('db' => 'ev_id', 'dt' => ++$index, 'field' => 'ev_id',
+		'formatter' => function ($d) {
+			$ev = new Evento();
+			$eve = $ev->get($d);
+			$string = '';
 
-            return $string;
-        }
-    )
+			if ($eve->ev_path != ''):
+				$string .= '<a href="' . $eve->ev_path . '" target="_blank" class="btn btn-xs btn-info" data-tooltip="tooltip" data-placement="top" title="Plan de mejoras"><i class="fa fa-file"></i></a>';
+			endif;
+
+			if ($eve->ev_caida_path != ''):
+				$string .= ' <a href="' . $eve->ev_caida_path . '" target="_blank" class="btn btn-xs btn-warning" data-tooltip="tooltip" data-placement="top" title="Notificación de caída"><i class="fa fa-file"></i></a>';
+			endif;
+			$string .= ' <a href="index.php?section=adv-event&sbs=editevent&id=' . $d . '" class="btn btn-xs btn-primary" data-tooltip="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil"></i></a>';
+
+			return $string;
+		}
+	)
 );
 
 $joinQuery = "FROM uc_evento e";
@@ -98,15 +101,28 @@ $joinQuery .= ' JOIN uc_tipo_verificacion tv5 ON e.ev_verificacion = tv5.tver_id
 
 $extraWhere = '';
 $and = false;
+$multiServ = false;
 
 if (!$_admin):
-    $extraWhere .= ' e.us_id = ' . $_SESSION['uc_userid'];
-	$and = true;
+	$se = $ser->getByUser($_SESSION['uc_userid']);
+	$extraWhere .= '(';
+	foreach ($se as $i => $s):
+		$extraWhere .= 'e.ser_id = ' . $s->ser_id . ' OR ';
+		$multiServ = true;
+		$and = true;
+	endforeach;
+
+	if ($multiServ):
+		$extraWhere = substr($extraWhere, 0, -4);
+		$extraWhere .= ')';
+	else:
+		$extraWhere = substr($extraWhere, 0, -1);
+	endif;
 endif;
 
 if (isset($_GET['period'])):
 	if ($and): $extraWhere .= ' AND '; endif;
-	$extraWhere .= ' ev_fecha BETWEEN "' .$_GET['period'] . '-01-01 00:00:00" AND "' .$_GET['period'] . '-12-31 11:59:59" ';
+	$extraWhere .= ' ev_fecha BETWEEN "' . $_GET['period'] . '-01-01 00:00:00" AND "' . $_GET['period'] . '-12-31 11:59:59" ';
 endif;
 
 $groupBy = "";
@@ -114,10 +130,10 @@ $having = "";
 
 // SQL server connection information
 $sql_details = array(
-    'user' => DB_USER,
-    'pass' => DB_PASSWORD,
-    'db' => DB_DATABASE,
-    'host' => DB_HOST
+	'user' => DB_USER,
+	'pass' => DB_PASSWORD,
+	'db' => DB_DATABASE,
+	'host' => DB_HOST
 );
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -125,8 +141,8 @@ $sql_details = array(
  * server-side, there is no need to edit below this line.
  */
 
-require( '../src/ssp2.class.php' );
+require('../src/ssp2.class.php');
 
 echo json_encode(
-    SSP::simple($_GET, $sql_details, $table, $primaryKey, $columns, $joinQuery, $extraWhere, $groupBy, $having)
+	SSP::simple($_GET, $sql_details, $table, $primaryKey, $columns, $joinQuery, $extraWhere, $groupBy, $having)
 );

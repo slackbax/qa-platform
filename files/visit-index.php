@@ -17,11 +17,11 @@
 		<li <?php if (!isset($pvid) and !isset($spvid) and !isset($tcid)): ?> class="active"<?php endif ?>><?php if (isset($pvid)): ?><a href="index.php?section=verif-points"><?php endif ?>Puntos de Verificación<?php if (isset($pvid)): ?></a><?php endif ?></li>
 		<?php if (isset($pvid)): ?>
 			<?php $pverif = $pv->get($pvid) ?>
-			<li <?php if (isset($pvid) and !isset($spvid) and !isset($tcid)): ?> class="active"<?php endif ?>><?php if (isset($spvid)): ?><a href="index.php?section=verif-points&pvid=<?php echo $pvid ?>"><?php endif ?><?php echo $pverif->pv_nombre ?><?php if (isset($spvid)): ?></a><?php endif ?></li>
+			<li <?php if (!isset($spvid) and !isset($tcid)): ?> class="active"<?php endif ?>><?php if (isset($spvid)): ?><a href="index.php?section=verif-points&pvid=<?php echo $pvid ?>"><?php endif ?><?php echo $pverif->pv_nombre ?><?php if (isset($spvid)): ?></a><?php endif ?></li>
 		<?php endif ?>
 		<?php if (isset($spvid)): ?>
 			<?php $spverif = $spv->get($spvid) ?>
-			<li <?php if (isset($spvid) and !isset($tcid)): ?> class="active"<?php endif ?>><?php if (isset($tcid)): ?><a href="index.php?section=verif-points&pvid=<?php echo $pvid ?>&spvid=<?php echo $spvid ?>"><?php endif ?><?php echo $spverif->spv_nombre ?><?php if (isset($tcid)): ?></a><?php endif ?></li>
+			<li <?php if (!isset($tcid)): ?> class="active"<?php endif ?>><?php if (isset($tcid)): ?><a href="index.php?section=verif-points&pvid=<?php echo $pvid ?>&spvid=<?php echo $spvid ?>"><?php endif ?><?php echo $spverif->spv_nombre ?><?php if (isset($tcid)): ?></a><?php endif ?></li>
 		<?php endif ?>
 		<?php if (isset($tcid)): ?>
 			<?php $tcar = $tc->get($tcid) ?>

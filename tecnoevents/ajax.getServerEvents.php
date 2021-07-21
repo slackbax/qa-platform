@@ -2,8 +2,11 @@
 
 include("../class/classMyDBC.php");
 include("../class/classTecnoEvento.php");
+include("../class/classServicio.php");
 include("../src/fn.php");
 session_start();
+
+$ser = new Servicio();
 $e = new TecnoEvento();
 $_admin = false;
 
@@ -112,10 +115,7 @@ $columns = array(
     array('db' => 'tec_correccion', 'dt' => ++$index, 'field' => 'tec_correccion'),
     array('db' => 'tec_id', 'dt' => ++$index, 'field' => 'tec_id',
         'formatter' => function ($d) {
-            $string = '';
-            $string .= ' <a href="index.php?section=tec-event&sbs=edittecnoevent&id=' . $d . '" class="btn btn-xs btn-primary" data-tooltip="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil"></i></a>';
-
-            return $string;
+			return ' <a href="index.php?section=tec-event&sbs=edittecnoevent&id=' . $d . '" class="btn btn-xs btn-primary" data-tooltip="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil"></i></a>';
         }
     )
 );
@@ -126,9 +126,22 @@ $joinQuery .= ' LEFT JOIN uc_servicio s ON e.ser_id = s.ser_id ';
 $joinQuery .= ' JOIN uc_categoria c ON e.cat_id = c.cat_id ';
 
 $extraWhere = '';
+$multiServ = false;
 
 if (!$_admin):
-    $extraWhere .= 'e.us_id = ' . $_SESSION['uc_userid'];
+	$se = $ser->getByUser($_SESSION['uc_userid']);
+	$extraWhere .= '(';
+	foreach ($se as $i => $s):
+		$extraWhere .= 'e.ser_id = ' . $s->ser_id . ' OR ';
+		$multiServ = true;
+	endforeach;
+
+	if ($multiServ):
+		$extraWhere = substr($extraWhere, 0, -4);
+		$extraWhere .= ')';
+	else:
+		$extraWhere = substr($extraWhere, 0, -1);
+	endif;
 endif;
 
 $groupBy = "";
