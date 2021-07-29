@@ -83,7 +83,6 @@ if (extract($_POST)):
 		$msg .= '<br><br><br>Saludos cordiales,<br><br>Plataforma de Calidad y Seguridad del Paciente';
 
 		$mail = new PHPMailer;
-
 		$mail->IsSMTP();
 		$mail->SMTPDebug = 0;
 		$mail->SMTPAuth = true;
@@ -95,8 +94,8 @@ if (extract($_POST)):
 
 		$mail->SetFrom('soportedesarrollo@ssconcepcion.cl', 'Plataforma Calidad');
 
-		$mail->Subject = "Mensaje desde plataforma calidad";
-		$mail->AltBody = "Para visualizar el mensaje, por favor utilice un visor de correos compatible con HTML!"; // optional, comment out and test
+		$mail->Subject = "Mensaje desde Plataforma de Calidad";
+		$mail->AltBody = "Para visualizar el mensaje, por favor utilice un visor de correos compatible con HTML!";
 
 		if ((int)$istev < 13 or (int)$istev == 15):
 			$mail->MsgHTML(utf8_decode($msg));

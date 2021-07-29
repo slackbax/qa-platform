@@ -54,8 +54,8 @@ if (extract($_POST)):
 		$mail->Username = "ti.hggb@gmail.com";
 		$mail->Password = "svr1504_woot";
 		$mail->SetFrom('soportedesarrollo@ssconcepcion.cl', 'Plataforma Calidad');
-		$mail->Subject = "Mensaje desde plataforma calidad";
-		$mail->AltBody = "Para visualizar el mensaje, por favor utilice un visor de correos compatible con HTML!"; // optional, comment out and test
+		$mail->Subject = "Mensaje desde Plataforma de Calidad";
+		$mail->AltBody = "Para visualizar el mensaje, por favor utilice un visor de correos compatible con HTML!";
 		$mail->MsgHTML(utf8_decode($msg));
 
 		// Testing only
