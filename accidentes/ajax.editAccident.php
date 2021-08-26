@@ -14,7 +14,7 @@ if (extract($_POST)):
 
 	try {
 		$db->autoCommit(FALSE);
-		$ins = $ac->mod($iid, $iserv, $_SESSION['uc_userid'], $iestamento, $idate, $idateacc, $iname, $iap, $iam, $ilugar, $idescrip, $ivacuna,
+		$ins = $ac->mod($iid, $iserv, $_SESSION['uc_userid'], $iestamento, $iprofesion, $idate, $idateacc, $iname, $iap, $iam, $ilugar, $idescrip, $ivacuna,
 							$itiempo, $ificha, $imedico, $ifuente, $iaviso, $idiat, $imedper, $iurg, $iserol, $itrat, $iproto, $db);
 
 		if (!$ins['estado']):

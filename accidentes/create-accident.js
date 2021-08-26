@@ -1,6 +1,6 @@
 $(document).ready(function () {
 	function validateForm() {
-		var datos = true;
+		const datos = true;
 
 		if (datos) {
 			$('#submitLoader').css('display', 'inline-block');
@@ -46,7 +46,7 @@ $(document).ready(function () {
 		}
 	}
 
-	var options = {
+	const options = {
 		url: 'accidentes/ajax.insertAccident.php',
 		type: 'post',
 		dataType: 'json',
@@ -80,7 +80,7 @@ $(document).ready(function () {
 	});
 
 	$('.form-control').change(function () {
-		var idn = $(this).attr('id').split('N').pop();
+		const idn = $(this).attr('id').split('N').pop();
 
 		if ($.trim($(this).val()) !== '') {
 			$('#g' + idn).removeClass('has-error').addClass('has-success');

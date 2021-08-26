@@ -1,6 +1,8 @@
 <?php include("class/classEstamento.php") ?>
+<?php include("class/classProfesion.php") ?>
 <?php include("class/classServicio.php") ?>
 <?php $es = new Estamento() ?>
+<?php $pr = new Profesion() ?>
 <?php $sv = new Servicio() ?>
 
 <section class="content-header">
@@ -58,6 +60,19 @@
 						</select>
 					</div>
 
+					<div class="form-group col-sm-6 has-feedback" id="gprofesion">
+						<label class="control-label" for="iNprofesion">Profesión *</label>
+						<select class="form-control" id="iNprofesion" name="iprofesion" required>
+							<option value="">Seleccione profesion</option>
+							<?php $pro = $pr->getAll() ?>
+							<?php foreach ($pro as $p): ?>
+								<option value="<?php echo $p->pro_id ?>"><?php echo $p->pro_nombre ?></option>
+							<?php endforeach ?>
+						</select>
+					</div>
+				</div>
+
+				<div class="row">
 					<div class="form-group col-sm-3 has-feedback" id="gvacuna">
 						<label class="control-label" for="iNvacuna">Vacuna Hepatitis B</label>
 						<select class="form-control" id="iNvacuna" name="ivacuna">
