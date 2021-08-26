@@ -43,7 +43,7 @@
 
 					<div class="form-group col-sm-6 has-feedback" id="gam">
 						<label class="control-label" for="iNam">Apellido materno *</label>
-						<input type="text" class="form-control" id="iNam" name="iam" placeholder="Ingrese aopellido materno del afectado" maxlength="128" required>
+						<input type="text" class="form-control" id="iNam" name="iam" placeholder="Ingrese apellido materno del afectado" maxlength="128" required>
 						<span class="fa form-control-feedback" id="iconam"></span>
 					</div>
 				</div>
