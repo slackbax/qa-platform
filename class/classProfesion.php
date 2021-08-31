@@ -33,7 +33,7 @@ class Profesion {
 	public function getAll(): array
 	{
 		$db = new myDBC();
-		$stmt = $db->Prepare("SELECT pro_id FROM uc_profesion");
+		$stmt = $db->Prepare("SELECT pro_id FROM uc_profesion ORDER BY pro_nombre");
 
 		$stmt->execute();
 		$result = $stmt->get_result();
