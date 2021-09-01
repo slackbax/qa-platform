@@ -33,7 +33,7 @@ class TipoPaciente {
 	public function getAll(): array
 	{
 		$db = new myDBC();
-		$stmt = $db->Prepare("SELECT tpac_id FROM uc_tipo_paciente");
+		$stmt = $db->Prepare("SELECT tpac_id FROM uc_tipo_paciente WHERE tpac_id <> 4");
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$lista = [];

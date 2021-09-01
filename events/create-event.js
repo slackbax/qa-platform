@@ -1,13 +1,13 @@
 $(document).ready(function () {
 	function validateForm() {
-		var files = true;
-		var datos = true;
-		var fieldValDoc = $("input[name='idocument[]']");
-		var fieldVal = $("input[name='idoccaida[]']");
+		let files = true;
+		let datos = true;
+		const fieldValDoc = $("input[name='idocument[]']");
+		const fieldVal = $("input[name='idoccaida[]']");
 		if (fieldValDoc.length < 2) files = false;
 		if (fieldVal.length < 2 && $('#iNcaida').val() === '1') files = false;
 
-		if ($.trim($('#iNname').val()) === '') {
+		if ($.trim($('#iNname').val()) === '' && !$('#iNbrote').prop('checked')) {
 			datos = false;
 		}
 
@@ -57,7 +57,7 @@ $(document).ready(function () {
 		}
 	}
 
-	var options = {
+	const options = {
 		url: 'events/ajax.insertEvent.php',
 		type: 'post',
 		dataType: 'json',
@@ -66,6 +66,14 @@ $(document).ready(function () {
 	};
 
 	$('#submitLoader').css('display', 'none');
+
+	$('#iNbrote').on('ifChecked', function () {
+		$('#iNrut, #iNname, #iNedad').prop('required', false).prop('readonly', true);
+		$('#iNtpac').prop('required', false).prop('disabled', true);
+	}).on('ifUnchecked', function () {
+		$('#iNrut, #iNname, #iNedad').prop('required', true).prop('readonly', false);
+		$('#iNtpac').prop('required', true).prop('disabled', false);
+	});
 
 	$('#iNrut').blur(function () {
 		$('#grut, #gname').removeClass('has-success has-error');
@@ -120,7 +128,7 @@ $(document).ready(function () {
 	});
 
 	$('.form-control').change(function () {
-		var idn = $(this).attr('id').split('N').pop();
+		const idn = $(this).attr('id').split('N').pop();
 
 		if ($.trim($(this).val()) !== '') {
 			$('#g' + idn).removeClass('has-error').addClass('has-success');

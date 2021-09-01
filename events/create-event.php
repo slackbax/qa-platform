@@ -27,12 +27,21 @@
 
 			<div class="box-body">
 				<div class="row">
+					<div class="form-group col-sm-6">
+						<label class="label-checkbox">
+							<input type="checkbox" class="minimal" name="ibrote" id="iNbrote"> Evento correspondiente a brote epidemiológico o afecta a más de un paciente
+						</label>
+					</div>
+				</div>
+
+				<div class="row">
 					<div class="form-group col-sm-3 has-feedback" id="grut">
 						<label class="control-label" for="iNrut">RUT *</label>
 						<input type="text" class="form-control" id="iNrut" name="irut" placeholder="12345678-9" maxlength="12" required>
 						<span class="fa form-control-feedback" id="iconrut"></span>
 					</div>
 				</div>
+
 				<div class="row">
 					<div class="form-group col-sm-6 has-feedback" id="gname">
 						<label class="control-label" for="iNname">Nombre *</label>
@@ -296,4 +305,4 @@
 	</form>
 </section>
 
-<script src="events/create-event.js?20210305"></script>
+<script src="events/create-event.js?20210901"></script>

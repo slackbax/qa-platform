@@ -19,6 +19,10 @@ if (extract($_POST)):
 	$inocu = (!isset($inocu)) ? 2 : $inocu;
 	$icljus = (!isset($icljus)) ? 2 : $icljus;
 	$imedp = (!isset($imedp)) ? 2 : $imedp;
+	$itpac = (!isset($itpac)) ? 4 : $itpac;
+	$irut = (empty($irut)) ? 'N/A' : $irut;
+	$iname = (empty($iname)) ? 'BROTE EPIDEMIOLOGICO' : $iname;
+	$iedad = (empty($iedad)) ? 0 : $iedad;
 
 	try {
 		$db->autoCommit(FALSE);
@@ -30,7 +34,7 @@ if (extract($_POST)):
 
 		$targetPath = '/home/hggb/repo_calidad';
 
-		foreach ($_FILES as $aux => $file):
+		/*foreach ($_FILES as $aux => $file):
 
 			if ($aux === 'idocument'):
 				$tempFile = $file['tmp_name'][0];
@@ -65,12 +69,12 @@ if (extract($_POST)):
 					throw new Exception('Error al guardar el documento. ' . $ins_f['msg'], 0);
 				endif;
 			endif;
-		endforeach;
+		endforeach;*/
 
 		$db->Commit();
 		$db->autoCommit(TRUE);
 
-		$serv = $se->get($iserv);
+		/*$serv = $se->get($iserv);
 		$eve = $ev->get($ins['msg']);
 		$msg = '<b>ATENCIÓN</b><br>';
 		$msg .= 'Se ha generado un nuevo reporte de evento centinela con los siguientes datos:<br>';
@@ -117,7 +121,7 @@ if (extract($_POST)):
 
 		if (!$mail->send()):
 			throw new Exception('Error al enviar correo de confirmación. ' . $mail->ErrorInfo, 0);
-		endif;
+		endif;*/
 
 		$response = array('type' => true, 'msg' => 'OK');
 		echo json_encode($response);
