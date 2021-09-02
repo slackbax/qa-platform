@@ -34,6 +34,8 @@ $columns = array(
 	array('db' => 'acl_nombres', 'dt' => ++$index, 'field' => 'acl_nombres'),
 	array('db' => 'acl_ap', 'dt' => ++$index, 'field' => 'acl_ap'),
 	array('db' => 'acl_am', 'dt' => ++$index, 'field' => 'acl_am'),
+	array('db' => 'esta_descripcion', 'dt' => ++$index, 'field' => 'esta_descripcion'),
+	array('db' => 'pro_nombre', 'dt' => ++$index, 'field' => 'pro_nombre'),
 	array('db' => 'acl_vacuna', 'dt' => ++$index, 'field' => 'acl_vacuna',
 		'formatter' => function ($d) {
 			switch ($d):
@@ -164,8 +166,9 @@ $joinQuery = "FROM uc_acc_laboral a";
 $joinQuery .= ' JOIN uc_usuario u ON a.us_id = u.us_id';
 $joinQuery .= ' JOIN uc_usuario us ON a.us_mod_id = us.us_id';
 $joinQuery .= ' JOIN uc_servicio s ON a.ser_id = s.ser_id';
-$joinQuery .= ' JOIN uc_estamento ue on a.esta_id = ue.esta_id';
-$joinQuery .= ' JOIN uc_unidad un on u.un_id = un.un_id';
+$joinQuery .= ' JOIN uc_estamento ue ON a.esta_id = ue.esta_id';
+$joinQuery .= ' JOIN uc_unidad un ON u.un_id = un.un_id';
+$joinQuery .= ' LEFT JOIN uc_profesion p ON a.pro_id = p.pro_id';
 
 $extraWhere = "";
 $groupBy = "";

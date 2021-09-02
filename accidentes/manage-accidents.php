@@ -24,6 +24,8 @@
 						<th>Nombres</th>
 						<th>Ap. paterno</th>
 						<th>Ap. materno</th>
+						<th>Estamento</th>
+						<th>Profesión</th>
 						<th>Vacuna hep.</th>
 						<th>Lugar</th>
 						<th>Descripción</th>
