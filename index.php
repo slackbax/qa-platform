@@ -384,7 +384,7 @@
 					</li>
 				<?php endif ?>
 
-				<?php if ($_admin): ?>
+				<?php if ($_login): ?>
 					<li class="treeview<?php if (isset($section) and $section == 'adv-event'): ?> active<?php endif; ?>">
 						<a href="#">
 							<i class="fa fa-calendar-times-o"></i>
