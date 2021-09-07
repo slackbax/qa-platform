@@ -40,59 +40,31 @@ $primaryKey = 'ev_id';
 // indexes
 $columns = array(
 	array('db' => 'ev_id', 'dt' => 0, 'field' => 'ev_id'),
-    array('db' => 'us_username', 'dt' => 1, 'field' => 'us_username',
-        'formatter' => function( $d, $row ) {
-            return utf8_encode($d);
-        }
-    ),
+    array('db' => 'us_username', 'dt' => 1, 'field' => 'us_username'),
     array('db' => 'ev_fecha', 'dt' => 2, 'field' => 'ev_fecha',
-        'formatter' => function( $d, $row ) {
+        'formatter' => function( $d ) {
             $tmp = explode(' ', $d);
             return getDateToForm($tmp[0]);
         }
     ),
     array('db' => 'ev_fecha', 'dt' => 3, 'field' => 'ev_fecha',
-        'formatter' => function( $d, $row ) {
+        'formatter' => function( $d ) {
             $tmp = explode(' ', $d);
             return $tmp[1];
         }
     ),
-    array('db' => 'ev_rut', 'dt' => 4, 'field' => 'ev_rut',
-        'formatter' => function( $d, $row ) {
-            return utf8_encode($d);
-        }
-    ),
+    array('db' => 'ev_rut', 'dt' => 4, 'field' => 'ev_rut'),
     array('db' => 'ev_nombre', 'dt' => 5, 'field' => 'ev_nombre'),
-    array('db' => 'ev_edad', 'dt' => 6, 'field' => 'ev_edad',
-        'formatter' => function( $d, $row ) {
-            return utf8_encode($d);
-        }
-    ),
+    array('db' => 'ev_edad', 'dt' => 6, 'field' => 'ev_edad'),
 	array('db' => 'ser_nombre', 'dt' => 7, 'field' => 'ser_nombre'),
 	array('db' => 'stev_descripcion', 'dt' => 8, 'field' => 'stev_descripcion'),
-    array('db' => 'cat_descripcion', 'dt' => 9, 'field' => 'cat_descripcion',
-        'formatter' => function( $d, $row ) {
-            return utf8_encode($d);
-        }
-    ),
-    array('db' => 'ev_contexto', 'dt' => 10, 'field' => 'ev_contexto',
-        'formatter' => function( $d, $row ) {
-            return utf8_encode($d);
-        }
-    ),
-    array('db' => 'tpac_descripcion', 'dt' => 11, 'field' => 'tpac_descripcion',
-        'formatter' => function( $d, $row ) {
-            return utf8_encode($d);
-        }
-    ),
-    array('db' => 'rie_descripcion', 'dt' => 12, 'field' => 'rie_descripcion',
-        'formatter' => function( $d, $row ) {
-            return utf8_encode($d);
-        }
-    ),
+    array('db' => 'cat_descripcion', 'dt' => 9, 'field' => 'cat_descripcion'),
+    array('db' => 'ev_contexto', 'dt' => 10, 'field' => 'ev_contexto'),
+    array('db' => 'tpac_descripcion', 'dt' => 11, 'field' => 'tpac_descripcion'),
+    array('db' => 'rie_descripcion', 'dt' => 12, 'field' => 'rie_descripcion'),
     array('db' => 'cons_descripcion', 'dt' => 13, 'field' => 'cons_descripcion'),
     array('db' => 'ev_caida_path', 'dt' => 14, 'field' => 'ev_caida_path',
-        'formatter' => function( $d, $row ) {
+        'formatter' => function( $d ) {
             if ($d == ''):
                 return 'NO';
             else:
@@ -100,28 +72,12 @@ $columns = array(
             endif;
         }
     ),
-    array('db' => 'tv2.tver_descripcion', 'dt' => 15,  'field' => 'tver_descripcion',
-        'formatter' => function( $d, $row ) {
-            return utf8_encode($d);
-        }
-    ),
-    array('db' => 'tv3.tver_descripcion', 'dt' => 16, 'field' => 'tver_descripcion',
-        'formatter' => function( $d, $row ) {
-            return utf8_encode($d);
-        }
-    ),
-    array('db' => 'tv4.tver_descripcion', 'dt' => 17,  'field' => 'tver_descripcion',
-        'formatter' => function( $d, $row ) {
-            return utf8_encode($d);
-        }
-    ),
-    array('db' => 'tv5.tver_descripcion', 'dt' => 18, 'field' => 'tver_descripcion',
-        'formatter' => function( $d, $row ) {
-            return utf8_encode($d);
-        }
-    ),
+    array('db' => 'tv2.tver_descripcion', 'dt' => 15,  'field' => 'tver_descripcion'),
+    array('db' => 'tv3.tver_descripcion', 'dt' => 16, 'field' => 'tver_descripcion'),
+    array('db' => 'tv4.tver_descripcion', 'dt' => 17,  'field' => 'tver_descripcion'),
+    array('db' => 'tv5.tver_descripcion', 'dt' => 18, 'field' => 'tver_descripcion'),
     array('db' => 'ev_id', 'dt' => 19, 'field' => 'ev_id',
-        'formatter' => function( $d, $row ) {
+        'formatter' => function( $d ) {
             $ev = new Evento();
             $eve = $ev->get($d);
             $string = '';
@@ -133,6 +89,10 @@ $columns = array(
             if ($eve->ev_caida_path != ''):
                 $string .= ' <a href="' . $eve->ev_caida_path . '" target="_blank" class="btn btn-xs btn-warning" data-tooltip="tooltip" data-placement="top" title="Notificación de caída"><i class="fa fa-file"></i></a>';
             endif;
+
+			if ($eve->ev_brote_path != ''):
+				$string .= ' <a href="' . $eve->ev_brote_path . '" target="_blank" class="btn btn-xs btn-danger" data-tooltip="tooltip" data-placement="top" title="Archivos de brote IAAS"><i class="fa fa-file"></i></a>';
+			endif;
             $string .= ' <a href="index.php?section=adv-event&sbs=editevent&id=' . $d . '" class="btn btn-xs btn-primary" data-tooltip="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil"></i></a>';
 
             return $string;

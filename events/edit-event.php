@@ -156,11 +156,11 @@
                 <?php if (!empty($e->ev_caida_path)): ?>
                 <div class="row">
                     <div class="form-group col-sm-12">
-                        <label class="control-label" for="idocument">Notificación de Caída</label>
+                        <label class="control-label" for="idocumentcaida">Notificación de Caída</label>
                         <?php $tmp = explode('/', $e->ev_caida_path) ?>
                         <p class="form-control-static">
 							<a href="<?php echo $e->ev_path ?>" target="_blank">
-								<i class="fa fa-file-<?php echo getExtension(pathinfo($e->ev_caida_path, PATHINFO_EXTENSION)) ?>-o text-<?php echo getColorExt(pathinfo($e->ev_caida_path, PATHINFO_EXTENSION)) ?>"></i> <?php echo $tmp[1] ?>
+								<i class="fa fa-file-<?php echo getExtension(pathinfo($e->ev_caida_path, PATHINFO_EXTENSION)) ?>-o text-<?php echo getColorExt(pathinfo($e->ev_caida_path, PATHINFO_EXTENSION)) ?>"></i> <?php echo $tmp[2] ?>
 							</a>
 						</p>
                     </div>
@@ -172,6 +172,30 @@
 						<label class="control-label" for="idocumentcaida">Archivo de Notificación de Caída</label>
 						<div class="controls">
 							<input name="idocumentcaida[]" class="multi" id="idocumentcaida" type="file" size="16" accept="pdf|doc|docx|xls|xlsx|rar|zip" maxlength="1">
+							<p class="help-block">Formatos admitidos: pdf, doc, docx, xls, xlsx, rar, zip</p>
+						</div>
+					</div>
+				</div>
+
+				<?php if (!empty($e->ev_brote_path)): ?>
+					<div class="row">
+						<div class="form-group col-sm-12">
+							<label class="control-label" for="idocumentbrote">Archivo de Informe de Brote Epidemiológico para IAAS</label>
+							<?php $tmp = explode('/', $e->ev_brote_path) ?>
+							<p class="form-control-static">
+								<a href="<?php echo $e->ev_brote_path ?>" target="_blank">
+									<i class="fa fa-file-<?php echo getExtension(pathinfo($e->ev_brote_path, PATHINFO_EXTENSION)) ?>-o text-<?php echo getColorExt(pathinfo($e->ev_brote_path, PATHINFO_EXTENSION)) ?>"></i> <?php echo $tmp[2] ?>
+								</a>
+							</p>
+						</div>
+					</div>
+				<?php endif ?>
+
+				<div class="row">
+					<div class="form-group col-sm-12">
+						<label class="control-label" for="idocumentbrote">Archivo de Informe de Brote Epidemiológico para IAAS</label>
+						<div class="controls">
+							<input name="idocumentbrote[]" class="multi" id="idocumentbrote" type="file" size="16" accept="pdf|doc|docx|xls|xlsx|rar|zip" maxlength="1">
 							<p class="help-block">Formatos admitidos: pdf, doc, docx, xls, xlsx, rar, zip</p>
 						</div>
 					</div>

@@ -1,7 +1,7 @@
 $(document).ready(function () {
-	var tableFiles = $("#tfiles").DataTable({
+	const tableFiles = $("#tfiles").DataTable({
 		columns: [
-			{"visible": false},
+			{"width": "20px"},
 			{"width": "50px"},
 			{"width": "50px"},
 			{"visible": false},
@@ -11,7 +11,7 @@ $(document).ready(function () {
 			null,
 			null,
 			{"visible": false},
-            {"width": "120px"},
+			{"width": "120px"},
 			{"visible": false},
 			{"visible": false},
 			{"visible": false},
@@ -24,7 +24,6 @@ $(document).ready(function () {
 			{"visible": false},
 			{"visible": false},
 			{"width": "90px", className: "text-center", "orderable": false}],
-		order: [[2, 'desc'], [3, 'asc']],
 		buttons: [
 			{
 				extend: 'excel',
@@ -41,7 +40,7 @@ $(document).ready(function () {
 			beforeSend: function () {
 				$('#tfiles > tbody').html(
 					'<tr class="odd">' +
-					'<td colspan="9" class="dataTables_empty text-orange"><i class="fa fa-cog fa-spin fa-fw"></i> <em>Cargando data...</em></td>' +
+					'<td colspan="10" class="dataTables_empty text-orange"><i class="fa fa-cog fa-spin fa-fw"></i> <em>Cargando data...</em></td>' +
 					'</tr>'
 				);
 			},

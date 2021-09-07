@@ -69,6 +69,7 @@ class Evento {
 		$obj->ev_ver = $row['ver'];
 		$obj->ev_path = $row['ev_path'];
 		$obj->ev_caida_path = $row['ev_caida_path'];
+		$obj->ev_brote_path = $row['ev_brote_path'];
 
 		unset($db);
 		return $obj;
@@ -227,6 +228,40 @@ class Evento {
 
 			if (!$stmt->execute()):
 				throw new Exception("La inserción del evento-caida-path falló en su ejecución.");
+			endif;
+
+			return array('estado' => true, 'msg' => $ev_id);
+		} catch (Exception $e) {
+			return array('estado' => false, 'msg' => $e->getMessage());
+		}
+	}
+
+	/**
+	 * @param $ev_id
+	 * @param $ev_path
+	 * @param null $db
+	 * @return array
+	 */
+	public function setPathBrote($ev_id, $ev_path, $db = null): array
+	{
+		if (is_null($db)):
+			$db = new myDBC();
+		endif;
+
+		try {
+			$stmt = $db->Prepare("UPDATE uc_evento SET ev_brote_path = ? WHERE ev_id = ?");
+
+			if (!$stmt):
+				throw new Exception("La inserción del evento-brote-path falló en su preparación.");
+			endif;
+
+			$bind = $stmt->bind_param("si", $ev_path, $ev_id);
+			if (!$bind):
+				throw new Exception("La inserción del evento-brote-path falló en su binding.");
+			endif;
+
+			if (!$stmt->execute()):
+				throw new Exception("La inserción del evento-brote-path falló en su ejecución.");
 			endif;
 
 			return array('estado' => true, 'msg' => $ev_id);

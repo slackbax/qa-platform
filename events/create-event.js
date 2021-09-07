@@ -17,7 +17,7 @@ $(document).ready(function () {
 			return true;
 		} else {
 			new Noty({
-				text: 'Error al registrar evento.<br>No deje campos obligatorios en blanco.<br>Revise el nombre del paciente, el archivo de plan de mejora y/o el archivo de informe de caídas.',
+				text: '<b>¡Error!</b><br>No deje campos obligatorios en blanco.<br>Revise el nombre del paciente, el archivo de plan de mejora y/o el archivo de informe de caídas.',
 				type: 'error'
 			}).show();
 			return false;
@@ -70,9 +70,12 @@ $(document).ready(function () {
 	$('#iNbrote').on('ifChecked', function () {
 		$('#iNrut, #iNname, #iNedad').prop('required', false).prop('readonly', true);
 		$('#iNtpac').prop('required', false).prop('disabled', true);
+		$('#div-brote').css('display', 'block');
 	}).on('ifUnchecked', function () {
 		$('#iNrut, #iNname, #iNedad').prop('required', true).prop('readonly', false);
 		$('#iNtpac').prop('required', true).prop('disabled', false);
+		$('#iNdocbrote').MultiFile('reset');
+		$('#div-brote').css('display', 'none');
 	});
 
 	$('#iNrut').blur(function () {
@@ -113,8 +116,7 @@ $(document).ready(function () {
 
 	$(document).on("focusin", "#iNdate", function (event) {
 		$(this).prop('readonly', true);
-	});
-	$(document).on("focusout", "#iNdate", function (event) {
+	}).on("focusout", "#iNdate", function (event) {
 		$(this).prop('readonly', false);
 	});
 

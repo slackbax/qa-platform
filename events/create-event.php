@@ -192,6 +192,17 @@
 							<?php endforeach ?>
 						</select>
 					</div>
+
+					<div class="form-group col-sm-3 has-feedback" id="gcaida">
+						<label class="control-label" for="iNcaida">Notificación de caída *</label>
+						<select class="form-control" id="iNcaida" name="icaida" required>
+							<?php $tv = new TipoVerificacion() ?>
+							<?php $tverif = $tv->getAll() ?>
+							<?php foreach ($tverif as $t): ?>
+								<option value="<?php echo $t->tver_id ?>"<?php if ($t->tver_id == 2): ?> selected<?php endif ?>><?php echo $t->tver_descripcion ?></option>
+							<?php endforeach ?>
+						</select>
+					</div>
 				</div>
 
 				<div class="row">
@@ -265,30 +276,25 @@
 					</div>
 				</div>
 
-				<div class="row">
-					<div class="form-group col-sm-3 has-feedback" id="gcaida">
-						<label class="control-label" for="iNcaida">Notificación de caída *</label>
-						<select class="form-control" id="iNcaida" name="icaida" required>
-							<?php $tv = new TipoVerificacion() ?>
-							<?php $tverif = $tv->getAll() ?>
-							<?php foreach ($tverif as $t): ?>
-								<option value="<?php echo $t->tver_id ?>"<?php if ($t->tver_id == 2): ?> selected<?php endif ?>><?php echo $t->tver_descripcion ?></option>
-							<?php endforeach ?>
-						</select>
+				<div class="row" id="div-caida" style="display: none">
+					<div class="form-group col-sm-6">
+						<label class="control-label" for="iNdoccaida">Archivo de Informe de Caída</label>
+						<div class="controls">
+							<input name="idoccaida[]" class="multi" id="iNdoccaida" type="file" size="16" accept="pdf|doc|docx|xls|xlsx|rar|zip" maxlength="1">
+							<p class="help-block">Formatos admitidos: pdf, doc, docx, xls, xlsx, rar, zip</p>
+						</div>
+					</div>
+					<div class="form-group col-sm-6">
+						<a href="upload/Formato_notificacion_caidas.docx" class="btn btn-info" target="_blank"><span class="fa fa-download"></span> Descargar formato de Informe de Caídas</a>
 					</div>
 				</div>
 
-				<div id="div-caida" style="display: none">
-					<div class="row">
-						<div class="form-group col-sm-6">
-							<label class="control-label" for="iNdoccaida">Archivo de Informe de Caída</label>
-							<div class="controls">
-								<input name="idoccaida[]" class="multi" id="iNdoccaida" type="file" size="16" accept="pdf|doc|docx|xls|xlsx|rar|zip" maxlength="1">
-								<p class="help-block">Formatos admitidos: pdf, doc, docx, xls, xlsx, rar, zip</p>
-							</div>
-						</div>
-						<div class="form-group col-sm-6">
-							<a href="upload/Formato_notificacion_caidas.docx" class="btn btn-info" target="_blank"><span class="fa fa-download"></span> Descargar formato de Informe de Caídas</a>
+				<div class="row" id="div-brote" style="display: none">
+					<div class="form-group col-sm-6">
+						<label class="control-label" for="iNdocbrote">Archivo de Informe de Brote Epidemiológico para IAAS</label>
+						<div class="controls">
+							<input name="idocbrote[]" class="multi" id="iNdocbrote" type="file" size="16" accept="pdf|doc|docx|xls|xlsx|rar|zip" maxlength="1">
+							<p class="help-block">Formatos admitidos: pdf, doc, docx, xls, xlsx, rar, zip</p>
 						</div>
 					</div>
 				</div>

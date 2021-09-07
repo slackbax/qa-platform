@@ -1,6 +1,6 @@
 $(document).ready(function () {
     function validateForm() {
-        var files = false;
+        let files = false;
 
         $('.multi').each( function () {
            if ($(this).val() !== '') {
@@ -57,7 +57,7 @@ $(document).ready(function () {
         }
     }
 
-    var options = {
+    const options = {
         url: 'events/ajax.editEvent.php',
         type: 'post',
         dataType: 'json',

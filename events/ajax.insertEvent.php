@@ -34,7 +34,7 @@ if (extract($_POST)):
 
 		$targetPath = '/home/hggb/repo_calidad';
 
-		/*foreach ($_FILES as $aux => $file):
+		foreach ($_FILES as $aux => $file):
 
 			if ($aux === 'idocument'):
 				$tempFile = $file['tmp_name'][0];
@@ -69,12 +69,29 @@ if (extract($_POST)):
 					throw new Exception('Error al guardar el documento. ' . $ins_f['msg'], 0);
 				endif;
 			endif;
-		endforeach;*/
+
+			if ($aux === 'idocbrote'):
+				$tempFile = $file['tmp_name'][0];
+				$fileName = 'eab' . $ins['msg'] . '_' . date('Ymd') . '_' . removeAccents(str_replace(' ', '_', $file['name'][0]));
+				$targetFile = rtrim($targetPath, '/') . '/' . $fileName;
+
+				if (!move_uploaded_file($tempFile, $targetFile)):
+					throw new Exception("Error al subir el documento. " . print_r(error_get_last()), 0);
+				endif;
+
+				$doc_route = '/repo_calidad/' . $fileName;
+				$ins_f = $ev->setPathBrote($ins['msg'], $doc_route, $db);
+
+				if (!$ins_f['estado']):
+					throw new Exception('Error al guardar el documento. ' . $ins_f['msg'], 0);
+				endif;
+			endif;
+		endforeach;
 
 		$db->Commit();
 		$db->autoCommit(TRUE);
 
-		/*$serv = $se->get($iserv);
+		$serv = $se->get($iserv);
 		$eve = $ev->get($ins['msg']);
 		$msg = '<b>ATENCIÓN</b><br>';
 		$msg .= 'Se ha generado un nuevo reporte de evento centinela con los siguientes datos:<br>';
@@ -121,7 +138,7 @@ if (extract($_POST)):
 
 		if (!$mail->send()):
 			throw new Exception('Error al enviar correo de confirmación. ' . $mail->ErrorInfo, 0);
-		endif;*/
+		endif;
 
 		$response = array('type' => true, 'msg' => 'OK');
 		echo json_encode($response);

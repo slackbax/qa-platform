@@ -78,6 +78,10 @@ $columns = array(
 			if ($eve->ev_caida_path != ''):
 				$string .= ' <a href="' . $eve->ev_caida_path . '" target="_blank" class="btn btn-xs btn-warning" data-tooltip="tooltip" data-placement="top" title="Notificación de caída"><i class="fa fa-file"></i></a>';
 			endif;
+
+			if ($eve->ev_brote_path != ''):
+				$string .= ' <a href="' . $eve->ev_brote_path . '" target="_blank" class="btn btn-xs btn-danger" data-tooltip="tooltip" data-placement="top" title="Archivos de brote IAAS"><i class="fa fa-file"></i></a>';
+			endif;
 			$string .= ' <a href="index.php?section=adv-event&sbs=editevent&id=' . $d . '" class="btn btn-xs btn-primary" data-tooltip="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil"></i></a>';
 
 			return $string;

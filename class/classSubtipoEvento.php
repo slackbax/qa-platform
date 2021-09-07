@@ -58,7 +58,7 @@ class SubtipoEvento {
 	public function getByTipo($id): array
 	{
 		$db = new myDBC();
-		$stmt = $db->Prepare("SELECT stev_id FROM uc_subtipo_evento WHERE tev_id = ?");
+		$stmt = $db->Prepare("SELECT stev_id FROM uc_subtipo_evento WHERE tev_id = ? ORDER BY stev_descripcion");
 		$stmt->bind_param("i", $id);
 		$stmt->execute();
 		$result = $stmt->get_result();
