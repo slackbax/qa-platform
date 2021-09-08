@@ -18,22 +18,17 @@ if (extract($_POST)):
 		foreach ($_FILES as $aux => $file):
 			$tempFile = $file['tmp_name'][0];
 			if ($aux === 'idocument'):
-				$fileName = 'ea' . removeAccents(str_replace(' ', '_', $file['name'][0]));
-			elseif ($aux === 'idocumentcaida'):
-				$fileName = 'eac' . removeAccents(str_replace(' ', '_', $file['name'][0]));
-			else:
-				$fileName = 'eab' . removeAccents(str_replace(' ', '_', $file['name'][0]));
-			endif;
-			$targetFile = rtrim($targetPath, '/') . '/' . $fileName;
-
-			$doc_route = '/repo_calidad/' . $fileName;
-			if ($aux == 'idocument'):
 				if (!empty($event->ev_path)): unlink($event->ev_path); endif;
-			elseif ($aux == 'idocumentcaida'):
+				$fileName = 'ea_' . $iid . '_' . date('Ymd') . '_' . removeAccents(str_replace(' ', '_', $file['name'][0]));
+			elseif ($aux === 'idocumentcaida'):
 				if (!empty($event->ev_caida_path)): unlink($event->ev_caida_path); endif;
+				$fileName = 'eac_' . $iid . '_' . date('Ymd') . '_' . removeAccents(str_replace(' ', '_', $file['name'][0]));
 			else:
 				if (!empty($event->ev_brote_path)): unlink($event->ev_brote_path); endif;
+				$fileName = 'eab_' . $iid . '_' . date('Ymd') . '_' . removeAccents(str_replace(' ', '_', $file['name'][0]));
 			endif;
+
+			$targetFile = rtrim($targetPath, '/') . '/' . $fileName;
 
 			if (!move_uploaded_file($tempFile, $targetFile)):
 				throw new Exception("Error al subir el documento. " . print_r(error_get_last()), 0);
