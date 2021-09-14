@@ -2,7 +2,7 @@
 
 <section class="content-header">
 	<h1>Autoevaluación
-		<small><i class="fa fa-angle-right"></i> Gneración de reporte de Autoevaluación</small>
+		<small><i class="fa fa-angle-right"></i> Generación de reporte de Autoevaluación</small>
 	</h1>
 
 	<ol class="breadcrumb">

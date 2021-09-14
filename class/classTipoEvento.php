@@ -33,7 +33,7 @@ class TipoEvento {
 	public function getAll(): array
 	{
 		$db = new myDBC();
-		$stmt = $db->Prepare("SELECT tev_id FROM uc_tipo_evento");
+		$stmt = $db->Prepare("SELECT tev_id FROM uc_tipo_evento ORDER BY tev_descripcion");
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$lista = [];

@@ -108,19 +108,23 @@ $and = false;
 $multiServ = false;
 
 if (!$_admin):
+	$extraWhere = 'e.us_id = ' . $_SESSION['uc_userid'];
 	$se = $ser->getByUser($_SESSION['uc_userid']);
-	$extraWhere .= '(';
-	foreach ($se as $i => $s):
-		$extraWhere .= 'e.ser_id = ' . $s->ser_id . ' OR ';
-		$multiServ = true;
-		$and = true;
-	endforeach;
 
-	if ($multiServ):
-		$extraWhere = substr($extraWhere, 0, -4);
-		$extraWhere .= ')';
-	else:
-		$extraWhere = substr($extraWhere, 0, -1);
+	if (count($se) > 0):
+		$extraWhere .= ' OR (';
+		foreach ($se as $i => $s):
+			$extraWhere .= 'e.ser_id = ' . $s->ser_id . ' OR ';
+			$multiServ = true;
+			$and = true;
+		endforeach;
+
+		if ($multiServ):
+			$extraWhere = substr($extraWhere, 0, -4);
+			$extraWhere .= ')';
+		else:
+			$extraWhere = substr($extraWhere, 0, -5);
+		endif;
 	endif;
 endif;
 
