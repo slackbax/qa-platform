@@ -50,8 +50,8 @@ if (extract($_POST)):
 		$mail->SMTPSecure = "tls";
 		$mail->Host = "smtp.gmail.com";
 		$mail->Port = 587;
-		$mail->Username = "ti.hggb@gmail.com";
-		$mail->Password = "svr1504_woot";
+		$mail->Username = MAIL;
+		$mail->Password = MAIL_PASSWORD;
 
 		$mail->SetFrom('soportedesarrollo@ssconcepcion.cl', 'Plataforma Calidad');
 

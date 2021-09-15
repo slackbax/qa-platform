@@ -51,8 +51,8 @@ if (extract($_POST)):
 		$mail->SMTPSecure = "tls";
 		$mail->Host = "smtp.gmail.com";
 		$mail->Port = 587;
-		$mail->Username = "ti.hggb@gmail.com";
-		$mail->Password = "svr1504_woot";
+		$mail->Username = MAIL;
+		$mail->Password = MAIL_PASSWORD;
 		$mail->SetFrom('soportedesarrollo@ssconcepcion.cl', 'Plataforma Calidad');
 		$mail->Subject = "Mensaje desde Plataforma de Calidad";
 		$mail->AltBody = "Para visualizar el mensaje, por favor utilice un visor de correos compatible con HTML!";
@@ -67,9 +67,9 @@ if (extract($_POST)):
 		$mail->AddAddress("leilavielma@ssconcepcion.cl", "Enf. Leila Vielma");
 		$mail->AddAddress("miguelaguayo@ssconcepcion.cl", "Dr. Miguel Aguayo");
 
-		if (!$mail->send()):
+		/*if (!$mail->send()):
 			throw new Exception('Error al enviar correo de confirmación. ' . $mail->ErrorInfo, 0);
-		endif;
+		endif;*/
 
 		$response = array('type' => true, 'msg' => 'OK');
 		echo json_encode($response);
