@@ -108,7 +108,7 @@ $and = false;
 $multiServ = false;
 
 if (!$_admin):
-	$extraWhere = 'e.us_id = ' . $_SESSION['uc_userid'];
+	$extraWhere = '(e.us_id = ' . $_SESSION['uc_userid'];
 	$se = $ser->getByUser($_SESSION['uc_userid']);
 
 	if (count($se) > 0):
@@ -121,9 +121,10 @@ if (!$_admin):
 
 		if ($multiServ):
 			$extraWhere = substr($extraWhere, 0, -4);
-			$extraWhere .= ')';
+			$extraWhere .= '))';
 		else:
 			$extraWhere = substr($extraWhere, 0, -5);
+			$extraWhere .= ')';
 		endif;
 	endif;
 endif;
