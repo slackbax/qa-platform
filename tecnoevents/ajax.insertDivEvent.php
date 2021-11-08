@@ -27,7 +27,6 @@ if (extract($_POST)):
         $db->Commit();
         $db->autoCommit(TRUE);
 
-        /*
         $serv = $se->get($iserv);
         $eve = $ev->get($ins['msg']);
         $msg = '<b>ATENCIÓN</b><br>';
@@ -77,7 +76,7 @@ if (extract($_POST)):
 
         if (!$mail->send()):
             throw new Exception('Error al enviar correo de confirmación. ' . $mail->ErrorInfo, 0);
-        endif;*/
+        endif;
 
         $response = array('type' => true, 'msg' => 'OK');
         echo json_encode($response);

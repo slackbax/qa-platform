@@ -65,11 +65,10 @@ if (extract($_POST)):
 
 		$mail->AddAddress("cmunoz@ssconcepcion.cl", "Enf. Claudia Munoz");
 		$mail->AddAddress("leilavielma@ssconcepcion.cl", "Enf. Leila Vielma");
-		$mail->AddAddress("miguelaguayo@ssconcepcion.cl", "Dr. Miguel Aguayo");
 
-		/*if (!$mail->send()):
+		if (!$mail->send()):
 			throw new Exception('Error al enviar correo de confirmación. ' . $mail->ErrorInfo, 0);
-		endif;*/
+		endif;
 
 		$response = array('type' => true, 'msg' => 'OK');
 		echo json_encode($response);
