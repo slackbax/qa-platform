@@ -1,4 +1,5 @@
 <?php
+
 use PHPMailer\PHPMailer\PHPMailer;
 
 session_start();
@@ -34,8 +35,7 @@ if (extract($_POST)):
 
 		$targetPath = '/home/hggb/repo_calidad';
 
-		foreach ($_FILES as $aux => $file):
-
+		/*foreach ($_FILES as $aux => $file):
 			if ($aux === 'idocument'):
 				$tempFile = $file['tmp_name'][0];
 				$fileName = 'ea' . $ins['msg'] . '_' . date('Ymd') . '_' . removeAccents(str_replace(' ', '_', $file['name'][0]));
@@ -86,7 +86,7 @@ if (extract($_POST)):
 					throw new Exception('Error al guardar el documento. ' . $ins_f['msg'], 0);
 				endif;
 			endif;
-		endforeach;
+		endforeach;*/
 
 		$db->Commit();
 		$db->autoCommit(TRUE);
@@ -125,21 +125,20 @@ if (extract($_POST)):
 		endif;
 
 		// Testing only
-		// $address = "i.munoz.j@gmail.com";
-		// $mail->AddAddress("i.munoz.j@gmail.com", "Yo");
+		// $mail->AddAddress("imunoz@ssconcepcion.cl", "Yo");
 		// $mail->AddAddress("soportedesarrollo@ssconcepcion.cl", "Soporte");
 
 		$mail->AddAddress("cmunoz@ssconcepcion.cl", "Claudia Munoz");
 		$mail->AddAddress("paula.torres@ssconcepcion.cl", "Paula Torres");
 
 		if ((int)$istev < 13 or (int)$istev == 15):
-			$mail->AddAddress("miguelaguayo@ssconcepcion.cl", "Miguel Aguayo");
+			$mail->AddAddress("boportus@ssconcepcion.cl", "Boris Oportus");
 			$mail->AddAddress("kcampos@ssconcepcion.cl", "Katherine Campos");
 		endif;
 
-		/*if (!$mail->send()):
+		if (!$mail->send()):
 			throw new Exception('Error al enviar correo de confirmación. ' . $mail->ErrorInfo, 0);
-		endif;*/
+		endif;
 
 		$response = array('type' => true, 'msg' => 'OK');
 		echo json_encode($response);

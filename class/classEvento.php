@@ -159,7 +159,7 @@ class Evento {
 			endif;
 
 			if (!$stmt->execute()):
-				throw new Exception("La inserción del evento falló en su ejecución.");
+				throw new Exception("La inserción del evento falló en su ejecución. " . $stmt->error);
 			endif;
 
 			return array('estado' => true, 'msg' => $stmt->insert_id);
