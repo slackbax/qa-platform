@@ -239,7 +239,7 @@ if (extract($_POST)):
 		$objSS->getActiveSheet()->setCellValue('E' . $i, $cumplidos);
 		$objSS->getActiveSheet()->getStyle('E' . $i)->applyFromArray($saCellCenter);
 
-		$perc = ($cumplidos / $verificables) * 100;
+		$perc = ($verificables > 0) ? ($cumplidos / $verificables) * 100 : 100;
 		$objSS->getActiveSheet()->setCellValue('F' . $i, round($perc, 0));
 		$objSS->getActiveSheet()->getStyle('F' . $i)->applyFromArray($saCellCenter);
 		$objSS->getActiveSheet()->getStyle('F' . $i)->getFont()->setBold(true);
@@ -326,7 +326,7 @@ if (extract($_POST)):
 		$objSS->getActiveSheet()->setCellValue('E' . $i, $cumplidos);
 		$objSS->getActiveSheet()->getStyle('E' . $i)->applyFromArray($saCellCenter);
 
-		$perc = ($cumplidos / $verificables) * 100;
+		$perc = ($verificables > 0) ? ($cumplidos / $verificables) * 100 : 100;
 		$objSS->getActiveSheet()->setCellValue('F' . $i, round($perc, 0));
 		$objSS->getActiveSheet()->getStyle('F' . $i)->applyFromArray($saCellCenter);
 		$objSS->getActiveSheet()->getStyle('F' . $i)->getFont()->setBold(true);

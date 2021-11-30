@@ -216,7 +216,7 @@ class Autoevaluation {
 			endif;
 
 			if (!$stmt->execute()):
-				throw new Exception("La inserción de la autoevaluación falló en su ejecución.");
+				throw new Exception("La inserción de la autoevaluación falló en su ejecución. " . $stmt->error);
 			endif;
 
 			return array('estado' => true, 'msg' => $stmt->insert_id);
