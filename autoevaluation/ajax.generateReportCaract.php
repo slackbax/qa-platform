@@ -159,7 +159,7 @@ if (extract($_POST)):
 	$objSS->getActiveSheet()->mergeCells('A2:G2');
 	$objSS->getActiveSheet()->setCellValue('A3', 'HOSPITAL GUILLERMO GRANT BENAVENTE');
 	$objSS->getActiveSheet()->mergeCells('A3:G3');
-	$objSS->getActiveSheet()->setCellValue('A4', 'SUBDIRECCIÓN DE CALIDAD Y SEGURIDAD DEL PACIENTE');
+	$objSS->getActiveSheet()->setCellValue('A4', 'UNIDAD DE CALIDAD Y SEGURIDAD DEL PACIENTE');
 	$objSS->getActiveSheet()->mergeCells('A4:G4');
 	$objSS->getActiveSheet()->getStyle('A2:A4')->applyFromArray($saHeaderTop);
 
