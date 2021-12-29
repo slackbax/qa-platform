@@ -35,7 +35,7 @@ class PuntoVerificacion {
 	public function getAll(): array
 	{
 		$db = new myDBC();
-		$stmt = $db->Prepare("SELECT pv_id FROM uc_punto_verificacion ORDER BY pv_nombre");
+		$stmt = $db->Prepare("SELECT pv_id FROM uc_punto_verificacion WHERE pv_activo IS TRUE ORDER BY pv_nombre");
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$lista = [];

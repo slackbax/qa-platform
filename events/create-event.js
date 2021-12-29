@@ -2,9 +2,7 @@ $(document).ready(function () {
 	function validateForm() {
 		let files = true;
 		let datos = true;
-		const fieldValDoc = $("input[name='idocument[]']");
 		const fieldVal = $("input[name='idoccaida[]']");
-		if (fieldValDoc.length < 2) files = false;
 		if (fieldVal.length < 2 && $('#iNcaida').val() === '1') files = false;
 
 		if ($.trim($('#iNname').val()) === '' && !$('#iNbrote').prop('checked')) {
@@ -17,7 +15,7 @@ $(document).ready(function () {
 			return true;
 		} else {
 			new Noty({
-				text: '<b>¡Error!</b><br>No deje campos obligatorios en blanco.<br>Revise el nombre del paciente, el archivo de plan de mejora y/o el archivo de informe de caídas.',
+				text: '<b>¡Error!</b><br>No deje campos obligatorios en blanco.<br>Revise el nombre del paciente y/o el archivo de informe de caídas.',
 				type: 'error'
 			}).show();
 			return false;
