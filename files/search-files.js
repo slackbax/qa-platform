@@ -1,14 +1,14 @@
 $(document).ready(function () {
     var tableUsr = $("#tfiles").DataTable({
         columns: [
-            { "visible": false, "searchable": false }, 
+            { "visible": false, "searchable": false },
             { "orderable": false, width: "15px", className: "text-center" },
             { width: "50px" },
-            null, 
+            null,
             { className: "text-center" },
-            { className: "text-center" }, 
+            { className: "text-center" },
             { "orderable": false, width: "80px", className: "text-center" }],
-        order: [[3, "asc"]],
+        order: [[3, "asc"], [4, "desc"]],
         buttons: [{
             extend: 'excel',
             exportOptions: {

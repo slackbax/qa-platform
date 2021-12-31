@@ -6,7 +6,7 @@
 <?php $tc = new TipoCaracteristica() ?>
 <?php $fl = new File() ?>
 
-<?php 
+<?php
 if ($am->getNumChildren($sid) == 1):
     $amb = $am->get($sid);
     $id = $amb->amb_id;
@@ -15,7 +15,7 @@ else:
     $samb = $sa->get($sid);
     $id = $samb->samb_id;
     $title = $samb->samb_nombre;
-endif 
+endif
 ?>
 
 <section class="content-header">
@@ -167,4 +167,4 @@ endif
     </div>
 </div>
 
-<script src="files/main-index.js?v=20190828"></script>
+<script src="files/main-index.js?v=20211230"></script>

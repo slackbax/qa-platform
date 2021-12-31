@@ -123,4 +123,4 @@ $title = $folder->fol_nombre;
 	</div>
 </div>
 
-<script src="files/other-index.js?v=20190828"></script>
+<script src="files/other-index.js?v=20211230"></script>

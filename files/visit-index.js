@@ -1,25 +1,25 @@
 $(document).ready(function () {
-	$("#tspv").DataTable({
-		columns: [null, {"width": "20%", className: "text-center"}],
-		order: [[0, "asc"]]
+	$('#tspv').DataTable({
+		columns: [null, {'width': '20%', className: 'text-center'}],
+		order: [[0, 'asc']]
 	});
 
-	$("#tcaract").DataTable({
-		columns: [null, {"width": "20%", className: "text-center"}],
-		order: [[0, "desc"]]
+	$('#tcaract').DataTable({
+		columns: [null, {'width': '20%', className: 'text-center'}],
+		order: [[0, 'desc']]
 	});
 
-	$("#tfiles").DataTable({
-		columns: [null, {"width": "20%", className: "text-center"}],
-		order: [[0, "asc"]]
+	$('#tfiles').DataTable({
+		columns: [null, {'width': '20%', className: 'text-center'}],
+		order: [[0, 'asc'], [1, 'desc']]
 	});
 
-	$("#tfilestr").DataTable({
-		columns: [null, {"width": "20%", className: "text-center"}],
-		order: [[0, "asc"]]
+	$('#tfilestr').DataTable({
+		columns: [null, {'width': '20%', className: 'text-center'}],
+		order: [[0, 'asc'], [1, 'desc']]
 	});
 
-	$(".fileModal").click(function () {
+	$('.fileModal').click(function () {
 		var fid = $(this).attr('id').split("_").pop();
 		$("#f_name").html('<i class="fa fa-spin fa-spinner"></i>');
 		$("#f_char").html('<i class="fa fa-spin fa-spinner"></i>');
@@ -55,7 +55,7 @@ $(document).ready(function () {
 		});
 	});
 
-	$(".btnModal").on('click', function () {
+	$('.btnModal').on('click', function () {
 		var fid = $(this).data('ident');
 
 		$.ajax({
@@ -64,7 +64,6 @@ $(document).ready(function () {
 			dataType: 'json',
 			data: {id: fid}
 		}).done(function () {
-			//console.log(d);
 			$('#fileDetail').modal('hide');
 		});
 	});

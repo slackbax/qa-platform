@@ -94,4 +94,4 @@
 	</div>
 </div>
 
-<script src="files/search-files.js?v=20190828"></script>
+<script src="files/search-files.js?v=20211230"></script>

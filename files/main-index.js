@@ -1,15 +1,15 @@
 $(document).ready(function () {
-    $("#tcaract").DataTable({
-        columns: [null, { "width": "20%", className: "text-center" }],
-        order: [[0, "desc"]]
+    $('#tcaract').DataTable({
+        columns: [null, { 'width': '20%', className: 'text-center' }],
+        order: [[0, 'desc']]
     });
 
-    $("#tfiles").DataTable({
-        columns: [null, { "width": "20%", className: "text-center" }],
-        order: [[0, "asc"]]
+    $('#tfiles').DataTable({
+        columns: [null, { 'width': '20%', className: 'text-center' }],
+        order: [[0, 'asc'], [1, 'desc']]
     });
 
-    $(".fileModal").click(function () {
+    $('.fileModal').click(function () {
         var fid = $(this).attr('id').split("_").pop();
 		$("#f_name").html('<i class="fa fa-spin fa-spinner"></i>');
 		$("#f_char").html('<i class="fa fa-spin fa-spinner"></i>');
@@ -44,13 +44,13 @@ $(document).ready(function () {
                 $("#f_downloads").html(d.arc_descargas);
 
                 $.each(d.arc_pvs, function (k, v) {
-                    $("#f_pvs").append('<i class="fa fa-check"></i> ' + v + '<br>');
+                    $('#f_pvs').append('<i class="fa fa-check"></i> ' + v + '<br>');
                 });
             }
         });
     });
 
-    $(".btnModal").on('click', function () {
+    $('.btnModal').on('click', function () {
         var fid = $(this).data('ident');
 
         $.ajax({
