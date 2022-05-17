@@ -1,5 +1,5 @@
 $(document).ready(function () {
-	function validateForm(data, jF, o) {
+	function validateForm() {
 		var files = true;
 
 		if (files) {
@@ -11,7 +11,7 @@ $(document).ready(function () {
 	function showResponse(response) {
 		$('#submitLoader').css('display', 'none');
 
-		if (response.type === true) {
+		if (response.type) {
 			var $a = $("<a>");
 			$a.attr("href", "upload/Reporte_" + response.msg + ".xlsx");
 			$a.attr("target", "_blank");
@@ -32,37 +32,27 @@ $(document).ready(function () {
 
 	$('#submitLoader').css('display', 'none');
 
-	$(document).on("focusin", "#iNdate", function (event) {
-		$(this).prop('readonly', true);
-	});
-	$(document).on("focusout", "#iNdate", function (event) {
-		$(this).prop('readonly', false);
-	});
-
-	$('#iNdate').datepicker({
-		minViewMode: 1
-	}).on('changeDate', function () {
-		if ($.trim($(this).val()) !== '') {
-			$('#gdate').removeClass('has-error').addClass('has-success');
-			$('#icondate').removeClass('fa-remove fa-check').addClass('fa-check');
-		}
+	$('#gdate .input-daterange').each(function () {
+		$(this).datepicker({
+			startView: 0,
+			minViewMode: 0
+		});
 	});
 
 	$('#iNser, #iNdate').change(function () {
-		var idn = $(this).attr('id').split('N');
+		var idn = $(this).attr('id').split('N').pop();
 
 		if ($.trim($(this).val()) !== '') {
-			$('#g' + idn[1]).removeClass('has-error').addClass('has-success');
-			$('#icon' + idn[1]).removeClass('fa-remove').addClass('fa-check');
+			$('#g' + idn).removeClass('has-error').addClass('has-success');
+			$('#icon' + idn).removeClass('fa-remove').addClass('fa-check');
 		} else {
-			$('#g' + idn[1]).removeClass('has-success');
-			$('#icon' + idn[1]).removeClass('fa-check');
+			$('#g' + idn).removeClass('has-success');
+			$('#icon' + idn).removeClass('fa-check');
 		}
 	});
 
 	$('#btnClear').click(function () {
 		$('#gser, #gdate').removeClass('has-error').removeClass('has-success');
-		$('#icondate').removeClass('fa-remove').removeClass('fa-check');
 	});
 
 	$('#formNewReport').submit(function () {

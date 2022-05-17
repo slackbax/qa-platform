@@ -20,16 +20,18 @@ if (extract($_POST)):
 	$spv = new SubPuntoVerificacion();
 	$subpv = $spv->get($iser);
 
-	$tmp = explode('/', $idate);
-	$month = $tmp[0];
+	$tmp = explode('/', $idatei);
+	$month = $tmp[1];
 	$month_num = ($month[0] == '0') ? substr($month, 1) : $month;
 	$month_words = getMonth($month_num);
-	$year = $tmp[1];
+	$year = $tmp[2];
 	$totalo_apl = 0;
 	$totalo_si = 0;
 	$totalno_apl = 0;
 	$totalno_si = 0;
-	$aut_data = $au->getByFilters($year, $month, $iser, 1);
+	$idatei = setDateBD($idatei);
+	$idatet = setDateBD($idatet);
+	$aut_data = $au->getByFilters($idatei, $idatet, $iser, 1);
 
 	try {
 		// Create new \PhpOffice\PhpSpreadsheet\Spreadsheet object
@@ -212,6 +214,8 @@ if (extract($_POST)):
 
 		$i = 13;
 		$arr = [];
+		$arr_chars = array('\r\n', '?');
+		$arr_repl = array("\r\n", '');
 
 		//print_r($aut_data);
 
@@ -258,27 +262,27 @@ if (extract($_POST)):
 				$arr[$index]['1EM'] = $cumpl;
 				if ($arr[$index]['comment'] != '')
 					$arr[$index]['comment'] .= "\n";
-				$arr[$index]['comment'] .= ($v->aut_comentario !== '') ? '1EM: ' . str_replace('\n', "\n", $v->aut_comentario) : '';
+				$arr[$index]['comment'] .= ($v->aut_comentario !== '') ? '1EM: ' . str_replace($arr_chars, $arr_repl, $v->aut_comentario) : '';
 			elseif ($v->elm_numero == '2EM'):
 				$arr[$index]['2EM'] = $cumpl;
 				if ($arr[$index]['comment'] != '')
 					$arr[$index]['comment'] .= "\n";
-				$arr[$index]['comment'] .= ($v->aut_comentario !== '') ? '2EM: ' . str_replace('\n', "\n", $v->aut_comentario) : '';
+				$arr[$index]['comment'] .= ($v->aut_comentario !== '') ? '2EM: ' . str_replace($arr_chars, $arr_repl, $v->aut_comentario) : '';
 			elseif ($v->elm_numero == '3EM'):
 				$arr[$index]['3EM'] = $cumpl;
 				if ($arr[$index]['comment'] != '')
 					$arr[$index]['comment'] .= "\n";
-				$arr[$index]['comment'] .= ($v->aut_comentario !== '') ? '3EM: ' . str_replace('\n', "\n", $v->aut_comentario) : '';
+				$arr[$index]['comment'] .= ($v->aut_comentario !== '') ? '3EM: ' . str_replace($arr_chars, $arr_repl, $v->aut_comentario) : '';
 			elseif ($v->elm_numero == '4EM'):
 				$arr[$index]['4EM'] = $cumpl;
 				if ($arr[$index]['comment'] != '')
 					$arr[$index]['comment'] .= "\n";
-				$arr[$index]['comment'] .= ($v->aut_comentario !== '') ? '4EM: ' . str_replace('\n', "\n", $v->aut_comentario) : '';
+				$arr[$index]['comment'] .= ($v->aut_comentario !== '') ? '4EM: ' . str_replace($arr_chars, $arr_repl, $v->aut_comentario) : '';
 			elseif ($v->elm_numero == '5EM'):
 				$arr[$index]['5EM'] = $cumpl;
 				if ($arr[$index]['comment'] != '')
 					$arr[$index]['comment'] .= "\n";
-				$arr[$index]['comment'] .= ($v->aut_comentario !== '') ? '5EM: ' . str_replace('\n', "\n", $v->aut_comentario) : '';
+				$arr[$index]['comment'] .= ($v->aut_comentario !== '') ? '5EM: ' . str_replace($arr_chars, $arr_repl, $v->aut_comentario) : '';
 			endif;
 		endforeach;
 
@@ -397,7 +401,7 @@ if (extract($_POST)):
 		$objSS->getActiveSheet()->getStyle('K' . $i)->getBorders()->getRight()->setBorderStyle(Border::BORDER_MEDIUM);
 
 		$i++;
-		$aut_data = $au->getByFilters($year, $month, $iser, 2);
+		$aut_data = $au->getByFilters($idatei, $idatet, $iser, 2);
 		$arr = [];
 
 		//print_r($aut_data);
@@ -435,27 +439,27 @@ if (extract($_POST)):
 				$arr[$index]['1EM'] = $cumpl;
 				if ($arr[$index]['comment'] != '')
 					$arr[$index]['comment'] .= "\n";
-				$arr[$index]['comment'] .= ($v->aut_comentario !== '') ? '1EM: ' . str_replace('\n', "\n", $v->aut_comentario) : '';
+				$arr[$index]['comment'] .= ($v->aut_comentario !== '') ? '1EM: ' . str_replace($arr_chars, $arr_repl, $v->aut_comentario) : '';
 			elseif ($v->elm_numero == '2EM'):
 				$arr[$index]['2EM'] = $cumpl;
 				if ($arr[$index]['comment'] != '')
 					$arr[$index]['comment'] .= "\n";
-				$arr[$index]['comment'] .= ($v->aut_comentario !== '') ? '2EM: ' . str_replace('\n', "\n", $v->aut_comentario) : '';
+				$arr[$index]['comment'] .= ($v->aut_comentario !== '') ? '2EM: ' . str_replace($arr_chars, $arr_repl, $v->aut_comentario) : '';
 			elseif ($v->elm_numero == '3EM'):
 				$arr[$index]['3EM'] = $cumpl;
 				if ($arr[$index]['comment'] != '')
 					$arr[$index]['comment'] .= "\n";
-				$arr[$index]['comment'] .= ($v->aut_comentario !== '') ? '3EM: ' . str_replace('\n', "\n", $v->aut_comentario) : '';
+				$arr[$index]['comment'] .= ($v->aut_comentario !== '') ? '3EM: ' . str_replace($arr_chars, $arr_repl, $v->aut_comentario) : '';
 			elseif ($v->elm_numero == '4EM'):
 				$arr[$index]['4EM'] = $cumpl;
 				if ($arr[$index]['comment'] != '')
 					$arr[$index]['comment'] .= "\n";
-				$arr[$index]['comment'] .= ($v->aut_comentario !== '') ? '4EM: ' . str_replace('\n', "\n", $v->aut_comentario) : '';
+				$arr[$index]['comment'] .= ($v->aut_comentario !== '') ? '4EM: ' . str_replace($arr_chars, $arr_repl, $v->aut_comentario) : '';
 			elseif ($v->elm_numero == '5EM'):
 				$arr[$index]['5EM'] = $cumpl;
 				if ($arr[$index]['comment'] != '')
 					$arr[$index]['comment'] .= "\n";
-				$arr[$index]['comment'] .= ($v->aut_comentario !== '') ? '5EM: ' . str_replace('\n', "\n", $v->aut_comentario) : '';
+				$arr[$index]['comment'] .= ($v->aut_comentario !== '') ? '5EM: ' . str_replace($arr_chars, $arr_repl, $v->aut_comentario) : '';
 			endif;
 		endforeach;
 

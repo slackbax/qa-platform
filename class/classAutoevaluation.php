@@ -108,14 +108,14 @@ class Autoevaluation {
 	}
 
 	/**
-	 * @param $year
-	 * @param $month
+	 * @param $fini
+	 * @param $fter
 	 * @param $spv
 	 * @param $type
-	 * @param null $db
+	 * @param $db
 	 * @return array
 	 */
-	public function getByFilters($year, $month, $spv, $type, $db = null): array
+	public function getByFilters($fini, $fter, $spv, $type, $db = null): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();
@@ -144,13 +144,13 @@ class Autoevaluation {
 										JOIN uc_subambito s ON i.samb_id = s.samb_id
 										JOIN uc_tipo_caracteristica tc ON i.tcar_id = tc.tcar_id
 										JOIN uc_codigo c ON i.cod_id = c.cod_id
-										WHERE YEAR(aut_fecha_registro) = ? AND MONTH(aut_fecha_registro) = ?
+										WHERE aut_fecha_registro BETWEEN ? AND ?
 										AND a.spv_id = ? AND i.tcar_id = ?
 										GROUP BY samb_sigla, cod_descripcion, a.elm_id
 									)
 									ORDER BY samb_sigla, cod_descripcion, elm_numero");
 
-		$stmt->bind_param("ssii", $year, $month, $spv, $type);
+		$stmt->bind_param("ssii", $fini, $fter, $spv, $type);
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$array = [];
