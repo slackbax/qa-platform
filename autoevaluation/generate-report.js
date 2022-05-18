@@ -37,6 +37,12 @@ $(document).ready(function () {
 			startView: 0,
 			minViewMode: 0
 		});
+	}).change(function () {
+		if ($.trim($('#iNdatei').val()) !== '' && $.trim($('#iNdatet').val()) !== '') {
+			$('#gdate').addClass('has-success');
+		} else {
+			$('#gdate').removeClass('has-success');
+		}
 	});
 
 	$('#iNser, #iNdate').change(function () {

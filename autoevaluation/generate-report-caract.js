@@ -1,5 +1,5 @@
 $(document).ready(function () {
-	function validateForm(data, jF, o) {
+	function validateForm() {
 		var files = true;
 
 		if (files) {
@@ -34,29 +34,20 @@ $(document).ready(function () {
 
 	$(document).on("focusin", "#iNdate", function (event) {
 		$(this).prop('readonly', true);
-	});
-	$(document).on("focusout", "#iNdate", function (event) {
+	}).on("focusout", "#iNdate", function (event) {
 		$(this).prop('readonly', false);
 	});
 
-	$('#iNdate').datepicker({
-		minViewMode: 1
-	}).on('changeDate', function () {
-		if ($.trim($(this).val()) !== '') {
-			$('#gdate').removeClass('has-error').addClass('has-success');
-			$('#icondate').removeClass('fa-remove fa-check').addClass('fa-check');
-		}
-	});
-
-	$('#iNdate').change(function () {
-		var idn = $(this).attr('id').split('N');
-
-		if ($.trim($(this).val()) !== '') {
-			$('#g' + idn[1]).removeClass('has-error').addClass('has-success');
-			$('#icon' + idn[1]).removeClass('fa-remove').addClass('fa-check');
+	$('#gdate .input-daterange').each(function () {
+		$(this).datepicker({
+			startView: 0,
+			minViewMode: 0
+		});
+	}).change(function () {
+		if ($.trim($('#iNdatei').val()) !== '' && $.trim($('#iNdatet').val()) !== '') {
+			$('#gdate').addClass('has-success');
 		} else {
-			$('#g' + idn[1]).removeClass('has-success');
-			$('#icon' + idn[1]).removeClass('fa-check');
+			$('#gdate').removeClass('has-success');
 		}
 	});
 

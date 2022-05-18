@@ -78,11 +78,11 @@ class Autoevaluation {
 	/**
 	 * @param $pv
 	 * @param $em
-	 * @param $month
-	 * @param $year
+	 * @param $fini
+	 * @param $fter
 	 * @return array
 	 */
-	public function getFailedByPVEMDate($pv, $em, $month, $year): array
+	public function getFailedByPVEMDate($pv, $em, $fini, $fter): array
 	{
 		$db = new myDBC();
 		$stmt = $db->Prepare("SELECT *
@@ -90,11 +90,11 @@ class Autoevaluation {
 								WHERE aut_id IN (
 									SELECT MAX(aut_id)
 									FROM uc_autoevaluacion 
-									WHERE pv_id = ? AND elm_id = ? AND MONTH(aut_fecha) = ? AND YEAR(aut_fecha) = ?
+									WHERE pv_id = ? AND elm_id = ? AND aut_fecha BETWEEN ? AND ?
 									GROUP BY spv_id, ind_id, elm_id) 
 								AND aut_cumplimiento = 0");
 
-		$stmt->bind_param("iiss", $pv, $em, $month, $year);
+		$stmt->bind_param("iiss", $pv, $em, $fini, $fter);
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$array = [];
@@ -144,7 +144,7 @@ class Autoevaluation {
 										JOIN uc_subambito s ON i.samb_id = s.samb_id
 										JOIN uc_tipo_caracteristica tc ON i.tcar_id = tc.tcar_id
 										JOIN uc_codigo c ON i.cod_id = c.cod_id
-										WHERE aut_fecha_registro BETWEEN ? AND ?
+										WHERE aut_fecha BETWEEN ? AND ?
 										AND a.spv_id = ? AND i.tcar_id = ?
 										GROUP BY samb_sigla, cod_descripcion, a.elm_id
 									)
