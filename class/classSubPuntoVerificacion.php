@@ -41,6 +41,7 @@ class SubPuntoVerificacion {
 		$stmt = $db->Prepare("SELECT spv_id 
 								  FROM uc_subpunto_verif sp
 								  JOIN uc_punto_verificacion v on sp.pv_id = v.pv_id
+								  WHERE spv_activo IS TRUE
 								  ORDER BY pv_nombre, spv_nombre");
 		$stmt->execute();
 		$result = $stmt->get_result();

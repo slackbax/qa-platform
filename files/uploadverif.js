@@ -67,7 +67,7 @@ $(document).ready(function () {
 	});
 
 	$('#iNdate').datepicker({
-		endDate: '+1d'
+		endDate: '+1m'
 	}).on('changeDate', function () {
 		if ($.trim($(this).val()) !== '') {
 			$('#gdate').removeClass('has-error').addClass('has-success');

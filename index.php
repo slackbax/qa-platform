@@ -440,6 +440,7 @@
 									<span class="menu-item">Ingreso de evento</span>
 								</a>
 							</li>
+
 							<li <?php if (isset($sbs) and $sbs == 'viewtecnoevents'): ?> class="active"<?php endif ?>>
 								<a href="index.php?section=tec-event&sbs=viewtecnoevents">
 									<i class="fa fa-circle-o text-orange"></i>
@@ -458,6 +459,18 @@
 									<span class="menu-item">Eventos DIV registrados</span>
 								</a>
 							</li>
+							<!--<li <?php /*if (isset($sbs) and $sbs == 'createalert'): */?> class="active"<?php /*endif */?>>
+								<a href="index.php?section=tec-event&sbs=createalert">
+									<i class="fa fa-circle-o text-orange"></i>
+									<span class="menu-item">Ingreso de alerta</span>
+								</a>
+							</li>
+							<li <?php /*if (isset($sbs) and $sbs == 'viewalert'): */?> class="active"<?php /*endif */?>>
+								<a href="index.php?section=tec-event&sbs=viewalerts">
+									<i class="fa fa-circle-o text-orange"></i>
+									<span class="menu-item">Alertas registradas</span>
+								</a>
+							</li>-->
 						</ul>
 					</li>
 				<?php endif ?>
@@ -555,7 +568,12 @@
 								<a href="index.php?section=admin&sbs=managefiles">
 									<i class="fa fa-circle-o text-aqua"></i>Ver Documentos Registrados
 								</a>
+							</li><li <?php if (isset($sbs) and $sbs == 'manageotherfiles'): ?> class="active"<?php endif ?>>
+								<a href="index.php?section=admin&sbs=manageotherfiles">
+									<i class="fa fa-circle-o text-aqua"></i>Ver Otros Documentos
+								</a>
 							</li>
+
 						</ul>
 					</li>
 

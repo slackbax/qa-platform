@@ -13,7 +13,8 @@ class OFile {
 	public function get($id): stdClass
 	{
 		$db = new myDBC();
-		$stmt = $db->Prepare("SELECT a.*, u.us_username, f.fol_nombre FROM uc_oarchivo a 
+		$stmt = $db->Prepare("SELECT a.*, u.us_username, f.fol_nombre 
+								FROM uc_oarchivo a 
                                 JOIN uc_folder f ON a.fol_id = f.fol_id
                                 JOIN uc_usuario u ON a.us_id = u.us_id
                                 WHERE oarc_id = ?");
@@ -25,6 +26,7 @@ class OFile {
 
 		$row = $result->fetch_assoc();
 		$obj->oarc_id = $row['oarc_id'];
+		$obj->fol_id = $row['fol_id'];
 		$obj->oarc_user = utf8_encode($row['us_username']);
 		$obj->oarc_folder = utf8_encode($row['fol_nombre']);
 		$obj->oarc_nombre = utf8_encode($row['oarc_nombre']);
@@ -192,6 +194,51 @@ class OFile {
 
 	/**
 	 * @param $id
+	 * @param $user_id
+	 * @param $arc_nombre
+	 * @param $arc_edicion
+	 * @param $arc_fecha_crea
+	 * @param $arc_fecha_vig
+	 * @param $db
+	 * @return array
+	 */
+	public function mod($id, $user_id, $arc_nombre, $arc_edicion, $arc_fecha_crea, $arc_fecha_vig, $db = null): array
+	{
+		if (is_null($db)):
+			$db = new myDBC();
+		endif;
+
+		$date = date("Y-m-d");
+
+		try {
+			$stmt = $db->Prepare("UPDATE uc_oarchivo SET us_id = ?, oarc_nombre = ?, oarc_edicion = ?, oarc_fecha = ?, oarc_fecha_crea = ?, oarc_fecha_vig = ?
+                                    WHERE oarc_id = ?");
+
+			if (!$stmt):
+				throw new Exception("La modificación del documento falló en su preparación.");
+			endif;
+
+			$arc_nombre = $db->clearText(utf8_decode($arc_nombre));
+			$arc_edicion = $db->clearText(utf8_decode($arc_edicion));
+			$arc_fecha_crea = $db->clearText($arc_fecha_crea);
+			$arc_fecha_vig = $db->clearText($arc_fecha_vig);
+			$bind = $stmt->bind_param("isssssi", $user_id, $arc_nombre, $arc_edicion, $date, $arc_fecha_crea, $arc_fecha_vig, $id);
+			if (!$bind):
+				throw new Exception("La modificación del documento falló en su binding.");
+			endif;
+
+			if (!$stmt->execute()):
+				throw new Exception("La modificación del documento falló en su ejecución.");
+			endif;
+
+			return array('estado' => true, 'msg' => $id);
+		} catch (Exception $e) {
+			return array('estado' => false, 'msg' => $e->getMessage());
+		}
+	}
+
+	/**
+	 * @param $id
 	 * @param $folder
 	 * @param null $db
 	 * @return array
@@ -221,9 +268,9 @@ class OFile {
 				throw new Exception("La eliminación del documento falló en su ejecución.");
 			endif;
 
-			if (!unlink($_SERVER['DOCUMENT_ROOT'] . $folder . $p['oarc_path'])):
+			/*if (!unlink($_SERVER['DOCUMENT_ROOT'] . $folder . $p['oarc_path'])):
 				throw new Exception("La eliminación del documento falló al eliminar el archivo.");
-			endif;
+			endif;*/
 
 			return array('estado' => true, 'msg' => '');
 		} catch (Exception $e) {
