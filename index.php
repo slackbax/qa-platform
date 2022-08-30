@@ -99,6 +99,8 @@
 	<link rel="stylesheet" href="plugins/iCheck/all.css">
 	<!-- lightGallery -->
 	<link rel="stylesheet" href="bower_components/lightgallery/dist/css/lightgallery.css">
+	<!-- signature-pad -->
+	<link rel="stylesheet" href="bower_components/signature-pad/assets/jquery.signaturepad.css">
 	<!-- Theme style -->
 	<link rel="stylesheet" href="dist/css/SISCal.css?v=20191024">
 	<link rel="stylesheet" href="dist/css/skins/skin-yellow-light.min.css">
@@ -459,18 +461,18 @@
 									<span class="menu-item">Eventos DIV registrados</span>
 								</a>
 							</li>
-							<!--<li <?php /*if (isset($sbs) and $sbs == 'createalert'): */?> class="active"<?php /*endif */?>>
+							<li <?php if (isset($sbs) and $sbs == 'createalert'): ?> class="active"<?php endif ?>>
 								<a href="index.php?section=tec-event&sbs=createalert">
 									<i class="fa fa-circle-o text-orange"></i>
 									<span class="menu-item">Ingreso de alerta</span>
 								</a>
 							</li>
-							<li <?php /*if (isset($sbs) and $sbs == 'viewalert'): */?> class="active"<?php /*endif */?>>
+							<li <?php if (isset($sbs) and $sbs == 'viewalert'): ?> class="active"<?php endif ?>>
 								<a href="index.php?section=tec-event&sbs=viewalerts">
 									<i class="fa fa-circle-o text-orange"></i>
 									<span class="menu-item">Alertas registradas</span>
 								</a>
-							</li>-->
+							</li>
 						</ul>
 					</li>
 				<?php endif ?>
@@ -648,6 +650,12 @@
 <script src="bower_components/lightgallery/dist/js/lightgallery.js"></script>
 <script src="bower_components/lightgallery/modules/lg-thumbnail.min.js"></script>
 <script src="bower_components/lightgallery/modules/lg-fullscreen.min.js"></script>
+<!-- signature-pad -->
+<!--<script src="bower_components/signature-pad/jquery.signaturepad.min.js"></script>
+<script src="bower_components/signature-pad/assets/json2.min.js"></script>-->
+<!--[if lt IE 9]>-->
+<!--<script src="bower_components/signature-pad/assets/flashcanvas.js"></script>-->
+<!--<![endif]-->
 <!-- SISCal App -->
 <script src="dist/js/siscal.min.js"></script>
 <script src="dist/js/jquery.Rut.min.js"></script>
