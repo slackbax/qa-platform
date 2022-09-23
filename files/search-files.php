@@ -21,10 +21,14 @@
 				<tr>
 					<th></th>
 					<th></th>
-					<th>Cod.</th>
+					<th>Ámbito</th>
+					<th>Caract.</th>
 					<th>Nombre</th>
-					<th>Subido el</th>
+					<th>Tipo</th>
+					<th>Responsable</th>
+					<th>Elaboración</th>
 					<th>Válido hasta</th>
+					<th>Carácter</th>
 					<th></th>
 				</tr>
 				</thead>
@@ -61,10 +65,10 @@
 					<p class="td-div-t">Creado en</p>
 					<p class="td-div-i" id="f_date_c"></p>
 				</div>
-				<div class="td-div">
+				<!--<div class="td-div">
 					<p class="td-div-t">Publicado el</p>
 					<p class="td-div-i" id="f_date"></p>
-				</div>
+				</div>-->
 				<div class="td-div">
 					<p class="td-div-t">Vigente hasta</p>
 					<p class="td-div-i" id="f_date_v"></p>

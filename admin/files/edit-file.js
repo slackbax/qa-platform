@@ -98,7 +98,7 @@ $(document).ready(function () {
 		}
 	});
 
-	$('#iNname, #iNversion, #iNcode, #iNdate, #iNdatec, #iNambito, #iNsambito, #iNtcar, #iNtcode, #iNpv, #iNspv').change(function () {
+	$('#iNname, #iNversion, #iNcode, #iNresp, #iNdate, #iNdatec, #iNtdocumento, #iNcaracter, #iNambito, #iNsambito, #iNtcar, #iNtcode, #iNpv, #iNspv').change(function () {
 		const idn = $(this).attr('id').split('N');
 
 		if ($.trim($(this).val()) !== '') {

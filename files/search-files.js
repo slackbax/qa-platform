@@ -3,16 +3,20 @@ $(document).ready(function () {
         columns: [
             { "visible": false, "searchable": false },
             { "orderable": false, width: "15px", className: "text-center" },
-            { width: "50px" },
+            { width: "50px", className: "text-center" },
+            { width: "50px", className: "text-center" },
+            null,
+            null,
             null,
             { className: "text-center" },
             { className: "text-center" },
+            null,
             { "orderable": false, width: "80px", className: "text-center" }],
-        order: [[3, "asc"], [4, "desc"]],
+        order: [[2, "asc"], [3, "asc"], [4, "desc"]],
         buttons: [{
             extend: 'excel',
             exportOptions: {
-                columns: [0, 2, 3, 4, 5]
+                columns: [0, 2, 3, 4, 5, 6, 7, 8, 9]
             }
         }],
         serverSide: true,
@@ -43,7 +47,7 @@ $(document).ready(function () {
         $("#f_code").html('<i class="fa fa-spin fa-spinner"></i>');
         $("#f_edition").html('<i class="fa fa-spin fa-spinner"></i>');
         $("#f_date_c").html('<i class="fa fa-spin fa-spinner"></i>');
-        $("#f_date").html('<i class="fa fa-spin fa-spinner"></i>');
+        /*$("#f_date").html('<i class="fa fa-spin fa-spinner"></i>');*/
         $("#f_date_v").html('<i class="fa fa-spin fa-spinner"></i>');
         $("#f_pvs").html('<i class="fa fa-spin fa-spinner"></i>');
         $("#f_type").html('<i class="fa fa-spin fa-spinner"></i>');
@@ -65,7 +69,7 @@ $(document).ready(function () {
                 $("#f_code").html(d.arc_codigo);
                 $("#f_edition").html(d.arc_edicion);
                 $("#f_date_c").html(getMonthDate(d.arc_fecha_crea));
-                $("#f_date").html(getDateToFormBD(d.arc_fecha));
+                /*$("#f_date").html(getDateToFormBD(d.arc_fecha));*/
                 $("#f_date_v").html(getMonthDate(d.arc_fecha_vig));
                 $("#f_type").html(getExt(d.arc_path));
                 $("#f_pvs").html('');

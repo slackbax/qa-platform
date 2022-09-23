@@ -36,6 +36,7 @@ class File {
 		$obj->arc_codid = $row['cod_id'];
 		$obj->arc_cod = utf8_encode($row['cod_descripcion']);
 		$obj->arc_indid = $row['ind_id'];
+		$obj->arc_tdo = $row['tdo_id'];
 		$obj->arc_ind = utf8_encode($row['ind_descripcion']);
 		$obj->arc_char = utf8_encode($row['samb_sigla'] . ' ' . $row['cod_descripcion'] . ' - ' . $row['ind_descripcion']);
 		$obj->arc_nombre = utf8_encode($row['arc_nombre']);
@@ -44,6 +45,8 @@ class File {
 		$obj->arc_fecha = $row['arc_fecha'];
 		$obj->arc_fecha_crea = $row['arc_fecha_crea'];
 		$obj->arc_fecha_vig = $row['arc_fecha_vig'];
+		$obj->arc_responsable = utf8_encode($row['arc_responsable']);
+		$obj->arc_institucional = utf8_encode($row['arc_institucional']);
 		$obj->arc_descargas = $row['arc_descargas'];
 		$obj->arc_path = utf8_encode($row['arc_path']);
 		$obj->arc_ext = pathinfo($row['arc_path'], PATHINFO_EXTENSION);
@@ -290,23 +293,26 @@ class File {
 	/**
 	 * @param $ind_id
 	 * @param $user_id
+	 * @param $tdo_id
 	 * @param $arc_nombre
 	 * @param $arc_codigo
 	 * @param $arc_edicion
 	 * @param $arc_fecha_crea
 	 * @param $arc_fecha_vig
+	 * @param $arc_resp
+	 * @param $arc_insti
 	 * @param $db
 	 * @return array
 	 */
-	public function set($ind_id, $user_id, $arc_nombre, $arc_codigo, $arc_edicion, $arc_fecha_crea, $arc_fecha_vig, $db = null): array
+	public function set($ind_id, $user_id, $tdo_id, $arc_nombre, $arc_codigo, $arc_edicion, $arc_fecha_crea, $arc_fecha_vig, $arc_resp, $arc_insti, $db = null): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();
 		endif;
 
 		try {
-			$stmt = $db->Prepare("INSERT INTO uc_archivo (ind_id, us_id, arc_nombre, arc_codigo, arc_edicion, arc_fecha, arc_fecha_crea, arc_fecha_vig, arc_descargas, arc_publicado)
-                                    VALUES (?, ?, ?, ?, ?, CURRENT_DATE, ?, ?, '0', TRUE)");
+			$stmt = $db->Prepare("INSERT INTO uc_archivo (ind_id, us_id, tdo_id, arc_nombre, arc_codigo, arc_edicion, arc_fecha, arc_fecha_crea, arc_fecha_vig, arc_responsable, arc_institucional, arc_descargas, arc_publicado)
+                                    VALUES (?, ?, ?, ?, ?, ?, CURRENT_DATE, ?, ?, ?, ?, '0', TRUE)");
 
 			if (!$stmt):
 				throw new Exception("La inserción del documento falló en su preparación.");
@@ -317,7 +323,8 @@ class File {
 			$arc_edicion = $db->clearText(utf8_decode($arc_edicion));
 			$arc_fecha_crea = $db->clearText($arc_fecha_crea);
 			$arc_fecha_vig = $db->clearText($arc_fecha_vig);
-			$bind = $stmt->bind_param("iisssss", $ind_id, $user_id, $arc_nombre, $arc_codigo, $arc_edicion, $arc_fecha_crea, $arc_fecha_vig);
+			$arc_resp = $db->clearText(utf8_decode($arc_resp));
+			$bind = $stmt->bind_param("iiissssssi", $ind_id, $user_id, $tdo_id, $arc_nombre, $arc_codigo, $arc_edicion, $arc_fecha_crea, $arc_fecha_vig, $arc_resp, $arc_insti);
 			if (!$bind):
 				throw new Exception("La inserción del documento falló en su binding.");
 			endif;
@@ -431,15 +438,18 @@ class File {
 	 * @param $id
 	 * @param $ind_id
 	 * @param $user_id
+	 * @param $tdo_id
 	 * @param $arc_nombre
 	 * @param $arc_codigo
 	 * @param $arc_edicion
 	 * @param $arc_fecha_crea
 	 * @param $arc_fecha_vig
+	 * @param $arc_resp
+	 * @param $arc_insti
 	 * @param $db
 	 * @return array
 	 */
-	public function mod($id, $ind_id, $user_id, $arc_nombre, $arc_codigo, $arc_edicion, $arc_fecha_crea, $arc_fecha_vig, $db = null): array
+	public function mod($id, $ind_id, $user_id, $tdo_id, $arc_nombre, $arc_codigo, $arc_edicion, $arc_fecha_crea, $arc_fecha_vig, $arc_resp, $arc_insti, $db = null): array
 	{
 		if (is_null($db)):
 			$db = new myDBC();
@@ -448,7 +458,7 @@ class File {
 		$date = date("Y-m-d");
 
 		try {
-			$stmt = $db->Prepare("UPDATE uc_archivo SET ind_id = ?, us_id = ?, arc_nombre = ?, arc_codigo = ?, arc_edicion = ?, arc_fecha = ?, arc_fecha_crea = ?, arc_fecha_vig = ?
+			$stmt = $db->Prepare("UPDATE uc_archivo SET ind_id = ?, us_id = ?, tdo_id = ?, arc_nombre = ?, arc_codigo = ?, arc_edicion = ?, arc_fecha = ?, arc_fecha_crea = ?, arc_fecha_vig = ?, arc_responsable = ?, arc_institucional = ?
                                     WHERE arc_id = ?");
 
 			if (!$stmt):
@@ -460,7 +470,8 @@ class File {
 			$arc_edicion = $db->clearText(utf8_decode($arc_edicion));
 			$arc_fecha_crea = $db->clearText($arc_fecha_crea);
 			$arc_fecha_vig = $db->clearText($arc_fecha_vig);
-			$bind = $stmt->bind_param("iissssssi", $ind_id, $user_id, $arc_nombre, $arc_codigo, $arc_edicion, $date, $arc_fecha_crea, $arc_fecha_vig, $id);
+			$arc_resp = $db->clearText(utf8_decode($arc_resp));
+			$bind = $stmt->bind_param("iiisssssssii", $ind_id, $user_id, $tdo_id, $arc_nombre, $arc_codigo, $arc_edicion, $date, $arc_fecha_crea, $arc_fecha_vig, $arc_resp, $arc_insti, $id);
 			if (!$bind):
 				throw new Exception("La modificación del documento falló en su binding.");
 			endif;

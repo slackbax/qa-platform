@@ -1,5 +1,7 @@
 <?php include("class/classPuntoVerificacion.php") ?>
+<?php include("class/classTipoDocumento.php") ?>
 <?php $pv = new PuntoVerificacion() ?>
+<?php $td = new TipoDocumento() ?>
 <?php $am = new Ambito() ?>
 
 <section class="content-header">
@@ -16,7 +18,7 @@
 <section class="content container-fluid">
     <form role="form" id="formNewFile">
         <p class="bg-class bg-danger">Los campos marcados con (*) son obligatorios</p>
-        
+
         <div class="box box-default">
             <div class="box-header with-border">
                 <h3 class="box-title">Información del archivo</h3>
@@ -30,19 +32,25 @@
                         <i class="fa form-control-feedback" id="iconname"></i>
                     </div>
                 </div>
-                
+
                 <div class="row">
                     <div class="form-group col-sm-3 has-feedback" id="gversion">
                         <label class="control-label" for="iNversion">Versión *</label>
                         <input type="text" class="form-control" id="iNversion" name="iversion" placeholder="Ingrese versión del documento" maxlength="4" required>
                         <i class="fa form-control-feedback" id="iconversion"></i>
                     </div>
-                    
+
                     <div class="form-group col-sm-3 has-feedback" id="gcode">
                         <label class="control-label" for="iNcode">Código *</label>
                         <input type="text" class="form-control" id="iNcode" name="icode" placeholder="Ingrese código del documento" maxlength="8" required>
                         <i class="fa form-control-feedback" id="iconcode"></i>
                     </div>
+
+					<div class="form-group col-sm-6 has-feedback" id="gresp">
+						<label class="control-label" for="iNresp">Responsable</label>
+						<input type="text" class="form-control" id="iNresp" name="iresp" placeholder="Ingrese nombre del responsable del documento" maxlength="256">
+						<i class="fa form-control-feedback" id="iconresp"></i>
+					</div>
                 </div>
 
                 <div class="row">
@@ -56,7 +64,7 @@
                         </div>
                         <i class="fa form-control-feedback" id="icondate"></i>
                     </div>
-                    
+
                     <div class="form-group col-sm-3 has-feedback" id="gdatec">
                         <label class="control-label" for="iNdatec">Fecha de caducidad *</label>
                         <div class="input-group">
@@ -67,6 +75,26 @@
                         </div>
                         <i class="fa form-control-feedback" id="icondatec"></i>
                     </div>
+
+					<div class="form-group col-sm-3 has-feedback" id="gtdocumento">
+						<label class="control-label" for="iNtdocumento">Tipo de documento</label>
+						<select class="form-control" id="iNtdocumento" name="itdocumento">
+							<option value="">Seleccione tipo de documento</option>
+							<?php $tdoc = $td->getAll() ?>
+							<?php foreach ($tdoc as $k => $tdo): ?>
+								<option value="<?php echo $tdo->tdo_id ?>"><?php echo $tdo->tdo_descripcion ?></option>
+							<?php endforeach ?>
+						</select>
+					</div>
+
+					<div class="form-group col-sm-3 has-feedback" id="gcaracter">
+						<label class="control-label" for="iNcaracter">Carácter</label>
+						<select class="form-control" id="iNcaracter" name="icaracter">
+							<option value="">Seleccione carácter</option>
+							<option value="1">INSTITUCIONAL</option>
+							<option value="0">NO INSTITUCIONAL</option>
+						</select>
+					</div>
                 </div>
 
                 <div class="row">
@@ -87,7 +115,7 @@
                         </select>
                     </div>
                 </div>
-                
+
                 <div class="row">
                     <div class="form-group col-sm-6 has-feedback" id="gtcar">
                         <label class="control-label" for="iNtcar">Tipo de Característica *</label>

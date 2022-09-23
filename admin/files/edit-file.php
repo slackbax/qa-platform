@@ -4,6 +4,7 @@
 <?php include("class/classCodigo.php") ?>
 <?php include("class/classSubAmbito.php") ?>
 <?php include("class/classTipoCaracteristica.php") ?>
+<?php include("class/classTipoDocumento.php") ?>
 <?php $tc = new TipoCaracteristica() ?>
 <?php $sam = new SubAmbito() ?>
 <?php $cod = new Codigo() ?>
@@ -11,6 +12,7 @@
 <?php $spv = new SubPuntoVerificacion() ?>
 <?php $am = new Ambito() ?>
 <?php $fl = new File() ?>
+<?php $td = new TipoDocumento() ?>
 <?php $file = $fl->get($id) ?>
 <?php $tmp = explode('/', $file->arc_path) ?>
 <?php $namefile = $tmp[2] ?>
@@ -59,6 +61,12 @@
 						<input type="text" class="form-control" id="iNcode" name="icode" placeholder="Ingrese código del documento" maxlength="8" required value="<?php echo $file->arc_codigo ?>">
 						<i class="fa form-control-feedback" id="iconcode"></i>
 					</div>
+
+					<div class="form-group col-sm-6 has-feedback" id="gresp">
+						<label class="control-label" for="iNresp">Responsable</label>
+						<input type="text" class="form-control" id="iNresp" name="iresp" placeholder="Ingrese nombre del responsable del documento" maxlength="256" value="<?php echo $file->arc_responsable ?>">
+						<i class="fa form-control-feedback" id="iconresp"></i>
+					</div>
 				</div>
 
 				<div class="row">
@@ -82,6 +90,26 @@
 							<input type="text" class="form-control" id="iNdatec" name="idatec" data-date-format="mm/yyyy" placeholder="MM/AAAA" required value="<?php echo getDateMonthToForm($file->arc_fecha_vig) ?>">
 						</div>
 						<i class="fa form-control-feedback" id="icondatec"></i>
+					</div>
+
+					<div class="form-group col-sm-3 has-feedback" id="gtdocumento">
+						<label class="control-label" for="iNtdocumento">Tipo de documento</label>
+						<select class="form-control" id="iNtdocumento" name="itdocumento">
+							<option value="">Seleccione tipo de documento</option>
+							<?php $tdoc = $td->getAll() ?>
+							<?php foreach ($tdoc as $k => $tdo): ?>
+								<option value="<?php echo $tdo->tdo_id ?>"<?php if ($tdo->tdo_id == $file->arc_tdo): ?> selected<?php endif ?>><?php echo $tdo->tdo_descripcion ?></option>
+							<?php endforeach ?>
+						</select>
+					</div>
+
+					<div class="form-group col-sm-3 has-feedback" id="gcaracter">
+						<label class="control-label" for="iNcaracter">Carácter</label>
+						<select class="form-control" id="iNcaracter" name="icaracter">
+							<option value=""<?php if ($file->arc_institucional == ""): ?> selected<?php endif ?>>Seleccione carácter</option>
+							<option value="1"<?php if ($file->arc_institucional == "1"): ?> selected<?php endif ?>>INSTITUCIONAL</option>
+							<option value="0"<?php if ($file->arc_institucional == "0"): ?> selected<?php endif ?>>NO INSTITUCIONAL</option>
+						</select>
 					</div>
 				</div>
 

@@ -13,7 +13,7 @@ if (extract($_POST)):
 
 	try {
 		$db->autoCommit(FALSE);
-		$ins = $fl->mod($iid, $iind, $_SESSION['uc_userid'], $iname, $icode, $iversion, $idate, $idatec, $db);
+		$ins = $fl->mod($iid, $iind, $itdocumento, $_SESSION['uc_userid'], $iname, $icode, $iversion, $idate, $idatec, $iresp, $icaracter, $db);
 
 		if (!$ins['estado']):
 			throw new Exception('Error al modificar los datos del documento. ' . $ins['msg'], 0);
